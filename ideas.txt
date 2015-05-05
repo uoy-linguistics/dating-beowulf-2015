@@ -1,0 +1,17 @@
+Modeling strategy:
+
+- for each feature, fit a linear model
+- get the predictions of all models for each text
+- fit a model which computes an average of these predictions, weighted
+  by sqrt(n) for the underlying probability calculation (because of
+  binomial sampling), and which also fits an overall set of weights.
+- apply this model to beowulf
+  - output: date estimate
+  - output: distribution of individual feature date estimates
+    (uncertainty/consistency)
+
+open questions: can the individual feature models be fit to the same
+dataset that we use to balance the features?  or does this lead to
+overfitting?
+
+there must be a more principled way of doing this...
