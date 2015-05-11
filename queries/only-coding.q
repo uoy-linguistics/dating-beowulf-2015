@@ -1,4 +1,4 @@
 node: $METAROOT
 print_only: CODING*
-addIDs: true
+add_IDs: true
 query: (.* exists)
