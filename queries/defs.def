@@ -2,11 +2,17 @@ noun: N^N|N^A|N^G|N^D|N^I|N|NR^N|NR^A|NR^G|NR^D|NR^I|NR
 
 noun-not-genitive: N^N|N^A|N^D|N^I|N|NR^N|NR^A|NR^D|NR^I|NR
 
-be-f: *BEI|*BEP[IS]|*BED[IS]
-have-f: *HVI|*HVP[IS]|*HVD[IS]
-modal-f: *MDI|*MDP[IS]|*MDD[IS]
-auxiliary-f: *AXI|*AXP[IS]|*AXD[IS]
-lexical-verb-f: *VBI|*VBP[IS]|*VBD[IS]
+noun-genitive: N^G|NR^G
+
+np-genitive: NP-GEN|NP-GEN-TMP
+
+imperative: *BEI|*HVI|*MDI|*AXI|*VBI
+
+be-f: *BEI|*BEP[IS]|*BED[IS]|*BEP|*BED
+have-f: *HVI|*HVP[IS]|*HVD[IS]|*HVP|*HVD
+modal-f: *MDI|*MDP[IS]|*MDD[IS]|*MDP|*MDD
+auxiliary-f: *AXI|*AXP[IS]|*AXD[IS]|*AXP|*AXD
+lexical-verb-f: *VBI|*VBP[IS]|*VBD[IS]|*VBP|*VBD
 uton-f: UTP
 
 verb-f-all: $lexical-verb-f|$be-f|$have-f|$modal-f|$auxiliary-f|$uton-f
