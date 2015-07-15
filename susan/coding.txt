@@ -25,7 +25,7 @@ Should we be using arguments of length one to determine head-initial?
 7. subject - XP - YP - ZP - finite verb
 
 
-The goal here is to measure the frequency of necessarily conservative word order / structure 
+The goal here is to measure the frequency of necessarily conservative word order / structure
 compared to clauses containing similar constituents that are either necessarily
 or potentially innovative. For IPs and VPs, we are looking at head-final vs.
 head-initial structure.
@@ -41,17 +41,17 @@ In most of these searches we're combining main, conjunct and subordinate clauses
 Clause type is coded in col 1, so we can separate out clause type if/when we
 want.
 
-IP1|2: diagnostic elements in clauses with finite main verbs: 
-In all cases we're using clauses with overt subjects before the finite verb, 
+IP1|2: diagnostic elements in clauses with finite main verbs:
+In all cases we're using clauses with overt subjects before the finite verb,
 to avoid v-to-c clauses. Note that the subject can have an index, indicating
-that it has been moved up from or out of another constituent -- I can't see 
+that it has been moved up from or out of another constituent -- I can't see
 that that matters. We probably don't need overt subjects in subordinate
 clauses, but it looks like RZ required this so we are doing it as well. Besides,
 we should keep the constraints constant for main vs. subordinate clauses.
 
 **I've raised questions below about whether a and b should be grouped with c-e,
 since they mean different things structurally. But I should keep in mind that
-these are classifiers, and so grouping all diagnostics together should be okay. 
+these are classifiers, and so grouping all diagnostics together should be okay.
 This is what RZ did.
 
 **The same thing may be true of constituents that are indexed or not, i.e. moved
@@ -60,7 +60,7 @@ have to worry about how they were derived.
 
 The diagnostic elements are:
 a. particles (3f1, 3i1): we're including everything tagged as RP, not just those
-   in Pintzuk & Haeberli's LVC article. 
+   in Pintzuk & Haeberli's LVC article.
    We are excluding particles immediately preceding PPs to omit clauses with,
    e.g. 'out of the rain'. Particles don't prepose or postpose, so
    Vf-RP indicates unambiguous head-initial structure, RP-Vf head-final structure.
@@ -74,13 +74,13 @@ b. stranded Ps (3f2, 3i2): these can be within relative clauses with the object 
    Vf-PP indicates unambiguous head-initial structure, PP-Vf head-final structure.
 c. negative DPs (3f3, 3i3): negative elements don't postpose from
    pre-verbal position to post-verbal position, so post-verbal negative
-   constituents (Vf NEG+N*|Q*) indicate head-initial structure. But they do 
+   constituents (Vf NEG+N*|Q*) indicate head-initial structure. But they do
    prepose from post-verbal position to pre-verbal position, so pre-verbal
    negative constituents (Neg+N|Q Vf) therefore could be head-initial or
-   head-final. This is not quite the same as RP and stranded PP, i.e. we're getting the 
+   head-final. This is not quite the same as RP and stranded PP, i.e. we're getting the
    frequency of necessarily head-initial structure only, in contrast to a and b
    above. **Does this mean that we shouldn't group neg DPs (c), neg ADVPs (d) and
-   pronominal objects (e) with particles and stranded Ps? Maybe this doesn't 
+   pronominal objects (e) with particles and stranded Ps? Maybe this doesn't
    particularly matter, since we're looking at
    surface string order tendencies and changes rather than strictly structural.
    **It shouldn't make a difference whether the DPs have been moved or not, so
@@ -92,14 +92,14 @@ e. pronominal objects (3f5, 3i5). I'm not sure that RZ included these.
 
 IP3 (4f, 4i): the order of finite aux and non-finite main verb. RZ measured this only for
 subordinate clauses, but we're including main clauses, since Beowulf has a good number
-of head-final main clauses. We're using clauses with overt subjects before both 
-the finite and the non-finite verbs to exclude v-to-c clauses, but for an 
-additional reason: to 
+of head-final main clauses. We're using clauses with overt subjects before both
+the finite and the non-finite verbs to exclude v-to-c clauses, but for an
+additional reason: to
 eliminate clauses like 'go he must'. In Modern English this example is VP-
 fronting; in Old English it was something like topicalization of the non-finite
 verb, as in Yiddish. Again, we probably don't need the overt subject restriction
 with subordinate clauses, but we're keeping it for now. Again, v-aux order
-indicates head-final structure, aux (...) v order indicates either head-initial 
+indicates head-final structure, aux (...) v order indicates either head-initial
 structure or head-final structure with verb (projection) raising.
 
 IP4: the position of heavy non-pronominal constituents in clauses with subjects and
@@ -110,10 +110,10 @@ a. DP arguments (5f1, 5i1): **Right now we're not including DP arguments
    matter and they should be included? RZ included PPs (arguments/adjuncts) with DPs,
    but he admits that this is problematic so we don't include them.
 b. ADJP (5f2, 5i2): These should be limited to ADJP-NOM-PRDs, without indices. This way
-   we avoid getting parentheticals and appositives. In Beowulf, 
+   we avoid getting parentheticals and appositives. In Beowulf,
    ADJPs can sort of float around without being coindexed to another constituent,
    e.g. cobeowulf 17, 2282, 2493. We're safer limiting this to ADJPs used as PRDs.
-c. PP arguments/adjuncts plus one additional non-pronominal constituent (5f3a|b, 
+c. PP arguments/adjuncts plus one additional non-pronominal constituent (5f3a|b,
    5i3a|b -- the a/b variants are to make sure that there is the additional
    constituent by forcing an order with the PP, either xp PP or PP xp; is this
    necessary? maybe). We need to ignore PRNs here, to exclude parentheticals /
@@ -128,7 +128,7 @@ d. Any 3 non-pronominal constituents (5f4, 5i4): again, ignore PRNs and **moved
 Note: changed IP-PRNs in beowulf to IP-PARENs so that we could include IPs that
 are PRNs but ignore all other PRNs. This seems a good idea in general, IP*PRNs
 are a different thing from other PRNs. I couldn't do this with CorpusSearch
-revision, so I used emacs to replace MAT-PRN, SUB-PRN, CAR-PRN, INF-PRN with the 
+revision, so I used emacs to replace MAT-PRN, SUB-PRN, CAR-PRN, INF-PRN with the
 equivalent PAREN. **We should be able to do this easily for all texts using unix
 commands, so that we can ignore PRN in all searches. The IP*PRNs I found in
 Beowulf were the following:
@@ -150,14 +150,14 @@ now it's coded to require subjects.
 
 VP1: diagnostic elements in clauses with finite aux and non-finite main verb. RZ didn't
 distinguish clause types or diagnostic types, but we do (we can add them all up later):
-particles (6f1, 6i1), stranded prepositions (6f2, 6i2), negative dp's (6f3, 6i3), 
-negative advp's (6f4, 6i4), and pronouns (6f5, 6i5). Note that we're again ignoring 
+particles (6f1, 6i1), stranded prepositions (6f2, 6i2), negative dp's (6f3, 6i3),
+negative advp's (6f4, 6i4), and pronouns (6f5, 6i5). Note that we're again ignoring
 particles immediately preceding a PP.
 
-VP2 (7f, 7i): position of object with respect to non-finite main verb. Although RZ 
+VP2 (7f, 7i): position of object with respect to non-finite main verb. Although RZ
 doesn't state this, we must limit the data to *positive* 2-word objects that are not
-co-indexed. Also, they can't dominate a CP*, e.g. demonstrative-headed relatives. 
-**Also, I just noticed that RZ limited these to objects that are right- or left-adjacent 
+co-indexed. Also, they can't dominate a CP*, e.g. demonstrative-headed relatives.
+**Also, I just noticed that RZ limited these to objects that are right- or left-adjacent
 to the non-finite main verb, which I didn't do -- should this be changed?
 
 -----------------------------------
@@ -167,9 +167,9 @@ Substantives
 SB1/SB2 (8s1, 8s2, 8s3, 8s4, 8n): position of non-subject pronouns (scrambled vs non-scrambled)
 with respect to subject and main verb. Scrambling to left periphery is diagnosed by the pronoun
 adjacent to (or before) subject and not adjacent to the main verb; not scrambled to the left
-periphery is diagnosed by the pronoun occuring after the subject and not adjacent to it. 
+periphery is diagnosed by the pronoun occuring after the subject and not adjacent to it.
 Clauses like 'he hine halgode' don't show anything and so are irrelevant. For clauses like
-'he hine wolde gesecean', the pronoun is analyzed as scrambled, since it 
+'he hine wolde gesecean', the pronoun is analyzed as scrambled, since it
 is not adjacent to the main verb.
 
 **Note: the coding for col 8 in coding-sb.c has to be changed, based on RZ's statement that clauses
@@ -191,10 +191,10 @@ Note: it looks like ignoring BREAK is not sufficient, you have to ignore HL and 
 
 Subjects
 
-SUB1: whether the subject is in the canonical subject position in subordinate clauses, i.e. 
+SUB1: whether the subject is in the canonical subject position in subordinate clauses, i.e.
 comp-xp-subj vs comp-subj-xp. This simple classification worked well for RZ, but we can
 also disregard scrambled pronouns immediately after the complementizer.
-SBJ1: (10c, 10n), where c is the canonical subject position, n for non-canonical subject 
+SBJ1: (10c, 10n), where c is the canonical subject position, n for non-canonical subject
 position.
 SBJ2: (11c1-4, 11n), where c1 is the canonical subject position, c2-4 is the subject preceded
 by pronouns, n for non-canonical subject position.
@@ -207,8 +207,9 @@ VtoC and GEN: these are obvious, no additional doc needed
 
 -----------------------------------
 
-REL: RZ included se-the with se, and doesn't count 0, of which there are 15 in Beowulf. 
+REL: RZ included se-the with se, and doesn't count 0, of which there are 15 in Beowulf.
 These 15 are demonstrative-headed adverbials with empty wh and c, so it's not clear that they
 are really relative clauses.
 
 
+hi susan
