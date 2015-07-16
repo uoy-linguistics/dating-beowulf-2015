@@ -1,4 +1,4 @@
-begin_remark: coding RZ IP criteria
+begin_remark: coding RZ IP criteria. 16/07/15 included moved objects in IP4.
 end_remark
 node: IP*
 remove_nodes: t
@@ -106,21 +106,21 @@ coding_query:
 
 //IP4 - position of heavy constituents in clauses with finite main verbs
 5: {
-// DP argument
+// DP argument; note that DPs with indices are included
    5f1: (CODING col 2 vf)
       AND (IP* idoms nom-arg)
       AND (IP* idoms verb-f-all)
-      AND (IP* idoms obl-arg-unmoved)
-      AND (obl-arg-unmoved idoms non-pronominal)
-      AND (nom-arg precedes obl-arg-unmoved)
-      AND (obl-arg-unmoved precedes verb-f-all)
+      AND (IP* idoms obl-arg)
+      AND (obl-arg idoms non-pronominal)
+      AND (nom-arg precedes obl-arg)
+      AND (obl-arg precedes verb-f-all)
    5i1: (CODING col 2 vf)
       AND (IP* idoms nom-arg)
       AND (IP* idoms verb-f-all)
-      AND (IP* idoms obl-arg-unmoved)
-      AND (obl-arg-unmoved idoms non-pronominal)
+      AND (IP* idoms obl-arg)
+      AND (obl-arg idoms non-pronominal)
       AND (nom-arg precedes verb-f-all)
-      AND (verb-f-all precedes obl-arg-unmoved)
+      AND (verb-f-all precedes obl-arg)
 // adjectival phrase
    5f2: (CODING col 2 vf)
       AND (IP* idoms nom-arg)
