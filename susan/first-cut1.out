@@ -1,0 +1,233 @@
+/*
+PREFACE:  
+CorpusSearch copyright Beth Randall 2005.
+Date:  Mon Jul 20 16:45:47 BST 2015
+
+command file:     first-cut1.q
+preference file:  /Users/susanpintzuk/Dropbox/Publications/fulk_festscrift/Data_Fulk/Paper_searches/beo.prf
+input file:       first-cut.out
+output file:      first-cut1.out
+
+remark:  eliminate clauses with empty verbs or 2 non-finite verbs 
+
+definition file:  beo.def
+node:   IP*
+query:  ((IP* idoms 
+   *BE|*BE^D|*BAG*|*BEN*|*HV|*HV^D|*HAG*|*HVN*|*MD|*MD^D|*AX|*AX^D|*AXG*|*AXN*|*VB|*VB^D|*VAG*|*VBN*) 
+  AND 
+   (*BE|*BE^D|*BAG*|*BEN*|*HV|*HV^D|*HAG*|*HVN*|*MD|*MD^D|*AX|*AX^D|*AXG*|*AXN*|*VB|*VB^D|*VAG*|*VBN* idoms  \*)) 
+  OR  ((IP* idoms 
+   [1]*BE|*BE^D|*BAG*|*BEN*|*HV|*HV^D|*HAG*|*HVN*|*MD|*MD^D|*AX|*AX^D|*AXG*|*AXN*|*VB|*VB^D|*VAG*|*VBN*) 
+  AND  (IP* idoms 
+   [2]*BE|*BE^D|*BAG*|*BEN*|*HV|*HV^D|*HAG*|*HVN*|*MD|*MD^D|*AX|*AX^D|*AXG*|*AXN*|*VB|*VB^D|*VAG*|*VBN*))  
+*/
+/*
+HEADER:
+source file:  first-cut.out
+*/
+/*
+HEADER:
+source file:  cobeowul
+*/
+/~*
+LL Nu ge moton gangan HL in eowrum gu+dgeatawum LL under heregriman HL
+Hro+dgar geseon; LL
+(cobeowul,14.395.327)
+*~/
+/*
+1 IP-MAT-SPE:  1 IP-MAT-SPE, 12 AX, 37 VB
+1 IP-MAT-SPE:  1 IP-MAT-SPE, 37 VB, 12 AX
+*/
+( (1 IP-MAT-SPE (2 BREAK LL)
+		(4 ADVP-TMP (5 ADV^T Nu))
+		(7 NP-NOM (8 PRO^N ge))
+		(10 MDPI moton)
+		(12 AX gangan)
+		(14 BREAK HL)
+		(16 PP (17 P in)
+		       (19 NP-DAT (20 PRO$^D eowrum) (22 N^D gu+dgeatawum)))
+		(24 BREAK LL)
+		(26 PP (27 P under)
+		       (29 NP-DAT (30 N^D heregriman)))
+		(32 BREAK HL)
+		(34 NP-ACC (35 NR^A Hro+dgar))
+		(37 VB geseon)
+		(39 . ;)
+		(41 BREAK LL))
+  (43 ID cobeowul,14.395.327)) 
+
+/~*
+HL no ic fram him wolde. LL
+(cobeowul,18.541.461)
+*~/
+/*
+1 IP-MAT-SPE:  1 IP-MAT-SPE, 18 VB, 19 *
+*/
+( (1 IP-MAT-SPE (2 BREAK HL)
+		(4 ADVP (5 NEG+ADV no))
+		(7 NP-NOM (8 PRO^N ic))
+		(10 PP (11 P fram)
+		       (13 NP-DAT (14 PRO^D him)))
+		(16 MDD wolde)
+		(18 VB *)
+		(20 . .)
+		(22 BREAK LL))
+  (24 ID cobeowul,18.541.461)) 
+
+/~*
+HL hyt ne mihte swa, LL sy+d+dan ic on yrre HL uppriht astod LL. LL
+(cobeowul,65.2089.1701)
+*~/
+/*
+1 IP-MAT-SPE:  1 IP-MAT-SPE, 11 VB, 12 *
+*/
+( (1 IP-MAT-SPE (2 BREAK HL)
+		(4 NP-NOM (5 PRO^N hyt))
+		(7 NEG ne)
+		(9 MDD mihte)
+		(11 VB *)
+		(13 ADVP (14 ADV swa))
+		(16 , ,)
+		(18 CODE <P_65>)
+		(20 BREAK LL)
+		(22 PP (23 P sy+d+dan)
+		       (25 CP-ADV-SPE (26 C 0)
+				      (28 IP-SUB-SPE RMV:ic_on_yrre...)))
+		(30 . .)
+		(32 BREAK LL))
+  (34 ID cobeowul,65.2089.1701)) 
+
+/~*
+LL Sceal se hearda helm HL $hyrsted golde LL f+atum befeallen; HL
+(cobeowul,70.2255.1834)
+*~/
+/*
+1 IP-MAT-SPE:  1 IP-MAT-SPE, 6 BE, 7 *
+1 IP-MAT-SPE:  1 IP-MAT-SPE, 6 BE, 28 VBN
+1 IP-MAT-SPE:  1 IP-MAT-SPE, 28 VBN, 6 BE
+*/
+( (1 IP-MAT-SPE (2 BREAK LL)
+		(4 MDPI Sceal)
+		(6 BE *)
+		(8 NP-NOM (9 D^N se)
+			  (11 ADJ^N hearda)
+			  (13 N^N helm)
+			  (15 BREAK HL)
+			  (17 PTP-NOM (18 VBN^N $hyrsted)
+				      (20 NP-DAT-ADT (21 N^D golde))))
+		(23 BREAK LL)
+		(25 NP-DAT-ADT (26 N^D f+atum))
+		(28 VBN befeallen)
+		(30 . ;)
+		(32 BREAK HL))
+  (34 ID cobeowul,70.2255.1834)) 
+
+/~*
+LL Nealles Hetware HL hremge $+torfton LL fe+dewiges, HL +te him foran ongean
+LL linde b+aron HL; HL
+(cobeowul,73.2362.1926)
+*~/
+/*
+1 IP-MAT:  1 IP-MAT, 21 BE, 22 *
+*/
+( (1 IP-MAT (2 BREAK LL)
+	    (4 QP-GEN-ADT (5 NEG+Q^G Nealles))
+	    (7 NP-NOM (8 NR^N Hetware)
+		      (10 CP-REL *ICH*-1))
+	    (12 BREAK HL)
+	    (14 ADJP-NOM-PRD (15 ADJ^N hremge)
+			     (17 NP-GEN *ICH*-4))
+	    (19 MDDI $+torfton)
+	    (21 BE *)
+	    (23 BREAK LL)
+	    (25 NP-GEN-4 (26 N^G fe+dewiges))
+	    (28 , ,)
+	    (30 BREAK HL)
+	    (32 CP-REL-1 (33 WNP-NOM-2 0)
+			 (35 C +te)
+			 (37 IP-SUB RMV:*T*-2_him_foran...))
+	    (39 . ;)
+	    (41 BREAK HL))
+  (43 ID cobeowul,73.2362.1926)) 
+
+/~*
+HL urum sceal sweord ond helm, LL byrne ond $beaduscrud, HL bam gem+ane. LL
+(cobeowul,82.2656.2174)
+*~/
+/*
+1 IP-MAT-SPE:  1 IP-MAT-SPE, 9 BE, 10 *
+*/
+( (1 IP-MAT-SPE (2 BREAK HL)
+		(4 NP-DAT (5 PRO$^D urum))
+		(7 MDPI sceal)
+		(9 BE *)
+		(11 NP-NOM (12 N^N sweord) (14 CONJ ond) (16 N^N helm) (18 , ,) (20 BREAK LL) (22 N^N byrne) (24 CONJ ond) (26 N^N $beaduscrud))
+		(28 , ,)
+		(30 BREAK HL)
+		(32 QP-DAT (33 Q^D bam))
+		(35 ADJP-NOM-PRD (36 ADJ^N gem+ane))
+		(38 . .)
+		(40 BREAK LL))
+  (42 ID cobeowul,82.2656.2174)) 
+
+/~*
+HL HL For+don sceall gar wesan LL monig, morgenceald, HL mundum bewunden LL,
+LL LL h+afen on handa HL, HL HL nalles hearpan sweg LL wigend weccean HL, HL
+ac se wonna hrefn LL fus ofer f+agum HL fela reordian LL, LL LL earne secgan
+HL hu him +at +ate speow, LL +tenden he wi+d wulf HL w+al reafode LL LL LL. LL
+(cobeowul,93.3021.2433)
+*~/
+/*
+1 IP-MAT-SPE-0:  1 IP-MAT-SPE-0, 12 BE, 31 VBN
+1 IP-MAT-SPE-0:  1 IP-MAT-SPE-0, 31 VBN, 12 BE
+*/
+( (1 IP-MAT-SPE-0 (2 BREAK HL)
+		  (4 ADVP (5 ADV For+don))
+		  (7 MDPI sceall)
+		  (9 NP-NOM (10 N^N gar))
+		  (12 BE wesan)
+		  (14 BREAK LL)
+		  (16 QP-NOM (17 Q^N monig))
+		  (19 , ,)
+		  (21 ADJP-NOM (22 ADJ^N morgenceald))
+		  (24 , ,)
+		  (26 BREAK HL)
+		  (28 NP-DAT-ADT (29 N^D mundum))
+		  (31 VBN bewunden)
+		  (33 BREAK LL))
+  (35 ID cobeowul,93.3021.2433)) 
+
+/~*
+LL dugu+dum demdon, HL swa hit $gedefe $bi+d LL +t+at mon his winedryhten HL
+wordum herge LL, LL ferh+dum $freoge HL HL, HL +tonne he for+d scile LL of
+lichaman HL $l+aded weor+dan LL LL. LL
+(cobeowul,98.3169.2536)
+*~/
+/*
+1 IP-SUB:  1 IP-SUB, 19 VBN, 21 BE
+1 IP-SUB:  1 IP-SUB, 21 BE, 19 VBN
+*/
+( (1 IP-SUB (2 NP-NOM (3 PRO^N he))
+	    (5 RP for+d)
+	    (7 MDD scile)
+	    (9 BREAK LL)
+	    (11 PP (12 P of)
+		   (14 NP-DAT (15 N^D lichaman)))
+	    (17 BREAK HL)
+	    (19 VBN $l+aded)
+	    (21 BE weor+dan)
+	    (23 BREAK LL))
+  (25 ID cobeowul,98.3169.2536)) 
+
+/*
+FOOTER
+  source file, hits/tokens/total
+  cobeowul		8/8/1940
+*/
+/*
+SUMMARY:  
+source files, hits/tokens/total
+  cobeowul		8/8/1940
+whole search, hits/tokens/total
+			8/8/1940
+*/

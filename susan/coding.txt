@@ -125,24 +125,8 @@ indicates head-final structure, aux (...) v order indicates either head-initial
 structure or head-final structure with verb (projection) raising.
 
 IP4: the position of heavy non-pronominal constituents in clauses with subjects and
-finite main verbs. The different types are:
-a. DP arguments (5f1, 5i1): DP arguments with indices, which have been moved up/out 
-   from another constituent, are included; even though the structure of these isn't 
-   clear. RZ included PPs (arguments/adjuncts) with DPs,
-   but he agrees that this is problematic so we don't include them.
-b. ADJP (5f2, 5i2): These should be limited to ADJP-NOM-PRDs, without indices. This way
-   we avoid getting parentheticals and appositives. In Beowulf, 
-   ADJPs can sort of float around without being coindexed to another constituent,
-   e.g. cobeowulf 17, 2282, 2493. We're safer limiting this to ADJPs used as PRDs.
-c. PP arguments/adjuncts plus one additional non-pronominal constituent (5f3a|b, 
-   5i3a|b -- the a/b variants are to make sure that there is the additional
-   constituent by forcing an order with the PP, either xp PP or PP xp; is this
-   necessary? maybe). We need to ignore PRNs here, to exclude parentheticals /
-   appositives. I relabelled IP*PRN* to IP*PAREN* so that PRNs smaller than IPs
-   can be ignored -- see below. Indexed constituents (which are moved) are
-   included.
-d. Any 3 non-pronominal constituents (5f4, 5i4): ignore PRNs. But moved
-   constituents are being counted.
+finite main verbs. RZ in his paper included only nominal arguments and PPs, but we
+are using nominal arguments and nominal/adjectival PRDs.
 
 Note: changed IP-PRNs in beowulf to IP-PARENs so that we could include IPs that
 are PRNs but ignore all other PRNs. This seems a good idea in general, IP*PRNs
@@ -176,21 +160,45 @@ particles immediately preceding a PP.
 VP2 (7f, 7i): position of object with respect to non-finite main verb. Although RZ 
 doesn't state this, we must limit the data to *positive* 2-word objects that are not
 co-indexed. Also, they can't dominate a CP*, e.g. demonstrative-headed relatives. 
-The objects must be (right- or left-) adjacent to the non-finite main verb.
+The objects must be (right- or left-) adjacent to the non-finite main verb, except that
+they can be separated from the verb by another object.
 
 -----------------------------------
 
 Substantives
 
-SB1/SB2 (8s1, 8s2, 8s3, 8s4, 8n): position of non-subject pronouns (scrambled vs non-scrambled)
-with respect to subject and main verb. Scrambling to left periphery is diagnosed by the pronoun
-before the main verb but not adjacent to the main verb; it isn't necessarily adjacent to the 
-subject, e.g. sbj xp pro yp vf is a scrambled order. Not scrambled to the left
-periphery is diagnosed by the pronoun occurring either after the verb or before the verb and
-adjacent to it. 
-Clauses like 'he hine halgode' don't show anything and so are irrelevant. For clauses like
-'he hine wolde gesecean', the pronoun is analyzed as scrambled, since it 
-is not adjacent to the main verb.
+SB1/SB2: position of non-subject pronouns (scrambled vs non-scrambled)
+with respect to subject and main verb. In the list below, PRO is the pronoun we are investigating
+with respect to scrambling.
+
+Scrambling to left periphery is diagnosed by 
+a) the pronoun before the subject: PRO (...) sbj (...) V, where V is the (finite or non-finite)
+   main verb. [8s1, 8s5]
+b) the pronoun immediately after the subject but before the main verb and separated from it:
+   (...) sbj PRO ... V. [8s2, 8s6]
+c) the pronoun after the subject, separated from it, but before the main verb and separated 
+   from it: (...) sbj ... PRO ... V (RZ assumes that there are only left-periphery elements
+   between sbj and pro -- check this.***) Note that the pronoun could be separated from the
+   main verb by the finite auxiliary: (...) sbj ... pro aux v. [8s3, 8s4, 8s7]
+
+Not scrambled to the left periphery is diagnosed by
+d) the pronoun after the main verb: (...) sbj (...) V (...) PRO [8n1, 8n2]
+e) before the main verb but adjacent to it, with some element between the subject and the
+   pronoun: (...) sbj ... PRO V [8n3, 8n4]
+
+Ambiguous clauses are diagnosed by
+f) the pronoun is right-adjacent to the subject and separated from the verb by only another
+   object: (...) sbj PRO obj vf. [8x1, 8x3]
+g) the pronoun is separated from the subject by another pronoun, and separated from the
+   verb by another object: (...) sbj pro PRO obj vf. [8x2, 8x4]
+
+
+** I think this may be confounding movement to the left periphery of the VP with movement
+to the left periphery of the clause. It depends on the elements between the subject and the
+pronoun in c) and e).
+
+** what about when constituent between pronoun and verb is a second object? I think in these
+cases you can't tell. e.g. beo 894. Or when it's a PRD? e.g. beo 1764.
 
 SB3/SB4 (9s, 9n): position of pronouns, pre-verbal vs. post-verbal, in clauses with finite main
 verbs and any one-word constituent after the verb (potentially head-initial clauses). If the
@@ -198,8 +206,8 @@ pronouns are pre-verbal, they are scrambled since the structure is head-initial.
 one-word constituent could be indexed (i.e. moved, e.g. split coordination), but this is
 unlikely -- but check** -- but of course it may not matter.
 
-**Note: RZ uses clauses with non-finite main verbs as well -- this has to be incorporated in our
-coding.
+Note: RZ uses clauses with non-finite main verbs as well -- this has to be incorporated in our
+coding. And it has now been incorporated (17/07/15).
 
 Note: it looks like ignoring BREAK is not sufficient, you have to ignore HL and LL as well.
 
