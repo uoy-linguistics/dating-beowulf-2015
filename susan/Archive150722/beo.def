@@ -1,0 +1,64 @@
+non-pronominal: D*|ADJ*|N*|*Q*|NUM*|FP|FW|*CP*|PTP*|V*|RP+V*|H*|PRO$*|XP*
+
+obl-arg: NP-ACC|NP-ACC-#|NP-ACC-RSP|NP-ACC-RSP-#|NP-ACC-RFL|NP-ACC-RFL-#|NP-DAT|NP-DAT-#|NP-DAT-RSP|NP-DAT-RSP-#|NP-DAT-RFL|NP-DAT-RFL-#|NP-GEN|NP-GEN-#|NP-GEN-RSP|NP-GEN-RSP-#|NP-GEN-RFL|NP-GEN-RFL-#|NP|NP-#|NP-RSP|NP-RSP-#|NP-RFL|NP-RFL-#
+
+obl-arg-usable: NP-ACC|NP-ACC-#|NP-ACC-RSP|NP-ACC-RSP-#|NP-ACC-RFL|NP-ACC-RFL-#|NP-DAT|NP-DAT-#|NP-DAT-RSP|NP-DAT-RSP-#|NP-DAT-RFL|NP-DAT-RFL-#|NP-GEN|NP-GEN-RSP|NP-GEN-RFL|NP|NP-#|NP-RSP|NP-RSP-#|NP-RFL|NP-RFL-#
+
+obl-arg-unmoved: NP-ACC|NP-ACC-RSP|NP-ACC-RFL|NP-DAT|NP-DAT-RSP|NP-DAT-RFL|NP-GEN|NP-GEN-RSP|NP-GEN-RFL|NP|NP-RSP|NP-RFL
+
+nom-arg: NP-NOM|NP-NOM-RSP*|NP-NOM-x*
+nom-arg-moved: NP-NOM-#
+
+non-arg-nodes: NP*ADT*|NP*DIR*|NP*EXT*|NP*LOC*|NP*PRD*|NP*SBJ*|NP*TMP*|WNP*|WPP*|ADJP*|WADJP*|ADVP*|WADVP*|IP*|CP*|PTP*|QTP*|RRC*|NUMP*|QP*|WQP*
+
+be-f: *BEI|*BEP*|*BED*
+be-inf: *BE|*BE^D
+be-pres-part: *BAG*
+be-past-part: *BEN*
+be-nf: $be-inf|$be-pres-part|$be-past-part
+have-f: *HVI|*HVP*|*HVD*
+have-inf: *HV|*HV^D
+have-pres-part: *HAG*
+have-past-part: *HVN*
+have-nf: $have-inf|$have-pres-part|$have-past-part
+modal-f: *MDI|*MDP*|*MDD* 
+modal-inf: *MD|*MD^D
+modal-nf: $modal-inf
+auxiliary-f: *AXI|*AXP*|*AXD*
+auxiliary-inf: *AX|*AX^D
+auxiliary-pres-part: *AXG*
+auxiliary-past-part: *AXN*
+auxiliary-nf: $auxiliary-inf|$auxiliary-pres-part|$auxiliary-past-part
+verb-inf: *VB|*VB^D
+verb-pres-part: *VAG*
+verb-past-part: *VBN*
+uton-f: UTP
+aux-f: $be-f|$have-f|$modal-f|$auxiliary-f|$uton-f
+aux-nf-all: $be-nf|$have-nf|$modal-nf|$auxiliary-nf
+
+verb-f: *VBI|*VBP*|*VBD*
+verb-f-all: *VBI|*VBP*|*VBD*|$be-f|$have-f|$modal-f|$auxiliary-f|$uton-f
+verb-nf: $verb-inf|$verb-pres-part|$verb-past-part
+verb-nf-all: $be-nf|$have-nf|$modal-nf|$auxiliary-nf|$verb-nf
+
+# particle = standard set of particles
+# particle1 = additional particles that are separable in beowulf
+particle: adun*|+after*|aweg*|in*|$in*|ni+ter*|nio+dor*|ongean*|up*|ut*
+particle1: for+d|for+t|For+d|$for+d|forht|fore|to
+
+# negative adverbs plus +afre
+NA: n+a|na|$na|Na|NA|ne|$ne|no|$no|No
+NAWA: nawa
+NAHW+AR: nawar|nawer|naworn|nahw+ar|nahwar|nahwer|nohw+ar|nower
+N+AFRE: n+abre|n+affre|n+afr+a|n+afre|$n+afre|N+afre|nefr+a|nefre
+AEFRE: +affre|+afra|+afre|efre
+N+AS: n+as|N+as|nas|nes
+NA+TYL+AS: na+tel+as
+NAHU: nahu|$nahu
+NAHW+A+TER: nahw+a+der|nahwider|nahwyder|nohw+a+der|nohw+a+tre|nohwider
+NAHWONAN: nahwonan
+NEALLES: nal+as|Nal+as|nalas|Nalas|nales|Nales|$nales|nall+as|nallas|$nallas|Nallas|nalles|Nalles|nals|Nals
+NATESHWON: nateshwon|note+t+ashwon
+NO_+TY_+AR: no_+ty_+ar|No_+ty_+ar|no_+dy_+ar|No_+dy_+ar
+NO_+TY_LENG: no_+ty_leng|no_+ton_lange
+NAHT: nowiht

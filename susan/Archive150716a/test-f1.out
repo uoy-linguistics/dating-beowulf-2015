@@ -1,0 +1,46 @@
+/*
+PREFACE:  
+CorpusSearch copyright Beth Randall 2005.
+Date:  Thu Jul 16 11:42:10 BST 2015
+
+command file:     f1.q
+preference file:  /Users/susanpintzuk/GitHub/fulk-festschrift/susan/susan.prf
+input file:       test.out
+output file:      test-f1.out
+
+remark:  
+definition file:  susan.def
+node:   IP*
+query:  (CODING col  1  s) 
+  AND  (CODING col  2  vf) 
+  AND  (IP* idoms 
+   [1]NP-NOM|NP-NOM-#|NP-NOM-RSP|NP-ACC|NP-ACC-#|NP-ACC-RSP|NP-ACC-RFL|NP-DAT|NP-DAT-#|NP-DAT-RSP|NP-GEN-RFL|NP-GEN|NP-GEN-#|NP-GEN-RSP|NP-GEN-RFL|NP|NP-#|NP-RSP|NP-RFL) 
+  AND 
+   ([1]NP-NOM|NP-NOM-#|NP-NOM-RSP|NP-ACC|NP-ACC-#|NP-ACC-RSP|NP-ACC-RFL|NP-DAT|NP-DAT-#|NP-DAT-RSP|NP-GEN-RFL|NP-GEN|NP-GEN-#|NP-GEN-RSP|NP-GEN-RFL|NP|NP-#|NP-RSP|NP-RFL idoms  [3]D*|ADJ*|N*|*Q*|NUM*|FP|FW|*CP*|PTP*|V*|RP+V*|H*|PRO$*|XP*) 
+  AND  (IP* idoms 
+   [2]NP-NOM|NP-NOM-#|NP-NOM-RSP|NP-ACC|NP-ACC-#|NP-ACC-RSP|NP-ACC-RFL|NP-DAT|NP-DAT-#|NP-DAT-RSP|NP-GEN-RFL|NP-GEN|NP-GEN-#|NP-GEN-RSP|NP-GEN-RFL|NP|NP-#|NP-RSP|NP-RFL) 
+  AND 
+   ([2]NP-NOM|NP-NOM-#|NP-NOM-RSP|NP-ACC|NP-ACC-#|NP-ACC-RSP|NP-ACC-RFL|NP-DAT|NP-DAT-#|NP-DAT-RSP|NP-GEN-RFL|NP-GEN|NP-GEN-#|NP-GEN-RSP|NP-GEN-RFL|NP|NP-#|NP-RSP|NP-RFL idoms  [4]D*|ADJ*|N*|*Q*|NUM*|FP|FW|*CP*|PTP*|V*|RP+V*|H*|PRO$*|XP*) 
+  AND  (IP* idoms 
+   *VBI|*VBP*|*VBD*|*BEI|*BEP*|*BED*|*HVI|*HVP*|*HVD*|*MDI|*MDP*|*MDD*|*AXI|*AXP*|*AXD*|UTP)  
+*/
+/*
+HEADER:
+source file:  test.out
+*/
+/*
+HEADER:
+source file:  cobeowul
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cobeowul		0/0/1
+*/
+/*
+SUMMARY:  
+source files, hits/tokens/total
+  cobeowul		0/0/1
+whole search, hits/tokens/total
+			0/0/1
+*/

@@ -1,6 +1,6 @@
-begin_remark: code relative clauses according to the wh + comps
+begin_remark: code relative clauses according to the wh + comps. 22/07/15: clean up.
 end_remark
-node: CP-REL*
+node: $ROOT
 remove_nodes: f
 nodes_only: f
 print_complement: f

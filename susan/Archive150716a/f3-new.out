@@ -1,0 +1,49 @@
+/*
+PREFACE:  
+CorpusSearch copyright Beth Randall 2005.
+Date:  Thu Jul 16 12:40:13 BST 2015
+
+command file:     f3-new.q
+preference file:  /Users/susanpintzuk/GitHub/fulk-festschrift/susan/susan.prf
+input file:       test-f3.out
+output file:      f3-new.out
+
+remark:  
+definition file:  susan.def
+node:   IP*
+query:  (CODING col  1  s) 
+  AND  (CODING col  2  vf) 
+  AND  (IP* idoms 
+   NP-NOM|NP-NOM-#|NP-NOM-RSP|NP-ACC|NP-ACC-#|NP-ACC-RSP|NP-ACC-RFL|NP-DAT|NP-DAT-#|NP-DAT-RSP|NP-GEN-RFL|NP-GEN|NP-GEN-#|NP-GEN-RSP|NP-GEN-RFL|NP|NP-#|NP-RSP|NP-RFL) 
+  AND  (IP* idoms  PP*) 
+  AND  (IP* idoms  non-arg-nodes) 
+  AND  (IP* idoms 
+   *VBI|*VBP*|*VBD*|*BEI|*BEP*|*BED*|*HVI|*HVP*|*HVD*|*MDI|*MDP*|*MDD*|*AXI|*AXP*|*AXD*|UTP) 
+  AND 
+   (NP-NOM|NP-NOM-#|NP-NOM-RSP|NP-ACC|NP-ACC-#|NP-ACC-RSP|NP-ACC-RFL|NP-DAT|NP-DAT-#|NP-DAT-RSP|NP-GEN-RFL|NP-GEN|NP-GEN-#|NP-GEN-RSP|NP-GEN-RFL|NP|NP-#|NP-RSP|NP-RFL precedes 
+   *VBI|*VBP*|*VBD*|*BEI|*BEP*|*BED*|*HVI|*HVP*|*HVD*|*MDI|*MDP*|*MDD*|*AXI|*AXP*|*AXD*|UTP) 
+  AND  (PP* precedes 
+   *VBI|*VBP*|*VBD*|*BEI|*BEP*|*BED*|*HVI|*HVP*|*HVD*|*MDI|*MDP*|*MDD*|*AXI|*AXP*|*AXD*|UTP) 
+  AND  (non-arg-nodes precedes 
+   *VBI|*VBP*|*VBD*|*BEI|*BEP*|*BED*|*HVI|*HVP*|*HVD*|*MDI|*MDP*|*MDD*|*AXI|*AXP*|*AXD*|UTP)  
+*/
+/*
+HEADER:
+source file:  test-f3.out
+*/
+/*
+HEADER:
+source file:  cobeowul
+*/
+/*
+FOOTER
+  source file, hits/tokens/total
+  cobeowul		0/0/2
+*/
+/*
+SUMMARY:  
+source files, hits/tokens/total
+  cobeowul		0/0/2
+whole search, hits/tokens/total
+			0/0/2
+*/

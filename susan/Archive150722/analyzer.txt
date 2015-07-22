@@ -1,0 +1,8 @@
+how to calculate crosstabs using analyzer:
+
+prompt> analyzer1 --xy 1:7 coding-vp.cod
+Here's your grid:
+            c	m	s
+7f          0	5	2
+7i          0	2	0
+_           81	1141	697

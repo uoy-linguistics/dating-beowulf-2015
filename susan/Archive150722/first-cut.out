@@ -1,13 +1,13 @@
 /*
 PREFACE:  
 CorpusSearch copyright Beth Randall 2005.
-Date:  Mon Jul 20 16:45:44 BST 2015
+Date:  Tue Jul 21 12:48:28 BST 2015
 
 command file:     first-cut.q
-preference file:  /Users/susanpintzuk/Dropbox/Publications/fulk_festscrift/Data_Fulk/Paper_searches/beo.prf
+preference file:  /Users/susanpintzuk/Dropbox/Publications/Fulk_festscrift/Data_Fulk/Paper_searches/beo.prf
 output file:      first-cut.out
 
-remark:  get all clauses with overt subjects (20/07/15 moved or not) and finite verb 
+remark:  get all clauses with overt subjects (20/07/15 moved or not) and finite verb. 21/07/15: clean up nom-args. 
 
 definition file:  beo.def
 node:   IP*

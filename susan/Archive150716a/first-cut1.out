@@ -1,16 +1,16 @@
 /*
 PREFACE:  
 CorpusSearch copyright Beth Randall 2005.
-Date:  Mon Jul 20 16:45:47 BST 2015
+Date:  Tue Jul 14 17:54:18 BST 2015
 
 command file:     first-cut1.q
-preference file:  /Users/susanpintzuk/Dropbox/Publications/fulk_festscrift/Data_Fulk/Paper_searches/beo.prf
+preference file:  /Users/susanpintzuk/Dropbox/Publications/Fulk_festscrift/Data_Fulk/Paper_searches/susan.prf
 input file:       first-cut.out
 output file:      first-cut1.out
 
 remark:  eliminate clauses with empty verbs or 2 non-finite verbs 
 
-definition file:  beo.def
+definition file:  susan.def
 node:   IP*
 query:  ((IP* idoms 
    *BE|*BE^D|*BAG*|*BEN*|*HV|*HV^D|*HAG*|*HVN*|*MD|*MD^D|*AX|*AX^D|*AXG*|*AXN*|*VB|*VB^D|*VAG*|*VBN*) 
@@ -222,12 +222,12 @@ lichaman HL $l+aded weor+dan LL LL. LL
 /*
 FOOTER
   source file, hits/tokens/total
-  cobeowul		8/8/1940
+  cobeowul		8/8/1936
 */
 /*
 SUMMARY:  
 source files, hits/tokens/total
-  cobeowul		8/8/1940
+  cobeowul		8/8/1936
 whole search, hits/tokens/total
-			8/8/1940
+			8/8/1936
 */

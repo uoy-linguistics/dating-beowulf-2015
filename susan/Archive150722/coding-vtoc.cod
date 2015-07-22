@@ -1,0 +1,5938 @@
+/*
+PREFACE:  
+CorpusSearch copyright Beth Randall 2005.
+Date:  Tue Jul 14 17:56:21 BST 2015
+
+command file:     coding-vtoc.c
+preference file:  /Users/susanpintzuk/Dropbox/Publications/Fulk_festscrift/Data_Fulk/Paper_searches/susan.prf
+input file:       coding-vtoc.out
+output file:      coding-vtoc.cod
+
+remark:  code clauses as V1 or vo (not v1) 
+
+definition file:  susan.def
+node: IP*
+coding_query:  
+1: { 
+    vo: (IP-MAT* idoms NP-NOM|NP-NOM-RSP*|NP-NOM-x*) AND (NP-NOM|NP-NOM-RSP*|NP-NOM-x* idomsonly PRO^N) AND (NP-NOM|NP-NOM-RSP*|NP-NOM-x* precedes *VBI|*VBP*|*VBD*|*BEI|*BEP*|*BED*|*HVI|*HVP*|*HVD*|*MDI|*MDP*|*MDD*|*AXI|*AXP*|*AXD*|UTP) 
+    v1: (IP-MAT* idoms *VBI|*VBP*|*VBD*|*BEI|*BEP*|*BED*|*HVI|*HVP*|*HVD*|*MDI|*MDP*|*MDD*|*AXI|*AXP*|*AXD*|UTP) AND (*VBI|*VBP*|*VBD*|*BEI|*BEP*|*BED*|*HVI|*HVP*|*HVD*|*MDI|*MDP*|*MDD*|*AXI|*AXP*|*AXD*|UTP iprecedes NP-NOM|NP-NOM-RSP*|NP-NOM-x*) AND (NP-NOM|NP-NOM-RSP*|NP-NOM-x* idomsonly PRO^N) 
+    1x: ELSE 
+}
+*/
+
+/~*
+LL We Gardena HL in geardagum, LL +teodcyninga, HL +trym gefrunon, LL hu +da
++a+telingas HL ellen fremedon LL. LL
+(cobeowul,3.1.5)
+*~/
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 NP-NOM (7 PRO^N We))
+	      (9 NP-GEN-4 (10 NR^G Gardena)
+			  (12 NP-GEN-PRN *ICH*-3))
+	      (14 BREAK HL)
+	      (16 PP (17 P in)
+		     (19 NP-DAT (20 N^D geardagum)))
+	      (22 , ,)
+	      (24 BREAK LL)
+	      (26 NP-GEN-PRN-3 (27 N^G +teodcyninga))
+	      (29 , ,)
+	      (31 BREAK HL)
+	      (33 NP-ACC (34 NP-GEN *ICH*-4)
+			 (36 N^A +trym)
+			 (38 CP-QUE-PRN *ICH*-1))
+	      (40 VBDI gefrunon)
+	      (42 , ,)
+	      (44 BREAK LL)
+	      (46 CP-QUE-PRN-1 (47 WADVP-2 (48 WADV hu))
+			       (50 IP-SUB RMV:*T*-2_+da_+a+telingas...))
+	      (52 . .)
+	      (54 BREAK LL))
+    (56 ID cobeowul,3.1.5))
+/~*
+HL Sy+d+dan +arest $wear+d LL feasceaft funden HL, HL he +t+as frofre gebad,
+LL
+(cobeowul,3.6.10)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 PP (7 P Sy+d+dan)
+		    (9 CP-ADV (10 C 0)
+			      (12 IP-SUB RMV:*pro*_+arest_$wear+d...)))
+	      (14 , ,)
+	      (16 BREAK HL)
+	      (18 NP-NOM (19 PRO^N he))
+	      (21 NP-GEN (22 D^G +t+as))
+	      (24 NP-ACC (25 N^A frofre))
+	      (27 VBDI gebad)
+	      (29 . ,)
+	      (31 BREAK LL))
+    (33 ID cobeowul,3.6.10))
+/~*
+LL ne hyrde ic cymlicor HL ceol gegyrwan LL hildew+apnum HL ond hea+dow+adum,
+LL billum ond byrnum HL; HL
+(cobeowul,4.36.35)
+*~/
+
+(0  (1 IP-MAT (2 CODING v1)
+	      (4 BREAK LL)
+	      (6 NEG ne)
+	      (8 VBD hyrde)
+	      (10 NP-NOM (11 PRO^N ic))
+	      (13 IP-INF RMV:cymlicor_HL_ceol...)
+	      (15 . ;)
+	      (17 BREAK HL))
+    (19 ID cobeowul,4.36.35))
+/~*
+LL Nal+as hi hine l+assan HL lacum teodan, LL +teodgestreonum, HL +ton +ta
+dydon LL +te hine +at frumsceafte HL for+d onsendon LL +anne ofer y+de HL
+umborwesende LL LL. LL
+(cobeowul,4.43.38)
+*~/
+
+(0  (1 IP-MAT-0 (2 CODING vo)
+		(4 BREAK LL)
+		(6 QP-GEN-ADT (7 NEG+Q^G Nal+as))
+		(9 NP-NOM (10 PRO^N hi))
+		(12 NP-ACC (13 PRO^A hine))
+		(15 NP-DAT (16 Q^D l+assan)
+			   (18 BREAK HL)
+			   (20 N^D lacum)
+			   (22 PP *ICH*-1)
+			   (24 NP-DAT-PRN *ICH*-3))
+		(26 VBDI teodan)
+		(28 , ,)
+		(30 BREAK LL)
+		(32 NP-DAT-PRN-3 (33 N^D +teodgestreonum))
+		(35 , ,)
+		(37 BREAK HL)
+		(39 PP-1 (40 P +ton)
+			 (42 CP-CMP (43 WNP-4 0)
+				    (45 C 0)
+				    (47 IPX-SUB=0 RMV:*T*-4_+ta_*ICH*-2...)))
+		(49 . .)
+		(51 BREAK LL))
+    (53 ID cobeowul,4.43.38))
+/~*
+LL +ta gyt hie him asetton HL segen $geldenne LL heah ofer heafod, HL
+(cobeowul,4.47.40)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 ADVP-TMP (7 ADV^T +ta))
+	      (9 ADVP-TMP (10 ADV^T gyt))
+	      (12 NP-NOM (13 PRO^N hie))
+	      (15 NP-DAT-ADT (16 PRO^D him))
+	      (18 VBDI asetton)
+	      (20 BREAK HL)
+	      (22 NP-ACC (23 N^A segen) (25 ADJ^A $geldenne))
+	      (27 BREAK LL)
+	      (29 ADVP (30 ADV heah))
+	      (32 PP (33 P ofer)
+		     (35 NP-ACC (36 N^A heafod)))
+	      (38 . ,)
+	      (40 BREAK HL))
+    (42 ID cobeowul,4.47.40))
+/~*
+LL hyrde ic +t+at HL $w+as Onelan cwen, LL Hea+doscilfingas HL healsgebedda LL.
+LL
+(cobeowul,4.59.51)
+*~/
+
+(0  (1 IP-MAT (2 CODING v1)
+	      (4 BREAK LL)
+	      (6 VBD hyrde)
+	      (8 NP-NOM (9 PRO^N ic))
+	      (11 CP-THT (12 C +t+at)
+			 (14 IP-SUB RMV:HL_*pro*_$w+as...))
+	      (16 . .)
+	      (18 BREAK LL))
+    (20 ID cobeowul,4.59.51))
+/~*
+LL +da ic wide gefr+agn HL HL weorc gebannan LL manigre m+ag+te HL geond
++tisne middangeard, LL LL folcstede fr+atwan HL HL. HL
+(cobeowul,5.74.57)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 ADVP-TMP (7 ADV^T +da))
+	      (9 NP-NOM (10 PRO^N ic))
+	      (12 ADVP (13 ADV wide))
+	      (15 VBDI gefr+agn)
+	      (17 BREAK HL)
+	      (19 IP-INF RMV:HL_weorc_*ICH*-1...)
+	      (21 . .)
+	      (23 BREAK HL))
+    (25 ID cobeowul,5.74.57))
+/~*
+LL He beot ne aleh, HL
+(cobeowul,5.80.62)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 NP-NOM (7 PRO^N He))
+	      (9 NP-ACC (10 N^A beot))
+	      (12 NEG ne)
+	      (14 VBDI aleh)
+	      (16 . ,)
+	      (18 BREAK HL))
+    (20 ID cobeowul,5.80.62))
+/~*
+HL ne w+as hit lenge +ta gen LL +t+at se $ecghete HL $a+tumsweorum, LL +after
+w+alni+de HL w+acnan scolde LL. LL
+(cobeowul,5.81.67)
+*~/
+
+(0  (1 IP-MAT (2 CODING v1)
+	      (4 BREAK HL)
+	      (6 NEG ne)
+	      (8 BEDI w+as)
+	      (10 NP-NOM (11 PRO^N hit))
+	      (13 ADJP-NOM-PRD (14 ADJ^N lenge))
+	      (16 ADVP-TMP (17 ADV^T +ta))
+	      (19 ADVP-TMP (20 ADV^T gen))
+	      (22 BREAK LL)
+	      (24 CP-THT (25 C +t+at)
+			 (27 IP-SUB RMV:se_$ecghete_HL...))
+	      (29 . .)
+	      (31 BREAK LL))
+    (33 ID cobeowul,5.81.67))
+/~*
+LL ne gefeah he +t+are f+ah+de, HL
+(cobeowul,6.107.84)
+*~/
+
+(0  (1 IP-MAT (2 CODING v1)
+	      (4 BREAK LL)
+	      (6 NEG ne)
+	      (8 VBDI gefeah)
+	      (10 NP-NOM (11 PRO^N he))
+	      (13 NP-DAT (14 D^D +t+are) (16 N^D f+ah+de))
+	      (18 . ,)
+	      (20 BREAK HL))
+    (22 ID cobeowul,6.107.84))
+/~*
+HL he him +d+as lean forgeald. LL
+(cobeowul,6.111.88)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N he))
+	      (9 NP-DAT-ADT (10 PRO^D him))
+	      (12 NP-ACC (13 NP-GEN (14 D^G +d+as))
+			 (16 N^A lean))
+	      (18 VBDI forgeald)
+	      (20 . .)
+	      (22 BREAK LL))
+    (24 ID cobeowul,6.111.88))
+/~*
+HL N+as hit lengra fyrst, LL
+(cobeowul,7.134.106)
+*~/
+
+(0  (1 IP-MAT (2 CODING v1)
+	      (4 BREAK HL)
+	      (6 NEG+BEDI N+as)
+	      (8 NP-NOM (9 PRO^N hit))
+	      (11 NP-NOM-PRD (12 ADJ^N lengra) (14 N^N fyrst))
+	      (16 . ,)
+	      (18 BREAK LL))
+    (20 ID cobeowul,7.134.106))
+/~*
+LL no he +tone gifstol HL gretan moste, LL ma+t+dum for metode, HL
+(cobeowul,8.166.132)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 ADVP (7 NEG+ADV no))
+	      (9 NP-NOM (10 PRO^N he))
+	      (12 NP-ACC (13 D^A +tone)
+			 (15 N^A gifstol)
+			 (17 NP-ACC-PRN *ICH*-1))
+	      (19 BREAK HL)
+	      (21 VB gretan)
+	      (23 MDD moste)
+	      (25 , ,)
+	      (27 BREAK LL)
+	      (29 NP-ACC-PRN-1 (30 N^A ma+t+dum))
+	      (32 PP (33 P for)
+		     (35 NP-DAT (36 N^D metode)))
+	      (38 . ,)
+	      (40 BREAK HL))
+    (42 ID cobeowul,8.166.132))
+/~*
+LL Hwilum hie geheton HL +at $h+argtrafum LL wigweor+tunga, HL
+(cobeowul,8.175.140)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 NP-DAT-TMP (7 N^D Hwilum))
+	      (9 NP-NOM (10 PRO^N hie))
+	      (12 VBDI geheton)
+	      (14 BREAK HL)
+	      (16 PP (17 P +at)
+		     (19 NP-DAT (20 N^D $h+argtrafum)))
+	      (22 BREAK LL)
+	      (24 NP-ACC (25 N^A wigweor+tunga))
+	      (27 . ,)
+	      (29 BREAK HL))
+    (31 ID cobeowul,8.175.140))
+/~*
+HL metod hie ne cu+ton, LL d+ada demend, HL
+(cobeowul,8.178.145)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-ACC (7 N^A metod)
+			(9 NP-ACC-PRN *ICH*-1))
+	      (11 NP-NOM (12 PRO^N hie))
+	      (14 NEG ne)
+	      (16 MDDI cu+ton)
+	      (18 , ,)
+	      (20 BREAK LL)
+	      (22 NP-ACC-PRN-1 (23 NP-GEN (24 N^G d+ada))
+			       (26 N^A demend))
+	      (28 . ,)
+	      (30 BREAK HL))
+    (32 ID cobeowul,8.178.145))
+/~*
+HL ne wiston hie drihten god, LL
+(cobeowul,8.178.146)
+*~/
+
+(0  (1 IP-MAT (2 CODING v1)
+	      (4 BREAK HL)
+	      (6 NEG ne)
+	      (8 VBDI wiston)
+	      (10 NP-NOM (11 PRO^N hie))
+	      (13 NP-ACC (14 NR^A drihten) (16 NR^A god))
+	      (18 . ,)
+	      (20 BREAK LL))
+    (22 ID cobeowul,8.178.146))
+/~*
+HL N+afre ic maran geseah LL eorla ofer eor+tan HL +donne is eower sum, LL
+secg on searwum HL; HL
+(cobeowul,10.247.200)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 ADVP-TMP (7 NEG+ADV^T N+afre))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 NP-ACC (13 Q^A maran)
+			     (15 NP-GEN *ICH*-1))
+		  (17 VBDI geseah)
+		  (19 BREAK LL)
+		  (21 NP-GEN-1 (22 N^G eorla))
+		  (24 PP (25 P ofer)
+			 (27 NP-ACC (28 N^A eor+tan)))
+		  (30 BREAK HL)
+		  (32 PP (33 P +donne)
+			 (35 CP-CMP-SPE (36 WADJP-2 0)
+					(38 C 0)
+					(40 IP-SUB-SPE RMV:*T*-2_is_eower...)))
+		  (42 . ;)
+		  (44 BREAK HL))
+    (46 ID cobeowul,10.247.200))
+/~*
+HL Nu ic eower sceal LL frumcyn witan, HL +ar ge fyr heonan, LL leassceaweras,
+HL on land Dena LL fur+tur feran HL. HL
+(cobeowul,10.251.203)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 ADVP-TMP (7 ADV^T Nu))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 ADJP-ACC (13 PRO$^A eower))
+		  (15 MDPI sceal)
+		  (17 BREAK LL)
+		  (19 NP-ACC (20 N^A frumcyn))
+		  (22 VB witan)
+		  (24 , ,)
+		  (26 BREAK HL)
+		  (28 PP (29 P +ar)
+			 (31 CP-ADV-SPE (32 C 0)
+					(34 IP-SUB-SPE RMV:ge_fyr_heonan...)))
+		  (36 . .)
+		  (38 BREAK HL))
+    (40 ID cobeowul,10.251.203))
+/~*
+LL We synt gumcynnes HL Geata leode LL ond Higelaces HL heor+dgeneatas. LL
+(cobeowul,10.258.210)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N We))
+		  (9 BEP synt)
+		  (11 NP-NOM-PRD (12 NP-NOM (13 NP-GEN (14 N^G gumcynnes)
+						       (16 BREAK HL)
+						       (18 NP-GEN (19 NR^G Geata)))
+					    (21 N^N leode))
+				 (23 BREAK LL)
+				 (25 CONJP (26 CONJ ond)
+					   (28 NP-NOM (29 NP-GEN (30 NR^G Higelaces))
+						      (32 BREAK HL)
+						      (34 N^N heor+dgeneatas))))
+		  (36 . .)
+		  (38 BREAK LL))
+    (40 ID cobeowul,10.258.210))
+/~*
+LL We +turh holdne hige HL hlaford +tinne, LL sunu Healfdenes, HL secean
+cwomon, LL leodgebyrgean; HL
+(cobeowul,10.267.217)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N We))
+		  (9 PP (10 P +turh)
+			(12 NP-ACC (13 ADJ^A holdne) (15 N^A hige)))
+		  (17 BREAK HL)
+		  (19 NP-ACC (20 N^A hlaford)
+			     (22 PRO$^A +tinne)
+			     (24 , ,)
+			     (26 BREAK LL)
+			     (28 NP-ACC-PRN (29 N^A sunu)
+					    (31 NP-GEN (32 NR^G Healfdenes)))
+			     (34 NP-ACC-PRN *ICH*-1))
+		  (36 , ,)
+		  (38 BREAK HL)
+		  (40 VB secean)
+		  (42 AXDI cwomon)
+		  (44 , ,)
+		  (46 BREAK LL)
+		  (48 NP-ACC-PRN-1 (49 N^A leodgebyrgean))
+		  (51 . ;)
+		  (53 BREAK HL))
+    (55 ID cobeowul,10.267.217))
+/~*
+HL wes +tu us larena god. LL
+(cobeowul,10.267.218)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK HL)
+		  (6 BEI wes)
+		  (8 NP-NOM (9 PRO^N +tu))
+		  (11 NP-DAT (12 PRO^D us))
+		  (14 ADJP-NOM-PRD (15 NP-GEN (16 N^G larena))
+				   (18 ADJ^N god))
+		  (20 . .)
+		  (22 BREAK LL))
+    (24 ID cobeowul,10.267.218))
+/~*
+LL Habba+d we to +t+am m+aran HL micel +arende, LL Deniga frean, HL
+(cobeowul,11.270.220)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 VBPI Habba+d)
+		  (8 NP-NOM (9 PRO^N we))
+		  (11 PP (12 P to)
+			 (14 NP-DAT (15 D^D +t+am)
+				    (17 ADJ^D m+aran)
+				    (19 NP-DAT-PRN *ICH*-1)))
+		  (21 BREAK HL)
+		  (23 NP-ACC (24 Q^A micel) (26 N^A +arende))
+		  (28 , ,)
+		  (30 CODE <P_11>)
+		  (32 BREAK LL)
+		  (34 NP-DAT-PRN-1 (35 NP-GEN (36 NR^G Deniga))
+				   (38 N^D frean))
+		  (40 . ,)
+		  (42 BREAK HL))
+    (44 ID cobeowul,11.270.220))
+/~*
+HL +tu wast gif hit is LL swa we so+tlice HL HL secgan hyrdon LL LL LL +t+at
+mid Scyldingum HL HL $scea+dona ic nat hwylc LL, LL deogol d+adhata, HL
+deorcum nihtum LL eawe+d +turh egsan HL uncu+dne ni+d, LL hyn+du ond hrafyl HL.
+HL
+(cobeowul,11.272.223)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N +tu))
+		  (9 VBPI wast)
+		  (11 PP (12 P gif)
+			 (14 CP-ADV-SPE (15 C 0)
+					(17 IP-SUB-SPE RMV:hit_is_LL...)))
+		  (19 BREAK LL)
+		  (21 CP-THT-SPE (22 C +t+at)
+				 (24 IP-SUB-SPE RMV:mid_Scyldingum_HL...))
+		  (26 . .)
+		  (28 BREAK HL))
+    (30 ID cobeowul,11.272.223))
+/~*
+HL +tu wast gif hit is LL swa we so+tlice HL HL secgan hyrdon LL LL LL +t+at
+mid Scyldingum HL HL $scea+dona ic nat hwylc LL, LL deogol d+adhata, HL
+deorcum nihtum LL eawe+d +turh egsan HL uncu+dne ni+d, LL hyn+du ond hrafyl HL.
+HL
+(cobeowul,11.272.223)
+*~/
+
+(0  (1 IP-MAT-PAREN (2 CODING vo)
+		    (4 BREAK HL)
+		    (6 NP-GEN-1 (7 N^G $scea+dona))
+		    (9 NP-NOM (10 PRO^N ic))
+		    (12 NEG+VBPI nat)
+		    (14 CP-QUE-SPE (15 WADJP-NOM (16 NP-GEN *ICH*-1)
+						 (18 WADJ^N hwylc)))
+		    (20 BREAK LL))
+    (22 ID cobeowul,11.272.223))
+/~*
+HL Ic +t+as Hro+dgar m+ag LL +turh rumne sefan HL r+ad gel+aran, LL hu he frod
+ond god HL feond oferswy+de+t LL, LL gyf him edwendan HL +afre scolde LL
+bealuwa bisigu, HL bot eft cuman LL, LL ond +ta cearwylmas HL colran wur+da+t
+LL; LL o+d+de a sy+t+dan HL earfo+d+trage, LL +treanyd +tola+d, HL +tenden
++t+ar wuna+d LL on heahstede HL husa selest LL LL LL. LL
+(cobeowul,11.277.225)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-GEN-ADT (10 D^G +t+as))
+		  (12 NP-ACC (13 NR^A Hro+dgar))
+		  (15 MDPI m+ag)
+		  (17 BREAK LL)
+		  (19 PP (20 P +turh)
+			 (22 NP-ACC (23 ADJ^A rumne) (25 N^A sefan)))
+		  (27 BREAK HL)
+		  (29 NP-ACC (30 N^A r+ad)
+			     (32 CP-QUE-PRN *ICH*-1))
+		  (34 VB gel+aran)
+		  (36 , ,)
+		  (38 BREAK LL)
+		  (40 CP-QUE-PRN-SPE-1 (41 WADVP-3 (42 WADV hu))
+				       (44 C 0)
+				       (46 IP-SUB-SPE RMV:*T*-3_he_frod...))
+		  (48 , ,)
+		  (50 BREAK LL)
+		  (52 PP (53 P gyf)
+			 (55 CP-ADV-SPE (56 C 0)
+					(58 IP-SUB-SPE RMV:him_edwendan_*ICH*-2...)))
+		  (60 . .)
+		  (62 BREAK LL))
+    (64 ID cobeowul,11.277.225))
+/~*
+LL Ic +t+at gehyre, HL +t+at +tis is hold weorod LL frean Scyldinga HL. HL
+(cobeowul,11.290.230)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-ACC (10 D^A +t+at)
+			    (12 CP-THT-PRN *ICH*-1))
+		  (14 VBP gehyre)
+		  (16 , ,)
+		  (18 BREAK HL)
+		  (20 CP-THT-PRN-SPE-1 (21 C +t+at)
+				       (23 IP-SUB-SPE RMV:+tis_is_hold...))
+		  (25 . .)
+		  (27 BREAK HL))
+    (29 ID cobeowul,11.290.230))
+/~*
+HL ic eow wisige. LL
+(cobeowul,11.291.233)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N ic))
+		  (9 NP-DAT (10 PRO^D eow))
+		  (12 VBP wisige)
+		  (14 . .)
+		  (16 BREAK LL))
+    (18 ID cobeowul,11.291.233))
+/~*
+LL Swylce ic magu+tegnas HL mine hate LL LL wi+d feonda gehwone HL flotan
+eowerne, LL niwtyrwydne HL nacan on sande LL arum healdan, HL o+t+d+at eft
+byre+d LL ofer lagustreamas HL leofne mannan LL wudu wundenhals HL to
+Wedermearce LL LL, LL
+(cobeowul,11.293.235)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 ADVP (7 ADV Swylce))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 NP-ACC-1 (13 N^A magu+tegnas) (15 BREAK HL) (17 PRO$^A mine))
+		  (19 VBP hate)
+		  (21 BREAK LL)
+		  (23 IP-INF-SPE RMV:LL_*ICH*-1_wi+d...)
+		  (25 . ,)
+		  (27 BREAK LL))
+    (29 ID cobeowul,11.293.235))
+/~*
+HL Ic to s+a wille LL wi+d wra+d werod HL wearde healdan. LL
+(cobeowul,12.318.257)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 PP (10 P to)
+			(12 NP-DAT (13 N^D s+a)))
+		  (15 MDP wille)
+		  (17 BREAK LL)
+		  (19 PP (20 P wi+d)
+			 (22 NP-ACC (23 ADJ^A wra+d) (25 N^A werod)))
+		  (27 BREAK HL)
+		  (29 NP-ACC (30 N^A wearde))
+		  (32 VB healdan)
+		  (34 . .)
+		  (36 BREAK LL))
+    (38 ID cobeowul,12.318.257))
+/~*
+HL Ic eom Hro+dgares LL ar ond ombiht. HL
+(cobeowul,12.335.274)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 BEPI eom)
+		  (11 NP-NOM-PRD (12 NP-GEN (13 NR^G Hro+dgares))
+				 (15 BREAK LL)
+				 (17 N^N ar)
+				 (19 CONJ ond)
+				 (21 N^N ombiht))
+		  (23 . .)
+		  (25 BREAK HL))
+    (27 ID cobeowul,12.335.274))
+/~*
+HL Ne seah ic el+teodige LL +tus manige men HL modiglicran LL. LL
+(cobeowul,12.336.276)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK HL)
+		  (6 NEG Ne)
+		  (8 VBDI seah)
+		  (10 NP-NOM (11 PRO^N ic))
+		  (13 IP-SMC-SPE RMV:el+teodige_LL_+tus...)
+		  (15 . .)
+		  (17 BREAK LL))
+    (19 ID cobeowul,12.336.276))
+/~*
+LL Wen ic +t+at ge for wlenco, HL nalles for wr+acsi+dum, LL ac for
+$hige+trymmum HL Hro+dgar sohton LL. LL
+(cobeowul,12.338.278)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 VBPI Wen)
+		  (8 NP-NOM (9 PRO^N ic))
+		  (11 CP-THT-SPE (12 C +t+at)
+				 (14 IP-SUB-SPE RMV:ge_for_wlenco...))
+		  (16 . .)
+		  (18 BREAK LL))
+    (20 ID cobeowul,12.338.278))
+/~*
+HL We synt Higelaces LL beodgeneatas; HL
+(cobeowul,13.340.282)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N We))
+		  (9 BEP synt)
+		  (11 NP-NOM-PRD (12 NP-GEN (13 NR^G Higelaces))
+				 (15 BREAK LL)
+				 (17 N^N beodgeneatas))
+		  (19 . ;)
+		  (21 BREAK HL))
+    (23 ID cobeowul,13.340.282))
+/~*
+LL Wille ic asecgan HL sunu Healfdenes, LL m+arum +teodne, HL min +arende, LL
+aldre +tinum, HL gif he us geunnan wile LL +t+at we hine swa godne HL gretan
+moton LL LL. LL
+(cobeowul,13.344.285)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 MDP Wille)
+		  (8 NP-NOM (9 PRO^N ic))
+		  (11 VB asecgan)
+		  (13 BREAK HL)
+		  (15 NP-DAT (16 N^D sunu)
+			     (18 NP-GEN (19 NR^G Healfdenes))
+			     (21 , ,)
+			     (23 BREAK LL)
+			     (25 NP-DAT-PRN (26 ADJ^D m+arum) (28 N^D +teodne))
+			     (30 NP-DAT-PRN *ICH*-1))
+		  (32 , ,)
+		  (34 BREAK HL)
+		  (36 NP-ACC (37 PRO$^A min) (39 N^A +arende))
+		  (41 , ,)
+		  (43 BREAK LL)
+		  (45 NP-DAT-PRN-1 (46 N^D aldre) (48 PRO$^D +tinum))
+		  (50 , ,)
+		  (52 BREAK HL)
+		  (54 PP (55 P gif)
+			 (57 CP-ADV-SPE (58 C 0)
+					(60 IP-SUB-SPE RMV:he_us_geunnan...)))
+		  (62 . .)
+		  (64 BREAK LL))
+    (66 ID cobeowul,13.344.285))
+/~*
+HL HL Ic +t+as wine Deniga, LL frean Scildinga, HL frinan wille, LL beaga
+bryttan, HL swa +tu bena eart LL, LL +teoden m+arne, HL ymb +tinne si+d LL, LL
+ond +te +ta ondsware HL +adre gecy+dan LL +de me se goda HL agifan +tence+d LL
+LL. LL
+(cobeowul,13.348.290)
+*~/
+
+(0  (1 IP-MAT-SPE-0 (2 CODING vo)
+		    (4 BREAK HL)
+		    (6 NP-NOM (7 PRO^N Ic))
+		    (9 NP-GEN (10 D^G +t+as))
+		    (12 NP-ACC (13 N^A wine)
+			       (15 NP-GEN (16 NR^G Deniga))
+			       (18 , ,)
+			       (20 BREAK LL)
+			       (22 NP-ACC-PRN (23 N^A frean)
+					      (25 NP-GEN (26 NR^G Scildinga)))
+			       (28 NP-ACC-PRN *ICH*-1)
+			       (30 NP-ACC-PRN *ICH*-2))
+		    (32 , ,)
+		    (34 BREAK HL)
+		    (36 VB frinan)
+		    (38 MDP wille)
+		    (40 , ,)
+		    (42 BREAK LL)
+		    (44 NP-ACC-PRN-1 (45 NP-GEN (46 N^G beaga))
+				     (48 N^A bryttan))
+		    (50 , ,)
+		    (52 BREAK HL)
+		    (54 PP (55 P swa)
+			   (57 CP-CMP-SPE (58 WADVP-6 0)
+					  (60 C 0)
+					  (62 IP-SUB-SPE RMV:*T*-6_+tu_bena...)))
+		    (64 , ,)
+		    (66 BREAK LL)
+		    (68 NP-ACC-PRN-2 (69 N^A +teoden) (71 ADJ^A m+arne))
+		    (73 , ,)
+		    (75 BREAK HL)
+		    (77 PP (78 P ymb)
+			   (80 NP-ACC (81 PRO$^A +tinne) (83 N^A si+d)))
+		    (85 BREAK LL))
+    (87 ID cobeowul,13.348.290))
+/~*
+HL cu+te he dugu+de +teaw. LL
+(cobeowul,13.356.294)
+*~/
+
+(0  (1 IP-MAT (2 CODING v1)
+	      (4 BREAK HL)
+	      (6 MDD cu+te)
+	      (8 NP-NOM (9 PRO^N he))
+	      (11 NP-ACC (12 NP-GEN (13 N^G dugu+de))
+			 (15 N^A +teaw))
+	      (17 . .)
+	      (19 BREAK LL))
+    (21 ID cobeowul,13.356.294))
+/~*
+HL Hy benan synt LL +t+at hie, +teoden min, HL wi+d +te moton LL wordum
+wrixlan HL. HL
+(cobeowul,13.364.300)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Hy))
+		  (9 NP-NOM-PRD (10 N^N benan)
+				(12 CP-THT-SPE *ICH*-1))
+		  (14 BEP synt)
+		  (16 BREAK LL)
+		  (18 CP-THT-SPE-1 (19 C +t+at)
+				   (21 IP-SUB-SPE RMV:hie_,_+teoden...))
+		  (23 . .)
+		  (25 BREAK HL))
+    (27 ID cobeowul,13.364.300))
+/~*
+HL No +du him wearne geteoh LL +dinra gegncwida, HL gl+adman Hro+dgar. LL
+(cobeowul,13.366.302)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 ADVP (7 NEG+ADV No))
+		  (9 NP-NOM (10 PRO^N +du))
+		  (12 NP-DAT (13 PRO^D him))
+		  (15 NP-ACC (16 N^A wearne))
+		  (18 VBI geteoh)
+		  (20 BREAK LL)
+		  (22 NP-GEN (23 PRO$^G +dinra) (25 N^G gegncwida))
+		  (27 , ,)
+		  (29 BREAK HL)
+		  (31 NP-NOM-VOC (32 ADJ^N gl+adman) (34 NR^N Hro+dgar))
+		  (36 . .)
+		  (38 BREAK LL))
+    (40 ID cobeowul,13.366.302))
+/~*
+LL Hy on wiggetawum HL wyr+de +tincea+d LL eorla ge+ahtlan; HL
+(cobeowul,13.368.304)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N Hy))
+		  (9 PP (10 P on)
+			(12 NP-DAT (13 N^D wiggetawum)))
+		  (15 BREAK HL)
+		  (17 ADJP-NOM-PRD (18 ADJ^N wyr+de)
+				   (20 NP-GEN *ICH*-1))
+		  (22 VBPI +tincea+d)
+		  (24 BREAK LL)
+		  (26 NP-GEN-1 (27 NP-GEN (28 N^G eorla))
+			       (30 N^G ge+ahtlan))
+		  (32 . ;)
+		  (34 BREAK HL))
+    (36 ID cobeowul,13.368.304))
+/~*
+LL Ic hine cu+de HL cnihtwesende. LL
+(cobeowul,13.371.308)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-ACC (10 PRO^A hine))
+		  (12 MDD cu+de)
+		  (14 BREAK HL)
+		  (16 ADJP-ACC (17 ADJ^A cnihtwesende))
+		  (19 . .)
+		  (21 BREAK LL))
+    (23 ID cobeowul,13.371.308))
+/~*
+HL Ic $+t+am godan sceal LL for his mod+tr+ace HL madmas beodan. LL
+(cobeowul,14.384.318)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-DAT (10 D^D $+t+am) (12 ADJ^D godan))
+		  (14 MDPI sceal)
+		  (16 BREAK LL)
+		  (18 PP (19 P for)
+			 (21 NP-DAT (22 PRO$ his) (24 N^D mod+tr+ace)))
+		  (26 BREAK HL)
+		  (28 NP-ACC (29 N^A madmas))
+		  (31 VB beodan)
+		  (33 . .)
+		  (35 BREAK LL))
+    (37 ID cobeowul,14.384.318))
+/~*
+LL Beo +du on ofeste, HL
+(cobeowul,14.386.320)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 BEPH Beo)
+		  (8 NP-NOM (9 PRO^N +du))
+		  (11 PP (12 P on)
+			 (14 NP-DAT (15 N^D ofeste)))
+		  (17 . ,)
+		  (19 BREAK HL))
+    (21 ID cobeowul,14.386.320))
+/~*
+LL Nu ge moton gangan HL in eowrum gu+dgeatawum LL under heregriman HL
+Hro+dgar geseon; LL
+(cobeowul,14.395.327)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 ADVP-TMP (7 ADV^T Nu))
+		  (9 NP-NOM (10 PRO^N ge))
+		  (12 MDPI moton)
+		  (14 AX gangan)
+		  (16 BREAK HL)
+		  (18 PP (19 P in)
+			 (21 NP-DAT (22 PRO$^D eowrum) (24 N^D gu+dgeatawum)))
+		  (26 BREAK LL)
+		  (28 PP (29 P under)
+			 (31 NP-DAT (32 N^D heregriman)))
+		  (34 BREAK HL)
+		  (36 NP-ACC (37 NR^A Hro+dgar))
+		  (39 VB geseon)
+		  (41 . ;)
+		  (43 BREAK LL))
+    (45 ID cobeowul,14.395.327))
+/~*
+LL W+as +tu, $Hro+dgar, hal. HL
+(cobeowul,14.405.338)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 BEI W+as)
+		  (8 NP-NOM (9 PRO^N +tu))
+		  (11 , ,)
+		  (13 NP-NOM-VOC (14 NR^N $Hro+dgar))
+		  (16 , ,)
+		  (18 ADJP-NOM-PRD (19 ADJ^N hal))
+		  (21 . .)
+		  (23 BREAK HL))
+    (25 ID cobeowul,14.405.338))
+/~*
+HL Ic eom Higelaces LL m+ag ond mago+degn; HL
+(cobeowul,14.407.340)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 BEPI eom)
+		  (11 NP-NOM-PRD (12 NP-GEN (13 NR^G Higelaces))
+				 (15 BREAK LL)
+				 (17 N^N m+ag)
+				 (19 CONJ ond)
+				 (21 N^N mago+degn))
+		  (23 . ;)
+		  (25 BREAK HL))
+    (27 ID cobeowul,14.407.340))
+/~*
+HL h+abbe ic m+ar+da fela LL ongunnen on geogo+te. HL
+(cobeowul,15.407.341)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK HL)
+		  (6 HVP h+abbe)
+		  (8 NP-NOM (9 PRO^N ic))
+		  (11 NP (12 NP-GEN (13 N^G m+ar+da))
+			 (15 Q fela))
+		  (17 BREAK LL)
+		  (19 CODE <P_15>)
+		  (21 RP+AXN ongunnen)
+		  (23 PP (24 P on)
+			 (26 NP-DAT (27 N^D geogo+te)))
+		  (29 . .)
+		  (31 BREAK HL))
+    (33 ID cobeowul,15.407.341))
+/~*
+HL +t+ar ic fife geband, LL
+(cobeowul,15.420.349)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 ADVP-LOC (7 ADV^L +t+ar))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 NP-ACC (13 NUM^A fife))
+		  (15 VBDI geband)
+		  (17 . ,)
+		  (19 BREAK LL))
+    (21 ID cobeowul,15.420.349))
+/~*
+HL Ic +te nu +da, LL brego Beorhtdena, HL biddan wille, LL eodor Scyldinga, HL
+anre bene, LL +t+at +du me ne forwyrne, HL wigendra hleo, LL freowine folca,
+HL nu ic +tus feorran com LL, LL +t+at ic mote ana HL $ond minra eorla gedryht,
+LL +tes hearda heap, HL Heorot f+alsian LL LL. LL
+(cobeowul,15.426.358)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-DAT (10 PRO^D +te))
+		  (12 ADVP-TMP (13 ADV^T nu))
+		  (15 ADVP-TMP (16 ADV^T +da))
+		  (18 , ,)
+		  (20 BREAK LL)
+		  (22 NP-NOM-VOC (23 N^N brego)
+				 (25 NP-GEN (26 NR^G Beorhtdena)))
+		  (28 , ,)
+		  (30 BREAK HL)
+		  (32 VB biddan)
+		  (34 MDP wille)
+		  (36 , ,)
+		  (38 BREAK LL)
+		  (40 NP-NOM-VOC (41 N^N eodor)
+				 (43 NP-GEN (44 NR^G Scyldinga)))
+		  (46 , ,)
+		  (48 BREAK HL)
+		  (50 NP-GEN (51 NUM^G anre)
+			     (53 N^G bene)
+			     (55 , ,)
+			     (57 BREAK LL)
+			     (59 CP-THT-PRN (60 C +t+at)
+					    (62 IP-SUB-SPE RMV:+du_me_ne...)))
+		  (64 . .)
+		  (66 BREAK LL))
+    (68 ID cobeowul,15.426.358))
+/~*
+LL H+abbe ic eac geahsod HL +t+at se +agl+aca LL for his wonhydum HL w+apna ne
+recce+d LL. LL
+(cobeowul,15.433.360)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 HVP H+abbe)
+		  (8 NP-NOM (9 PRO^N ic))
+		  (11 ADVP (12 ADV eac))
+		  (14 VBN geahsod)
+		  (16 BREAK HL)
+		  (18 CP-THT-SPE (19 C +t+at)
+				 (21 IP-SUB-SPE RMV:se_+agl+aca_LL...))
+		  (23 . .)
+		  (25 BREAK LL))
+    (27 ID cobeowul,15.433.360))
+/~*
+LL Ic +t+at +tonne forhicge HL swa me Higelac sie, LL min mondrihten, HL modes
+bli+de LL, LL +t+at ic sweord bere HL o+t+de sidne scyld, LL geolorand to
+gu+te HL, HL
+(cobeowul,15.435.362)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-ACC (10 D^A +t+at)
+			    (12 CP-THT-PRN *ICH*-2))
+		  (14 ADVP-TMP (15 ADV^T +tonne))
+		  (17 VBP forhicge)
+		  (19 BREAK HL)
+		  (21 PP (22 P swa)
+			 (24 CP-ADV-SPE (25 C 0)
+					(27 IP-SUB-SPE RMV:me_Higelac_*ICH*-1...)))
+		  (29 , ,)
+		  (31 BREAK LL)
+		  (33 CP-THT-PRN-SPE-2 (34 C +t+at)
+				       (36 IP-SUB-SPE RMV:ic_sweord_*ICH*-3...))
+		  (38 . ,)
+		  (40 BREAK HL))
+    (42 ID cobeowul,15.435.362))
+/~*
+LL Wen ic +t+at he wille, HL gif he wealdan mot LL, LL in +t+am gu+dsele HL
+Geotena leode LL etan unforhte, HL swa he oft dyde LL, LL m+agen Hre+dmanna HL.
+HL
+(cobeowul,16.442.366)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 VBPI Wen)
+		  (8 NP-NOM (9 PRO^N ic))
+		  (11 CP-THT-SPE (12 C +t+at)
+				 (14 IP-SUB-SPE RMV:he_wille_,...))
+		  (16 . .)
+		  (18 BREAK HL))
+    (20 ID cobeowul,16.442.366))
+/~*
+HL Na +tu minne +tearft LL hafalan hydan, HL
+(cobeowul,16.445.368)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 ADVP (7 NEG+ADV Na))
+		  (9 NP-NOM (10 PRO^N +tu))
+		  (12 ADJP-ACC (13 PRO$^A minne))
+		  (15 MDPI +tearft)
+		  (17 BREAK LL)
+		  (19 NP-ACC (20 N^A hafalan))
+		  (22 VB hydan)
+		  (24 . ,)
+		  (26 BREAK HL))
+    (28 ID cobeowul,16.445.368))
+/~*
+HL no +du ymb mines ne +tearft LL lices feorme HL leng sorgian. LL
+(cobeowul,16.448.374)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 ADVP (7 NEG+ADV no))
+		  (9 NP-NOM (10 PRO^N +du))
+		  (12 PP (13 P ymb)
+			 (15 NP-DAT *ICH*-2))
+		  (17 ADJP-GEN-1 (18 PRO$^G mines))
+		  (20 NEG ne)
+		  (22 MDPI +tearft)
+		  (24 BREAK LL)
+		  (26 NP-DAT-2 (27 NP-GEN (28 ADJP-GEN *ICH*-1)
+					  (30 N^G lices))
+			       (32 N^D feorme))
+		  (34 BREAK HL)
+		  (36 ADVP-TMP (37 ADV^T leng))
+		  (39 VB sorgian)
+		  (41 . .)
+		  (43 BREAK LL))
+    (45 ID cobeowul,16.448.374))
+/~*
+LL $For $gewyrhtum +tu, HL wine min Beowulf, LL ond for arstafum HL usic
+sohtest. LL
+(cobeowul,16.456.382)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 PP (7 PP (8 P $For)
+			      (10 NP-DAT (11 N^D $gewyrhtum)))
+			(13 CONJP *ICH*-1))
+		  (15 NP-NOM (16 PRO^N +tu))
+		  (18 , ,)
+		  (20 BREAK HL)
+		  (22 NP-NOM-VOC (23 N^N wine)
+				 (25 PRO$^N min)
+				 (27 NP-NOM-PRN (28 NR^N Beowulf)))
+		  (30 , ,)
+		  (32 BREAK LL)
+		  (34 CONJP-1 (35 CONJ ond)
+			      (37 PP (38 P for)
+				     (40 NP-DAT (41 N^D arstafum))))
+		  (43 BREAK HL)
+		  (45 NP-ACC (46 PRO^A usic))
+		  (48 VBDI sohtest)
+		  (50 . .)
+		  (52 BREAK LL))
+    (54 ID cobeowul,16.456.382))
+/~*
+LL wear+t he Hea+tolafe HL to handbonan LL mid Wilfingum; HL
+(cobeowul,16.459.385)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 VBDI wear+t)
+		  (8 NP-NOM (9 PRO^N he))
+		  (11 PP (12 NP-DAT (13 NR^D Hea+tolafe))
+			 (15 BREAK HL)
+			 (17 P to)
+			 (19 NP-DAT (20 N^D handbonan)))
+		  (22 BREAK LL)
+		  (24 PP (25 P mid)
+			 (27 NP-DAT (28 NR^D Wilfingum)))
+		  (30 . ;)
+		  (32 BREAK HL))
+    (34 ID cobeowul,16.459.385))
+/~*
+LL +tanon he gesohte HL Su+ddena folc LL ofer y+da gewealc, HL Arscyldinga. LL
+(cobeowul,16.463.388)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 ADVP-DIX (7 ADV^DX +tanon))
+		  (9 NP-NOM (10 PRO^N he))
+		  (12 VBD gesohte)
+		  (14 BREAK HL)
+		  (16 NP-ACC (17 NP-GEN (18 NR^G Su+ddena)
+					(20 NP-GEN-PRN *ICH*-1))
+			     (22 N^A folc))
+		  (24 BREAK LL)
+		  (26 PP (27 P ofer)
+			 (29 NP-ACC (30 NP-GEN (31 N^G y+da))
+				    (33 N^A gewealc)))
+		  (35 , ,)
+		  (37 BREAK HL)
+		  (39 NP-GEN-PRN-1 (40 NR^G Arscyldinga))
+		  (42 . .)
+		  (44 BREAK LL))
+    (46 ID cobeowul,16.463.388))
+/~*
+LL sende ic Wylfingum HL ofer w+ateres hrycg LL ealde madmas; HL
+(cobeowul,16.470.394)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 VBD sende)
+		  (8 NP-NOM (9 PRO^N ic))
+		  (11 NP-DAT-ADT (12 NR^D Wylfingum))
+		  (14 BREAK HL)
+		  (16 PP (17 P ofer)
+			 (19 NP-ACC (20 NP-GEN (21 N^G w+ateres))
+				    (23 N^A hrycg)))
+		  (25 BREAK LL)
+		  (27 NP-ACC (28 ADJ^A ealde) (30 N^A madmas))
+		  (32 . ;)
+		  (34 BREAK HL))
+    (36 ID cobeowul,16.470.394))
+/~*
+HL he me a+tas swor. LL
+(cobeowul,16.470.395)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N he))
+		  (9 NP-DAT-ADT (10 PRO^D me))
+		  (12 NP-ACC (13 N^A a+tas))
+		  (15 VBDI swor)
+		  (17 . .)
+		  (19 BREAK LL))
+    (21 ID cobeowul,16.470.395))
+/~*
+HL ahte ic holdra +ty l+as, LL deorre dugu+de, HL +te +ta dea+d fornam LL. LL
+(cobeowul,17.484.407)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK HL)
+		  (6 VBD ahte)
+		  (8 NP-NOM (9 PRO^N ic))
+		  (11 NP (12 NP-GEN (13 ADJ^G holdra))
+			 (15 QP (16 NP-INS-EXT (17 D^I +ty))
+				(19 Q l+as))
+			 (21 , ,)
+			 (23 BREAK LL)
+			 (25 NP-GEN (26 ADJ^G deorre) (28 N^G dugu+de)))
+		  (30 , ,)
+		  (32 BREAK HL)
+		  (34 CP-ADV-SPE (35 C +te)
+				 (37 IP-SUB-SPE RMV:+ta_dea+d_fornam...))
+		  (39 . .)
+		  (41 BREAK LL))
+    (43 ID cobeowul,17.484.407))
+/~*
+LL Eart +tu se Beowulf, HL se +te wi+d Brecan wunne LL, LL LL on sidne s+a HL
+ymb sund flite LL LL, LL +d+ar git for wlence HL wada cunnedon LL LL ond for
+dolgilpe HL on deop w+ater LL aldrum ne+tdon HL HL? HL
+(cobeowul,17.499.424)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 BEPI Eart)
+		  (8 NP-NOM (9 PRO^N +tu))
+		  (11 NP-NOM-PRD (12 D^N se)
+				 (14 NR^N Beowulf)
+				 (16 , ,)
+				 (18 BREAK HL)
+				 (20 CP-REL-SPE (21 WNP-NOM-1 (22 D^N se))
+						(24 C +te)
+						(26 IP-SUB-SPE RMV:*T*-1_wi+d_Brecan...)))
+		  (28 , ,)
+		  (30 BREAK LL)
+		  (32 ADVP-LOC (33 ADV^L +d+ar)
+			       (35 CP-REL-SPE (36 WADVP-LOC-2 0)
+					      (38 C 0)
+					      (40 IP-SUB-SPE RMV:*T*-2_git_for...)))
+		  (42 . ?)
+		  (44 BREAK HL))
+    (46 ID cobeowul,17.499.424))
+/~*
+LL +t+ar git eagorstream HL earmum +tehton, LL
+(cobeowul,17.513.428)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 ADVP-LOC (7 ADV^L +t+ar))
+		  (9 NP-NOM (10 PRO^N git))
+		  (12 NP-ACC (13 N^A eagorstream))
+		  (15 BREAK HL)
+		  (17 NP-DAT-ADT (18 N^D earmum))
+		  (20 VBDI +tehton)
+		  (22 . ,)
+		  (24 BREAK LL))
+    (26 ID cobeowul,17.513.428))
+/~*
+HL Git on w+ateres +aht LL seofon niht swuncon; HL
+(cobeowul,18.516.435)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Git))
+		  (9 PP (10 P on)
+			(12 NP-ACC (13 NP-GEN (14 N^G w+ateres))
+				   (16 N^A +aht)))
+		  (18 BREAK LL)
+		  (20 NP-ACC-TMP (21 NUM seofon) (23 N^A niht))
+		  (25 VBDI swuncon)
+		  (27 . ;)
+		  (29 BREAK HL))
+    (31 ID cobeowul,18.516.435))
+/~*
+HL he +te +at sunde oferflat, LL
+(cobeowul,18.516.436)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N he))
+		  (9 NP-ACC (10 PRO^A +te))
+		  (12 PP (13 P +at)
+			 (15 NP-DAT (16 N^D sunde)))
+		  (18 RP+VBDI oferflat)
+		  (20 , ,)
+		  (22 BREAK LL))
+    (24 ID cobeowul,18.516.436))
+/~*
+LL +donon he gesohte HL sw+asne e+tel, LL leof his leodum, HL lond Brondinga,
+LL freo+doburh f+agere, HL +t+ar he folc ahte LL burh ond beagas HL. HL
+(cobeowul,18.518.440)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 ADVP-DIX (7 ADV^DX +donon))
+		  (9 NP-NOM (10 PRO^N he))
+		  (12 VBD gesohte)
+		  (14 BREAK HL)
+		  (16 NP-ACC (17 ADJ^A sw+asne)
+			     (19 N^A e+tel)
+			     (21 NP-ACC-PRN *ICH*-1))
+		  (23 , ,)
+		  (25 BREAK LL)
+		  (27 ADJP-NOM (28 ADJ^N leof)
+			       (30 NP-DAT (31 PRO$ his) (33 N^D leodum)))
+		  (35 , ,)
+		  (37 BREAK HL)
+		  (39 NP-ACC-PRN-1 (40 N^A lond)
+				   (42 NP-GEN (43 NR^G Brondinga))
+				   (45 , ,)
+				   (47 BREAK LL)
+				   (49 NP-ACC-PRN (50 N^A freo+doburh) (52 ADJ^A f+agere))
+				   (54 , ,)
+				   (56 BREAK HL)
+				   (58 CP-REL-SPE (59 WADVP-LOC-2 (60 ADV^L +t+ar))
+						  (62 C 0)
+						  (64 IP-SUB-SPE RMV:*T*-2_he_folc...)))
+		  (66 . .)
+		  (68 BREAK HL))
+    (70 ID cobeowul,18.518.440))
+/~*
+LL +donne wene ic to +te HL wyrsan ge+tingea, LL +deah +tu hea+dor+asa HL
+gehw+ar dohte, LL grimre gu+de HL, HL gif +tu Grendles dearst LL nihtlongne
+fyrst HL nean bidan LL. LL
+(cobeowul,18.525.444)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 ADVP-TMP (7 ADV^T +donne))
+		  (9 VBP wene)
+		  (11 NP-NOM (12 PRO^N ic))
+		  (14 PP (15 P to)
+			 (17 NP-DAT (18 PRO^D +te)))
+		  (20 BREAK HL)
+		  (22 NP-GEN (23 ADJ^G wyrsan) (25 N^G ge+tingea))
+		  (27 , ,)
+		  (29 BREAK LL)
+		  (31 PP (32 P +deah)
+			 (34 CP-ADV-SPE (35 C 0)
+					(37 IP-SUB-SPE RMV:+tu_hea+dor+asa_HL...)))
+		  (39 , ,)
+		  (41 BREAK HL)
+		  (43 PP (44 P gif)
+			 (46 CP-ADV-SPE (47 C 0)
+					(49 IP-SUB-SPE RMV:+tu_Grendles_dearst...)))
+		  (51 . .)
+		  (53 BREAK LL))
+    (55 ID cobeowul,18.525.444))
+/~*
+LL LL Hw+at +tu worn fela, HL wine min $Unfer+d, LL beore druncen HL ymb
+Brecan spr+ace LL, LL LL s+agdest from his si+de HL. HL
+(cobeowul,18.530.449)
+*~/
+
+(0  (1 IP-MAT-SPE-0 (2 CODING vo)
+		    (4 BREAK LL)
+		    (6 INTJ Hw+at)
+		    (8 NP-NOM (9 PRO^N +tu))
+		    (11 NP-ACC (12 N^A worn) (14 Q fela))
+		    (16 , ,)
+		    (18 BREAK HL)
+		    (20 NP-NOM-VOC (21 N^N wine)
+				   (23 PRO$^N min)
+				   (25 NP-NOM-PRN (26 NR^N $Unfer+d)))
+		    (28 , ,)
+		    (30 BREAK LL)
+		    (32 PTP-NOM (33 NP-DAT-ADT (34 N^D beore))
+				(36 VBN^N druncen))
+		    (38 BREAK HL)
+		    (40 PP (41 P ymb)
+			   (43 NP-ACC (44 NR^A Brecan)))
+		    (46 VBD spr+ace)
+		    (48 BREAK LL))
+    (50 ID cobeowul,18.530.449))
+/~*
+HL So+d ic talige, LL +t+at ic merestrengo HL maran ahte, LL earfe+to on y+tum,
+HL +donne +anig o+ter man LL LL. LL
+(cobeowul,18.532.451)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-ACC (7 N^A So+d)
+			    (9 CP-THT-PRN *ICH*-1))
+		  (11 NP-NOM (12 PRO^N ic))
+		  (14 VBP talige)
+		  (16 , ,)
+		  (18 BREAK LL)
+		  (20 CP-THT-PRN-SPE-1 (21 C +t+at)
+				       (23 IP-SUB-SPE-0 RMV:ic_merestrengo_HL...))
+		  (25 . .)
+		  (27 BREAK LL))
+    (29 ID cobeowul,18.532.451))
+/~*
+LL Wit +t+at gecw+adon HL cnihtwesende. LL
+(cobeowul,18.535.453)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N Wit))
+		  (9 NP-ACC (10 D^A +t+at))
+		  (12 VBDI gecw+adon)
+		  (14 BREAK HL)
+		  (16 ADJP-NOM (17 ADJ^N cnihtwesende))
+		  (19 . .)
+		  (21 BREAK LL))
+    (23 ID cobeowul,18.535.453))
+/~*
+HL wit unc wi+d hronfixas LL werian +tohton. HL
+(cobeowul,18.539.458)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N wit))
+		  (9 IP-INF-SPE RMV:unc_wi+d_hronfixas...)
+		  (11 VBDI +tohton)
+		  (13 . .)
+		  (15 BREAK HL))
+    (17 ID cobeowul,18.539.458))
+/~*
+HL No he wiht fram me LL flody+tum feor HL fleotan meahte, LL hra+tor on holme;
+HL
+(cobeowul,18.541.460)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 ADVP (7 NEG+ADV No))
+		  (9 NP-NOM (10 PRO^N he))
+		  (12 ADVP (13 ADV wiht))
+		  (15 PP (16 P fram)
+			 (18 NP-DAT (19 PRO^D me)))
+		  (21 BREAK LL)
+		  (23 NP-DAT-ADT (24 N^D flody+tum))
+		  (26 ADVP (27 ADV feor))
+		  (29 BREAK HL)
+		  (31 VB fleotan)
+		  (33 MDD meahte)
+		  (35 , ,)
+		  (37 BREAK LL)
+		  (39 ADVP (40 ADV hra+tor))
+		  (42 PP (43 P on)
+			 (45 NP-DAT (46 NR^D holme)))
+		  (48 . ;)
+		  (50 BREAK HL))
+    (52 ID cobeowul,18.541.460))
+/~*
+HL no ic fram him wolde. LL
+(cobeowul,18.541.461)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 ADVP (7 NEG+ADV no))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 PP (13 P fram)
+			 (15 NP-DAT (16 PRO^D him)))
+		  (18 MDD wolde)
+		  (20 VB *)
+		  (22 . .)
+		  (24 BREAK LL))
+    (26 ID cobeowul,18.541.461))
+/~*
+LL +da wit +atsomne HL on s+a w+aron LL fif nihta fyrst, HL o+t+t+at unc flod
+todraf, LL wado weallende, HL wedera cealdost, LL nipende niht HL, HL ond
+nor+tanwind LL hea+dogrim ondhwearf HL HL; HL
+(cobeowul,18.544.463)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 ADVP-TMP (7 ADV^T +da))
+		  (9 NP-NOM (10 PRO^N wit))
+		  (12 ADVP (13 ADV +atsomne))
+		  (15 BREAK HL)
+		  (17 PP (18 P on)
+			 (20 NP-DAT (21 N^D s+a)))
+		  (23 BEDI w+aron)
+		  (25 BREAK LL)
+		  (27 NP-ACC-TMP (28 NP-GEN (29 NUM fif) (31 N^G nihta))
+				 (33 N^A fyrst))
+		  (35 , ,)
+		  (37 BREAK HL)
+		  (39 PP (40 P o+t+t+at)
+			 (42 CP-ADV-SPE (43 C 0)
+					(45 IP-SUB-SPE RMV:unc_flod_*ICH*-1...)))
+		  (47 . ;)
+		  (49 BREAK HL))
+    (51 ID cobeowul,18.544.463))
+/~*
+HL Ic him +tenode LL deoran sweorde, HL swa hit gedefe w+as LL. LL
+(cobeowul,19.560.476)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-DAT (10 PRO^D him))
+		  (12 VBD +tenode)
+		  (14 BREAK LL)
+		  (16 NP-DAT-ADT (17 ADJ^D deoran) (19 N^D sweorde))
+		  (21 , ,)
+		  (23 BREAK HL)
+		  (25 PP (26 P swa)
+			 (28 CPX-CMP-SPE (29 IPX-SUB-SPE RMV:hit_gedefe_w+as...)))
+		  (31 . .)
+		  (33 BREAK LL))
+    (35 ID cobeowul,19.560.476))
+/~*
+HL HL No ic on niht gefr+agn LL under heofones hwealf HL heardran feohtan LL,
+LL ne on egstreamum HL earmran mannon LL; LL
+(cobeowul,19.575.488)
+*~/
+
+(0  (1 IP-MAT-SPE-0 (2 CODING vo)
+		    (4 BREAK HL)
+		    (6 ADVP (7 NEG+ADV No))
+		    (9 NP-NOM (10 PRO^N ic))
+		    (12 PP (13 P on)
+			   (15 NP-ACC (16 N^A niht)))
+		    (18 VBDI gefr+agn)
+		    (20 BREAK LL)
+		    (22 PP (23 P under)
+			   (25 NP-ACC (26 NP-GEN (27 N^G heofones))
+				      (29 N^A hwealf)))
+		    (31 BREAK HL)
+		    (33 NP-ACC (34 ADJ^A heardran) (36 N^A feohtan))
+		    (38 BREAK LL))
+    (40 ID cobeowul,19.575.488))
+/~*
+LL hwa+tere ic fara feng HL feore gedigde, LL si+tes werig. HL
+(cobeowul,19.575.489)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 ADVP (7 ADV hwa+tere))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 NP-ACC (13 NP-GEN (14 ADJ^G fara))
+			     (16 N^A feng))
+		  (18 BREAK HL)
+		  (20 NP-DAT-ADT (21 N^D feore))
+		  (23 VBD gedigde)
+		  (25 , ,)
+		  (27 BREAK LL)
+		  (29 ADJP-NOM (30 NP-GEN (31 N^G si+tes))
+			       (33 ADJ^N werig))
+		  (35 . .)
+		  (37 BREAK HL))
+    (39 ID cobeowul,19.575.489))
+/~*
+HL No ic wiht fram +te LL swylcra searoni+da HL HL secgan hyrde, LL billa
+brogan. HL
+(cobeowul,19.581.493)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 ADVP (7 NEG+ADV No))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 NP-ACC-2 (13 N^A wiht)
+			       (15 NP-GEN *ICH*-1))
+		  (17 PP (18 P fram)
+			 (20 NP-ACC (21 PRO^A +te)))
+		  (23 BREAK LL)
+		  (25 NP-GEN-1 (26 ADJ^G swylcra) (28 N^G searoni+da))
+		  (30 BREAK HL)
+		  (32 IP-INF-SPE RMV:HL_*ICH*-2_secgan...)
+		  (34 VBD hyrde)
+		  (36 , ,)
+		  (38 BREAK LL)
+		  (40 NP-DAT-ADT (41 NP-GEN (42 N^G billa))
+				 (44 N^D brogan))
+		  (46 . .)
+		  (48 BREAK HL))
+    (50 ID cobeowul,19.581.493))
+/~*
+HL Breca n+afre git LL +at hea+dolace, HL ne gehw+a+ter incer, LL swa deorlice
+HL d+ad gefremede LL fagum sweordum HL HL no ic +t+as $fela gylpe LL, LL +teah
++du +tinum bro+drum HL to banan wurde, LL heafodm+agum HL; HL
+(cobeowul,20.583.495)
+*~/
+
+(0  (1 IP-MAT-PAREN (2 CODING vo)
+		    (4 BREAK HL)
+		    (6 ADVP (7 NEG+ADV no))
+		    (9 NP-NOM (10 PRO^N ic))
+		    (12 NP-GEN (13 D^G +t+as))
+		    (15 QP-ADT (16 Q $fela))
+		    (18 VBP gylpe)
+		    (20 BREAK LL))
+    (22 ID cobeowul,20.583.495))
+/~*
+HL +t+as +tu in helle scealt LL werh+do dreogan, HL +teah +tin $wit $duge LL.
+LL
+(cobeowul,20.583.496)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-GEN (7 D^G +t+as))
+		  (9 NP-NOM (10 PRO^N +tu))
+		  (12 PP (13 P in)
+			 (15 NP-DAT (16 N^D helle)))
+		  (18 MDP scealt)
+		  (20 BREAK LL)
+		  (22 NP-ACC (23 N^A werh+do))
+		  (25 VB dreogan)
+		  (27 , ,)
+		  (29 BREAK HL)
+		  (31 PP (32 P +teah)
+			 (34 CP-ADV-SPE (35 C 0)
+					(37 IP-SUB-SPE RMV:+tin_$wit_$duge...)))
+		  (39 . .)
+		  (41 BREAK LL))
+    (43 ID cobeowul,20.583.496))
+/~*
+LL Secge ic +te to so+de, HL sunu $Ecglafes, LL +t+at n+afre $Grendel swa fela
+HL gryra gefremede, LL atol +agl+aca, HL ealdre +tinum, LL hyn+do on Heorote,
+HL gif +tin hige w+are, LL sefa swa searogrim, HL swa +tu self talast LL LL LL.
+LL
+(cobeowul,20.590.498)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 VBP Secge)
+		  (8 NP-NOM (9 PRO^N ic))
+		  (11 NP-DAT (12 PRO^D +te))
+		  (14 PP (15 P to)
+			 (17 NP-DAT (18 N^D so+de)))
+		  (20 , ,)
+		  (22 BREAK HL)
+		  (24 NP-NOM-VOC (25 N^N sunu)
+				 (27 NP-GEN (28 NR^G $Ecglafes)))
+		  (30 , ,)
+		  (32 BREAK LL)
+		  (34 CP-THT-SPE (35 C +t+at)
+				 (37 IP-SUB-SPE RMV:n+afre_$Grendel_*ICH*-1...))
+		  (39 . .)
+		  (41 BREAK LL))
+    (43 ID cobeowul,20.590.498))
+/~*
+LL Ic +t+at hogode, HL +ta ic on holm gestah LL, LL LL s+abat ges+at HL mid
+minra secga gedriht LL LL, LL +t+at ic anunga HL eowra leoda LL willan
+geworhte HL HL o+t+de on w+al crunge, LL feondgrapum f+ast HL HL. HL
+(cobeowul,21.628.534)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-ACC (10 D^A +t+at)
+			    (12 CP-THT-PRN *ICH*-1))
+		  (14 VBD hogode)
+		  (16 , ,)
+		  (18 BREAK HL)
+		  (20 PP (21 P +ta)
+			 (23 CP-ADV-SPE (24 C 0)
+					(26 IP-SUB-SPE RMV:ic_on_holm...)))
+		  (28 , ,)
+		  (30 BREAK LL)
+		  (32 CP-THT-PRN-SPE-1 (33 C +t+at)
+				       (35 IP-SUB-SPE RMV:ic_anunga_HL...))
+		  (37 . .)
+		  (39 BREAK HL))
+    (41 ID cobeowul,21.628.534))
+/~*
+HL HL Ic gefremman sceal LL eorlic ellen HL, HL o+t+de ended+ag LL on +tisse
+meoduhealle HL minne gebidan LL. LL
+(cobeowul,21.636.536)
+*~/
+
+(0  (1 IP-MAT-SPE-0 (2 CODING vo)
+		    (4 BREAK HL)
+		    (6 NP-NOM (7 PRO^N Ic))
+		    (9 VB gefremman)
+		    (11 MDPI sceal)
+		    (13 BREAK LL)
+		    (15 NP-ACC (16 ADJ^A eorlic) (18 N^A ellen))
+		    (20 BREAK HL))
+    (22 ID cobeowul,21.636.536))
+/~*
+LL N+afre ic +anegum men HL +ar alyfde, LL si+t+dan ic hond ond rond HL hebban
+mihte LL, LL +dry+t+arn Dena HL buton +te nu +da. LL
+(cobeowul,22.652.549)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 ADVP (7 NEG+ADV^T N+afre))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 NP-DAT (13 Q^D +anegum) (15 N^D men))
+		  (17 BREAK HL)
+		  (19 ADVP-TMP (20 ADV^T +ar))
+		  (22 VBD alyfde)
+		  (24 , ,)
+		  (26 BREAK LL)
+		  (28 PP (29 P si+t+dan)
+			 (31 CP-ADV-SPE (32 C 0)
+					(34 IP-SUB-SPE RMV:ic_hond_ond...)))
+		  (36 , ,)
+		  (38 BREAK LL)
+		  (40 NP-ACC (41 N^A +dry+t+arn)
+			     (43 NP-GEN (44 NR^G Dena)))
+		  (46 BREAK HL)
+		  (48 PP (49 P buton)
+			 (51 NP-DAT (52 PRO^D +te)))
+		  (54 ADVP-TMP (55 ADV^T nu))
+		  (57 ADVP-TMP (58 ADV^T +da))
+		  (60 . .)
+		  (62 BREAK LL))
+    (64 ID cobeowul,22.652.549))
+/~*
+LL LL +da he him of dyde HL isernbyrnan LL, LL LL helm of hafelan HL, HL
+(cobeowul,22.671.567)
+*~/
+
+(0  (1 IP-MAT-0 (2 CODING vo)
+		(4 BREAK LL)
+		(6 ADVP-TMP (7 ADV^T +da))
+		(9 NP-NOM (10 PRO^N he))
+		(12 PP (13 NP-DAT (14 PRO^D him))
+		       (16 P of))
+		(18 VBD dyde)
+		(20 BREAK HL)
+		(22 NP-ACC (23 N^A isernbyrnan))
+		(25 BREAK LL))
+    (27 ID cobeowul,22.671.567))
+/~*
+LL No ic me an herew+asmun HL HL hnagran talige, LL gu+tgeweorca, HL +tonne
+Grendel hine LL LL; LL
+(cobeowul,22.675.572)
+*~/
+
+(0  (1 IP-MAT-SPE-0 (2 CODING vo)
+		    (4 BREAK LL)
+		    (6 ADVP (7 NEG+ADV No))
+		    (9 NP-NOM (10 PRO^N ic))
+		    (12 NP-ACC-RFL-4 (13 PRO^A me))
+		    (15 PP (16 P an)
+			   (18 NP-DAT (19 N^D herew+asmun)
+				      (21 NP-GEN *ICH*-1)))
+		    (23 BREAK HL)
+		    (25 IP-SMC-SPE RMV:HL_*ICH*-4_hnagran...)
+		    (27 VBP talige)
+		    (29 , ,)
+		    (31 BREAK LL)
+		    (33 NP-GEN-1 (34 N^G gu+tgeweorca))
+		    (36 , ,)
+		    (38 BREAK HL)
+		    (40 PP-2 (41 P +tonne)
+			     (43 CP-CMP-SPE (44 WADJP-ACC-3 0)
+					    (46 C 0)
+					    (48 IPX-SUB-SPE=0 RMV:Grendel_*T*-3_hine...)))
+		    (50 . ;)
+		    (52 BREAK LL))
+    (54 ID cobeowul,22.675.572))
+/~*
+LL for+tan ic hine sweorde HL swebban nelle, LL LL aldre beneotan HL, HL +teah
+ic eal m+age LL. LL
+(cobeowul,22.675.573)
+*~/
+
+(0  (1 IP-MAT-SPE-0 (2 CODING vo)
+		    (4 BREAK LL)
+		    (6 ADVP (7 ADV for+tan))
+		    (9 NP-NOM (10 PRO^N ic))
+		    (12 NP-ACC (13 PRO^A hine))
+		    (15 NP-DAT-ADT (16 N^D sweorde))
+		    (18 BREAK HL)
+		    (20 VB swebban)
+		    (22 NEG+MDP nelle)
+		    (24 , ,)
+		    (26 BREAK LL)
+		    (28 IPX-MAT-SPE=0 RMV:LL_aldre_beneotan...)
+		    (30 , ,)
+		    (32 BREAK HL)
+		    (34 PP (35 P +teah)
+			   (37 CP-ADV-SPE (38 C 0)
+					  (40 IPX-SUB-SPE=0 RMV:ic_eal_m+age...)))
+		    (42 . .)
+		    (44 BREAK LL))
+    (46 ID cobeowul,22.675.573))
+/~*
+LL Nat he +tara goda HL +t+at he me ongean slea LL, LL LL rand geheawe HL HL,
+HL +teah +de he rof sie LL ni+tgeweorca HL; HL
+(cobeowul,22.681.574)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 NEG+VBPI Nat)
+		  (8 NP-NOM (9 PRO^N he))
+		  (11 NP-GEN (12 D^G +tara)
+			     (14 ADJ^G goda)
+			     (16 BREAK HL)
+			     (18 CP-THT-SPE (19 C +t+at)
+					    (21 IP-SUB-SPE RMV:he_me_ongean...)))
+		  (23 , ,)
+		  (25 BREAK HL)
+		  (27 PP (28 P +teah)
+			 (30 CP-ADV-SPE (31 C +de)
+					(33 IP-SUB-SPE RMV:he_rof_*ICH*-1...)))
+		  (35 . ;)
+		  (37 BREAK HL))
+    (39 ID cobeowul,22.681.574))
+/~*
+LL n+afre he on aldordagum HL +ar $ne si+t+dan LL heardran h+ale, HL
+heal+degnas fand. LL
+(cobeowul,24.716.603)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 ADVP-TMP (7 NEG+ADV^T n+afre))
+	      (9 NP-NOM (10 PRO^N he))
+	      (12 PP (13 P on)
+		     (15 NP-DAT (16 N^D aldordagum)))
+	      (18 BREAK HL)
+	      (20 ADVP-TMP (21 ADV^T +ar) (23 NEG+CONJ $ne) (25 ADV^T si+t+dan))
+	      (27 CODE <P_24>)
+	      (29 BREAK LL)
+	      (31 NP-DAT-ADT (32 ADJ^D heardran) (34 N^D h+ale))
+	      (36 , ,)
+	      (38 BREAK HL)
+	      (40 NP-ACC (41 N^A heal+degnas))
+	      (43 VBDI fand)
+	      (45 . .)
+	      (47 BREAK LL))
+    (49 ID cobeowul,24.716.603))
+/~*
+LL Geseah he in recede HL HL rinca manige, LL swefan sibbegedriht HL samod
++atg+adere, LL magorinca heap HL. HL
+(cobeowul,24.728.614)
+*~/
+
+(0  (1 IP-MAT (2 CODING v1)
+	      (4 BREAK LL)
+	      (6 VBDI Geseah)
+	      (8 NP-NOM (9 PRO^N he))
+	      (11 PP (12 P in)
+		     (14 NP-DAT (15 N^D recede)))
+	      (17 BREAK HL)
+	      (19 IP-INF RMV:HL_rinca_manige...)
+	      (21 . .)
+	      (23 BREAK HL))
+    (25 ID cobeowul,24.728.614))
+/~*
+HL he onfeng hra+te LL inwit+tancum. HL
+(cobeowul,24.745.634)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N he))
+	      (9 RP+VBDI onfeng)
+	      (11 ADVP (12 ADV hra+te))
+	      (14 BREAK LL)
+	      (16 NP-DAT-ADT (17 N^D inwit+tancum))
+	      (19 . .)
+	      (21 BREAK HL))
+    (23 ID cobeowul,24.745.634))
+/~*
+HL He on mode wear+d LL forht on ferh+de; HL
+(cobeowul,25.753.639)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N He))
+	      (9 PP (10 P on)
+		    (12 NP-DAT (13 N^D mode)))
+	      (15 BEDI wear+d)
+	      (17 BREAK LL)
+	      (19 ADJP-NOM-PRD (20 ADJ^N forht)
+			       (22 PP (23 P on)
+				      (25 NP-DAT (26 N^D ferh+de))))
+	      (28 . ;)
+	      (30 BREAK HL))
+    (32 ID cobeowul,25.753.639))
+/~*
+LL Hie +t+at ne wiston, HL +ta hie gewin drugon, LL heardhicgende HL
+hildemecgas LL, LL ond on healfa gehwone HL heawan +tohton, LL LL sawle secan
+HL HL HL, HL
+(cobeowul,26.798.684)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 NP-NOM (7 PRO^N Hie))
+	      (9 NP-ACC (10 D^A +t+at))
+	      (12 NEG ne)
+	      (14 VBDI wiston)
+	      (16 , ,)
+	      (18 BREAK HL)
+	      (20 PP (21 P +ta)
+		     (23 CP-ADV (24 C 0)
+				(26 IP-SUB RMV:hie_*ICH*-1_gewin...)))
+	      (28 . ,)
+	      (30 BREAK HL))
+    (32 ID cobeowul,26.798.684))
+/~*
+LL +da +t+at onfunde HL se +te fela +aror LL modes myr+de HL manna cynne, LL
+fyrene gefremede HL HL HL he $w+as fag wi+d god LL, LL +t+at him se lichoma HL
+l+astan $nolde LL, LL
+(cobeowul,26.809.690)
+*~/
+
+(0  (1 IP-MAT-PAREN (2 CODING vo)
+		    (4 BREAK HL)
+		    (6 NP-NOM (7 PRO^N he))
+		    (9 BEDI $w+as)
+		    (11 ADJP-NOM-PRD (12 ADJ^N fag))
+		    (14 PP (15 P wi+d)
+			   (17 NP-ACC (18 NR^A god)))
+		    (20 BREAK LL))
+    (22 ID cobeowul,26.809.690))
+/~*
+HL he +t+as +ar on+dah, LL si+d+dan Heremodes hild HL swe+drode, LL $eafo+d
+ond ellen HL. HL
+(cobeowul,29.898.755)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N he))
+	      (9 NP-GEN-ADT (10 D^G +t+as))
+	      (12 ADVP-TMP (13 ADV^T +ar))
+	      (15 RP+VBDI on+dah)
+	      (17 , ,)
+	      (19 BREAK LL)
+	      (21 PP (22 P si+d+dan)
+		     (24 CP-ADV (25 C 0)
+				(27 IP-SUB RMV:Heremodes_hild_HL...)))
+	      (29 . .)
+	      (31 BREAK HL))
+    (33 ID cobeowul,29.898.755))
+/~*
+HL HL He mid Eotenum wear+d LL on feonda geweald HL for+d forlacen LL, LL LL
+snude forsended HL. HL
+(cobeowul,29.902.757)
+*~/
+
+(0  (1 IP-MAT-0 (2 CODING vo)
+		(4 BREAK HL)
+		(6 NP-NOM (7 PRO^N He))
+		(9 PP (10 P mid)
+		      (12 NP-DAT (13 NR^D Eotenum)))
+		(15 BEDI wear+d)
+		(17 BREAK LL)
+		(19 PP (20 P on)
+		       (22 NP-ACC (23 NP-GEN (24 N^G feonda))
+				  (26 N^A geweald)))
+		(28 BREAK HL)
+		(30 RP for+d)
+		(32 VBN forlacen)
+		(34 BREAK LL))
+    (36 ID cobeowul,29.902.757))
+/~*
+HL he his leodum wear+d, LL eallum +a+tellingum HL to aldorceare; LL
+(cobeowul,29.904.760)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N he))
+	      (9 NP-DAT (10 PRO$ his)
+			(12 N^D leodum)
+			(14 NP-DAT-PRN *ICH*-1))
+	      (16 BEDI wear+d)
+	      (18 , ,)
+	      (20 BREAK LL)
+	      (22 NP-DAT-PRN-1 (23 Q^D eallum) (25 N^D +a+tellingum))
+	      (27 BREAK HL)
+	      (29 PP (30 P to)
+		     (32 NP-DAT (33 N^D aldorceare)))
+	      (35 . ;)
+	      (37 BREAK LL))
+    (39 ID cobeowul,29.904.760))
+/~*
+HL he to healle geong, LL
+(cobeowul,30.925.776)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N he))
+	      (9 PP (10 P to)
+		    (12 NP-DAT (13 N^D healle)))
+	      (15 VBDI geong)
+	      (17 . ,)
+	      (19 BREAK LL))
+    (21 ID cobeowul,30.925.776))
+/~*
+HL Fela ic la+tes gebad, LL grynna +at Grendle; HL
+(cobeowul,30.929.781)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP (7 Q Fela)
+			(9 NP-GEN *ICH*-1))
+		  (11 NP-NOM (12 PRO^N ic))
+		  (14 NP-GEN-1 (15 ADJ^G la+tes)
+			       (17 NP-GEN *ICH*-2))
+		  (19 VBDI gebad)
+		  (21 , ,)
+		  (23 BREAK LL)
+		  (25 NP-GEN-2 (26 N^G grynna))
+		  (28 PP (29 P +at)
+			 (31 NP-DAT (32 NR^D Grendle)))
+		  (34 . ;)
+		  (36 BREAK HL))
+    (38 ID cobeowul,30.929.781))
+/~*
+HL Nu ic, Beowulf, +tec, LL secg betsta, HL $me for sunu wylle LL freogan on
+ferh+te; HL
+(cobeowul,30.946.790)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 ADVP-TMP (7 ADV^T Nu))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 , ,)
+		  (14 NP-NOM-VOC (15 NR^N Beowulf))
+		  (17 , ,)
+		  (19 NP-ACC (20 PRO^A +tec))
+		  (22 , ,)
+		  (24 BREAK LL)
+		  (26 NP-NOM-VOC (27 N^N secg) (29 ADJ^N betsta))
+		  (31 , ,)
+		  (33 BREAK HL)
+		  (35 PP (36 NP-DAT (37 PRO^D $me))
+			 (39 P for)
+			 (41 NP-ACC (42 N^A sunu)))
+		  (44 MDP wylle)
+		  (46 BREAK LL)
+		  (48 VB freogan)
+		  (50 PP (51 P on)
+			 (53 NP-DAT (54 N^D ferh+te)))
+		  (56 . ;)
+		  (58 BREAK HL))
+    (60 ID cobeowul,30.946.790))
+/~*
+LL Ful oft ic for l+assan HL lean teohhode, LL hordweor+tunge HL hnahran rince,
+LL s+amran +at s+acce. HL
+(cobeowul,30.951.795)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 ADVP-TMP (7 ADV Ful) (9 ADV^T oft))
+		  (11 NP-NOM (12 PRO^N ic))
+		  (14 PP (15 P for)
+			 (17 NP-ACC (18 ADJ^A l+assan) (20 BREAK HL) (22 N^A lean)))
+		  (24 VBD teohhode)
+		  (26 , ,)
+		  (28 BREAK LL)
+		  (30 NP-ACC (31 N^A hordweor+tunge))
+		  (33 BREAK HL)
+		  (35 NP-DAT-ADT (36 ADJ^D hnahran)
+				 (38 N^D rince)
+				 (40 , ,)
+				 (42 BREAK LL)
+				 (44 ADJP-DAT (45 ADJ^D s+amran)
+					      (47 PP (48 P +at)
+						     (50 NP-DAT (51 N^D s+acce)))))
+		  (53 . .)
+		  (55 BREAK HL))
+    (57 ID cobeowul,30.951.795))
+/~*
+HL +tu +te self hafast LL d+adum gefremed HL +t+at +tin $dom lyfa+d LL awa to
+aldre HL. HL
+(cobeowul,30.953.797)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N +tu))
+		  (9 NP-DAT-ADT (10 PRO^D +te))
+		  (12 ADJP-NOM (13 ADJ^N self))
+		  (15 HVPI hafast)
+		  (17 BREAK LL)
+		  (19 NP-DAT-ADT (20 N^D d+adum))
+		  (22 VBN gefremed)
+		  (24 BREAK HL)
+		  (26 CP-THT-SPE (27 C +t+at)
+				 (29 IP-SUB-SPE RMV:+tin_$dom_lyfa+d...))
+		  (31 . .)
+		  (33 BREAK HL))
+    (35 ID cobeowul,30.953.797))
+/~*
+LL We +t+at ellenweorc HL estum miclum, LL feohtan fremedon, HL
+(cobeowul,30.957.802)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N We))
+		  (9 NP-ACC (10 D^A +t+at)
+			    (12 N^A ellenweorc)
+			    (14 NP-ACC-PRN *ICH*-1))
+		  (16 BREAK HL)
+		  (18 NP-DAT-ADT (19 N^D estum) (21 Q^D miclum))
+		  (23 , ,)
+		  (25 BREAK LL)
+		  (27 NP-ACC-PRN-1 (28 N^A feohtan))
+		  (30 VBDI fremedon)
+		  (32 . ,)
+		  (34 BREAK HL))
+    (36 ID cobeowul,30.957.802))
+/~*
+HL U+te ic swi+tor LL +t+at +du hine selfne HL geseon moste, LL feond on
+fr+atewum HL fylwerigne LL. LL
+(cobeowul,31.960.805)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK HL)
+		  (6 VBP U+te)
+		  (8 NP-NOM (9 PRO^N ic))
+		  (11 ADVP (12 ADV swi+tor))
+		  (14 BREAK LL)
+		  (16 CP-THT-SPE (17 C +t+at)
+				 (19 IP-SUB-SPE RMV:+du_hine_selfne...))
+		  (21 . .)
+		  (23 BREAK LL))
+    (25 ID cobeowul,31.960.805))
+/~*
+LL Ic $hine hr+adlice HL heardan clammum LL on w+albedde HL wri+tan +tohte, LL
++t+at he for $mundgripe HL minum scolde LL licgean lifbysig HL, HL butan his
+lic swice LL. LL
+(cobeowul,31.960.806)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 IP-INF-SPE RMV:$hine_hr+adlice_HL...)
+		  (11 VBD +tohte)
+		  (13 , ,)
+		  (15 BREAK LL)
+		  (17 CP-ADV-SPE (18 C +t+at)
+				 (20 IP-SUB-SPE RMV:he_for_$mundgripe...))
+		  (22 , ,)
+		  (24 BREAK HL)
+		  (26 PP (27 P butan)
+			 (29 CP-ADV-SPE (30 C 0)
+					(32 IP-SUB-SPE RMV:his_lic_swice...)))
+		  (34 . .)
+		  (36 BREAK LL))
+    (38 ID cobeowul,31.960.806))
+/~*
+LL Ic hine ne mihte, HL +ta metod nolde LL, LL ganges getw+aman, HL
+(cobeowul,31.960.807)
+*~/
+
+(0  (1 IP-MAT-SPE-0 (2 CODING vo)
+		    (4 BREAK LL)
+		    (6 NP-NOM (7 PRO^N Ic))
+		    (9 NP-ACC (10 PRO^A hine))
+		    (12 NEG ne)
+		    (14 MDD mihte)
+		    (16 , ,)
+		    (18 BREAK HL)
+		    (20 PP (21 P +ta)
+			   (23 CP-ADV-SPE (24 C 0)
+					  (26 IPX-SUB-SPE=0 RMV:metod_nolde_LL...)))
+		    (28 , ,)
+		    (30 BREAK LL)
+		    (32 NP-GEN (33 N^G ganges))
+		    (35 VB getw+aman)
+		    (37 . ,)
+		    (39 BREAK HL))
+    (41 ID cobeowul,31.960.807))
+/~*
+HL no ic him +t+as georne +atfealh, LL feorhgeni+dlan; HL
+(cobeowul,31.967.808)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 ADVP (7 NEG+ADV no))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 NP-DAT (13 PRO^D him)
+			     (15 NP-DAT-PRN *ICH*-1))
+		  (17 ADVP (18 NP-GEN-EXT (19 D^G +t+as))
+			   (21 ADV georne))
+		  (23 VBDI +atfealh)
+		  (25 , ,)
+		  (27 BREAK LL)
+		  (29 NP-DAT-PRN-1 (30 N^D feorhgeni+dlan))
+		  (32 . ;)
+		  (34 BREAK HL))
+    (36 ID cobeowul,31.967.808))
+/~*
+HL Hw+a+tere he his folme forlet LL LL to lifwra+te HL last weardian LL, LL
+earm ond eaxle. HL
+(cobeowul,31.970.811)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 ADVP (7 ADV Hw+a+tere))
+		  (9 NP-NOM (10 PRO^N he))
+		  (12 NP-ACC-2 (13 NP-ACC (14 PRO$ his) (16 N^A folme))
+			       (18 CONJP *ICH*-1))
+		  (20 VBDI forlet)
+		  (22 BREAK LL)
+		  (24 IP-INF-SPE RMV:LL_*ICH*-2_to...)
+		  (26 , ,)
+		  (28 BREAK LL)
+		  (30 CONJP-1 (31 NP-ACC (32 N^A earm) (34 CONJ ond) (36 N^A eaxle)))
+		  (38 . .)
+		  (40 BREAK HL))
+    (42 ID cobeowul,31.970.811))
+/~*
+LL Ne gefr+agen ic +ta m+ag+te HL maran weorode LL ymb hyra sincgyfan HL sel
+geb+aran LL. LL
+(cobeowul,32.1011.842)
+*~/
+
+(0  (1 IP-MAT (2 CODING v1)
+	      (4 BREAK LL)
+	      (6 NEG Ne)
+	      (8 VBDI gefr+agen)
+	      (10 NP-NOM (11 PRO^N ic))
+	      (13 ADVP-TMP (14 ADV^T +ta))
+	      (16 IP-INF RMV:m+ag+te_HL_maran...)
+	      (18 . .)
+	      (20 BREAK LL))
+    (22 ID cobeowul,32.1011.842))
+/~*
+HL no he +t+are feohgyfte LL for $sceotendum HL scamigan +dorfte. LL
+(cobeowul,32.1024.855)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 ADVP (7 NEG+ADV no))
+	      (9 NP-NOM (10 PRO^N he))
+	      (12 NP-GEN (13 D^G +t+are) (15 N^G feohgyfte))
+	      (17 BREAK LL)
+	      (19 PP (20 P for)
+		     (22 NP-DAT (23 N^D $sceotendum)))
+	      (25 BREAK HL)
+	      (27 VB scamigan)
+	      (29 MDD +dorfte)
+	      (31 . .)
+	      (33 BREAK LL))
+    (35 ID cobeowul,32.1024.855))
+/~*
+LL Ne gefr+agn ic freondlicor HL feower madmas LL golde gegyrede HL gummanna
+fela LL in ealobence HL o+drum gesellan LL. LL
+(cobeowul,33.1027.857)
+*~/
+
+(0  (1 IP-MAT (2 CODING v1)
+	      (4 BREAK LL)
+	      (6 NEG Ne)
+	      (8 VBDI gefr+agn)
+	      (10 NP-NOM (11 PRO^N ic))
+	      (13 IP-INF RMV:freondlicor_HL_feower...)
+	      (15 . .)
+	      (17 BREAK LL))
+    (19 ID cobeowul,33.1027.857))
+/~*
+HL hie on gebyrd hruron, LL gare wunde. HL
+(cobeowul,34.1071.886)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N hie))
+	      (9 PP (10 P on)
+		    (12 NP-ACC (13 N^A gebyrd)))
+	      (15 VBDI hruron)
+	      (17 , ,)
+	      (19 BREAK LL)
+	      (21 NP-DAT-ADT (22 N^D gare))
+	      (24 ADJP-NOM (25 ADJ^N wunde))
+	      (27 . .)
+	      (29 BREAK HL))
+    (31 ID cobeowul,34.1071.886))
+/~*
+LL +da hie getruwedon HL on twa healfa LL f+aste frio+duw+are. HL
+(cobeowul,35.1095.896)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 ADVP-TMP (7 ADV^T +da))
+	      (9 NP-NOM (10 PRO^N hie))
+	      (12 VBDI getruwedon)
+	      (14 BREAK HL)
+	      (16 PP (17 P on)
+		     (19 NP-ACC (20 NUM twa) (22 N^A healfa)))
+	      (24 CODE <P_35>)
+	      (26 BREAK LL)
+	      (28 NP-ACC (29 ADJ^A f+aste) (31 N^A frio+duw+are))
+	      (33 . .)
+	      (35 BREAK HL))
+    (37 ID cobeowul,35.1095.896))
+/~*
+HL he to gyrnwr+ace LL swi+dor +tohte HL +tonne to s+alade LL, LL gif he
+torngemot HL +turhteon mihte LL +t+at he Eotena bearn HL inne gemunde LL LL.
+LL
+(cobeowul,36.1137.935)
+*~/
+
+(0  (1 IP-MAT-0 (2 CODING vo)
+		(4 BREAK HL)
+		(6 NP-NOM (7 PRO^N he))
+		(9 PP (10 P to)
+		      (12 NP-DAT (13 N^D gyrnwr+ace)))
+		(15 BREAK LL)
+		(17 ADVP (18 ADV swi+dor)
+			 (20 PP *ICH*-1))
+		(22 VBD +tohte)
+		(24 BREAK HL)
+		(26 PP-1 (27 P +tonne)
+			 (29 CP-CMP (30 WADVP-2 0)
+				    (32 C 0)
+				    (34 IPX-SUB=0 RMV:*T*-2_to_s+alade...)))
+		(36 , ,)
+		(38 BREAK LL)
+		(40 PP (41 P gif)
+		       (43 CP-ADV (44 C 0)
+				  (46 IP-SUB RMV:he_torngemot_*ICH*-4...)))
+		(48 . .)
+		(50 BREAK LL))
+    (52 ID cobeowul,36.1137.935))
+/~*
+LL Swa he ne forwyrnde HL woroldr+adenne, LL +tonne him Hunlafing HL
+hildeleoman, LL billa selest, HL on bearm dyde, LL +t+as w+aron mid Eotenum HL
+ecge cu+de LL LL. LL
+(cobeowul,36.1142.936)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 ADVP (7 ADV Swa))
+	      (9 NP-NOM (10 PRO^N he))
+	      (12 NEG ne)
+	      (14 VBD forwyrnde)
+	      (16 BREAK HL)
+	      (18 NP-DAT (19 N^D woroldr+adenne))
+	      (21 , ,)
+	      (23 BREAK LL)
+	      (25 PP (26 P +tonne)
+		     (28 CP-ADV (29 C 0)
+				(31 IP-SUB RMV:him_Hunlafing_HL...)))
+	      (33 . .)
+	      (35 BREAK LL))
+    (37 ID cobeowul,36.1142.936))
+/~*
+HL HL Hie on s+alade LL drihtlice wif HL to Denum feredon LL, LL LL l+addon to
+leodum HL. HL
+(cobeowul,36.1157.945)
+*~/
+
+(0  (1 IP-MAT-0 (2 CODING vo)
+		(4 BREAK HL)
+		(6 NP-NOM (7 PRO^N Hie))
+		(9 PP (10 P on)
+		      (12 NP-DAT (13 N^D s+alade)))
+		(15 BREAK LL)
+		(17 NP-ACC (18 ADJ^A drihtlice) (20 N^A wif))
+		(22 BREAK HL)
+		(24 PP (25 P to)
+		       (27 NP-DAT (28 NR^D Denum)))
+		(30 VBDI feredon)
+		(32 BREAK LL))
+    (34 ID cobeowul,36.1157.945))
+/~*
+HL +tu on s+alum wes, LL goldwine gumena, HL
+(cobeowul,37.1170.962)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N +tu))
+		  (9 PP (10 P on)
+			(12 NP-DAT (13 N^D s+alum)))
+		  (15 BEI wes)
+		  (17 , ,)
+		  (19 BREAK LL)
+		  (21 NP-NOM-VOC (22 N^N goldwine)
+				 (24 NP-GEN (25 N^G gumena)))
+		  (27 . ,)
+		  (29 BREAK HL))
+    (31 ID cobeowul,37.1170.962))
+/~*
+HL Ic minne can LL LL gl+adne Hro+tulf HL, HL +t+at he +ta geogo+de wile LL
+arum healdan, HL gyf +tu +ar $+tonne he LL, LL wine Scildinga, HL worold
+ofl+atest LL LL; LL
+(cobeowul,37.1180.973)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 ADJP-ACC (10 PRO$^A minne))
+		  (12 MDPI can)
+		  (14 BREAK LL)
+		  (16 IP-SMC-SPE RMV:LL_gl+adne_Hro+tulf...)
+		  (18 , ,)
+		  (20 BREAK HL)
+		  (22 CP-ADV-SPE (23 C +t+at)
+				 (25 IP-SUB-SPE RMV:he_+ta_geogo+de...))
+		  (27 . ;)
+		  (29 BREAK LL))
+    (31 ID cobeowul,37.1180.973))
+/~*
+LL wene ic +t+at he mid gode HL gyldan wille LL uncran eaferan, HL gif he
++t+at eal gemon, LL hw+at wit to willan HL ond to wor+dmyndum LL umborwesendum
++ar HL arna gefremedon LL LL LL. LL
+(cobeowul,37.1180.974)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 VBP wene)
+		  (8 NP-NOM (9 PRO^N ic))
+		  (11 CP-THT-SPE (12 C +t+at)
+				 (14 IP-SUB-SPE RMV:he_mid_gode...))
+		  (16 . .)
+		  (18 BREAK LL))
+    (20 ID cobeowul,37.1180.974))
+/~*
+LL N+anigne ic under swegle HL selran hyrde LL hordma+d+dum h+ale+ta, HL
+sy+t+dan Hama +atw+ag LL to $+t+are byrhtan byrig HL Brosinga mene, LL sigle
+ond sincf+at HL; HL
+(cobeowul,38.1197.981)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 QP-ACC (7 NEG+Q^A N+anigne))
+	      (9 NP-NOM (10 PRO^N ic))
+	      (12 PP (13 P under)
+		     (15 NP-DAT (16 N^D swegle)))
+	      (18 BREAK HL)
+	      (20 ADJP-ACC (21 ADJ^A selran))
+	      (23 VBD hyrde)
+	      (25 BREAK LL)
+	      (27 NP-ACC (28 N^A hordma+d+dum)
+			 (30 NP-GEN (31 N^G h+ale+ta)))
+	      (33 , ,)
+	      (35 BREAK HL)
+	      (37 PP (38 P sy+t+dan)
+		     (40 CP-ADV (41 C 0)
+				(43 IP-SUB RMV:Hama_+atw+ag_LL...)))
+	      (45 . ;)
+	      (47 BREAK HL))
+    (49 ID cobeowul,38.1197.981))
+/~*
+HL he under rande gecranc. LL
+(cobeowul,38.1207.989)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N he))
+	      (9 PP (10 P under)
+		    (12 NP-DAT (13 N^D rande)))
+	      (15 VBDI gecranc)
+	      (17 . .)
+	      (19 BREAK LL))
+    (21 ID cobeowul,38.1207.989))
+/~*
+HL heo fore +t+am werede spr+ac: LL
+(cobeowul,38.1215.998)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N heo))
+	      (9 PP (10 P fore)
+		    (12 NP-DAT (13 D^D +t+am) (15 N^D werede)))
+	      (17 VBDI spr+ac)
+	      (19 . :)
+	      (21 BREAK LL))
+    (23 ID cobeowul,38.1215.998))
+/~*
+HL ic +te +t+as lean geman. LL
+(cobeowul,38.1215.1004)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N ic))
+		  (9 NP-DAT-ADT (10 PRO^D +te))
+		  (12 NP-ACC (13 NP-GEN (14 D^G +t+as))
+			     (16 N^A lean))
+		  (18 VBPI geman)
+		  (20 . .)
+		  (22 BREAK LL))
+    (24 ID cobeowul,38.1215.1004))
+/~*
+LL $Hafast +tu gefered HL +t+at +de feor ond neah LL ealne wideferh+t HL weras
+ehtiga+d, LL efne swa side HL swa s+a $bebuge+d, LL windgeard, weallas HL HL.
+HL
+(cobeowul,38.1221.1006)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 HVPI $Hafast)
+		  (8 NP-NOM (9 PRO^N +tu))
+		  (11 VBN gefered)
+		  (13 BREAK HL)
+		  (15 CP-THT-SPE (16 C +t+at)
+				 (18 IP-SUB-SPE RMV:+de_feor_ond...))
+		  (20 . .)
+		  (22 BREAK HL))
+    (24 ID cobeowul,38.1221.1006))
+/~*
+HL Ic +te an tela LL sincgestreona. HL
+(cobeowul,38.1225.1010)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-DAT (10 PRO^D +te))
+		  (12 VBPI an)
+		  (14 ADVP (15 ADV tela))
+		  (17 BREAK LL)
+		  (19 NP-GEN (20 N^G sincgestreona))
+		  (22 . .)
+		  (24 BREAK HL))
+    (26 ID cobeowul,38.1225.1010))
+/~*
+HL Beo +tu suna minum LL d+adum gedefe, HL dreamhealdende. LL
+(cobeowul,38.1226.1012)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK HL)
+		  (6 BEPH Beo)
+		  (8 NP-NOM (9 PRO^N +tu))
+		  (11 NP-DAT (12 N^D suna) (14 PRO$^D minum))
+		  (16 BREAK LL)
+		  (18 NP-DAT-ADT (19 N^D d+adum))
+		  (21 ADJP-NOM-PRD (22 ADJ^N gedefe))
+		  (24 , ,)
+		  (26 BREAK HL)
+		  (28 NP-NOM-VOC (29 ADJ^N dreamhealdende))
+		  (31 . .)
+		  (33 BREAK LL))
+    (35 ID cobeowul,38.1226.1012))
+/~*
+HL hit geondbr+aded wear+d LL beddum ond bolstrum. HL
+(cobeowul,39.1239.1028)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N hit))
+	      (9 RP+VBN geondbr+aded)
+	      (11 BEDI wear+d)
+	      (13 BREAK LL)
+	      (15 NP-DAT-ADT (16 N^D beddum) (18 CONJ ond) (20 N^D bolstrum))
+	      (22 . .)
+	      (24 BREAK HL))
+    (26 ID cobeowul,39.1239.1028))
+/~*
+HL he +ta fag gewat, LL mor+tre gemearcod, HL mandream fleon, LL
+(cobeowul,39.1258.1044)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N he))
+	      (9 ADVP-TMP (10 ADV^T +ta))
+	      (12 ADJP-NOM (13 ADJ^N fag))
+	      (15 AXDI gewat)
+	      (17 , ,)
+	      (19 BREAK LL)
+	      (21 PTP-NOM (22 NP-DAT-ADT (23 N^D mor+tre))
+			  (25 VBN^N gemearcod))
+	      (27 , ,)
+	      (29 BREAK HL)
+	      (31 NP-ACC (32 N^A mandream))
+	      (34 VB fleon)
+	      (36 . ,)
+	      (38 BREAK LL))
+    (40 ID cobeowul,39.1258.1044))
+/~*
+LL hw+a+tre he gemunde HL m+agenes strenge, LL gimf+aste gife HL +de him god
+sealde LL, LL
+(cobeowul,40.1269.1051)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 ADVP (7 ADV hw+a+tre))
+	      (9 NP-NOM (10 PRO^N he))
+	      (12 VBD gemunde)
+	      (14 BREAK HL)
+	      (16 NP-ACC (17 NP-GEN (18 N^G m+agenes))
+			 (20 N^A strenge)
+			 (22 , ,)
+			 (24 BREAK LL)
+			 (26 NP-ACC-PRN (27 ADJ^A gimf+aste)
+					(29 N^A gife)
+					(31 BREAK HL)
+					(33 CP-REL (34 WNP-1 0)
+						   (36 C +de)
+						   (38 IP-SUB RMV:*T*-1_him_god...))))
+	      (40 . ,)
+	      (42 BREAK LL))
+    (44 ID cobeowul,40.1269.1051))
+/~*
+HL +dy he +tone feond ofercwom, LL
+(cobeowul,40.1269.1053)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-INS-ADT (7 D^I +dy))
+	      (9 NP-NOM (10 PRO^N he))
+	      (12 NP-ACC (13 D^A +tone) (15 N^A feond))
+	      (17 RP+VBDI ofercwom)
+	      (19 . ,)
+	      (21 BREAK LL))
+    (23 ID cobeowul,40.1269.1053))
+/~*
+LL Heo w+as on ofste, HL
+(cobeowul,40.1292.1068)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 NP-NOM (7 PRO^N Heo))
+	      (9 BEDI w+as)
+	      (11 PP (12 P on)
+		     (14 NP-DAT (15 N^D ofste)))
+	      (17 . ,)
+	      (19 BREAK HL))
+    (21 ID cobeowul,40.1292.1068))
+/~*
+LL Hra+de heo +a+telinga HL anne h+afde LL f+aste befangen, HL +ta heo to
+fenne gang LL. LL
+(cobeowul,40.1294.1071)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 ADVP (7 ADV Hra+de))
+	      (9 NP-NOM (10 PRO^N heo))
+	      (12 NP-ACC (13 NP-GEN (14 N^G +a+telinga))
+			 (16 BREAK HL)
+			 (18 NUM^A anne))
+	      (20 HVD h+afde)
+	      (22 BREAK LL)
+	      (24 ADVP (25 ADV f+aste))
+	      (27 VBN befangen)
+	      (29 , ,)
+	      (31 BREAK HL)
+	      (33 PP (34 P +ta)
+		     (36 CP-ADV (37 C 0)
+				(39 IP-SUB RMV:heo_to_fenne...)))
+	      (41 . .)
+	      (43 BREAK LL))
+    (45 ID cobeowul,40.1294.1071))
+/~*
+HL heo under heolfre genam LL cu+te folme; HL
+(cobeowul,41.1301.1080)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N heo))
+	      (9 PP (10 P under)
+		    (12 NP-DAT (13 N^D heolfre)))
+	      (15 VBDI genam)
+	      (17 BREAK LL)
+	      (19 NP-ACC (20 ADJ^A cu+te) (22 N^A folme))
+	      (24 . ;)
+	      (26 BREAK HL))
+    (28 ID cobeowul,41.1301.1080))
+/~*
+LL Ne frin +tu +after s+alum. HL
+(cobeowul,41.1321.1094)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 NEG Ne)
+		  (8 VBI frin)
+		  (10 NP-NOM (11 PRO^N +tu))
+		  (13 PP (14 P +after)
+			 (16 NP-DAT (17 N^D s+alum)))
+		  (19 . .)
+		  (21 BREAK HL))
+    (23 ID cobeowul,41.1321.1094))
+/~*
+HL ic ne wat $hw+ader LL LL atol +ase wlanc HL eftsi+das teah, LL fylle
+$gef+agnod HL. HL
+(cobeowul,42.1330.1103)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N ic))
+		  (9 NEG ne)
+		  (11 VBPI wat)
+		  (13 CP-QUE-SPE (14 WADVP-DIX-1 (15 WADV^DX $hw+ader))
+				 (17 C 0)
+				 (19 CODE <P_42>)
+				 (21 BREAK LL)
+				 (23 IP-SUB-SPE RMV:LL_*T*-1_atol...))
+		  (25 . .)
+		  (27 BREAK HL))
+    (29 ID cobeowul,42.1330.1103))
+/~*
+HL Heo +ta f+ah+de wr+ac LL +te +tu gystran niht HL Grendel cwealdest LL +turh
+h+astne had HL heardum clammum, LL for+tan he to lange HL leode mine LL wanode
+ond wyrde HL HL. HL
+(cobeowul,42.1333.1105)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Heo))
+		  (9 NP-ACC (10 D^A +ta)
+			    (12 N^A f+ah+de)
+			    (14 CP-THT-PRN *ICH*-1))
+		  (16 VBDI wr+ac)
+		  (18 BREAK LL)
+		  (20 CP-THT-PRN-SPE-1 (21 C +te)
+				       (23 IP-SUB-SPE RMV:+tu_gystran_niht...))
+		  (25 . .)
+		  (27 BREAK HL))
+    (29 ID cobeowul,42.1333.1105))
+/~*
+HL He +at wige gecrang LL ealdres scyldig, HL
+(cobeowul,42.1337.1107)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N He))
+		  (9 PP (10 P +at)
+			(12 NP-DAT (13 N^D wige)))
+		  (15 VBDI gecrang)
+		  (17 BREAK LL)
+		  (19 NP-GEN-ADT (20 N^G ealdres))
+		  (22 ADJP-NOM (23 ADJ^N scyldig))
+		  (25 . ,)
+		  (27 BREAK HL))
+    (29 ID cobeowul,42.1337.1107))
+/~*
+LL Ic +t+at londbuend, HL leode mine, LL seler+adende, HL secgan hyrde LL
++t+at hie gesawon HL HL swylce twegen LL micle mearcstapan HL moras healdan,
+LL ellorg+astas HL HL. HL
+(cobeowul,42.1345.1113)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 IP-INF-SPE RMV:+t+at_*ICH*-1_londbuend...)
+		  (11 VBD hyrde)
+		  (13 BREAK LL)
+		  (15 CP-THT-PRN-SPE-1 (16 C +t+at)
+				       (18 IP-SUB-SPE RMV:hie_gesawon_HL...))
+		  (20 . .)
+		  (22 BREAK HL))
+    (24 ID cobeowul,42.1345.1113))
+/~*
+HL No hie f+ader cunnon, LL hw+a+ter him +anig w+as HL +ar acenned LL dyrnra
+gasta HL. HL
+(cobeowul,42.1355.1119)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 ADVP (7 NEG+ADV No))
+		  (9 NP-NOM (10 PRO^N hie))
+		  (12 NP-ACC (13 N^A f+ader)
+			     (15 CP-QUE-PRN *ICH*-1))
+		  (17 MDPI cunnon)
+		  (19 , ,)
+		  (21 BREAK LL)
+		  (23 CP-QUE-PRN-SPE-1 (24 WQ hw+a+ter)
+				       (26 C 0)
+				       (28 IP-SUB-SPE RMV:him_+anig_*ICH*-2...))
+		  (30 . .)
+		  (32 BREAK HL))
+    (34 ID cobeowul,42.1355.1119))
+/~*
+HL Hie dygel lond LL warigea+d, wulfhleo+tu, HL $windige n+assas, LL frecne
+fengelad, HL +d+ar fyrgenstream LL under n+assa genipu HL ni+ter gewite+d LL,
+LL flod under foldan HL HL. HL
+(cobeowul,42.1357.1121)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Hie))
+		  (9 NP-ACC (10 ADJ^A dygel) (12 N^A lond))
+		  (14 BREAK LL)
+		  (16 VBPI warigea+d)
+		  (18 , ,)
+		  (20 NP-ACC-PRN (21 NP-ACC (22 N^A wulfhleo+tu))
+				 (24 , ,)
+				 (26 BREAK HL)
+				 (28 CONJP (29 NP-ACC (30 ADJ^A $windige) (32 N^A n+assas)))
+				 (34 , ,)
+				 (36 BREAK LL)
+				 (38 CONJP (39 NP-ACC (40 ADJ^A frecne)
+						      (42 N^A fengelad)
+						      (44 , ,)
+						      (46 BREAK HL)
+						      (48 CP-REL-SPE (49 WADVP-LOC-1 (50 ADV^L +d+ar))
+								     (52 C 0)
+								     (54 IP-SUB-SPE RMV:*T*-1_fyrgenstream_LL...)))))
+		  (56 . .)
+		  (58 BREAK HL))
+    (60 ID cobeowul,42.1357.1121))
+/~*
+LL +deah +te h+a+dstapa HL hundum geswenced, LL heorot hornum trum, HL
+holtwudu sece, LL feorran geflymed HL, HL +ar he feorh sele+d, LL aldor on
+ofre, HL +ar he in wille LL hafelan $hydan HL. HL
+(cobeowul,43.1366.1130)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 PP (7 P +deah)
+			(9 CP-ADV-SPE (10 C +te)
+				      (12 IP-SUB-SPE RMV:h+a+dstapa_HL_hundum...)))
+		  (14 , ,)
+		  (16 BREAK HL)
+		  (18 ADVP-TMP (19 ADV^T +ar))
+		  (21 NP-NOM (22 PRO^N he))
+		  (24 NP-ACC (25 N^A feorh)
+			     (27 NP-ACC-PRN *ICH*-1))
+		  (29 VBPI sele+d)
+		  (31 , ,)
+		  (33 BREAK LL)
+		  (35 NP-ACC-PRN-1 (36 N^A aldor))
+		  (38 PP (39 P on)
+			 (41 NP-DAT (42 N^D ofre)))
+		  (44 , ,)
+		  (46 BREAK HL)
+		  (48 PP (49 P +ar)
+			 (51 CP-ADV-SPE (52 C 0)
+					(54 IP-SUB-SPE RMV:he_in_wille...)))
+		  (56 . .)
+		  (58 BREAK HL))
+    (60 ID cobeowul,43.1366.1130))
+/~*
+LL Ic +te +ta f+ah+de HL feo leanige, LL ealdgestreonum, HL swa ic +ar dyde LL,
+LL $wundnum golde, HL gyf +tu on weg cymest LL. LL
+(cobeowul,43.1380.1141)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-DAT (10 PRO^D +te))
+		  (12 NP-ACC-ADT (13 D^A +ta) (15 N^A f+ah+de))
+		  (17 BREAK HL)
+		  (19 NP-DAT-ADT (20 N^D feo))
+		  (22 VBP leanige)
+		  (24 , ,)
+		  (26 BREAK LL)
+		  (28 NP-DAT-ADT (29 N^D ealdgestreonum))
+		  (31 , ,)
+		  (33 BREAK HL)
+		  (35 PP (36 P swa)
+			 (38 CPX-CMP-SPE (39 IPX-SUB-SPE RMV:ic_+ar_dyde...)))
+		  (41 , ,)
+		  (43 BREAK LL)
+		  (45 NP-DAT-ADT (46 VBN^D $wundnum) (48 N^D golde))
+		  (50 , ,)
+		  (52 BREAK HL)
+		  (54 PP (55 P gyf)
+			 (57 CP-ADV-SPE (58 C 0)
+					(60 IP-SUB-SPE RMV:+tu_on_weg...)))
+		  (62 . .)
+		  (64 BREAK LL))
+    (66 ID cobeowul,43.1380.1141))
+/~*
+LL Ic hit +te gehate, HL
+(cobeowul,43.1392.1154)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-ACC (10 PRO^A hit))
+		  (12 NP-DAT (13 PRO^D +te))
+		  (15 VBP gehate)
+		  (17 . ,)
+		  (19 BREAK HL))
+    (21 ID cobeowul,43.1392.1154))
+/~*
+HL no he on helm losa+t, LL ne on foldan f+a+tm, HL ne on fyrgenholt, LL ne on
+gyfenes grund, HL
+(cobeowul,43.1392.1155)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 ADVP (7 NEG+ADV no))
+		  (9 NP-NOM (10 PRO^N he))
+		  (12 PP (13 PP (14 P on)
+				(16 NP-ACC (17 N^A helm)))
+			 (19 CONJP *ICH*-1))
+		  (21 VBPI losa+t)
+		  (23 , ,)
+		  (25 BREAK LL)
+		  (27 CONJP-1 (28 NEG+CONJ ne)
+			      (30 PP (31 PP (32 P on)
+					    (34 NP-ACC (35 NP-GEN (36 N^G foldan))
+						       (38 N^A f+a+tm)))
+				     (40 , ,)
+				     (42 BREAK HL)
+				     (44 CONJP (45 NEG+CONJ ne)
+					       (47 PP (48 P on)
+						      (50 NP-ACC (51 N^A fyrgenholt))))
+				     (53 , ,)
+				     (55 BREAK LL)
+				     (57 CONJP (58 NEG+CONJ ne)
+					       (60 PP (61 P on)
+						      (63 NP-ACC (64 NP-GEN (65 N^G gyfenes))
+								 (67 N^A grund))))))
+		  (69 . ,)
+		  (71 BREAK HL))
+    (73 ID cobeowul,43.1392.1155))
+/~*
+LL +dys dogor +tu HL ge+tyld hafa LL weana gehwylces, HL swa ic +te wene to LL.
+LL
+(cobeowul,43.1395.1158)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-INS-TMP (7 D^I +dys) (9 N^I dogor))
+		  (11 NP-NOM (12 PRO^N +tu))
+		  (14 BREAK HL)
+		  (16 NP-ACC (17 N^A ge+tyld)
+			     (19 NP-GEN *ICH*-1))
+		  (21 HVI hafa)
+		  (23 BREAK LL)
+		  (25 NP-GEN-1 (26 NP-GEN (27 N^G weana))
+			       (29 Q^G gehwylces))
+		  (31 , ,)
+		  (33 BREAK HL)
+		  (35 PP (36 P swa)
+			 (38 CPX-CMP-SPE (39 IPX-SUB-SPE RMV:ic_+te_wene...)))
+		  (41 . .)
+		  (43 BREAK LL))
+    (45 ID cobeowul,43.1395.1158))
+/~*
+HL hie on weg hruron, LL bitere ond gebolgne, HL
+(cobeowul,44.1425.1184)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N hie))
+	      (9 PP (10 P on)
+		    (12 NP-ACC (13 N^A weg)))
+	      (15 VBDI hruron)
+	      (17 , ,)
+	      (19 BREAK LL)
+	      (21 ADJP-NOM (22 ADJ^N bitere) (24 CONJ ond) (26 VBN^N gebolgne))
+	      (28 . ,)
+	      (30 BREAK HL))
+    (32 ID cobeowul,44.1425.1184))
+/~*
+HL n+afre hit +at hilde ne swac LL manna +angum HL +tara +te hit mid mundum
+bewand LL, LL se +de gryresi+das HL gegan dorste, LL folcstede fara HL; HL
+(cobeowul,45.1458.1205)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 ADVP-TMP (7 NEG+ADV^T n+afre))
+	      (9 NP-NOM (10 PRO^N hit))
+	      (12 PP (13 P +at)
+		     (15 NP-DAT (16 N^D hilde)))
+	      (18 NEG ne)
+	      (20 VBDI swac)
+	      (22 BREAK LL)
+	      (24 NP-DAT (25 NP-GEN (26 N^G manna)
+				    (28 CP-REL *ICH*-1))
+			 (30 Q^D +angum)
+			 (32 BREAK HL)
+			 (34 CP-REL-1 (35 WNP-GEN-2 (36 D^G +tara))
+				      (38 C +te)
+				      (40 IP-SUB RMV:*T*-2_hit_mid...))
+			 (42 , ,)
+			 (44 BREAK LL)
+			 (46 CP-REL (47 WNP-NOM-3 (48 D^N se))
+				    (50 C +de)
+				    (52 IP-SUB RMV:*T*-3_gryresi+das_HL...)))
+	      (54 . ;)
+	      (56 BREAK HL))
+    (58 ID cobeowul,45.1458.1205))
+/~*
+HL +t+ar he dome forleas, LL $ellenm+ar+dum. HL
+(cobeowul,46.1468.1211)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 ADVP-LOC (7 ADV^L +t+ar))
+	      (9 NP-NOM (10 PRO^N he))
+	      (12 NP-DAT (13 N^D dome)
+			 (15 NP-DAT-PRN *ICH*-1))
+	      (17 VBDI forleas)
+	      (19 , ,)
+	      (21 BREAK LL)
+	      (23 NP-DAT-PRN-1 (24 N^D $ellenm+ar+dum))
+	      (26 . .)
+	      (28 BREAK HL))
+    (30 ID cobeowul,46.1468.1211))
+/~*
+LL Wes +tu mundbora HL minum mago+tegnum, LL hondgesellum, HL gif mec hild
+nime LL; LL
+(cobeowul,46.1480.1218)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 BEI Wes)
+		  (8 NP-NOM (9 PRO^N +tu))
+		  (11 NP-NOM-PRD (12 N^N mundbora)
+				 (14 BREAK HL)
+				 (16 NP-DAT (17 PRO$^D minum)
+					    (19 N^D mago+tegnum)
+					    (21 , ,)
+					    (23 BREAK LL)
+					    (25 NP-DAT-PRN (26 N^D hondgesellum))))
+		  (28 , ,)
+		  (30 BREAK HL)
+		  (32 PP (33 P gif)
+			 (35 CP-ADV-SPE (36 C 0)
+					(38 IP-SUB-SPE RMV:mec_hild_nime...)))
+		  (40 . ;)
+		  (42 BREAK LL))
+    (44 ID cobeowul,46.1480.1218))
+/~*
+LL swylce +tu +da madmas HL +te +tu me sealdest LL, LL Hro+dgar leofa, HL
+Higelace onsend. LL
+(cobeowul,46.1480.1219)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 ADVP (7 ADV swylce))
+		  (9 NP-NOM (10 PRO^N +tu))
+		  (12 NP-ACC (13 D^A +da)
+			     (15 N^A madmas)
+			     (17 BREAK HL)
+			     (19 CP-REL-SPE (20 WNP-1 0)
+					    (22 C +te)
+					    (24 IP-SUB-SPE RMV:*T*-1_+tu_me...)))
+		  (26 , ,)
+		  (28 BREAK LL)
+		  (30 NP-NOM-VOC (31 NR^N Hro+dgar) (33 ADJ^N leofa))
+		  (35 , ,)
+		  (37 BREAK HL)
+		  (39 NP-DAT-ADT (40 NR^D Higelace))
+		  (42 RP+VBI onsend)
+		  (44 . .)
+		  (46 BREAK LL))
+    (48 ID cobeowul,46.1480.1219))
+/~*
+HL ic me mid Hruntinge LL dom gewyrce, HL
+(cobeowul,46.1488.1224)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N ic))
+		  (9 NP-DAT (10 PRO^D me))
+		  (12 PP (13 P mid)
+			 (15 NP-DAT (16 NR^D Hruntinge)))
+		  (18 BREAK LL)
+		  (20 NP-ACC (21 N^A dom))
+		  (23 VBP gewyrce)
+		  (25 . ,)
+		  (27 BREAK HL))
+    (29 ID cobeowul,46.1488.1224))
+/~*
+LL B+ar +ta seo $brimwylf, HL +ta heo to botme com LL, LL hringa +tengel HL to
+hofe sinum, LL swa he ne mihte, HL HL no he $+t+as modig w+as LL, LL w+apna
+gewealdan HL, HL
+(cobeowul,47.1506.1241)
+*~/
+
+(0  (1 IP-MAT-PAREN (2 CODING vo)
+		    (4 BREAK HL)
+		    (6 ADVP (7 NEG+ADV no))
+		    (9 NP-NOM (10 PRO^N he))
+		    (12 ADJP-NOM-PRD (13 NP-GEN-EXT (14 D^G $+t+as))
+				     (16 ADJ^N modig))
+		    (18 BEDI w+as)
+		    (20 BREAK LL))
+    (22 ID cobeowul,47.1506.1241))
+/~*
+LL Heo him eft hra+te HL $andlean forgeald LL grimman grapum. HL
+(cobeowul,48.1541.1271)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 NP-NOM (7 PRO^N Heo))
+	      (9 NP-DAT (10 PRO^D him))
+	      (12 ADVP-TMP (13 ADV^T eft))
+	      (15 ADVP (16 ADV hra+te))
+	      (18 BREAK HL)
+	      (20 NP-ACC (21 N^A $andlean))
+	      (23 VBDI forgeald)
+	      (25 BREAK LL)
+	      (27 NP-DAT-ADT (28 ADJ^D grimman) (30 N^D grapum))
+	      (32 . .)
+	      (34 BREAK HL))
+    (36 ID cobeowul,48.1541.1271))
+/~*
+LL He gefeng +ta fetelhilt, HL freca Scyldinga LL hreoh ond heorogrim. HL
+(cobeowul,48.1563.1290)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 NP-NOM (7 PRO^N He))
+	      (9 VBDI gefeng)
+	      (11 ADVP-TMP (12 ADV^T +ta))
+	      (14 NP-ACC (15 N^A fetelhilt))
+	      (17 , ,)
+	      (19 BREAK HL)
+	      (21 NP-NOM-PRN (22 N^N freca)
+			     (24 NP-GEN (25 NR^G Scyldinga))
+			     (27 BREAK LL)
+			     (29 ADJP-NOM (30 ADJ^N hreoh) (32 CONJ ond) (34 ADJ^N heorogrim)))
+	      (36 . .)
+	      (38 BREAK HL))
+    (40 ID cobeowul,48.1563.1290))
+/~*
+HL heo on flet gecrong. LL
+(cobeowul,48.1567.1295)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N heo))
+	      (9 PP (10 P on)
+		    (12 NP-ACC (13 N^A flet)))
+	      (15 VBDI gecrong)
+	      (17 . .)
+	      (19 BREAK LL))
+    (21 ID cobeowul,48.1567.1295))
+/~*
+HL He +after recede wlat; LL
+(cobeowul,49.1572.1303)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N He))
+	      (9 PP (10 P +after)
+		    (12 NP-DAT (13 N^D recede)))
+	      (15 VBDI wlat)
+	      (17 . ;)
+	      (19 BREAK LL))
+    (21 ID cobeowul,49.1572.1303))
+/~*
+LL Hw+at we +te +tas s+alac, HL sunu Healfdenes, LL leod Scyldinga, HL lustum
+brohton LL tires to tacne, HL +te +tu her to locast LL. LL
+(cobeowul,51.1652.1369)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 INTJ Hw+at)
+		  (8 NP-NOM (9 PRO^N we))
+		  (11 NP-DAT-ADT (12 PRO^D +te))
+		  (14 NP-ACC (15 D^A +tas)
+			     (17 N^A s+alac)
+			     (19 CP-REL-SPE *ICH*-2))
+		  (21 , ,)
+		  (23 BREAK HL)
+		  (25 NP-NOM-VOC (26 N^N sunu)
+				 (28 NP-GEN (29 NR^G Healfdenes))
+				 (31 , ,)
+				 (33 BREAK LL)
+				 (35 NP-NOM-PRN (36 N^N leod)
+						(38 NP-GEN (39 NR^G Scyldinga))))
+		  (41 , ,)
+		  (43 BREAK HL)
+		  (45 NP-DAT-ADT (46 N^D lustum))
+		  (48 VBDI brohton)
+		  (50 BREAK LL)
+		  (52 PP (53 NP-GEN (54 N^G tires))
+			 (56 P to)
+			 (58 NP-DAT (59 N^D tacne)))
+		  (61 , ,)
+		  (63 BREAK HL)
+		  (65 CP-REL-SPE-2 (66 WNP-1 0)
+				   (68 C +te)
+				   (70 IP-SUB-SPE RMV:+tu_her_*T*-1...))
+		  (72 . .)
+		  (74 BREAK LL))
+    (76 ID cobeowul,51.1652.1369))
+/~*
+LL Ic +t+at unsofte HL ealdre gedigde LL wigge under w+atere, HL
+(cobeowul,51.1655.1371)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-ACC (10 D^A +t+at))
+		  (12 ADVP (13 ADV unsofte))
+		  (15 BREAK HL)
+		  (17 NP-DAT-ADT (18 N^D ealdre))
+		  (20 VBD gedigde)
+		  (22 BREAK LL)
+		  (24 NP-DAT-ADT (25 N^D wigge)
+				 (27 PP (28 P under)
+					(30 NP-DAT (31 N^D w+atere))))
+		  (33 . ,)
+		  (35 BREAK HL))
+    (37 ID cobeowul,51.1655.1371))
+/~*
+LL Ne meahte ic +at hilde HL mid Hruntinge LL wiht gewyrcan, HL +teah +t+at
+w+apen duge LL; LL
+(cobeowul,51.1659.1375)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 NEG Ne)
+		  (8 MDD meahte)
+		  (10 NP-NOM (11 PRO^N ic))
+		  (13 PP (14 P +at)
+			 (16 NP-DAT (17 N^D hilde)))
+		  (19 BREAK HL)
+		  (21 PP (22 P mid)
+			 (24 NP-DAT (25 NR^D Hruntinge)))
+		  (27 BREAK LL)
+		  (29 NP-ACC (30 N^A wiht))
+		  (32 VB gewyrcan)
+		  (34 , ,)
+		  (36 BREAK HL)
+		  (38 PP (39 P +teah)
+			 (41 CP-ADV-SPE (42 C 0)
+					(44 IP-SUB-SPE RMV:+t+at_w+apen_duge...)))
+		  (46 . ;)
+		  (48 BREAK LL))
+    (50 ID cobeowul,51.1659.1375))
+/~*
+HL Ic +t+at hilt +tanan LL feondum +atferede, HL
+(cobeowul,51.1668.1382)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-ACC (10 D^A +t+at) (12 N^A hilt))
+		  (14 ADVP-DIX (15 ADV^DX +tanan))
+		  (17 BREAK LL)
+		  (19 NP-DAT-ADT (20 N^D feondum))
+		  (22 VBD +atferede)
+		  (24 . ,)
+		  (26 BREAK HL))
+    (28 ID cobeowul,51.1668.1382))
+/~*
+LL Ic hit +te +tonne gehate, HL +t+at +tu on Heorote most LL sorhleas swefan
+HL mid +tinra secga gedryht LL ond +tegna gehwylc HL +tinra leoda, LL dugu+de
+ond iogo+te HL, HL +t+at +tu him ondr+adan ne +tearft, LL +teoden Scyldinga,
+HL on +ta healfe, LL aldorbealu eorlum, HL swa +tu +ar dydest LL LL. LL
+(cobeowul,51.1671.1385)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 NP-NOM (7 PRO^N Ic))
+	      (9 NP-ACC-x (10 PRO^A hit))
+	      (12 NP-DAT (13 PRO^D +te))
+	      (15 ADVP-TMP (16 ADV^T +tonne))
+	      (18 VBP gehate)
+	      (20 , ,)
+	      (22 BREAK HL)
+	      (24 CP-THT-x (25 CP-THT (26 C +t+at)
+				      (28 IP-SUB RMV:+tu_*ICH*-2_on...))
+			   (30 , ,)
+			   (32 BREAK HL)
+			   (34 CP-THT (35 C +t+at)
+				      (37 IP-SUB RMV:+tu_him_*ICH*-5...)))
+	      (39 . .)
+	      (41 BREAK LL))
+    (43 ID cobeowul,51.1671.1385))
+/~*
+HL Eal +tu hit ge+tyldum healdest, LL m+agen mid modes snyttrum. HL
+(cobeowul,52.1705.1407)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 QP (7 Q Eal))
+		  (9 NP-NOM (10 PRO^N +tu))
+		  (12 NP-ACC (13 PRO^A hit)
+			     (15 NP-ACC-PRN *ICH*-1))
+		  (17 NP-DAT-ADT (18 N^D ge+tyldum))
+		  (20 VBPI healdest)
+		  (22 , ,)
+		  (24 BREAK LL)
+		  (26 NP-ACC-PRN-1 (27 N^A m+agen))
+		  (29 PP (30 P mid)
+			 (32 NP-DAT (33 NP-GEN (34 N^G modes))
+				    (36 N^D snyttrum)))
+		  (38 . .)
+		  (40 BREAK HL))
+    (42 ID cobeowul,52.1705.1407))
+/~*
+HL Ic +te sceal mine gel+astan LL freode, swa wit fur+dum spr+acon HL. HL
+(cobeowul,52.1706.1409)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-DAT (10 PRO^D +te))
+		  (12 MDPI sceal)
+		  (14 ADJP-ACC (15 PRO$^A mine))
+		  (17 VB gel+astan)
+		  (19 BREAK LL)
+		  (21 NP-ACC (22 N^A freode))
+		  (24 , ,)
+		  (26 PP (27 P swa)
+			 (29 CPX-CMP-SPE (30 IPX-SUB-SPE RMV:wit_fur+dum_spr+acon...)))
+		  (32 . .)
+		  (34 BREAK HL))
+    (36 ID cobeowul,52.1706.1409))
+/~*
+HL +du scealt to frofre weor+tan LL eal langtwidig HL leodum +tinum, LL
+h+ale+dum to helpe. HL
+(cobeowul,52.1707.1411)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N +du))
+		  (9 MDPI scealt)
+		  (11 PP (12 P to)
+			 (14 NP-DAT (15 N^D frofre)))
+		  (17 BE weor+tan)
+		  (19 BREAK LL)
+		  (21 ADJP-NOM-PRD (22 QP (23 Q eal))
+				   (25 ADJ^N langtwidig))
+		  (27 BREAK HL)
+		  (29 NP-DAT-ADT (30 N^D leodum) (32 PRO$^D +tinum))
+		  (34 , ,)
+		  (36 BREAK LL)
+		  (38 PP (39 NP-DAT (40 N^D h+ale+dum))
+			 (42 P to)
+			 (44 NP-DAT (45 N^D helpe)))
+		  (47 . .)
+		  (49 BREAK HL))
+    (51 ID cobeowul,52.1707.1411))
+/~*
+LL LL ne geweox he him to willan HL, HL ac to w+alfealle LL ond to dea+dcwalum
+HL Deniga leodum LL; LL
+(cobeowul,53.1709.1414)
+*~/
+
+(0  (1 IP-MAT-SPE-0 (2 CODING v1)
+		    (4 BREAK LL)
+		    (6 NEG ne)
+		    (8 VBDI geweox)
+		    (10 NP-NOM (11 PRO^N he))
+		    (13 PP (14 NP-DAT (15 PRO^D him))
+			   (17 P to)
+			   (19 NP-DAT (20 N^D willan)))
+		    (22 BREAK HL))
+    (24 ID cobeowul,53.1709.1414))
+/~*
+HL +du +te l+ar be +ton, LL
+(cobeowul,53.1722.1422)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N +du))
+		  (9 NP-ACC-RFL (10 PRO^A +te))
+		  (12 VBI l+ar)
+		  (14 PP (15 P be)
+			 (17 NP-INS (18 D^I +ton)))
+		  (20 . ,)
+		  (22 BREAK LL))
+    (24 ID cobeowul,53.1722.1422))
+/~*
+HL ic +tis gid be +te LL awr+ac wintrum frod. HL
+(cobeowul,53.1722.1424)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N ic))
+		  (9 NP-ACC (10 D^A +tis) (12 N^A gid))
+		  (14 PP (15 P be)
+			 (17 NP-DAT (18 D^D +te)))
+		  (20 BREAK LL)
+		  (22 VBDI awr+ac)
+		  (24 ADJP-NOM (25 NP-DAT (26 N^D wintrum))
+			       (28 ADJ^N frod))
+		  (30 . .)
+		  (32 BREAK HL))
+    (34 ID cobeowul,53.1722.1424))
+/~*
+HL he ah ealra geweald. LL
+(cobeowul,53.1724.1427)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N he))
+		  (9 VBPI ah)
+		  (11 NP-ACC (12 NP-GEN (13 Q^G ealra))
+			     (15 N^A geweald))
+		  (17 . .)
+		  (19 BREAK LL))
+    (21 ID cobeowul,53.1724.1427))
+/~*
+LL Hwilum he on lufan HL l+ate+d hworfan LL monnes modge+tonc HL m+aran cynnes
+LL, LL
+(cobeowul,53.1728.1429)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-DAT-TMP (7 N^D Hwilum))
+		  (9 NP-NOM (10 PRO^N he))
+		  (12 PP-1 (13 P on)
+			   (15 NP-ACC (16 N^A lufan)))
+		  (18 BREAK HL)
+		  (20 VBPI l+ate+d)
+		  (22 IP-INF-SPE RMV:*ICH*-1_hworfan_LL...)
+		  (24 . ,)
+		  (26 BREAK LL))
+    (28 ID cobeowul,53.1728.1429))
+/~*
+LL $Wuna+d he on wiste; HL
+(cobeowul,53.1735.1433)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 VBPI $Wuna+d)
+		  (8 NP-NOM (9 PRO^N he))
+		  (11 PP (12 P on)
+			 (14 NP-DAT (15 N^D wiste)))
+		  (17 . ;)
+		  (19 BREAK HL))
+    (21 ID cobeowul,53.1735.1433))
+/~*
+HL he +t+at wyrse ne con, LL o+d+t+at him on innan HL oferhygda d+al LL
+weaxe+d ond wrida+d HL. HL
+(cobeowul,53.1735.1438)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N he))
+		  (9 NP-ACC (10 D^A +t+at) (12 ADJ^A wyrse))
+		  (14 NEG ne)
+		  (16 MDPI con)
+		  (18 , ,)
+		  (20 BREAK LL)
+		  (22 PP (23 P o+d+t+at)
+			 (25 CP-ADV-SPE (26 C 0)
+					(28 IP-SUB-SPE RMV:him_on_innan...)))
+		  (30 . .)
+		  (32 BREAK HL))
+    (34 ID cobeowul,53.1735.1438))
+/~*
+LL Hit on endest+af HL eft gelimpe+d LL +t+at se lichoma HL $l+ane gedreose+d
+LL, LL LL f+age gefealle+d HL HL; HL
+(cobeowul,54.1753.1449)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM-x (7 PRO^N Hit))
+		  (9 PP (10 P on)
+			(12 NP-ACC (13 N^A endest+af)))
+		  (15 BREAK HL)
+		  (17 ADVP-TMP (18 ADV^T eft))
+		  (20 VBPI gelimpe+d)
+		  (22 BREAK LL)
+		  (24 CPX-THT-SPE=0 (25 C +t+at)
+				    (27 IP-SUB-SPE RMV:se_lichoma_HL...))
+		  (29 . ;)
+		  (31 BREAK HL))
+    (33 ID cobeowul,54.1753.1449))
+/~*
+LL Swa ic Hringdena HL hund missera LL weold under wolcnum. HL
+(cobeowul,54.1769.1462)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 ADVP (7 ADV Swa))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 NP-GEN (13 NR^G Hringdena))
+		  (15 BREAK HL)
+		  (17 NP-TMP (18 NUM hund)
+			     (20 NP-GEN (21 N^G missera)))
+		  (23 BREAK LL)
+		  (25 VBDI weold)
+		  (27 PP (28 P under)
+			 (30 NP-DAT (31 N^D wolcnum)))
+		  (33 . .)
+		  (35 BREAK HL))
+    (37 ID cobeowul,54.1769.1462))
+/~*
+LL ic +t+are socne HL singales w+ag LL modceare micle. HL
+(cobeowul,55.1774.1466)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N ic))
+		  (9 NP-GEN-ADT (10 D^G +t+are) (12 N^G socne))
+		  (14 BREAK HL)
+		  (16 ADVP-TMP (17 ADV^T singales))
+		  (19 VBDI w+ag)
+		  (21 BREAK LL)
+		  (23 NP-ACC (24 N^A modceare) (26 Q^A micle))
+		  (28 . .)
+		  (30 BREAK HL))
+    (32 ID cobeowul,55.1774.1466))
+/~*
+HL +tu us wel dohtest. LL
+(cobeowul,56.1820.1512)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N +tu))
+		  (9 NP-DAT (10 PRO^D us))
+		  (12 ADVP (13 ADV wel))
+		  (15 VBDI dohtest)
+		  (17 . .)
+		  (19 BREAK LL))
+    (21 ID cobeowul,56.1820.1512))
+/~*
+LL Gif ic +tonne on eor+tan HL owihte m+ag LL +tinre modlufan HL maran tilian,
+LL gumena dryhten, HL +donne ic gyt dyde LL, LL gu+dgeweorca HL, HL ic beo
+gearo sona. LL
+(cobeowul,56.1822.1514)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 PP (7 P Gif)
+			(9 CP-ADV-SPE (10 C 0)
+				      (12 IP-SUB-SPE RMV:ic_+tonne_on...)))
+		  (14 , ,)
+		  (16 BREAK HL)
+		  (18 NP-NOM (19 PRO^N ic))
+		  (21 BEP beo)
+		  (23 ADJP-NOM-PRD (24 ADJ^N gearo))
+		  (26 ADVP-TMP (27 ADV^T sona))
+		  (29 . .)
+		  (31 BREAK LL))
+    (33 ID cobeowul,56.1822.1514))
+/~*
+LL Gif ic +t+at gefricge HL ofer floda begang, LL +t+at +tec ymbsittend HL
+egesan +tywa+d, LL swa +tec hetende HL hwilum dydon LL LL LL, LL ic +de
++tusenda HL +tegna bringe, LL h+ale+ta to helpe. HL
+(cobeowul,56.1826.1516)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 PP (7 P Gif)
+			(9 CP-ADV-SPE (10 C 0)
+				      (12 IP-SUB-SPE RMV:ic_+t+at_*ICH*-1...)))
+		  (14 , ,)
+		  (16 BREAK LL)
+		  (18 NP-NOM (19 PRO^N ic))
+		  (21 NP-DAT (22 PRO^D +de))
+		  (24 NP-ACC (25 NUM^A +tusenda)
+			     (27 BREAK HL)
+			     (29 NP-GEN (30 N^G +tegna)
+					(32 NP-GEN-PRN *ICH*-3)))
+		  (34 VBP bringe)
+		  (36 , ,)
+		  (38 BREAK LL)
+		  (40 NP-GEN-PRN-3 (41 N^G h+ale+ta))
+		  (43 PP (44 P to)
+			 (46 NP-DAT (47 N^D helpe)))
+		  (49 . .)
+		  (51 BREAK HL))
+    (53 ID cobeowul,56.1826.1516))
+/~*
+HL Ic on $Higelac wat, LL Geata dryhten, HL +teah +de he geong sy LL, LL
+folces hyrde, HL +t+at he mec fremman wile LL $wordum ond worcum, HL +t+at ic
++te wel herige LL LL ond +te to geoce HL garholt bere, LL m+agenes fultum, HL
++t+ar +de bi+d manna +tearf LL LL LL. LL
+(cobeowul,56.1830.1518)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 PP (10 P on)
+			(12 NP-ACC (13 NR^A $Higelac)
+				   (15 NP-ACC-PRN *ICH*-1)))
+		  (17 VBP wat)
+		  (19 , ,)
+		  (21 BREAK LL)
+		  (23 NP-ACC-PRN-1 (24 NP-GEN (25 NR^G Geata))
+				   (27 N^A dryhten))
+		  (29 , ,)
+		  (31 BREAK HL)
+		  (33 PP (34 P +teah)
+			 (36 CP-ADV-SPE (37 C +de)
+					(39 IP-SUB-SPE RMV:he_geong_sy...)))
+		  (41 , ,)
+		  (43 BREAK LL)
+		  (45 NP-NOM-VOC (46 NP-GEN (47 N^G folces))
+				 (49 N^N hyrde))
+		  (51 , ,)
+		  (53 BREAK HL)
+		  (55 CP-THT-SPE (56 C +t+at)
+				 (58 IP-SUB-SPE RMV:he_mec_fremman...))
+		  (60 . .)
+		  (62 BREAK LL))
+    (64 ID cobeowul,56.1830.1518))
+/~*
+LL Gif him +tonne $Hre+tric HL to hofum Geata LL $ge+tinge+d, +teodnes bearn
+HL, HL he m+ag +t+ar fela LL freonda findan; HL
+(cobeowul,56.1836.1520)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 PP (7 P Gif)
+			(9 CP-ADV-SPE (10 C 0)
+				      (12 IP-SUB-SPE RMV:him_+tonne_$Hre+tric...)))
+		  (14 , ,)
+		  (16 BREAK HL)
+		  (18 NP-NOM (19 PRO^N he))
+		  (21 MDPI m+ag)
+		  (23 ADVP-LOC (24 ADV^L +t+ar))
+		  (26 NP (27 Q fela)
+			 (29 BREAK LL)
+			 (31 NP-GEN (32 N^G freonda)))
+		  (34 VB findan)
+		  (36 . ;)
+		  (38 BREAK HL))
+    (40 ID cobeowul,56.1836.1520))
+/~*
+HL ne hyrde ic snotorlicor LL on swa geongum feore HL guman +tingian LL. LL
+(cobeowul,57.1840.1525)
+*~/
+
+(0  (1 IP-MAT (2 CODING v1)
+	      (4 BREAK HL)
+	      (6 NEG ne)
+	      (8 VBD hyrde)
+	      (10 NP-NOM (11 PRO^N ic))
+	      (13 IP-INF RMV:snotorlicor_LL_on...)
+	      (15 . .)
+	      (17 BREAK LL))
+    (19 ID cobeowul,57.1840.1525))
+/~*
+LL +tu eart m+agenes strang HL ond on mode frod, LL wis wordcwida. HL
+(cobeowul,57.1843.1527)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N +tu))
+		  (9 BEPI eart)
+		  (11 ADJP-NOM-PRD (12 ADJP-NOM (13 NP-GEN (14 N^G m+agenes))
+						(16 ADJ^N strang))
+				   (18 BREAK HL)
+				   (20 CONJP (21 CONJ ond)
+					     (23 ADJP-NOM (24 PP (25 P on)
+								 (27 NP-DAT (28 N^D mode)))
+							  (30 ADJ^N frod)))
+				   (32 , ,)
+				   (34 BREAK LL)
+				   (36 CONJP (37 ADJP-NOM (38 ADJ^N wis)
+							  (40 NP-GEN (41 N^G wordcwida)))))
+		  (43 . .)
+		  (45 BREAK HL))
+    (47 ID cobeowul,57.1843.1527))
+/~*
+HL HL Wen ic talige, LL gif +t+at gegange+d, HL +t+at +de gar nyme+d, LL hild
+heorugrimme, HL Hre+tles eaferan LL, LL LL adl o+t+de iren HL ealdor +dinne,
+LL folces hyrde HL HL HL, HL ond +tu +tin feorh hafast LL LL, LL +t+at +te
+S+ageatas HL selran n+abben LL to geceosenne HL HL cyning +anigne, LL
+hordweard h+ale+ta, HL $gyf +tu healdan wylt LL maga rice HL HL. HL
+(cobeowul,57.1845.1529)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 IP-SMC-SPE RMV:HL_*exp*_Wen...)
+		  (8 NP-NOM (9 PRO^N ic))
+		  (11 VBP talige)
+		  (13 , ,)
+		  (15 BREAK LL)
+		  (17 PP (18 P gif)
+			 (20 CP-ADV-SPE (21 C 0)
+					(23 IP-SUB-SPE RMV:+t+at_*ICH*-2_gegange+d...)))
+		  (25 , ,)
+		  (27 BREAK LL)
+		  (29 CP-THT-SPE-x (30 C +t+at)
+				   (32 IP-SUB-SPE RMV:+te_S+ageatas_HL...))
+		  (34 . .)
+		  (36 BREAK HL))
+    (38 ID cobeowul,57.1845.1529))
+/~*
+LL Hafast +tu gefered HL +t+at +tam folcum sceal, LL Geata leodum HL ond
+Gardenum, LL sib $gem+ane, HL ond sacu restan, LL inwitni+tas, HL +te hie +ar
+drugon LL LL, LL wesan, +tenden ic wealde HL widan rices LL, LL ma+tmas
+gem+ane HL, HL $manig o+terne LL godum gegretan HL ofer ganotes b+a+d LL LL;
+LL
+(cobeowul,57.1855.1533)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 HVPI Hafast)
+		  (8 NP-NOM (9 PRO^N +tu))
+		  (11 VBN gefered)
+		  (13 BREAK HL)
+		  (15 CP-THT-SPE (16 C +t+at)
+				 (18 IP-SUB-SPE RMV:+tam_folcum_sceal...))
+		  (20 . ;)
+		  (22 BREAK LL))
+    (24 ID cobeowul,57.1855.1533))
+/~*
+HL Ic +ta leode wat LL LL ge wi+d feond ge wi+d freond HL f+aste geworhte, LL
++aghw+as unt+ale HL ealde wisan LL. LL
+(cobeowul,57.1863.1536)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-ACC-1 (10 D^A +ta) (12 N^A leode))
+		  (14 VBPI wat)
+		  (16 BREAK LL)
+		  (18 IP-SMC-SPE RMV:LL_*ICH*-1_ge...)
+		  (20 . .)
+		  (22 BREAK LL))
+    (24 ID cobeowul,57.1863.1536))
+/~*
+LL no he mid hearme HL of hli+des nosan LL $g+astas grette, HL
+(cobeowul,58.1890.1559)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 ADVP (7 NEG+ADV no))
+	      (9 NP-NOM (10 PRO^N he))
+	      (12 PP (13 P mid)
+		     (15 NP-DAT (16 N^D hearme)))
+	      (18 BREAK HL)
+	      (20 PP (21 P of)
+		     (23 NP-DAT (24 NP-GEN (25 N^G hli+des))
+				(27 N^D nosan)))
+	      (29 BREAK LL)
+	      (31 NP-ACC (32 N^A $g+astas))
+	      (34 VBD grette)
+	      (36 . ,)
+	      (38 BREAK HL))
+    (40 ID cobeowul,58.1890.1559))
+/~*
+LL He +t+am batwearde HL bunden golde LL swurd gesealde, HL +t+at he sy+d+tan
+w+as LL on meodubence HL $ma+tme +ty $weor+tra, LL yrfelafe HL. HL
+(cobeowul,58.1900.1566)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 NP-NOM (7 PRO^N He))
+	      (9 NP-DAT (10 D^D +t+am) (12 N^D batwearde))
+	      (14 BREAK HL)
+	      (16 NP-ACC (17 PTP-ACC (18 VBN^A bunden)
+				     (20 NP-DAT (21 N^D golde)))
+			 (23 BREAK LL)
+			 (25 N^A swurd))
+	      (27 VBD gesealde)
+	      (29 , ,)
+	      (31 BREAK HL)
+	      (33 CP-ADV (34 C +t+at)
+			 (36 IP-SUB RMV:he_sy+d+tan_w+as...))
+	      (38 . .)
+	      (40 BREAK HL))
+    (42 ID cobeowul,58.1900.1566))
+/~*
+HL n+as hio hnah swa +teah, LL ne to gnea+d gifa HL Geata leodum, LL
+ma+tmgestreona. HL
+(cobeowul,59.1925.1588)
+*~/
+
+(0  (1 IP-MAT (2 CODING v1)
+	      (4 BREAK HL)
+	      (6 NEG+BEDI n+as)
+	      (8 NP-NOM (9 PRO^N hio))
+	      (11 ADJP-NOM-PRD (12 ADJP-NOM (13 ADJ^N hnah))
+			       (15 CONJP *ICH*-1))
+	      (17 ADVP (18 ADV swa) (20 ADV +teah))
+	      (22 , ,)
+	      (24 BREAK LL)
+	      (26 CONJP-1 (27 NEG+CONJ ne)
+			  (29 ADJP-NOM (30 ADV to) (32 ADJ^N gnea+d)))
+	      (34 NP-GEN-ADT (35 N^G gifa))
+	      (37 BREAK HL)
+	      (39 NP-DAT-ADT (40 NP-GEN (41 NR^G Geata))
+			     (43 N^D leodum))
+	      (45 , ,)
+	      (47 BREAK LL)
+	      (49 NP-GEN-ADT (50 N^G ma+tmgestreona))
+	      (52 . .)
+	      (54 BREAK HL))
+    (56 ID cobeowul,59.1925.1588))
+/~*
+HL +d+ar hio sy+d+dan well LL in gumstole, HL gode, m+are, LL lifgesceafta HL
+lifigende breac, LL
+(cobeowul,60.1951.1601)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 ADVP-LOC (7 ADV^L +d+ar))
+	      (9 NP-NOM (10 PRO^N hio))
+	      (12 ADVP-TMP (13 ADV^T sy+d+dan))
+	      (15 ADVP (16 ADV well))
+	      (18 BREAK LL)
+	      (20 PP (21 P in)
+		     (23 NP-DAT (24 N^D gumstole)))
+	      (26 , ,)
+	      (28 BREAK HL)
+	      (30 ADJP-NOM (31 ADJ^N gode) (33 , ,) (35 ADJ^N m+are))
+	      (37 , ,)
+	      (39 BREAK LL)
+	      (41 NP-GEN (42 N^G lifgesceafta))
+	      (44 BREAK HL)
+	      (46 PTP-NOM (47 VAG^N lifigende))
+	      (49 VBDI breac)
+	      (51 . ,)
+	      (53 BREAK LL))
+    (55 ID cobeowul,60.1951.1601))
+/~*
+HL Hi si+d drugon, LL
+(cobeowul,60.1966.1612)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N Hi))
+	      (9 NP-ACC (10 N^A si+d))
+	      (12 VBDI drugon)
+	      (14 . ,)
+	      (16 BREAK LL))
+    (18 ID cobeowul,60.1966.1612))
+/~*
+HL Ic +d+as modceare LL sorhwylmum sea+d, HL
+(cobeowul,61.1992.1631)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 QP-GEN-ADT (10 D^G +d+as))
+		  (12 NP-ACC (13 N^A modceare))
+		  (15 BREAK LL)
+		  (17 NP-DAT-ADT (18 N^D sorhwylmum))
+		  (20 VBDI sea+d)
+		  (22 . ,)
+		  (24 BREAK HL))
+    (26 ID cobeowul,61.1992.1631))
+/~*
+HL ic +de lange b+ad LL +t+at +du +tone w+alg+ast HL wihte ne grette LL, LL LL
+lete Su+ddene HL sylfe geweor+dan LL gu+de wi+d Grendel HL HL HL. HL
+(cobeowul,61.1992.1633)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N ic))
+		  (9 NP-ACC (10 PRO^A +de))
+		  (12 ADVP-TMP (13 ADV^T lange))
+		  (15 VBDI b+ad)
+		  (17 BREAK LL)
+		  (19 CP-THT-SPE (20 C +t+at)
+				 (22 IP-SUB-SPE RMV:+du_+tone_w+alg+ast...))
+		  (24 . .)
+		  (26 BREAK HL))
+    (28 ID cobeowul,61.1992.1633))
+/~*
+HL Gode ic +tanc secge LL +t+as +de ic +de gesundne HL HL geseon moste LL. LL
+(cobeowul,61.1997.1635)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-DAT (7 NR^D Gode))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 NP-ACC (13 N^A +tanc))
+		  (15 VBP secge)
+		  (17 BREAK LL)
+		  (19 NP-GEN-ADT (20 D^G +t+as)
+				 (22 CP-THT-SPE (23 C +de)
+						(25 IP-SUB-SPE RMV:ic_+de_gesundne...)))
+		  (27 . .)
+		  (29 BREAK LL))
+    (31 ID cobeowul,61.1997.1635))
+/~*
+HL Ic +d+at eall gewr+ac, LL swa $begylpan ne +tearf HL Grendeles maga LL
+$+anig ofer eor+dan HL uhthlem +tone, LL se $+de lengest leofa+d HL la+dan
+cynnes, LL $facne bifongen HL HL. HL
+(cobeowul,62.2005.1640)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-ACC (10 D^A +d+at))
+		  (12 QP (13 Q eall))
+		  (15 VBDI gewr+ac)
+		  (17 , ,)
+		  (19 BREAK LL)
+		  (21 PP (22 P swa)
+			 (24 CP-ADV-SPE (25 C 0)
+					(27 IP-SUB-SPE RMV:$begylpan_ne_+tearf...)))
+		  (29 . .)
+		  (31 BREAK HL))
+    (33 ID cobeowul,62.2005.1640))
+/~*
+HL Ic +d+ar fur+dum cwom LL to +dam hringsele HL Hro+dgar gretan; LL
+(cobeowul,62.2009.1642)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 ADVP-LOC (10 ADV^L +d+ar))
+		  (12 ADVP-TMP (13 ADV^T fur+dum))
+		  (15 AXDI cwom)
+		  (17 BREAK LL)
+		  (19 PP (20 P to)
+			 (22 NP-DAT (23 D^D +dam) (25 N^D hringsele)))
+		  (27 BREAK HL)
+		  (29 NP-ACC (30 NR^A Hro+dgar))
+		  (32 VB gretan)
+		  (34 . ;)
+		  (36 BREAK LL))
+    (38 ID cobeowul,62.2009.1642))
+/~*
+HL ne seah ic widan feorh LL under heofones hwealf HL healsittendra LL
+medudream maran. HL
+(cobeowul,62.2014.1646)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK HL)
+		  (6 NEG ne)
+		  (8 VBDI seah)
+		  (10 NP-NOM (11 PRO^N ic))
+		  (13 NP-ACC-TMP (14 ADJ^A widan) (16 N^A feorh))
+		  (18 BREAK LL)
+		  (20 PP (21 P under)
+			 (23 NP-ACC (24 NP-GEN (25 N^G heofones))
+				    (27 N^A hwealf)))
+		  (29 BREAK HL)
+		  (31 NP-ACC (32 NP-GEN (33 N^G healsittendra))
+			     (35 BREAK LL)
+			     (37 N^A medudream)
+			     (39 Q^A maran))
+		  (41 . .)
+		  (43 BREAK HL))
+    (45 ID cobeowul,62.2014.1646))
+/~*
+HL oft hio beahwri+dan LL secge $sealde, HL +ar hie to setle geong LL. LL
+(cobeowul,62.2016.1650)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 ADVP-TMP (7 ADV^T oft))
+		  (9 NP-NOM (10 PRO^N hio))
+		  (12 NP-ACC (13 N^A beahwri+dan))
+		  (15 BREAK LL)
+		  (17 NP-DAT (18 N^D secge))
+		  (20 VBD $sealde)
+		  (22 , ,)
+		  (24 BREAK HL)
+		  (26 PP (27 P +ar)
+			 (29 CP-ADV-SPE (30 C 0)
+					(32 IP-SUB-SPE RMV:hie_to_setle...)))
+		  (34 . .)
+		  (36 BREAK LL))
+    (38 ID cobeowul,62.2016.1650))
+/~*
+LL +ta ic Freaware HL HL $fletsittende LL LL nemnan hyrde, HL +t+ar hio
+$n+agled sinc LL h+ale+dum sealde HL. HL
+(cobeowul,62.2020.1653)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-ACC-1 (7 D^A +ta))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 IP-INF-SPE RMV:Freaware_HL_HL...)
+		  (14 VBD hyrde)
+		  (16 , ,)
+		  (18 BREAK HL)
+		  (20 ADVP-LOC (21 ADV^L +t+ar)
+			       (23 CP-CMP-SPE (24 WADVP-LOC-2 0)
+					      (26 C 0)
+					      (28 IP-SUB-SPE RMV:*T*-2_hio_$n+agled...)))
+		  (30 . .)
+		  (32 BREAK HL))
+    (34 ID cobeowul,62.2020.1653))
+/~*
+LL +ty ic $Hea+dobeardna HL hyldo ne telge, LL dryhtsibbe d+al HL HL HL Denum
+unf+acne LL, LL LL freondscipe f+astne HL HL. HL
+(cobeowul,64.2067.1682)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-INS-ADT (7 D^I +ty))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 NP-ACC-2 (13 NP-GEN (14 NR^G $Hea+dobeardna))
+			       (16 BREAK HL)
+			       (18 N^A hyldo)
+			       (20 NP-ACC-PRN *ICH*-1))
+		  (22 NEG ne)
+		  (24 VBP telge)
+		  (26 , ,)
+		  (28 BREAK LL)
+		  (30 NP-ACC-PRN-1 (31 NP-GEN (32 N^G dryhtsibbe))
+				   (34 N^A d+al))
+		  (36 BREAK HL)
+		  (38 IP-SMC-SPE RMV:HL_HL_*ICH*-2...)
+		  (40 . .)
+		  (42 BREAK HL))
+    (44 ID cobeowul,64.2067.1682))
+/~*
+HL Ic sceal for+d sprecan LL gen ymbe Grendel, HL +t+at +du geare cunne, LL
+sinces brytta, HL to hwan sy+d+dan wear+d LL hondr+as h+ale+da HL HL. HL
+(cobeowul,64.2069.1684)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 MDPI sceal)
+		  (11 RP for+d)
+		  (13 VB sprecan)
+		  (15 BREAK LL)
+		  (17 ADVP-TMP (18 ADV^T gen))
+		  (20 PP (21 P ymbe)
+			 (23 NP-ACC (24 NR^A Grendel)))
+		  (26 , ,)
+		  (28 BREAK HL)
+		  (30 CP-ADV-SPE (31 C +t+at)
+				 (33 IP-SUB-SPE RMV:+du_geare_cunne...))
+		  (35 . .)
+		  (37 BREAK HL))
+    (39 ID cobeowul,64.2069.1684))
+/~*
+LL $sio w+as or+doncum HL eall gegyrwed LL deofles cr+aftum HL ond dracan
+fellum. LL
+(cobeowul,64.2085.1698)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N $sio))
+		  (9 BEDI w+as)
+		  (11 NP-DAT-ADT (12 N^D or+doncum))
+		  (14 BREAK HL)
+		  (16 QP (17 Q eall))
+		  (19 VBN gegyrwed)
+		  (21 BREAK LL)
+		  (23 NP-DAT-ADT (24 NP-DAT (25 NP-GEN (26 N^G deofles))
+					    (28 N^D cr+aftum))
+				 (30 BREAK HL)
+				 (32 CONJP (33 CONJ ond)
+					   (35 NP-DAT (36 NP-GEN (37 N^G dracan))
+						      (39 N^D fellum))))
+		  (41 . .)
+		  (43 BREAK LL))
+    (45 ID cobeowul,64.2085.1698))
+/~*
+LL He mec +t+ar on innan HL unsynnigne, LL dior d+adfruma, HL gedon wolde LL
+manigra sumne; HL
+(cobeowul,64.2089.1700)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N He))
+		  (9 NP-ACC (10 PRO^A mec)
+			    (12 NP-ACC-PRN *ICH*-1))
+		  (14 ADVP-LOC (15 ADV^L +t+ar))
+		  (17 PP (18 P on)
+			 (20 ADVP-LOC (21 ADV^L innan)))
+		  (23 BREAK HL)
+		  (25 ADJP-ACC (26 ADJ^A unsynnigne))
+		  (28 , ,)
+		  (30 BREAK LL)
+		  (32 NP-NOM (33 ADJ^N dior) (35 N^N d+adfruma))
+		  (37 , ,)
+		  (39 BREAK HL)
+		  (41 VB gedon)
+		  (43 MDD wolde)
+		  (45 BREAK LL)
+		  (47 NP-ACC-PRN-1 (48 NP-GEN (49 Q^G manigra))
+				   (51 Q^A sumne))
+		  (53 . ;)
+		  (55 BREAK HL))
+    (57 ID cobeowul,64.2089.1700))
+/~*
+HL hyt ne mihte swa, LL sy+d+dan ic on yrre HL uppriht astod LL. LL
+(cobeowul,65.2089.1701)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N hyt))
+		  (9 NEG ne)
+		  (11 MDD mihte)
+		  (13 VB *)
+		  (15 ADVP (16 ADV swa))
+		  (18 , ,)
+		  (20 CODE <P_65>)
+		  (22 BREAK LL)
+		  (24 PP (25 P sy+d+dan)
+			 (27 CP-ADV-SPE (28 C 0)
+					(30 IP-SUB-SPE RMV:ic_on_yrre...)))
+		  (32 . .)
+		  (34 BREAK LL))
+    (36 ID cobeowul,65.2089.1701))
+/~*
+LL +t+ar ic, +teoden min, HL +tine leode LL weor+dode weorcum. HL
+(cobeowul,65.2093.1704)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 ADVP-LOC (7 ADV^L +t+ar))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 , ,)
+		  (14 NP-NOM-VOC (15 N^N +teoden) (17 PRO$^N min))
+		  (19 , ,)
+		  (21 BREAK HL)
+		  (23 NP-ACC (24 PRO$^A +tine) (26 N^A leode))
+		  (28 BREAK LL)
+		  (30 VBD weor+dode)
+		  (32 NP-DAT-ADT (33 N^D weorcum))
+		  (35 . .)
+		  (37 BREAK HL))
+    (39 ID cobeowul,65.2093.1704))
+/~*
+HL He on weg losade, LL
+(cobeowul,65.2096.1706)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N He))
+		  (9 PP (10 P on)
+			(12 NP-ACC (13 N^A weg)))
+		  (15 VBD losade)
+		  (17 . ,)
+		  (19 BREAK LL))
+    (21 ID cobeowul,65.2096.1706))
+/~*
+LL Swa we +t+ar inne HL ondlangne $d+ag LL niode naman, HL o+d+d+at niht
+becwom LL o+der to yldum HL. HL
+(cobeowul,65.2115.1722)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 ADVP (7 ADV Swa))
+		  (9 NP-NOM (10 PRO^N we))
+		  (12 ADVP-LOC (13 ADV^L +t+ar))
+		  (15 ADVP-LOC (16 ADV^L inne))
+		  (18 BREAK HL)
+		  (20 NP-ACC-TMP (21 ADJ^A ondlangne) (23 N^A $d+ag))
+		  (25 BREAK LL)
+		  (27 NP-ACC (28 N^A niode))
+		  (30 VBDI naman)
+		  (32 , ,)
+		  (34 BREAK HL)
+		  (36 PP (37 P o+d+d+at)
+			 (39 CP-ADV-SPE (40 C 0)
+					(42 IP-SUB-SPE RMV:niht_becwom_LL...)))
+		  (44 . .)
+		  (46 BREAK HL))
+    (48 ID cobeowul,65.2115.1722))
+/~*
+HL hio +t+at lic +atb+ar LL feondes $f+a+dmum HL $under firgenstream. LL
+(cobeowul,66.2124.1733)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N hio))
+		  (9 NP-ACC (10 D^A +t+at) (12 N^A lic))
+		  (14 VBDI +atb+ar)
+		  (16 BREAK LL)
+		  (18 NP-DAT (19 NP-GEN (20 N^G feondes))
+			     (22 N^D $f+a+dmum))
+		  (24 BREAK HL)
+		  (26 PP (27 P $under)
+			 (29 NP-ACC (30 N^A firgenstream)))
+		  (32 . .)
+		  (34 BREAK LL))
+    (36 ID cobeowul,66.2124.1733))
+/~*
+HL he me mede gehet. LL
+(cobeowul,66.2131.1738)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N he))
+		  (9 NP-DAT (10 PRO^D me))
+		  (12 NP-ACC (13 N^A mede))
+		  (15 VBDI gehet)
+		  (17 . .)
+		  (19 BREAK LL))
+    (21 ID cobeowul,66.2131.1738))
+/~*
+LL Ic +da +d+as w+almes, HL +te is wide cu+d LL, LL $grimne gryrelicne HL
+grundhyrde fond; LL
+(cobeowul,66.2135.1740)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 ADVP-TMP (10 ADV^T +da))
+		  (12 NP-GEN-2 (13 D^G +d+as) (15 N^G w+almes))
+		  (17 , ,)
+		  (19 BREAK HL)
+		  (21 CP-CAR-SPE (22 WNP-NOM-1 0)
+				 (24 C +te)
+				 (26 IP-SUB-SPE RMV:*T*-1_is_wide...))
+		  (28 , ,)
+		  (30 BREAK LL)
+		  (32 NP-ACC (33 NP-GEN *ICH*-2)
+			     (35 ADJ^A $grimne)
+			     (37 ADJ^A gryrelicne)
+			     (39 BREAK HL)
+			     (41 N^A grundhyrde))
+		  (43 VBDI fond)
+		  (45 . ;)
+		  (47 BREAK LL))
+    (49 ID cobeowul,66.2135.1740))
+/~*
+HL N+as ic f+age +ta gyt, LL
+(cobeowul,66.2141.1746)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK HL)
+		  (6 NEG+BEDI N+as)
+		  (8 NP-NOM (9 PRO^N ic))
+		  (11 ADJP-NOM-PRD (12 ADJ^N f+age))
+		  (14 ADVP-TMP (15 ADV^T +ta))
+		  (17 ADVP-TMP (18 ADV^T gyt))
+		  (20 . ,)
+		  (22 BREAK LL))
+    (24 ID cobeowul,66.2141.1746))
+/~*
+LL Nealles ic +dam leanum HL forloren h+afde, LL m+agnes mede, HL
+(cobeowul,66.2145.1751)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 QP-GEN-ADT (7 NEG+Q^G Nealles))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 NP-DAT (13 D^D +dam)
+			     (15 N^D leanum)
+			     (17 NP-DAT-PRN *ICH*-1))
+		  (19 BREAK HL)
+		  (21 VBN forloren)
+		  (23 HVD h+afde)
+		  (25 , ,)
+		  (27 BREAK LL)
+		  (29 NP-DAT-PRN-1 (30 NP-GEN (31 N^G m+agnes))
+				   (33 N^D mede))
+		  (35 . ,)
+		  (37 BREAK HL))
+    (39 ID cobeowul,66.2145.1751))
+/~*
+LL LL +da ic +de, beorncyning, HL bringan wylle LL, LL LL estum geywan HL. HL
+(cobeowul,66.2145.1753)
+*~/
+
+(0  (1 IP-MAT-SPE-0 (2 CODING vo)
+		    (4 BREAK LL)
+		    (6 NP-ACC (7 D^A +da))
+		    (9 NP-NOM (10 PRO^N ic))
+		    (12 NP-DAT-ADT (13 PRO^D +de))
+		    (15 , ,)
+		    (17 NP-NOM-VOC (18 N^N beorncyning))
+		    (20 , ,)
+		    (22 BREAK HL)
+		    (24 VB bringan)
+		    (26 MDP wylle)
+		    (28 BREAK LL))
+    (30 ID cobeowul,66.2145.1753))
+/~*
+HL ic lyt hafo LL heafodmaga HL nefne, Hygelac, +dec. LL
+(cobeowul,66.2149.1756)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N ic))
+		  (9 NP (10 Q lyt)
+			(12 NP-GEN *ICH*-1))
+		  (14 HVP hafo)
+		  (16 BREAK LL)
+		  (18 NP-GEN-1 (19 N^G heafodmaga))
+		  (21 BREAK HL)
+		  (23 PP (24 P nefne)
+			 (26 , ,)
+			 (28 NP-NOM-VOC (29 NR^N Hygelac))
+			 (31 , ,)
+			 (33 NP-ACC (34 PRO^A +dec)))
+		  (36 . .)
+		  (38 BREAK LL))
+    (40 ID cobeowul,66.2149.1756))
+/~*
+LL Hyrde ic +t+at +tam fr+atwum HL feower mearas LL lungre, gelice, HL last
+weardode, LL +appelfealuwe HL; HL
+(cobeowul,67.2163.1768)
+*~/
+
+(0  (1 IP-MAT (2 CODING v1)
+	      (4 BREAK LL)
+	      (6 VBD Hyrde)
+	      (8 NP-NOM (9 PRO^N ic))
+	      (11 CP-THT (12 C +t+at)
+			 (14 IP-SUB RMV:+tam_fr+atwum_HL...))
+	      (16 . ;)
+	      (18 BREAK HL))
+    (20 ID cobeowul,67.2163.1768))
+/~*
+HL he him est geteah LL meara ond ma+dma. HL
+(cobeowul,67.2163.1769)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N he))
+	      (9 NP-DAT-ADT (10 PRO^D him))
+	      (12 NP-ACC (13 N^A est)
+			 (15 NP-GEN *ICH*-1))
+	      (17 VBDI geteah)
+	      (19 BREAK LL)
+	      (21 NP-GEN-1 (22 N^G meara) (24 CONJ ond) (26 N^G ma+dma))
+	      (28 . .)
+	      (30 BREAK HL))
+    (32 ID cobeowul,67.2163.1769))
+/~*
+LL Hyrde ic +t+at he +done healsbeah HL Hygde gesealde, LL wr+atlicne
+wundurma+d+dum, HL +done +te him Wealh+deo geaf, LL $+deodnes dohtor HL, HL
++trio wicg somod LL swancor ond sadolbeorht HL; HL
+(cobeowul,67.2172.1774)
+*~/
+
+(0  (1 IP-MAT (2 CODING v1)
+	      (4 BREAK LL)
+	      (6 VBD Hyrde)
+	      (8 NP-NOM (9 PRO^N ic))
+	      (11 CP-THT (12 C +t+at)
+			 (14 IP-SUB RMV:he_+done_healsbeah...))
+	      (16 . ;)
+	      (18 BREAK HL))
+    (20 ID cobeowul,67.2172.1774))
+/~*
+LL +t+at he on Biowulfes HL bearm alegde. LL
+(cobeowul,68.2190.1791)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 NP-ACC (7 D^A +t+at))
+	      (9 NP-NOM (10 PRO^N he))
+	      (12 PP (13 P on)
+		     (15 NP-ACC (16 NP-GEN (17 NR^G Biowulfes))
+				(19 BREAK HL)
+				(21 N^A bearm)))
+	      (23 VBD alegde)
+	      (25 . .)
+	      (27 BREAK LL))
+    (29 ID cobeowul,68.2190.1791))
+/~*
+HL he geheold tela LL fiftig $wintra - HL
+(cobeowul,68.2208.1799)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N he))
+	      (9 VBDI geheold)
+	      (11 ADVP (12 ADV tela))
+	      (14 BREAK LL)
+	      (16 NP-TMP (17 NUM fiftig)
+			 (19 NP-GEN (20 N^G $wintra)))
+	      (22 . -)
+	      (24 BREAK HL))
+    (26 ID cobeowul,68.2208.1799))
+/~*
+LL Heald +tu nu, hruse, HL nu h+ale+d ne $moston LL, LL eorla +ahte. HL
+(cobeowul,70.2244.1824)
+*~/
+
+(0  (1 IP-MAT-SPE-0 (2 CODING v1)
+		    (4 BREAK LL)
+		    (6 VBI Heald)
+		    (8 NP-NOM (9 PRO^N +tu))
+		    (11 ADVP-TMP (12 ADV^T nu))
+		    (14 , ,)
+		    (16 NP-NOM-VOC (17 N^N hruse))
+		    (19 , ,)
+		    (21 BREAK HL)
+		    (23 PP (24 P nu)
+			   (26 CP-ADV-SPE (27 C 0)
+					  (29 IPX-SUB-SPE=0 RMV:h+ale+d_ne_$moston...)))
+		    (31 , ,)
+		    (33 BREAK LL)
+		    (35 NP-ACC (36 NP-GEN (37 N^G eorla))
+			       (39 N^A +ahte))
+		    (41 . .)
+		    (43 BREAK HL))
+    (45 ID cobeowul,70.2244.1824))
+/~*
+HL $Ic nah hwa sweord wege LL LL o+d+de $feormie HL f+ated w+age, LL dryncf+at
+deore HL HL; HL
+(cobeowul,70.2252.1831)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N $Ic))
+		  (9 NEG+HVPI nah)
+		  (11 NP-ACC (12 Q^A hwa)
+			     (14 CP-REL-SPE (15 WNP-NOM-1 0)
+					    (17 C 0)
+					    (19 IP-SUB-SPE RMV:*T*-1_sweord_wege...)))
+		  (21 . ;)
+		  (23 BREAK HL))
+    (25 ID cobeowul,70.2252.1831))
+/~*
+HL He gesecean sceall LL $hord $on $hrusan, HL +t+ar he h+a+den gold LL wara+d
+$wintrum frod HL, HL
+(cobeowul,71.2275.1852)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N He))
+	      (9 VB gesecean)
+	      (11 MDPI sceall)
+	      (13 BREAK LL)
+	      (15 NP-ACC (16 N^A $hord)
+			 (18 CP-REL *ICH*-1))
+	      (20 PP (21 P $on)
+		     (23 NP-DAT (24 N^D $hrusan)))
+	      (26 , ,)
+	      (28 BREAK HL)
+	      (30 CP-REL-1 (31 WADVP-LOC-2 (32 ADV^L +t+ar))
+			   (34 C 0)
+			   (36 IP-SUB RMV:*T*-2_he_h+a+den...))
+	      (38 . ,)
+	      (40 BREAK HL))
+    (42 ID cobeowul,71.2275.1852))
+/~*
+HL he to for+d gestop LL dyrnan cr+afte HL dracan heafde neah. LL
+(cobeowul,71.2287.1865)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N he))
+	      (9 RP to)
+	      (11 RP for+d)
+	      (13 VBDI gestop)
+	      (15 BREAK LL)
+	      (17 NP-DAT-ADT (18 ADJ^D dyrnan) (20 N^D cr+afte))
+	      (22 BREAK HL)
+	      (24 ADVP (25 NP-DAT (26 NP-GEN (27 N^G dracan))
+				  (29 N^D heafde))
+		       (31 ADV neah))
+	      (33 . .)
+	      (35 BREAK LL))
+    (37 ID cobeowul,71.2287.1865))
+/~*
+HL He +t+at sona $onfand LL +d+at h+afde gumena sum HL goldes gefandod, LL
+heahgestreona HL. HL
+(cobeowul,71.2300.1877)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N He))
+	      (9 NP-ACC (10 D^A +t+at)
+			(12 CP-THT-PRN *ICH*-1))
+	      (14 ADVP-TMP (15 ADV^T sona))
+	      (17 RP+VBDI $onfand)
+	      (19 BREAK LL)
+	      (21 CP-THT-PRN-1 (22 C +d+at)
+			       (24 IP-SUB RMV:h+afde_gumena_sum...))
+	      (26 . .)
+	      (28 BREAK HL))
+    (30 ID cobeowul,71.2300.1877))
+/~*
+HL wisse he gearwe LL +t+at him holtwudu HL $helpan ne meahte, LL lind wi+d
+lige HL. HL
+(cobeowul,73.2337.1912)
+*~/
+
+(0  (1 IP-MAT (2 CODING v1)
+	      (4 BREAK HL)
+	      (6 VBDI wisse)
+	      (8 NP-NOM (9 PRO^N he))
+	      (11 ADVP (12 ADV gearwe))
+	      (14 BREAK LL)
+	      (16 CP-THT (17 C +t+at)
+			 (19 IP-SUB RMV:him_holtwudu_*ICH*-1...))
+	      (21 . .)
+	      (23 BREAK HL))
+    (25 ID cobeowul,73.2337.1912))
+/~*
+HL no he him $+ta s+acce ondred, LL
+(cobeowul,73.2345.1917)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 ADVP (7 NEG+ADV no))
+	      (9 NP-NOM (10 PRO^N he))
+	      (12 NP-DAT-RFL-ADT (13 PRO^D him))
+	      (15 NP-ACC (16 D^A $+ta) (18 N^A s+acce))
+	      (20 RP+VBDI ondred)
+	      (22 . ,)
+	      (24 BREAK LL))
+    (26 ID cobeowul,73.2345.1917))
+/~*
+LL hw+a+dre he him on folce HL freondlarum heold, LL estum mid are, HL
+o+d+d+at he yldra wear+d LL, LL LL Wedergeatum weold HL HL. HL
+(cobeowul,74.2373.1934)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 ADVP (7 ADV hw+a+dre))
+	      (9 NP-NOM (10 PRO^N he))
+	      (12 NP-DAT (13 PRO^D him))
+	      (15 PP (16 P on)
+		     (18 NP-DAT (19 N^D folce)))
+	      (21 BREAK HL)
+	      (23 NP-DAT-ADT (24 N^D freondlarum))
+	      (26 VBDI heold)
+	      (28 , ,)
+	      (30 BREAK LL)
+	      (32 ADVP (33 ADV estum))
+	      (35 PP (36 P mid)
+		     (38 NP-DAT (39 N^D are)))
+	      (41 , ,)
+	      (43 BREAK HL)
+	      (45 PP (46 P o+d+d+at)
+		     (48 CP-ADV (49 C 0)
+				(51 IP-SUB RMV:he_yldra_wear+d...)))
+	      (53 . .)
+	      (55 BREAK HL))
+    (57 ID cobeowul,74.2373.1934))
+/~*
+LL h+afdon hy forhealden HL helm Scylfinga, LL +tone selestan HL s+acyninga LL
++tara +de in Swiorice HL sinc brytnade LL, LL m+arne +teoden. HL
+(cobeowul,74.2379.1937)
+*~/
+
+(0  (1 IP-MAT (2 CODING v1)
+	      (4 BREAK LL)
+	      (6 HVDI h+afdon)
+	      (8 NP-NOM (9 PRO^N hy))
+	      (11 VBN forhealden)
+	      (13 BREAK HL)
+	      (15 NP-ACC (16 N^A helm)
+			 (18 NP-GEN (19 NR^G Scylfinga))
+			 (21 , ,)
+			 (23 BREAK LL)
+			 (25 NP-ACC-PRN (26 D^A +tone)
+					(28 ADJ^A selestan)
+					(30 BREAK HL)
+					(32 NP-GEN (33 N^G s+acyninga)
+						   (35 BREAK LL)
+						   (37 CP-REL (38 WNP-GEN-1 (39 D^G +tara))
+							      (41 C +de)
+							      (43 IP-SUB RMV:*T*-1_in_Swiorice...)))
+					(45 , ,)
+					(47 BREAK LL)
+					(49 NP-ACC-PRN (50 ADJ^A m+arne) (52 N^A +teoden))))
+	      (54 . .)
+	      (56 BREAK HL))
+    (58 ID cobeowul,74.2379.1937))
+/~*
+HL he gewr+ac sy+d+dan LL cealdum cearsi+dum, HL
+(cobeowul,74.2392.1950)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N he))
+	      (9 VBDI gewr+ac)
+	      (11 ADVP-TMP (12 ADV^T sy+d+dan))
+	      (14 BREAK LL)
+	      (16 NP-DAT-ADT (17 ADJ^D cealdum) (19 N^D cearsi+dum))
+	      (21 . ,)
+	      (23 BREAK HL))
+    (25 ID cobeowul,74.2392.1950))
+/~*
+LL Swa he ni+da gehwane HL genesen h+afde, LL sli+dra $geslyhta, HL sunu
+Ecg+diowes, LL ellenweorca, HL o+d +done anne d+ag LL +te he wi+d +tam wyrme
+HL gewegan sceolde LL. LL
+(cobeowul,74.2397.1953)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 ADVP (7 ADV Swa))
+	      (9 NP-NOM (10 PRO^N he))
+	      (12 NP-ACC (13 NP-GEN (14 N^G ni+da)
+				    (16 NP-GEN-PRN *ICH*-1)
+				    (18 NP-GEN-PRN *ICH*-2))
+			 (20 Q^A gehwane))
+	      (22 BREAK HL)
+	      (24 VBN genesen)
+	      (26 HVD h+afde)
+	      (28 , ,)
+	      (30 BREAK LL)
+	      (32 NP-GEN-PRN-1 (33 ADJ^G sli+dra) (35 N^G $geslyhta))
+	      (37 , ,)
+	      (39 BREAK HL)
+	      (41 NP-NOM (42 N^N sunu)
+			 (44 NP-GEN (45 NR^G Ecg+diowes)))
+	      (47 , ,)
+	      (49 BREAK LL)
+	      (51 NP-GEN-PRN-2 (52 N^G ellenweorca))
+	      (54 , ,)
+	      (56 BREAK HL)
+	      (58 PP (59 P o+d)
+		     (61 NP-ACC (62 D^A +done)
+				(64 NUM^A anne)
+				(66 N^A d+ag)
+				(68 BREAK LL)
+				(70 CP-REL (71 WNP-3 0)
+					   (73 C +te)
+					   (75 IP-SUB RMV:*T*-3_he_wi+d...))))
+	      (77 . .)
+	      (79 BREAK LL))
+    (81 ID cobeowul,74.2397.1953))
+/~*
+HL He ofer willan giong LL to +d+as +de he eor+dsele HL anne wisse, LL hl+aw
+under hrusan HL holmwylme neh, LL y+dgewinne HL; HL
+(cobeowul,75.2409.1963)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N He))
+	      (9 PP (10 P ofer)
+		    (12 NP-DAT (13 N^D willan)))
+	      (15 VBDI giong)
+	      (17 BREAK LL)
+	      (19 PP (20 P to)
+		     (22 NP-GEN (23 D^G +d+as)
+				(25 CP-REL (26 WADVP-LOC-1 0)
+					   (28 C +de)
+					   (30 IP-SUB RMV:*T*-1_he_eor+dsele...))))
+	      (32 . ;)
+	      (34 BREAK HL))
+    (36 ID cobeowul,75.2409.1963))
+/~*
+LL Fela ic on giogo+de HL gu+dr+asa gen+as, LL orleghwila; HL
+(cobeowul,75.2425.1977)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP (7 Q Fela)
+			(9 NP-GEN *ICH*-1))
+		  (11 NP-NOM (12 PRO^N ic))
+		  (14 PP (15 P on)
+			 (17 NP-DAT (18 N^D giogo+de)))
+		  (20 BREAK HL)
+		  (22 NP-GEN-1 (23 N^G gu+dr+asa)
+			       (25 NP-GEN-PRN *ICH*-2))
+		  (27 VBDI gen+as)
+		  (29 , ,)
+		  (31 BREAK LL)
+		  (33 NP-GEN-PRN-2 (34 N^G orleghwila))
+		  (36 . ;)
+		  (38 BREAK HL))
+    (40 ID cobeowul,75.2425.1977))
+/~*
+HL ic +t+at eall gemon. LL
+(cobeowul,75.2425.1978)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N ic))
+		  (9 NP-ACC (10 D^A +t+at))
+		  (12 QP (13 Q eall))
+		  (15 VBPI gemon)
+		  (17 . .)
+		  (19 BREAK LL))
+    (21 ID cobeowul,75.2425.1978))
+/~*
+LL Ic w+as syfanwintre, HL +ta mec $sinca $baldor, LL freawine folca, HL +at
+minum $f+ader genam LL; LL
+(cobeowul,75.2428.1980)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 BEDI w+as)
+		  (11 ADJP-NOM-PRD (12 ADJ^N syfanwintre))
+		  (14 , ,)
+		  (16 BREAK HL)
+		  (18 PP (19 P +ta)
+			 (21 CP-ADV-SPE (22 C 0)
+					(24 IP-SUB-SPE RMV:mec_$sinca_$baldor...)))
+		  (26 . ;)
+		  (28 BREAK LL))
+    (30 ID cobeowul,75.2428.1980))
+/~*
+HL +tonne he gyd wrece, LL sarigne sang, HL +tonne his sunu hanga+d LL hrefne
+to hro+dre HL, HL ond he him $helpe ne m+ag, LL eald ond infrod, HL +anige
+gefremman LL LL. LL
+(cobeowul,76.2444.1995)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 ADVP-TMP (7 ADV^T +tonne))
+		  (9 NP-NOM (10 PRO^N he))
+		  (12 NP-ACC (13 N^A gyd)
+			     (15 NP-ACC-PRN *ICH*-1))
+		  (17 VBPS wrece)
+		  (19 , ,)
+		  (21 BREAK LL)
+		  (23 NP-ACC-PRN-1 (24 ADJ^A sarigne) (26 N^A sang))
+		  (28 , ,)
+		  (30 BREAK HL)
+		  (32 PP (33 P +tonne)
+			 (35 CP-ADV-SPE (36 C 0)
+					(38 IP-SUB-SPE RMV:his_sunu_hanga+d...)))
+		  (40 . .)
+		  (42 BREAK LL))
+    (44 ID cobeowul,76.2444.1995))
+/~*
+LL no +dy +ar he +tone hea+dorinc HL hatian ne meahte LL la+dum d+adum, HL
++teah him leof ne w+as LL. LL
+(cobeowul,76.2464.2012)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 ADVP-TMP (7 NEG+ADV no)
+			      (9 NP-INS-EXT (10 D^I +dy))
+			      (12 ADV^T +ar))
+		  (14 NP-NOM (15 PRO^N he))
+		  (17 NP-ACC (18 D^A +tone) (20 N^A hea+dorinc))
+		  (22 BREAK HL)
+		  (24 VB hatian)
+		  (26 NEG ne)
+		  (28 MDD meahte)
+		  (30 BREAK LL)
+		  (32 NP-DAT-ADT (33 ADJ^D la+dum) (35 N^D d+adum))
+		  (37 , ,)
+		  (39 BREAK HL)
+		  (41 PP (42 P +teah)
+			 (44 CP-ADV-SPE (45 C 0)
+					(47 IP-SUB-SPE RMV:*pro*_him_leof...)))
+		  (49 . .)
+		  (51 BREAK LL))
+    (53 ID cobeowul,76.2464.2012))
+/~*
+LL He +da mid +t+are sorhge, HL +te him $swa sar belamp LL, LL gumdream ofgeaf,
+HL
+(cobeowul,76.2468.2014)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N He))
+		  (9 ADVP-TMP (10 ADV^T +da))
+		  (12 PP (13 P mid)
+			 (15 NP-DAT (16 D^D +t+are)
+				    (18 N^D sorhge)
+				    (20 , ,)
+				    (22 BREAK HL)
+				    (24 CP-REL-SPE (25 WNP-NOM-1 0)
+						   (27 C +te)
+						   (29 IP-SUB-SPE RMV:*T*-1_him_$swa...))))
+		  (31 , ,)
+		  (33 BREAK LL)
+		  (35 NP-ACC (36 N^A gumdream))
+		  (38 RP+VBDI ofgeaf)
+		  (40 . ,)
+		  (42 BREAK HL))
+    (44 ID cobeowul,76.2468.2014))
+/~*
+LL +ta ic on morgne gefr+agn HL HL m+ag o+derne LL billes ecgum HL on bonan
+st+alan, LL +t+ar Ongen+teow HL Eofores niosa+d LL LL. LL
+(cobeowul,77.2484.2026)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 ADVP-TMP (7 ADV^T +ta))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 PP-1 (13 P on)
+			   (15 NP-DAT (16 N^D morgne)))
+		  (18 VBDI gefr+agn)
+		  (20 BREAK HL)
+		  (22 IP-INF-SPE RMV:HL_*ICH*-1_m+ag...)
+		  (24 . .)
+		  (26 BREAK LL))
+    (28 ID cobeowul,77.2484.2026))
+/~*
+LL Ic him +ta ma+dmas, HL +te he me sealde LL, LL geald +at gu+de, HL swa me
+gife+de w+as LL, LL leohtan sweorde; HL
+(cobeowul,77.2490.2033)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-DAT (10 PRO^D him))
+		  (12 ADVP-TMP (13 ADV^T +ta))
+		  (15 NP-ACC (16 N^A ma+dmas)
+			     (18 , ,)
+			     (20 BREAK HL)
+			     (22 CP-REL-SPE (23 WNP-1 0)
+					    (25 C +te)
+					    (27 IP-SUB-SPE RMV:*T*-1_he_me...)))
+		  (29 , ,)
+		  (31 BREAK LL)
+		  (33 VBDI geald)
+		  (35 PP (36 P +at)
+			 (38 NP-DAT (39 N^D gu+de)))
+		  (41 , ,)
+		  (43 BREAK HL)
+		  (45 PP (46 P swa)
+			 (48 CPX-CMP-SPE (49 IPX-SUB-SPE RMV:*exp*_me_gife+de...)))
+		  (51 , ,)
+		  (53 BREAK LL)
+		  (55 NP-DAT-ADT (56 ADJ^D leohtan) (58 N^D sweorde))
+		  (60 . ;)
+		  (62 BREAK HL))
+    (64 ID cobeowul,77.2490.2033))
+/~*
+HL he me lond forgeaf, LL eard, e+delwyn. HL
+(cobeowul,77.2490.2034)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N he))
+		  (9 NP-DAT (10 PRO^D me))
+		  (12 NP-ACC (13 N^A lond)
+			     (15 NP-ACC-PRN *ICH*-1))
+		  (17 VBDI forgeaf)
+		  (19 , ,)
+		  (21 BREAK LL)
+		  (23 NP-ACC-PRN-1 (24 N^A eard)
+				   (26 , ,)
+				   (28 NP-ACC-PRN (29 N^A e+delwyn)))
+		  (31 . .)
+		  (33 BREAK HL))
+    (35 ID cobeowul,77.2490.2034))
+/~*
+LL Symle ic him on fe+dan HL beforan wolde, LL ana on orde, HL
+(cobeowul,77.2497.2038)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 ADVP-TMP (7 ADV^T Symle))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 PP (13 NP-DAT (14 PRO^D him))
+			 (16 P on)
+			 (18 NP-DAT (19 N^D fe+dan)))
+		  (21 BREAK HL)
+		  (23 ADVP-LOC (24 ADV^L beforan))
+		  (26 MDD wolde)
+		  (28 , ,)
+		  (30 BREAK LL)
+		  (32 FP ana)
+		  (34 PP (35 P on)
+			 (37 NP-DAT (38 N^D orde)))
+		  (40 . ,)
+		  (42 BREAK HL))
+    (44 ID cobeowul,77.2497.2038))
+/~*
+LL Sy+d+dan ic for duge+dum HL D+aghrefne wear+d LL to handbonan, HL Huga
+cempan; LL
+(cobeowul,77.2501.2041)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 ADVP-TMP (7 ADV^T Sy+d+dan))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 PP (13 P for)
+			 (15 NP-DAT (16 N^D duge+dum)))
+		  (18 BREAK HL)
+		  (20 NP-DAT (21 NR^D D+aghrefne)
+			     (23 NP-DAT-PRN *ICH*-1))
+		  (25 BEDI wear+d)
+		  (27 BREAK LL)
+		  (29 PP (30 P to)
+			 (32 NP-DAT (33 N^D handbonan)))
+		  (35 , ,)
+		  (37 BREAK HL)
+		  (39 NP-DAT-PRN-1 (40 NP-GEN (41 NR^G Huga))
+				   (43 N^D cempan))
+		  (45 . ;)
+		  (47 BREAK LL))
+    (49 ID cobeowul,77.2501.2041))
+/~*
+LL nalles he +da fr+atwe HL $Frescyninge, LL breostweor+dunge, HL bringan
+moste, LL
+(cobeowul,77.2501.2042)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 QP-GEN-ADT (7 NEG+Q^G nalles))
+		  (9 NP-NOM (10 PRO^N he))
+		  (12 NP-ACC (13 D^A +da)
+			     (15 N^A fr+atwe)
+			     (17 NP-ACC-PRN *ICH*-1))
+		  (19 BREAK HL)
+		  (21 NP-DAT (22 NR^D $Frescyninge))
+		  (24 , ,)
+		  (26 BREAK LL)
+		  (28 NP-ACC-PRN-1 (29 N^A breostweor+dunge))
+		  (31 , ,)
+		  (33 BREAK HL)
+		  (35 VB bringan)
+		  (37 MDD moste)
+		  (39 . ,)
+		  (41 BREAK LL))
+    (43 ID cobeowul,77.2501.2042))
+/~*
+HL Ic gene+dde fela LL gu+da on geogo+de; HL
+(cobeowul,78.2510.2051)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N Ic))
+	      (9 VBD gene+dde)
+	      (11 NP (12 Q fela)
+		     (14 BREAK LL)
+		     (16 NP-GEN (17 N^G gu+da)))
+	      (19 PP (20 P on)
+		     (22 NP-DAT (23 N^D geogo+de)))
+	      (25 . ;)
+	      (27 BREAK HL))
+    (29 ID cobeowul,78.2510.2051))
+/~*
+HL gyt ic wylle, LL frod folces weard, HL f+ah+de secan, LL LL $m+ar+du
+fremman HL, HL gif mec se manscea+da LL of eor+dsele HL ut gesece+d LL. LL
+(cobeowul,78.2510.2052)
+*~/
+
+(0  (1 IP-MAT-SPE-0 (2 CODING vo)
+		    (4 BREAK HL)
+		    (6 ADVP-TMP (7 ADV^T gyt))
+		    (9 NP-NOM (10 PRO^N ic))
+		    (12 MDP wylle)
+		    (14 , ,)
+		    (16 BREAK LL)
+		    (18 NP-NOM-VOC (19 ADJ^N frod)
+				   (21 NP-GEN (22 N^G folces))
+				   (24 N^N weard))
+		    (26 , ,)
+		    (28 BREAK HL)
+		    (30 NP-ACC (31 N^A f+ah+de))
+		    (33 VB secan)
+		    (35 , ,)
+		    (37 BREAK LL)
+		    (39 IPX-MAT-PAREN=0 RMV:LL_$m+ar+du_fremman...)
+		    (41 , ,)
+		    (43 BREAK HL)
+		    (45 PP (46 P gif)
+			   (48 CP-ADV-SPE (49 C 0)
+					  (51 IP-SUB-SPE RMV:mec_se_manscea+da...)))
+		    (53 . .)
+		    (55 BREAK LL))
+    (57 ID cobeowul,78.2510.2052))
+/~*
+HL Nolde ic sweord beran, LL w+apen to wyrme, HL gif ic wiste hu LL LL wi+d
++dam agl+acean HL $elles meahte LL gylpe wi+dgripan, HL swa ic gio $wi+d
+Grendle dyde LL LL LL. LL
+(cobeowul,78.2516.2055)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK HL)
+		  (6 NEG+MDD Nolde)
+		  (8 NP-NOM (9 PRO^N ic))
+		  (11 NP-ACC (12 N^A sweord)
+			     (14 NP-ACC-PRN *ICH*-3))
+		  (16 VB beran)
+		  (18 , ,)
+		  (20 BREAK LL)
+		  (22 NP-ACC-PRN-3 (23 N^A w+apen))
+		  (25 PP (26 P to)
+			 (28 NP-DAT (29 N^D wyrme)))
+		  (31 , ,)
+		  (33 BREAK HL)
+		  (35 PP (36 P gif)
+			 (38 CP-ADV-SPE (39 C 0)
+					(41 IP-SUB-SPE RMV:ic_wiste_hu...)))
+		  (43 . .)
+		  (45 BREAK LL))
+    (47 ID cobeowul,78.2516.2055))
+/~*
+HL for+don ic me on hafu LL bord ond byrnan. HL
+(cobeowul,78.2522.2058)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 ADVP (7 ADV for+don))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 PP (13 NP-DAT (14 PRO^D me))
+			 (16 P on))
+		  (18 HVP hafu)
+		  (20 BREAK LL)
+		  (22 NP-ACC (23 N^A bord) (25 CONJ ond) (27 N^A byrnan))
+		  (29 . .)
+		  (31 BREAK HL))
+    (33 ID cobeowul,78.2522.2058))
+/~*
+HL Nelle ic beorges weard $forfleon LL fotes trem, HL
+(cobeowul,78.2524.2060)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK HL)
+		  (6 NEG+MDP Nelle)
+		  (8 NP-NOM (9 PRO^N ic))
+		  (11 NP-ACC (12 NP-GEN (13 N^G beorges))
+			     (15 N^A weard))
+		  (17 VB $forfleon)
+		  (19 BREAK LL)
+		  (21 NP-ACC-ADT (22 NP-GEN (23 N^G fotes))
+				 (25 N^A trem))
+		  (27 . ,)
+		  (29 BREAK HL))
+    (31 ID cobeowul,78.2524.2060))
+/~*
+HL Ic eom on mode from LL +t+at ic wi+d +tone gu+dflogan HL gylp ofersitte LL.
+LL
+(cobeowul,78.2527.2063)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 BEPI eom)
+		  (11 PP (12 P on)
+			 (14 NP-DAT (15 N^D mode)))
+		  (17 ADJP-NOM-PRD (18 ADJ^N from)
+				   (20 BREAK LL)
+				   (22 CP-THT-SPE (23 C +t+at)
+						  (25 IP-SUB-SPE RMV:ic_wi+d_+tone...)))
+		  (27 . .)
+		  (29 BREAK LL))
+    (31 ID cobeowul,78.2527.2063))
+/~*
+HL Ic mid elne sceall LL gold gegangan, HL
+(cobeowul,78.2535.2069)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 PP (10 P mid)
+			(12 NP-DAT (13 N^D elne)))
+		  (15 MDPI sceall)
+		  (17 BREAK LL)
+		  (19 NP-ACC (20 N^A gold))
+		  (22 VB gegangan)
+		  (24 . ,)
+		  (26 BREAK HL))
+    (28 ID cobeowul,78.2535.2069))
+/~*
+HL he on searwum bad. LL
+(cobeowul,79.2566.2102)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N he))
+	      (9 PP (10 P on)
+		    (12 NP-DAT (13 N^D searwum)))
+	      (15 VBDI bad)
+	      (17 . .)
+	      (19 BREAK LL))
+    (21 ID cobeowul,79.2566.2102))
+/~*
+LL He fr+atwe geheold HL fela missera, LL bill ond byrnan, HL o+d+d+at his
+byre mihte LL eorlscipe efnan HL swa his +arf+ader LL LL; LL
+(cobeowul,81.2620.2148)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 NP-NOM (7 PRO^N He))
+	      (9 NP-ACC (10 N^A fr+atwe)
+			(12 NP-ACC-PRN *ICH*-1))
+	      (14 VBDI geheold)
+	      (16 BREAK HL)
+	      (18 NP-TMP (19 Q fela)
+			 (21 NP-GEN (22 N^G missera)))
+	      (24 , ,)
+	      (26 BREAK LL)
+	      (28 NP-ACC-PRN-1 (29 N^A bill) (31 CONJ ond) (33 N^A byrnan))
+	      (35 , ,)
+	      (37 BREAK HL)
+	      (39 PP (40 P o+d+d+at)
+		     (42 CP-ADV (43 C 0)
+				(45 IP-SUB RMV:his_byre_mihte...)))
+	      (47 . ;)
+	      (49 BREAK LL))
+    (51 ID cobeowul,81.2620.2148))
+/~*
+LL Ic +d+at $m+al geman, HL +t+ar we medu +tegun LL, LL +tonne $we geheton HL
+ussum hlaforde LL in biorsele, HL +de us +das beagas geaf LL, LL +t+at we him
++da gu+dgetawa HL gyldan woldon LL gif him +tyslicu HL +tearf gelumpe LL, LL
+helmas ond heard sweord HL HL. HL
+(cobeowul,81.2631.2160)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-ACC (10 D^A +d+at) (12 N^A $m+al))
+		  (14 VBPI geman)
+		  (16 , ,)
+		  (18 BREAK HL)
+		  (20 ADVP-LOC (21 ADV^L +t+ar)
+			       (23 CP-REL-SPE (24 WADVP-LOC-4 0)
+					      (26 C 0)
+					      (28 IP-SUB-SPE RMV:*T*-4_we_medu...)))
+		  (30 , ,)
+		  (32 BREAK LL)
+		  (34 PP (35 P +tonne)
+			 (37 CP-ADV-SPE (38 C 0)
+					(40 IP-SUB-SPE RMV:$we_geheton_HL...)))
+		  (42 . .)
+		  (44 BREAK HL))
+    (46 ID cobeowul,81.2631.2160))
+/~*
+HL +de he usic on herge geceas LL to +dyssum si+dfate HL sylfes willum, LL
+(cobeowul,81.2638.2162)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-INS-ADT (7 D^I +de))
+		  (9 NP-NOM (10 PRO^N he))
+		  (12 NP-ACC (13 PRO^A usic))
+		  (15 PP (16 P on)
+			 (18 NP-DAT (19 N^D herge)))
+		  (21 VBDI geceas)
+		  (23 BREAK LL)
+		  (25 PP (26 P to)
+			 (28 NP-DAT (29 D^D +dyssum) (31 N^D si+dfate)))
+		  (33 BREAK HL)
+		  (35 NP-DAT-ADT (36 NP-GEN (37 ADJ^G sylfes))
+				 (39 N^D willum))
+		  (41 . ,)
+		  (43 BREAK LL))
+    (45 ID cobeowul,81.2638.2162))
+/~*
+HL Ic wat $geare LL +t+at n+aron ealdgewyrht, HL +t+at he ana scyle LL $Geata
+dugu+de HL gnorn +trowian LL, LL gesigan +at s+acce HL HL HL; HL
+(cobeowul,82.2656.2173)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 VBPI wat)
+		  (11 ADVP (12 ADV $geare))
+		  (14 BREAK LL)
+		  (16 CP-THT-SPE (17 C +t+at)
+				 (19 IP-SUB-SPE RMV:n+aron_ealdgewyrht_,...))
+		  (21 . ;)
+		  (23 BREAK HL))
+    (25 ID cobeowul,82.2656.2173))
+/~*
+HL ic +de full+astu. LL
+(cobeowul,82.2666.2182)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N ic))
+		  (9 NP-DAT (10 PRO^D +de))
+		  (12 VBPI full+astu)
+		  (14 . .)
+		  (16 BREAK LL))
+    (18 ID cobeowul,82.2666.2182))
+/~*
+HL he geblodegod wear+d LL sawuldriore, HL
+(cobeowul,83.2688.2203)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N he))
+	      (9 VBN geblodegod)
+	      (11 BEDI wear+d)
+	      (13 BREAK LL)
+	      (15 NP-DAT-ADT (16 N^D sawuldriore))
+	      (18 . ,)
+	      (20 BREAK HL))
+    (22 ID cobeowul,83.2688.2203))
+/~*
+LL +da ic +at +tearfe $gefr+agn HL +teodcyninges LL LL andlongne eorl HL ellen
+cy+dan, LL cr+aft ond cen+du, HL swa him gecynde w+as LL LL. LL
+(cobeowul,83.2694.2206)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 ADVP-TMP (7 ADV^T +da))
+	      (9 NP-NOM (10 PRO^N ic))
+	      (12 PP-4 (13 P +at)
+		       (15 NP-DAT (16 N^D +tearfe)
+				  (18 NP-GEN *ICH*-3)))
+	      (20 VBDI $gefr+agn)
+	      (22 BREAK HL)
+	      (24 NP-GEN-3 (25 N^G +teodcyninges))
+	      (27 BREAK LL)
+	      (29 IP-INF RMV:LL_*ICH*-4_andlongne...)
+	      (31 . .)
+	      (33 BREAK LL))
+    (35 ID cobeowul,83.2694.2206))
+/~*
+LL Ne hedde he +t+as heafolan, HL
+(cobeowul,83.2697.2208)
+*~/
+
+(0  (1 IP-MAT (2 CODING v1)
+	      (4 BREAK LL)
+	      (6 NEG Ne)
+	      (8 VBD hedde)
+	      (10 NP-NOM (11 PRO^N he))
+	      (13 NP-GEN (14 D^G +t+as) (16 N^G heafolan))
+	      (18 . ,)
+	      (20 BREAK HL))
+    (22 ID cobeowul,83.2697.2208))
+/~*
+HL he +t+at sona onfand, LL +t+at him on breostum HL $bealoni+de weoll LL
+attor on innan HL. HL
+(cobeowul,84.2711.2225)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N he))
+	      (9 NP-ACC (10 D^A +t+at)
+			(12 CP-THT-PRN *ICH*-1))
+	      (14 ADVP-TMP (15 ADV^T sona))
+	      (17 RP+VBDI onfand)
+	      (19 , ,)
+	      (21 BREAK LL)
+	      (23 CP-THT-PRN-1 (24 C +t+at)
+			       (26 IP-SUB RMV:him_on_breostum...))
+	      (28 . .)
+	      (30 BREAK HL))
+    (32 ID cobeowul,84.2711.2225))
+/~*
+HL he ofer benne spr+ac, LL wunde w+albleate; HL
+(cobeowul,84.2724.2234)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N he))
+	      (9 PP (10 P ofer)
+		    (12 NP-ACC (13 N^A benne)
+			       (15 NP-ACC-PRN *ICH*-1)))
+	      (17 VBDI spr+ac)
+	      (19 , ,)
+	      (21 BREAK LL)
+	      (23 NP-ACC-PRN-1 (24 N^A wunde) (26 ADJ^A w+albleate))
+	      (28 . ;)
+	      (30 BREAK HL))
+    (32 ID cobeowul,84.2724.2234))
+/~*
+HL wisse he gearwe LL +t+at he d+aghwila HL gedrogen h+afde, LL eor+dan $wynne
+HL; HL
+(cobeowul,84.2724.2235)
+*~/
+
+(0  (1 IP-MAT (2 CODING v1)
+	      (4 BREAK HL)
+	      (6 VBD wisse)
+	      (8 NP-NOM (9 PRO^N he))
+	      (11 ADVP (12 ADV gearwe))
+	      (14 BREAK LL)
+	      (16 CP-THT (17 C +t+at)
+			 (19 IP-SUB RMV:he_d+aghwila_*ICH*-1...))
+	      (21 . ;)
+	      (23 BREAK HL))
+    (25 ID cobeowul,84.2724.2235))
+/~*
+LL Nu ic suna minum HL syllan wolde LL gu+dgew+adu, HL +t+ar me gife+de swa LL
++anig yrfeweard HL +after wurde LL lice gelenge HL. HL
+(cobeowul,84.2724.2237)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 ADVP-TMP (7 ADV^T Nu))
+		  (9 NP-NOM (10 PRO^N ic))
+		  (12 NP-DAT (13 N^D suna) (15 PRO$^D minum))
+		  (17 BREAK HL)
+		  (19 VB syllan)
+		  (21 MDD wolde)
+		  (23 BREAK LL)
+		  (25 NP-ACC (26 N^A gu+dgew+adu))
+		  (28 , ,)
+		  (30 BREAK HL)
+		  (32 ADVP-LOC (33 ADV^L +t+ar)
+			       (35 CP-REL-SPE (36 WADVP-LOC-1 0)
+					      (38 C 0)
+					      (40 IP-SUB-SPE RMV:*T*-1_me_gife+de...)))
+		  (42 . .)
+		  (44 BREAK HL))
+    (46 ID cobeowul,84.2724.2237))
+/~*
+HL Ic +das leode heold LL fiftig wintra; HL
+(cobeowul,84.2732.2239)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-ACC (10 D^A +das) (12 N^A leode))
+		  (14 VBDI heold)
+		  (16 BREAK LL)
+		  (18 NP-TMP (19 NUM fiftig)
+			     (21 NP-GEN (22 N^G wintra)))
+		  (24 . ;)
+		  (26 BREAK HL))
+    (28 ID cobeowul,84.2732.2239))
+/~*
+HL Ic on earde bad LL m+algesceafta, HL
+(cobeowul,84.2736.2242)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 PP (10 P on)
+			(12 NP-DAT (13 N^D earde)))
+		  (15 VBDI bad)
+		  (17 BREAK LL)
+		  (19 NP-GEN (20 N^G m+algesceafta))
+		  (22 . ,)
+		  (24 BREAK HL))
+    (26 ID cobeowul,84.2736.2242))
+/~*
+HL Ic +d+as ealles m+ag LL feorhbennum seoc HL gefean habban; LL
+(cobeowul,85.2739.2247)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-GEN-ADT (10 D^G +d+as) (12 Q^G ealles))
+		  (14 MDPI m+ag)
+		  (16 BREAK LL)
+		  (18 ADJP-NOM (19 NP-DAT (20 N^D feorhbennum))
+			       (22 ADJ^N seoc))
+		  (24 BREAK HL)
+		  (26 NP-ACC (27 N^A gefean))
+		  (29 HV habban)
+		  (31 . ;)
+		  (33 BREAK LL))
+    (35 ID cobeowul,85.2739.2247))
+/~*
+HL Nu +du lungre geong LL hord sceawian HL under harne stan, LL Wiglaf leofa,
+HL nu se wyrm lige+d LL, LL LL swefe+d sare wund, HL since bereafod LL LL. LL
+(cobeowul,85.2742.2250)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 ADVP-TMP (7 ADV^T Nu))
+		  (9 NP-NOM (10 PRO^N +du))
+		  (12 ADVP (13 ADV lungre))
+		  (15 AXI geong)
+		  (17 BREAK LL)
+		  (19 NP-ACC (20 N^A hord))
+		  (22 VB sceawian)
+		  (24 BREAK HL)
+		  (26 PP (27 P under)
+			 (29 NP-ACC (30 ADJ^A harne) (32 N^A stan)))
+		  (34 , ,)
+		  (36 BREAK LL)
+		  (38 NP-NOM-VOC (39 NR^N Wiglaf) (41 ADJ^N leofa))
+		  (43 , ,)
+		  (45 BREAK HL)
+		  (47 PP (48 P nu)
+			 (50 CP-ADV-SPE (51 C 0)
+					(53 IP-SUB-SPE RMV:se_wyrm_lige+d...)))
+		  (55 . .)
+		  (57 BREAK LL))
+    (59 ID cobeowul,85.2742.2250))
+/~*
+LL +da ic snude gefr+agn HL HL HL sunu Wihstanes LL +after wordcwydum HL
+wundum dryhtne LL hyran hea+dosiocum HL, HL HL hringnet beran, LL brogdne
+beadusercean HL $under beorges hrof LL LL. LL
+(cobeowul,85.2752.2254)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 ADVP-TMP-2 (7 ADV^T +da))
+	      (9 NP-NOM (10 PRO^N ic))
+	      (12 ADVP-3 (13 ADV snude))
+	      (15 VBDI gefr+agn)
+	      (17 BREAK HL)
+	      (19 IP-INF RMV:HL_HL_*ICH*-3...)
+	      (21 . .)
+	      (23 BREAK LL))
+    (25 ID cobeowul,85.2752.2254))
+/~*
+LL Swylce he siomian geseah HL segn eallgylden LL heah ofer horde, HL
+hondwundra m+ast, LL gelocen leo+docr+aftum; HL
+(cobeowul,85.2767.2262)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 ADVP (7 ADV Swylce))
+	      (9 NP-NOM (10 PRO^N he))
+	      (12 IP-INF RMV:siomian_*ICH*-1_*ICH*-3...)
+	      (14 VBDI geseah)
+	      (16 BREAK HL)
+	      (18 NP-ACC-1 (19 N^A segn)
+			   (21 ADJ^A eallgylden)
+			   (23 NP-ACC-PRN *ICH*-2))
+	      (25 BREAK LL)
+	      (27 ADVP-3 (28 ADV heah))
+	      (30 PP-4 (31 P ofer)
+		       (33 NP-DAT (34 N^D horde)))
+	      (36 , ,)
+	      (38 BREAK HL)
+	      (40 NP-ACC-PRN-2 (41 NP-GEN (42 N^G hondwundra))
+			       (44 Q^A m+ast)
+			       (46 , ,)
+			       (48 BREAK LL)
+			       (50 PTP-ACC (51 VBN^A gelocen)
+					   (53 NP-DAT (54 N^D leo+docr+aftum))))
+	      (56 . ;)
+	      (58 BREAK HL))
+    (60 ID cobeowul,85.2767.2262))
+/~*
+LL +da ic on hl+awe gefr+agn HL HL HL hord reafian, LL eald enta geweorc, HL
+anne mannan LL, LL LL him on bearm $hladon HL bunan ond discas LL sylfes dome
+HL HL; HL
+(cobeowul,86.2773.2268)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 ADVP-2 (7 ADV^T +da))
+	      (9 NP-NOM (10 PRO^N ic))
+	      (12 PP-3 (13 P on)
+		       (15 NP-DAT (16 N^D hl+awe)))
+	      (18 VBDI gefr+agn)
+	      (20 BREAK HL)
+	      (22 IP-INF RMV:HL_HL_*ICH*-3...)
+	      (24 . ;)
+	      (26 BREAK HL))
+    (28 ID cobeowul,86.2773.2268))
+/~*
+LL He +da mid +tam ma+dmum HL HL m+arne +tioden, LL dryhten sinne, HL
+driorigne fand LL ealdres +at ende; HL
+(cobeowul,86.2788.2276)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 NP-NOM (7 PRO^N He))
+	      (9 ADVP-TMP (10 ADV^T +da))
+	      (12 PP (13 P mid)
+		     (15 NP-DAT (16 D^D +tam) (18 N^D ma+dmum)))
+	      (20 BREAK HL)
+	      (22 IP-SMC RMV:HL_m+arne_+tioden...)
+	      (24 VBDI fand)
+	      (26 BREAK LL)
+	      (28 NP-GEN-1 (29 N^G ealdres))
+	      (31 PP-2 (32 P +at)
+		       (34 NP-DAT (35 NP-GEN *ICH*-1)
+				  (37 N^D ende)))
+	      (39 . ;)
+	      (41 BREAK HL))
+    (43 ID cobeowul,86.2788.2276))
+/~*
+HL he hine eft ongon LL w+ateres weorpan, HL o+d+t+at wordes ord LL breosthord
++turhbr+ac HL HL. LL
+(cobeowul,86.2788.2277)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N he))
+	      (9 NP-ACC (10 PRO^A hine))
+	      (12 ADVP-TMP (13 ADV^T eft))
+	      (15 AXDI ongon)
+	      (17 BREAK LL)
+	      (19 NP-GEN-ADT (20 N^G w+ateres))
+	      (22 VB weorpan)
+	      (24 , ,)
+	      (26 BREAK HL)
+	      (28 PP (29 P o+d+t+at)
+		     (31 CP-ADV (32 C 0)
+				(34 IP-SUB RMV:wordes_ord_LL...)))
+	      (36 BREAK HL)
+	      (38 CODE ...)
+	      (40 . .)
+	      (42 BREAK LL))
+    (44 ID cobeowul,86.2788.2277))
+/~*
+LL Ic +dara fr+atwa HL frean ealles +danc, LL wuldurcyninge, HL wordum secge,
+LL ecum dryhtne, HL +te ic her on starie LL, LL +t+as +de ic moste HL minum
+leodum LL +ar swyltd+age HL swylc gestrynan LL. LL
+(cobeowul,86.2793.2280)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-GEN-5 (10 D^G +dara)
+			      (12 N^G fr+atwa)
+			      (14 CP-REL-SPE *ICH*-4))
+		  (16 BREAK HL)
+		  (18 NP-DAT (19 N^D frean)
+			     (21 NP-GEN (22 Q^G ealles))
+			     (24 NP-DAT-PRN *ICH*-1)
+			     (26 NP-DAT-PRN *ICH*-2))
+		  (28 NP-ACC (29 NP-GEN *ICH*-5)
+			     (31 N^A +danc))
+		  (33 , ,)
+		  (35 BREAK LL)
+		  (37 NP-DAT-PRN-1 (38 N^D wuldurcyninge))
+		  (40 , ,)
+		  (42 BREAK HL)
+		  (44 NP-DAT-ADT (45 N^D wordum))
+		  (47 VBP secge)
+		  (49 , ,)
+		  (51 BREAK LL)
+		  (53 NP-DAT-PRN-2 (54 ADJ^D ecum) (56 NR^D dryhtne))
+		  (58 , ,)
+		  (60 BREAK HL)
+		  (62 CP-REL-SPE-4 (63 WNP-3 0)
+				   (65 C +te)
+				   (67 IP-SUB-SPE RMV:ic_her_*T*-3...))
+		  (69 , ,)
+		  (71 BREAK LL)
+		  (73 NP-GEN-ADT (74 D^G +t+as)
+				 (76 CP-THT-SPE (77 C +de)
+						(79 IP-SUB-SPE RMV:ic_moste_HL...)))
+		  (81 . .)
+		  (83 BREAK LL))
+    (85 ID cobeowul,86.2793.2280))
+/~*
+HL ne m+ag ic her leng wesan. LL
+(cobeowul,86.2799.2283)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK HL)
+		  (6 NEG ne)
+		  (8 MDPI m+ag)
+		  (10 NP-NOM (11 PRO^N ic))
+		  (13 ADVP-LOC (14 ADV^L her))
+		  (16 ADVP-TMP (17 ADV^T leng))
+		  (19 BE wesan)
+		  (21 . .)
+		  (23 BREAK LL))
+    (25 ID cobeowul,86.2799.2283))
+/~*
+LL +tu eart endelaf HL usses cynnes, LL W+agmundinga. HL
+(cobeowul,87.2809.2290)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N +tu))
+		  (9 BEPI eart)
+		  (11 NP-NOM-PRD (12 N^N endelaf)
+				 (14 BREAK HL)
+				 (16 NP-GEN (17 PRO$^G usses)
+					    (19 N^G cynnes)
+					    (21 , ,)
+					    (23 BREAK LL)
+					    (25 NP-GEN-PRN (26 NR^G W+agmundinga))))
+		  (28 . .)
+		  (30 BREAK HL))
+    (32 ID cobeowul,87.2809.2290))
+/~*
+HL ic him +after sceal. LL
+(cobeowul,87.2814.2293)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N ic))
+		  (9 PP (10 NP-DAT (11 PRO^D him))
+			(13 P +after))
+		  (15 MDPI sceal)
+		  (17 . .)
+		  (19 BREAK LL))
+    (21 ID cobeowul,87.2814.2293))
+/~*
+LL LL Ne meahte he on eor+dan, HL +deah he u+de wel LL, LL on +dam frumgare HL
+feorh gehealdan LL, LL ne +d+as wealdendes HL wiht oncirran LL; LL
+(cobeowul,88.2855.2323)
+*~/
+
+(0  (1 IP-MAT-0 (2 CODING v1)
+		(4 BREAK LL)
+		(6 NEG Ne)
+		(8 MDD meahte)
+		(10 NP-NOM (11 PRO^N he))
+		(13 PP (14 P on)
+		       (16 NP-DAT (17 N^D eor+dan)))
+		(19 , ,)
+		(21 BREAK HL)
+		(23 PP (24 P +deah)
+		       (26 CP-ADV (27 C 0)
+				  (29 IP-SUB RMV:he_u+de_wel...)))
+		(31 , ,)
+		(33 BREAK LL)
+		(35 PP (36 P on)
+		       (38 NP-DAT (39 D^D +dam) (41 N^D frumgare)))
+		(43 BREAK HL)
+		(45 NP-ACC (46 N^A feorh))
+		(48 VB gehealdan)
+		(50 BREAK LL))
+    (52 ID cobeowul,88.2855.2323))
+/~*
+LL Ic him lifwra+de HL lytle meahte LL +atgifan +at gu+de, HL
+(cobeowul,89.2877.2335)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 NP-DAT (10 PRO^D him))
+		  (12 NP-ACC (13 N^A lifwra+de) (15 BREAK HL) (17 Q^A lytle))
+		  (19 MDD meahte)
+		  (21 CODE <P_89>)
+		  (23 BREAK LL)
+		  (25 VB +atgifan)
+		  (27 PP (28 P +at)
+			 (30 NP-DAT (31 N^D gu+de)))
+		  (33 . ,)
+		  (35 BREAK HL))
+    (37 ID cobeowul,89.2877.2335))
+/~*
+HL n+as he f+age +ta git, LL
+(cobeowul,92.2971.2402)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK HL)
+		  (6 NEG+BEDI n+as)
+		  (8 NP-NOM (9 PRO^N he))
+		  (11 ADJP-NOM-PRD (12 ADJ^N f+age))
+		  (14 ADVP-TMP (15 ADV^T +ta))
+		  (17 ADVP-TMP (18 ADV^T git))
+		  (20 . ,)
+		  (22 BREAK LL))
+    (24 ID cobeowul,92.2971.2402))
+/~*
+LL $He $+dam fr+atwum feng. HL
+(cobeowul,92.2989.2414)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N $He))
+		  (9 NP-DAT (10 D^D $+dam) (12 N^D fr+atwum))
+		  (14 VBDI feng)
+		  (16 . .)
+		  (18 BREAK HL))
+    (20 ID cobeowul,92.2989.2414))
+/~*
+HL he ne leag fela LL wyrda ne worda. HL
+(cobeowul,93.3028.2436)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK HL)
+	      (6 NP-NOM (7 PRO^N he))
+	      (9 NEG ne)
+	      (11 VBDI leag)
+	      (13 NP (14 Q fela)
+		     (16 BREAK LL)
+		     (18 NP-GEN (19 N^G wyrda) (21 NEG+CONJ ne) (23 N^G worda)))
+	      (25 . .)
+	      (27 BREAK HL))
+    (29 ID cobeowul,93.3028.2436))
+/~*
+LL +ar hi +t+ar gesegan HL HL syllicran wiht, LL wyrm on wonge HL
+wi+derr+ahtes +t+ar LL $la+dne licgean HL; HL
+(cobeowul,93.3038.2444)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 ADVP-TMP (7 ADV^T +ar))
+	      (9 NP-NOM (10 PRO^N hi))
+	      (12 ADVP-LOC (13 ADV^L +t+ar))
+	      (15 VBDI gesegan)
+	      (17 BREAK HL)
+	      (19 IP-INF RMV:HL_syllicran_wiht...)
+	      (21 . ;)
+	      (23 BREAK HL))
+    (25 ID cobeowul,93.3038.2444))
+/~*
+LL +tonne w+as +t+at yrfe, HL eacencr+aftig, LL iumonna gold HL galdre
+bewunden, LL +t+at +dam hringsele HL hrinan ne moste LL gumena +anig, HL nefne
+god sylfa, LL sigora so+dcyning, HL sealde +tam +de he wolde LL LL LL he is
+manna gehyld HL HL HL hord openian LL, LL efne swa hwylcum manna HL swa him
+gemet +duhte LL LL LL. LL
+(cobeowul,94.3051.2456)
+*~/
+
+(0  (1 IP-MAT-PAREN (2 CODING vo)
+		    (4 BREAK LL)
+		    (6 NP-NOM (7 PRO^N he))
+		    (9 BEPI is)
+		    (11 NP-NOM-PRD (12 NP-GEN (13 N^G manna))
+				   (15 N^N gehyld))
+		    (17 BREAK HL))
+    (19 ID cobeowul,94.3051.2456))
+/~*
+LL n+as he goldhw+ate HL gearwor h+afde LL agendes est HL +ar gesceawod. LL
+(cobeowul,94.3069.2469)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 ADVP (7 NEG+ADV n+as))
+	      (9 NP-NOM (10 PRO^N he))
+	      (12 ADJP-ACC (13 ADJ^A goldhw+ate))
+	      (15 BREAK HL)
+	      (17 ADVP (18 ADV gearwor))
+	      (20 HVD h+afde)
+	      (22 BREAK LL)
+	      (24 NP-ACC (25 NP-GEN (26 N^G agendes))
+			 (28 N^A est))
+	      (30 BREAK HL)
+	      (32 ADVP-TMP (33 ADV^T +ar))
+	      (35 VBN gesceawod)
+	      (37 . .)
+	      (39 BREAK LL))
+    (41 ID cobeowul,94.3069.2469))
+/~*
+LL Ne meahton we gel+aran HL leofne +teoden, LL rices hyrde, HL r+ad +anigne,
+LL +t+at he ne grette HL goldweard +tone LL, LL LL lete hyne licgean HL +t+ar
+he longe w+as LL, LL LL wicum wunian HL o+d woruldende LL LL LL; LL
+(cobeowul,95.3079.2475)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING v1)
+		  (4 BREAK LL)
+		  (6 NEG Ne)
+		  (8 MDDI meahton)
+		  (10 NP-NOM (11 PRO^N we))
+		  (13 VB gel+aran)
+		  (15 BREAK HL)
+		  (17 NP-ACC (18 ADJ^A leofne)
+			     (20 N^A +teoden)
+			     (22 , ,)
+			     (24 BREAK LL)
+			     (26 NP-ACC-PRN (27 NP-GEN (28 N^G rices))
+					    (30 N^A hyrde)))
+		  (32 , ,)
+		  (34 BREAK HL)
+		  (36 NP-ACC (37 N^A r+ad)
+			     (39 Q^A +anigne)
+			     (41 , ,)
+			     (43 BREAK LL)
+			     (45 CP-THT-PRN (46 C +t+at)
+					    (48 IP-SUB-SPE RMV:he_ne_grette...)))
+		  (50 . ;)
+		  (52 BREAK LL))
+    (54 ID cobeowul,95.3079.2475))
+/~*
+LL Ic w+as +t+ar inne. HL
+(cobeowul,95.3087.2481)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK LL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 BEDI w+as)
+		  (11 ADVP-LOC (12 ADV^L +t+ar))
+		  (14 ADVP-LOC (15 ADV^L inne))
+		  (17 . .)
+		  (19 BREAK HL))
+    (21 ID cobeowul,95.3087.2481))
+/~*
+HL Ic on ofoste gefeng LL micle mid mundum LL m+agenbyr+denne HL hordgestreona,
+HL
+(cobeowul,95.3090.2484)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N Ic))
+		  (9 PP (10 P on)
+			(12 NP-DAT (13 N^D ofoste)))
+		  (15 VBDI gefeng)
+		  (17 BREAK LL)
+		  (19 QP-ACC (20 Q^A micle))
+		  (22 PP (23 P mid)
+			 (25 NP-DAT (26 N^D mundum)))
+		  (28 BREAK LL)
+		  (30 NP-ACC (31 N^A m+agenbyr+denne)
+			     (33 BREAK HL)
+			     (35 NP-GEN (36 N^G hordgestreona)))
+		  (38 . ,)
+		  (40 BREAK HL))
+    (42 ID cobeowul,95.3090.2484))
+/~*
+HL ic eow wisige, LL +t+at ge genoge HL neon sceawia+d LL beagas ond brad gold
+HL. HL
+(cobeowul,95.3101.2493)
+*~/
+
+(0  (1 IP-MAT-SPE (2 CODING vo)
+		  (4 BREAK HL)
+		  (6 NP-NOM (7 PRO^N ic))
+		  (9 NP-DAT (10 PRO^D eow))
+		  (12 VBP wisige)
+		  (14 , ,)
+		  (16 BREAK LL)
+		  (18 CP-ADV-SPE (19 C +t+at)
+				 (21 IP-SUB-SPE RMV:ge_genoge_HL...))
+		  (23 . .)
+		  (25 BREAK HL))
+    (27 ID cobeowul,95.3101.2493))
+/~*
+LL Hi on beorg dydon HL beg ond siglu, LL eall swylce hyrsta, HL swylce on
+horde +ar LL ni+dhedige men HL genumen h+afdon LL, LL
+(cobeowul,97.3163.2530)
+*~/
+
+(0  (1 IP-MAT (2 CODING vo)
+	      (4 BREAK LL)
+	      (6 NP-NOM (7 PRO^N Hi))
+	      (9 PP (10 P on)
+		    (12 NP-ACC (13 N^A beorg)))
+	      (15 VBDI dydon)
+	      (17 BREAK HL)
+	      (19 NP-ACC (20 N^A beg)
+			 (22 CONJ ond)
+			 (24 N^A siglu)
+			 (26 , ,)
+			 (28 BREAK LL)
+			 (30 NP-ACC-PRN (31 Q^A eall)
+					(33 ADJ^A swylce)
+					(35 N^A hyrsta)
+					(37 , ,)
+					(39 BREAK HL)
+					(41 CP-CMP (42 WADJP-ACC-1 (43 ADJ^A swylce))
+						   (45 C 0)
+						   (47 IP-SUB RMV:*T*-1_on_horde...))))
+	      (49 . ,)
+	      (51 BREAK LL))
+    (53 ID cobeowul,97.3163.2530))
+/*
+FOOTER
+  source file, hits/tokens/total
+  coding-vtoc.out	285/285/285
+*/
+/*
+SUMMARY:  
+source files, hits/tokens/total
+  coding-vtoc.out	285/285/285
+whole search, hits/tokens/total
+		285/285/285
+*/

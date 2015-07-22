@@ -1,16 +1,16 @@
 /*
 PREFACE:  
 CorpusSearch copyright Beth Randall 2005.
-Date:  Mon Jul 20 16:45:47 BST 2015
+Date:  Tue Jul 14 17:54:18 BST 2015
 
 command file:     first-cut1.q
-preference file:  /Users/susanpintzuk/Dropbox/Publications/fulk_festscrift/Data_Fulk/Paper_searches/beo.prf
+preference file:  /Users/susanpintzuk/Dropbox/Publications/Fulk_festscrift/Data_Fulk/Paper_searches/susan.prf
 input file:       first-cut.out
 output file:      first-cut1.out
 
 remark:  eliminate clauses with empty verbs or 2 non-finite verbs 
 
-definition file:  beo.def
+definition file:  susan.def
 node:   IP*
 query:  ((IP* idoms 
    *BE|*BE^D|*BAG*|*BEN*|*HV|*HV^D|*HAG*|*HVN*|*MD|*MD^D|*AX|*AX^D|*AXG*|*AXN*|*VB|*VB^D|*VAG*|*VBN*) 
@@ -1129,30 +1129,6 @@ fyrene $fremman HL feond on helle LL. LL
 		     (22 NP-DAT (23 N^D helle)))
 	      (25 BREAK LL))
     (27 ID cobeowul,6.99.78))
-/~*
-LL W+as se grimma g+ast HL HL Grendel haten, LL m+are mearcstapa, HL se +te
-moras heold, LL fen ond f+asten HL; HL
-(cobeowul,6.102.80)
-*~/
-
-(0  (1 IP-MAT (2 BREAK LL)
-	      (4 BEDI W+as)
-	      (6 NP-NOM-3 (7 D^N se) (9 ADJ^N grimma) (11 N^N g+ast))
-	      (13 BREAK HL)
-	      (15 IP-SMC RMV:HL_*-3_Grendel...)
-	      (17 VBN haten)
-	      (19 , ,)
-	      (21 BREAK LL)
-	      (23 NP-NOM-PRN (24 ADJ^N m+are)
-			     (26 N^N mearcstapa)
-			     (28 , ,)
-			     (30 BREAK HL)
-			     (32 CP-REL (33 WNP-NOM-1 (34 D^N se))
-					(36 C +te)
-					(38 IP-SUB RMV:*T*-1_moras_*ICH*-2...)))
-	      (40 . ;)
-	      (42 BREAK HL))
-    (44 ID cobeowul,6.102.80))
 /~*
 HL fifelcynnes eard LL wons+ali wer HL weardode hwile, LL si+t+dan him
 scyppend HL forscrifen h+afde LL in Caines cynne HL. HL
@@ -4103,28 +4079,6 @@ LL Ic hine cu+de HL cnihtwesende. LL
 		  (17 . .)
 		  (19 BREAK LL))
     (21 ID cobeowul,13.371.308))
-/~*
-LL W+as his ealdf+ader HL HL Ecg+teo haten, LL +d+am to ham forgeaf HL Hre+tel
-Geata LL angan dohtor HL; HL
-(cobeowul,13.373.310)
-*~/
-
-(0  (1 IP-MAT-SPE (2 BREAK LL)
-		  (4 BEDI W+as)
-		  (6 NP-NOM-3 (7 PRO$ his)
-			      (9 N^N ealdf+ader)
-			      (11 CP-REL-SPE *ICH*-2))
-		  (13 BREAK HL)
-		  (15 IP-SMC-SPE RMV:HL_*-3_Ecg+teo...)
-		  (17 VBN haten)
-		  (19 , ,)
-		  (21 BREAK LL)
-		  (23 CP-REL-SPE-2 (24 WNP-DAT-1 (25 D^D +d+am))
-				   (27 C 0)
-				   (29 IP-SUB-SPE RMV:*T*-1_to_ham...))
-		  (31 . ;)
-		  (33 BREAK HL))
-    (35 ID cobeowul,13.373.310))
 /~*
 LL W+as his ealdf+ader HL HL Ecg+teo haten, LL +d+am to ham forgeaf HL Hre+tel
 Geata LL angan dohtor HL; HL
@@ -11389,23 +11343,6 @@ HL +t+at +d+as ahl+acan LL blodge beadufolme HL onberan wolde LL LL. LL
 				    (32 IP-SUB RMV:*T*-1_+d+as_ahl+acan...)))
 	      (34 BREAK LL))
     (36 ID cobeowul,31.987.823))
-/~*
-LL +da w+as haten hre+te HL Heort innanweard LL LL folmum gefr+atwod HL. HL
-(cobeowul,31.991.825)
-*~/
-
-(0  (1 IP-MAT (2 BREAK LL)
-	      (4 ADVP-TMP (5 ADV^T +da))
-	      (7 BEDI w+as)
-	      (9 VBN haten)
-	      (11 ADVP (12 ADV hre+te))
-	      (14 BREAK HL)
-	      (16 NP-NOM-1 (17 NR^N Heort) (19 ADJ^N innanweard))
-	      (21 BREAK LL)
-	      (23 IP-SMC RMV:LL_*-1_folmum...)
-	      (25 . .)
-	      (27 BREAK HL))
-    (29 ID cobeowul,31.991.825))
 /~*
 HL Fela +t+ara w+as, LL wera ond wifa, HL +te +t+at winreced, LL gestsele
 gyredon HL. HL
@@ -30142,34 +30079,6 @@ HL sibb +afre ne m+ag LL wiht onwendan HL +tam +de wel +tence+d LL. LL
 	      (35 BREAK LL))
     (37 ID cobeowul,80.2599.2132))
 /~*
-LL Wiglaf w+as haten HL Weoxstanes sunu, LL leoflic lindwiga, HL leod
-Scylfinga, LL m+ag +alfheres HL; HL
-(cobeowul,80.2602.2134)
-*~/
-
-(0  (1 IP-MAT (2 BREAK LL)
-	      (4 NP-NOM-PRD-1 (5 NR^N Wiglaf))
-	      (7 BEDI w+as)
-	      (9 VBN haten)
-	      (11 BREAK HL)
-	      (13 NP-NOM-2 (14 NP-GEN (15 NR^G Weoxstanes))
-			   (17 N^N sunu)
-			   (19 , ,)
-			   (21 BREAK LL)
-			   (23 NP-NOM-PRN (24 ADJ^N leoflic) (26 N^N lindwiga))
-			   (28 , ,)
-			   (30 BREAK HL)
-			   (32 NP-NOM-PRN (33 N^N leod)
-					  (35 NP-GEN (36 NR^G Scylfinga)))
-			   (38 , ,)
-			   (40 BREAK LL)
-			   (42 NP-NOM-PRN (43 N^N m+ag)
-					  (45 NP-GEN (46 NR^G +alfheres))))
-	      (48 IP-SMC RMV:*-2_*ICH*-1_HL...)
-	      (50 . ;)
-	      (52 BREAK HL))
-    (54 ID cobeowul,80.2602.2134))
-/~*
 LL Gemunde +da +da are HL +te he him +ar forgeaf LL, LL wicstede weligne HL
 W+agmundinga, LL folcrihta gehwylc, HL swa his f+ader ahte LL. LL
 (cobeowul,81.2606.2137)
@@ -36302,12 +36211,12 @@ $mon+dw+arust, LL leodum li+dost HL ond lofgeornost LL. LL
 /*
 FOOTER
   source file, hits/tokens/total
-  cobeowul		0/1932/1940
+  cobeowul		0/1928/1936
 */
 /*
 SUMMARY:  
 source files, hits/tokens/total
-  cobeowul		0/1932/1940
+  cobeowul		0/1928/1936
 whole search, hits/tokens/total
-			0/1932/1940
+			0/1928/1936
 */

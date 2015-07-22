@@ -1,4 +1,4 @@
-begin_remark: eliminate clauses with empty verbs or 2 non-finite verbs
+begin_remark: eliminate clauses with empty verbs or 2 non-finite verbsx
 end_remark
 node: IP*
 remove_nodes: t

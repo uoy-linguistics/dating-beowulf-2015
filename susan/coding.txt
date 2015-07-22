@@ -204,7 +204,7 @@ SB3/SB4 (9s, 9n): position of pronouns, pre-verbal vs. post-verbal, in clauses w
 verbs and any one-word constituent after the verb (potentially head-initial clauses). If the
 pronouns are pre-verbal, they are scrambled since the structure is head-initial. Note that the
 one-word constituent could be indexed (i.e. moved, e.g. split coordination), but this is
-unlikely -- but check** -- but of course it may not matter.
+unlikely -- but check** -- but of course it may not matter. Note: very difficult not to use 1-word post-verbal NP-GENs that have been moved, e.g. beowulf 572. 
 
 Note: RZ uses clauses with non-finite main verbs as well -- this has to be incorporated in our
 coding. And it has now been incorporated (17/07/15).
@@ -216,18 +216,29 @@ Note: it looks like ignoring BREAK is not sufficient, you have to ignore HL and 
 Subjects
 
 SUB1: whether the subject is in the canonical subject position in subordinate clauses, i.e. 
-comp-xp-subj vs comp-subj-xp. This simple classification worked well for RZ, but we can
+comp-subj-vfin vs comp-...-subj(-...). This simple classification worked well for RZ, but we can
 also disregard scrambled pronouns immediately after the complementizer.
 SBJ1: (10c, 10n), where c is the canonical subject position, n for non-canonical subject 
 position.
 SBJ2: (11c1-4, 11n), where c1 is the canonical subject position, c2-4 is the subject preceded
 by pronouns, n for non-canonical subject position.
+12-13: nominal subjects only
+14-15: all subjects, head-initial IPs only
+16-17: nominal subjects, head-initial IPs
 **Note: should we think about ignoring unstressed clause-initial adverbs in beowulf? I think it would
 be difficult to do with corpussearch, and what would we do with the prose texts?
 
 ------------------------------------
 
-VtoC and GEN: these are obvious, no additional doc needed
+VtoC 
+Matrix clauses only, but no restrictions on clause-initial constituent or adjacency of subject and finite verb
+v1: finite verb precedes pronominal subject
+vx1: pronominal subject precedes finite verb
+
+-----------------------------------
+
+GEN
+
 
 -----------------------------------
 
