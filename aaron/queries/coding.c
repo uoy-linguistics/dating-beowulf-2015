@@ -5,8 +5,6 @@ remove_nodes: t
 nodes_only: t
 ignore_nodes: RMV:*|CODE|ID|'|\"|,|/|\.|FRAG|X|COMMENT|LB
 
-define: susan.def
-
 coding_query:
 
 1: {
@@ -18,10 +16,10 @@ coding_query:
 }
 
 2:  {
-   aux2v: (IP* idoms verb-f-all) AND (IP* idoms [1]v-nf-all) AND (IP* idoms [2]v-nf-all)
-   aux: (IP* idoms verb-f-all) AND (IP* idoms v-nf-all) AND (v-nf-all idoms \*)
-   auxv: (IP* idoms verb-f-all) AND (IP* idoms v-nf-all) AND (verb-f-all precedes v-nf-all)
-   vaux: (IP* idoms verb-f-all) AND (IP* idoms v-nf-all) AND (v-nf-all precedes verb-f-all)
-   vf: (IP* idoms verb-f-all) AND (IP* idoms !v-nf-all)
+   aux2v: (IP* idoms verb-f-all) AND (IP* idoms [1]verb-nf-all) AND (IP* idoms [2]verb-nf-all)
+   aux: (IP* idoms verb-f-all) AND (IP* idoms verb-nf-all) AND (verb-nf-all idoms \*)
+   auxv: (IP* idoms verb-f-all) AND (IP* idoms verb-nf-all) AND (verb-f-all precedes verb-nf-all)
+   vaux: (IP* idoms verb-f-all) AND (IP* idoms verb-nf-all) AND (verb-nf-all precedes verb-f-all)
+   vf: (IP* idoms verb-f-all) AND (IP* idoms !verb-nf-all)
    2x: ELSE
 }
