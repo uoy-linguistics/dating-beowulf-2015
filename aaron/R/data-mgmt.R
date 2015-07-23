@@ -1,5 +1,6 @@
 library(stringr)
 library(memisc)
+library(dplyr)
 
 compute.asc.date <- function (ids) {
     r <- as.integer(str_split_fixed(str_split_fixed(ids, fixed(";"), 3)[,2],
@@ -9,47 +10,9 @@ compute.asc.date <- function (ids) {
 }
 
 
-read.data <- function (filename) {
-    data <- read.csv(filename, header = FALSE, sep = ":")
-    colnames(data) <- c("unused.1",
-                        "unused.2",
-                        "clause.type",
-                        "v1",
-                        "verb.type",      ## 5
-                        "mood",
-                        "polarity",
-                        "conj",
-                        "unused.9",
-                        "n.gen.order",    ## 10
-                        "p.pro.order",
-                        "unused.12",
-                        "unused.13",
-                        "unused.14",
-                        "first.elt",      ## 15
-                        "infl.particle",
-                        "infl.stranded.p",
-                        "infl.neg.obj",
-                        "infl.pro.obj",
-                        "unused.20",
-                        "unused.21",
-                        "unused.22",
-                        "unused.23",
-                        "unused.24",
-                        "infl.part.big",
-                        "unused.26",
-                        "unused.27",
-                        "unused.28",
-                        "unused.29",
-                        "unused.30",
-                        "ID")
-    data <- within(data, rm(unused.1, unused.2, unused.9, unused.12, unused.13,
-                            unused.14, unused.20, unused.21, unused.22,
-                            unused.23, unused.24, unused.26,
-                            unused.27, unused.28, unused.29, unused.30))
-    data$text <- str_split_fixed(data$ID, ",", 2)[,1]
-    data$text <- factor(str_split_fixed(data$text, "-", 2)[,1])
-    data$year <- as.numeric(as.character(
-        memisc::recode(data$text,
+date.text <- function (text, ID) {
+    year <- as.numeric(as.character(
+        memisc::recode(text,
                        c("coalex","comarvel","cochad","cochristoph",
                          "cosolsat2","comart") -> 870,
                        c("coprefcura","cocura") -> 891,
@@ -103,9 +66,54 @@ read.data <- function (filename) {
                        c("cosolsat1") -> 870,
                        c("colsigef","colsigewB","colsigewZ","colwgeat","colwsigeT",
                          "colwsigeXa","colwstan1","colwstan2") -> 1000)))
-    data$year <- ifelse(data$text %in% c("cochronA"),
-                        compute.asc.date(data$ID),
-                        data$year)
+    year <- ifelse(text %in% c("cochronA"),
+                        compute.asc.date(ID),
+                   year)
+
+    return (year)
+}
+
+read.data <- function (filename) {
+    data <- read.csv(filename, header = FALSE, sep = ":")
+    colnames(data) <- c("unused.1",
+                        "unused.2",
+                        "clause.type",
+                        "v1",
+                        "verb.type",      ## 5
+                        "mood",
+                        "polarity",
+                        "conj",
+                        "unused.9",
+                        "n.gen.order",    ## 10
+                        "p.pro.order",
+                        "unused.12",
+                        "unused.13",
+                        "unused.14",
+                        "first.elt",      ## 15
+                        "infl.particle",
+                        "infl.stranded.p",
+                        "infl.neg.obj",
+                        "infl.pro.obj",
+                        "unused.20",
+                        "unused.21",
+                        "unused.22",
+                        "unused.23",
+                        "unused.24",
+                        "infl.part.big",
+                        "unused.26",
+                        "unused.27",
+                        "unused.28",
+                        "unused.29",
+                        "unused.30",
+                        "ID")
+    data <- within(data, rm(unused.1, unused.2, unused.9, unused.12, unused.13,
+                            unused.14, unused.20, unused.21, unused.22,
+                            unused.23, unused.24, unused.26,
+                            unused.27, unused.28, unused.29, unused.30))
+    data$text <- str_split_fixed(data$ID, ",", 2)[,1]
+    data$text <- factor(str_split_fixed(data$text, "-", 2)[,1])
+
+    data$year <- date.text(df$text, data$ID)
 
     ## ## We should exclude the Laws of Ine and Elucidarium: they are an outlier
     ## ## in terms of their date (if indeed they are dated correctly)
