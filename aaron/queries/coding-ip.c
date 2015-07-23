@@ -5,6 +5,8 @@ remove_nodes: t
 nodes_only: t
 ignore_nodes: \**|CODE|ID|'|\"|,|/|\.|FRAG|X|COMMENT|LB|BREAK|HL|LL|*PRN*|NEG|*VOC*
 
+define: susan.def
+
 coding_query:
 
 // IP1, IP2 - position of diagnostics in clauses with finite main verbs

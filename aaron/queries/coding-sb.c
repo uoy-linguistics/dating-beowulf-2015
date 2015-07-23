@@ -5,6 +5,8 @@ remove_nodes: t
 nodes_only: t
 ignore_nodes: \**|CODE|ID|'|\"|,|/|\.|FRAG|X|COMMENT|LB|BREAK|HL|LL|*PRN*|NEG|ne|*VOC*
 
+define: susan.def
+
 coding_query:
 
 // SB1|2 - scrambling of pronominal objects

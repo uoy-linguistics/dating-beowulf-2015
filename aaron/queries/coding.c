@@ -5,6 +5,8 @@ remove_nodes: t
 nodes_only: t
 ignore_nodes: RMV:*|CODE|ID|'|\"|,|/|\.|FRAG|X|COMMENT|LB
 
+define: susan.def
+
 coding_query:
 
 1: {

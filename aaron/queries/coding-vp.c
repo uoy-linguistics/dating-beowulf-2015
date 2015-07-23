@@ -5,6 +5,8 @@ remove_nodes: t
 nodes_only: t
 ignore_nodes: \**|CODE|ID|'|\"|,|/|\.|FRAG|X|COMMENT|LB|BREAK|HL|LL|*PRN*|*VOC*
 
+define: susan.def
+
 coding_query:
 
 // VP1 - position of diagnostics in clauses with aux and main verb
