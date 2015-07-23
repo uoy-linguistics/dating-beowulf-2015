@@ -1,0 +1,28 @@
+1c1
+< begin_remark: coding RZ IP criteria. 16/07/15 included moved objects in IP4.
+---
+> begin_remark: coding RZ IP criteria
+109c109
+< // DP argument; note that DPs with indices are included
+---
+> // DP argument
+113,116c113,116
+<       AND (IP* idoms obl-arg)
+<       AND (obl-arg idoms non-pronominal)
+<       AND (nom-arg precedes obl-arg)
+<       AND (obl-arg precedes verb-f-all)
+---
+>       AND (IP* idoms obl-arg-unmoved)
+>       AND (obl-arg-unmoved idoms non-pronominal)
+>       AND (nom-arg precedes obl-arg-unmoved)
+>       AND (obl-arg-unmoved precedes verb-f-all)
+120,121c120,121
+<       AND (IP* idoms obl-arg)
+<       AND (obl-arg idoms non-pronominal)
+---
+>       AND (IP* idoms obl-arg-unmoved)
+>       AND (obl-arg-unmoved idoms non-pronominal)
+123c123
+<       AND (verb-f-all precedes obl-arg)
+---
+>       AND (verb-f-all precedes obl-arg-unmoved)

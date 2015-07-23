@@ -1,0 +1,77 @@
+1. 6/5/15: put extra LL break in IP-MAT-PRN in 1177
+2. 6/5/15: added HL break to 1359
+3. 7/6/15: token 55
+
+old parse of IP-INF:
+
+(IP-INF (ADVP-LOC (ADV^L +t+ar))
+        (PP (P on)
+            (ADVP-LOC (ADV^L innan)))
+        (BREAK HL)
+        (NP-ACC (Q^A eall))
+        (VB ged+alan)
+        (BREAK LL)
+        (NP-DAT-ADT (ADJ^D geongum) (CONJ ond) (ADJ^D ealdum))
+        (, ,)
+        (BREAK HL)
+        (ADJP-ACC (ADJ^A swylc)
+                  (CP-CMP (WADJP-4 0)
+                          (C 0)
+                          (IP-SUB (NP (ADJP *T*-4))
+                                  (NP-DAT (PRO^D him))
+                                  (NP-NOM (NR^N god))
+                                  (VBD sealde))))
+        (, ,)
+        (BREAK LL)
+
+new parse:
+
+(IP-INF (ADVP-LOC (ADV^L +t+ar))
+        (PP (P on)
+            (ADVP-LOC (ADV^L innan)))
+        (BREAK HL)
+        (NP-ACC (Q^A eall)
+                (CP-REL *T*-5))
+        (VB ged+alan)
+        (BREAK LL)
+        (NP-DAT-ADT (ADJ^D geongum) (CONJ ond) (ADJ^D ealdum))
+        (, ,)
+        (BREAK HL)
+        (CP-REL-5 (WNP-ACC-4 (WADJ^A swylc))
+                  (C 0)
+                  (IP-SUB (NP-ACC *T*-4)
+                          (NP-DAT (PRO^D him))
+                          (NP-NOM (NR^N god))
+                          (VBD sealde)))
+        (, ,)
+        (BREAK LL)
+
+‘there within he would share out among young and old all God had given him’ 
+(translation by Chickering)
+
+We have only one case in the prose and poetry corpora where ‘swylc’ is used as a WADJ, 
+in Bede 3291. But this looks like a potential second case to me. In the old parse, the 
+subordinate clause doesn’t seem like a comparative; it really looks like a relative clause. 
+And clearly the subordinate clause (CP-CMP or CP-REL) is connected to ‘eall’. Clark-Hall
+says 'swilc' can be used in a relative as 'which'.
+
+
+4. 07/06/15: token 506, inserted the missing LL break between 'sceal' and NP-ACC
+
+5. 05/07/15: replaced 'FULL-STOP' with '.'
+6. 05/07/15: if BREAK precedes punctuation (POS . or ,), reverse order, so that punctuation falls before the half-line or full-line break. Query files fix-punctuation1.q and fix-punctuation2.q.
+
+7. 06/07/15: fixed token 314: last IP-SUB had constituents at too low a level
+
+8. 06/07/15: for all embedded clauses, insert BREAKs at beginning and end where necessary, so that when searches pull out IPs, they have BREAKs wherever they fall. This means that there will occasionally be two or three BREAKs in a row in the ur-text, which can simply be ignored.
+
+9. 06/07/15: token 463, gave labels (NP-NOM) to 'wedera cealdost' and 'nipende niht'.
+
+10. 06/07/15: token 582, removed extra layer of NP-ACC from CONJP-1
+
+11. 07/07/15: note that tokens 1799 and 1800 should be a single token, with 'w+as +da frod cyning , eald $e+telweard' as IP-MAT-PRN. I'm leaving it uncorrected for now, but I changed the POS of '-' in 1799 to '.' Same thing for 2233 and 2234.
+
+12. 08/07/15: fix difference between poetry and prose: (CP-CMPX(-SPE) ...) in poetry is equivalent to (CPX-CMP(-SPE) (IPX-SUB(-SPE) ...)) in prose, so change all CP-CMPXs in Beowulf: 1) ncs cmpx.q beowulf-source 2) ncs cmpx-spe.q beowulf-source.out; then rename beowulf-source.out.out.
+
+13. 13/07/15: token 495, swa deorlice d+ad is ACC, not NOM
+

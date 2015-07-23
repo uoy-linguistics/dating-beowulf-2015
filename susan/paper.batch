@@ -23,15 +23,13 @@
      ncs coding-sbj.c coding-sb.cod
 
 # 8. code for v-to-c (RZ V-C criterion)
-#    This requires a separate query file to get the data from $beotext
-     ncs coding-vtoc.q $beotext
+     ncs coding-vtoc.c coding-sbj.cod
 #    output: coding-vtoc.out (285 hits)
-     ncs coding-vtoc.c coding-vtoc.out
 
 # 9. code for placement of genitive phrase within NP (RZ GEN criterion)
 #    This requires a separate query file to get NPs containing GENs
      ncs coding-gen.q $beotext
-#    output: coding-gen.out (607 hits)
+#    output: coding-gen.out (738 hits)
      ncs coding-gen.c coding-gen.out
 
 # 10. code for relative clause relativizers

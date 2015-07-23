@@ -1,0 +1,13 @@
+1. fix-punctuation1|2.q: reverse order of BREAK and .|, -- make sure that BREAK is last node of IP* and not followed by punctuation
+
+2. break-last.q: this adds a leaf (BREAK £) as the last node in any IP that doesn't already have BREAK as the last node. Unlike most corpus revision commands, this one can cause problems: see test.out for input and and test.out.out for output of problematic tokens. If this is run again, use & instead of £.
+
+3. break-first-man1.q, breaqk-first-man2.q, break-first-sub.q in this order: these add a leaf (BREAK &) as the first node in any IP that doesn't already have BREAK as the first node. They create new corpus files with an additional .out extension.
+
+These files now have to be edited to change £|& to HL or LL. To use files created by break-last.q and break-first*.q, use Word, TextWrangler or TextEdit to search for £|& and change it to LL or HL. emacs makes the searches and then changes more difficult. 
+
+4. ip-breaks.q: check to make sure first and last nodes of IP* are BREAK
+
+5. ip-break1.q: check to make sure BREAK HL isn't followed immediately by BREAK LL and vice versa. 2521 and 2277 are legitimate hits, the manuscript has been damaged.
+
+6. and while we're doing changes: run cmpx.batch to convert CP-CMPX(-SPE) to CPX-CMP(-SPE) idominating IPX-SUB(-SPE)

@@ -1,0 +1,42 @@
+# 1. get all clauses with finite verbs and subjects
+     ncs first-cut.q $beotext
+#    output: first-cut.out (1936 tokens)
+
+# 2. eliminate clauses with more than one non-finite verb or with empty non-finite verb
+     ncs first-cut1.q first-cut.out
+#    output: first-cut1.out (8 tokens)
+#            first-cut1.cmp (1928 tokens)
+
+# 3. code cols 1-2 (clause type, verbs)
+     ncs coding.c first-cut1.cmp
+
+# 4. code cols 3-5 (RZ IP criteria 1|2, 3, 4)
+     ncs coding-ip.c coding.cod
+
+# 5. code cols 6-7 (RZ VP criteria 1, 2)
+     ncs coding-vp.c coding-ip.cod
+
+# 6. code cols 8-9 (RZ SB criteria 1, 2)
+     ncs coding-sb.c coding-vp.cod
+
+# 7. code cols 10-11 (RZ SUB criterion)
+     ncs coding-sbj.c coding-sb.cod
+
+# 8. code for v-to-c (RZ V-C criterion)
+#    This requires a separate query file to get the data from $beotext
+     ncs coding-vtoc.q $beotext
+#    output: coding-vtoc.out (285 hits)
+     ncs coding-vtoc.c coding-vtoc.out
+
+# 9. code for placement of genitive phrase within NP (RZ GEN criterion)
+#    This requires a separate query file to get NPs containing GENs
+     ncs coding-gen.q $beotext
+#    output: coding-gen.out (607 hits)
+     ncs coding-gen.c coding-gen.out
+
+# 10. code for relative clause relativizers
+#     This requires a separate query file to get CP-RELs
+      ncs coding-cprel.q $beotext
+#     output: coding-cprel.out (202 hits)
+      ncs coding-cprel.c coding-cprel.out
+

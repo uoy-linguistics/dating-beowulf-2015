@@ -1,0 +1,14 @@
+SP 28/04/15: the only difference between COBEOWUL.PSD and COBEOWUL.PSD.old is the change below,
+conjoining verbs rather than clauses. This change was put into cobeowulBreak.psd.
+
+4602,4603c4602
+< ( (IP-MAT-SPE (HVI (HVI Hafa)
+<   	      	   (CONJP *ICH*-1))
+---
+> ( (IP-MAT-SPE (HVI Hafa)
+4605,4606c4604,4605
+< 	      (CONJP-1 (CONJ ond)
+< 		       (VBI geheald))
+---
+> 	      (IP-MAT-PRN (CONJ ond)
+> 			  (VBI geheald))

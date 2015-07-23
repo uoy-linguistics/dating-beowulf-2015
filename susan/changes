@@ -1,0 +1,6 @@
+changes to search files
+
+1. 15/07/15: in IP4 (coding-ip.c), VP1 and VP2 (coding-vp.c), include moved objects (i.e. constituents with indices) in searches.
+2. 15/07/15: in VP2 (coding-vp.c), object must be adjacent to non-finite verb.
+3. 16/07/15: for canonical subject codiing (SBJ), limit subjects to nominal DPs.
+4. 16/07/15: for canonical subject codiing (SBJ), limit clauses to head-initial. This is a bit tricky, so I eliminated clauses that were head-final under RZ's criteria (see coding.txt).

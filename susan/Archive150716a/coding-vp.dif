@@ -1,0 +1,74 @@
+1c1
+< begin_remark: coding RZ VP criteria. 16/07/15: included moved objects in VP1 and VP2. In VP2, objects must be adjacent to non-finite verb.
+---
+> begin_remark: coding RZ VP criteria
+55,56c55,56
+<       AND (IP* idoms obl-arg)
+<       AND (obl-arg idoms NEG+N*|NEG+Q*)
+---
+>       AND (IP* idoms obl-arg-unmoved)
+>       AND (obl-arg-unmoved idoms NEG+N*|NEG+Q*)
+58,59c58,59
+<       AND (verb-f-all precedes obl-arg)
+<       AND (obl-arg precedes v-nf-all)
+---
+>       AND (verb-f-all precedes obl-arg-unmoved)
+>       AND (obl-arg-unmoved precedes v-nf-all)
+64,65c64,65
+<       AND (IP* idoms obl-arg)
+<       AND (obl-arg idoms NEG+N*|NEG+Q*)
+---
+>       AND (IP* idoms obl-arg-unmoved)
+>       AND (obl-arg-unmoved idoms NEG+N*|NEG+Q*)
+68c68
+<       AND (v-nf-all precedes obl-arg)
+---
+>       AND (v-nf-all precedes obl-arg-unmoved)
+93,94c93,94
+<       AND (IP* idoms obl-arg)
+<       AND (obl-arg idomsonly PRO|PRO^*)
+---
+>       AND (IP* idoms obl-arg-unmoved)
+>       AND (obl-arg-unmoved idomsonly PRO|PRO^*)
+96,97c96,97
+<       AND (verb-f-all precedes obl-arg)
+<       AND (obl-arg precedes v-nf-all)
+---
+>       AND (verb-f-all precedes obl-arg-unmoved)
+>       AND (obl-arg-unmoved precedes v-nf-all)
+102,103c102,103
+<       AND (IP* idoms obl-arg)
+<       AND (obl-arg idomsonly PRO|PRO^*) 
+---
+>       AND (IP* idoms obl-arg-unmoved)
+>       AND (obl-arg-unmoved idomsonly PRO|PRO^*) 
+106c106
+<       AND (v-nf-all precedes obl-arg)
+---
+>       AND (v-nf-all precedes obl-arg-unmoved)
+116,118c116,118
+<       AND (IP* idoms obl-arg)
+<       AND (obl-arg domswords 2)
+<       AND (obl-arg idoms !NEG*|Q*|CP*)
+---
+>       AND (IP* idoms obl-arg-unmoved)
+>       AND (obl-arg-unmoved domswords 2)
+>       AND (obl-arg-unmoved idoms !NEG*|Q*|CP*)
+120,121c120,121
+<       AND (verb-f-all precedes obl-arg)
+<       AND (obl-arg iprecedes v-nf-all)
+---
+>       AND (verb-f-all precedes obl-arg-unmoved)
+>       AND (obl-arg-unmoved precedes v-nf-all)
+126,128c126,128
+<       AND (IP* idoms obl-arg)
+<       AND (obl-arg domswords 2)
+<       AND (obl-arg idoms !NEG*|Q*|CP*)
+---
+>       AND (IP* idoms obl-arg-unmoved)
+>       AND (obl-arg-unmoved domswords 2)
+>       AND (obl-arg-unmoved idoms !NEG*|Q*|CP*)
+131c131
+<       AND (v-nf-all iprecedes obl-arg)
+---
+>       AND (v-nf-all precedes obl-arg-unmoved)

@@ -1,0 +1,7 @@
+define: susan.def
+remove_nodes: f
+nodes_only: f
+print_indices: t
+ignore_nodes: \**|RMV:*|*CONJ|*PRN*|*VOC*|*LFD*|INTJ*|CODE|ID|'|\"|,|/|\.|FRAG|X|COMMENT|LB
+// ignore_nodes: CODE|LENS|LENS1
+// ignore_words: \**|RMV:*|CODE|ID|'|\"|,|/|\.|LB|0|LENS|LENS1

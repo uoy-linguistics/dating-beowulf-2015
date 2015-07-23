@@ -1,9 +1,9 @@
 begin_remark: coding RZ gen criterion
 end_remark
-node: NP*
-remove_nodes: t
-nodes_only: t
-ignore_nodes: \**|CODE|ID|'|\"|,|/|\.|FRAG|X|COMMENT|LB|BREAK|HL|LL|*PRN*|NEG|VOC
+node: $ROOT
+remove_nodes: f
+nodes_only: f
+ignore_nodes: \**|INTJ*|CODE|ID|'|\"|,|/|\.|COMMENT|LB
 
 coding_query: 
 
@@ -16,6 +16,6 @@ coding_query:
    1a: (NP* idoms N|N^*|NR|NR^*)
       AND (NP* idoms NP-GEN*)
       AND (N|N^*|NR|NR^* precedes NP-GEN*)
-   /: ELSE
+   1x: ELSE
 }
 

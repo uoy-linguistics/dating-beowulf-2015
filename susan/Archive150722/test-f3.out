@@ -1,0 +1,37 @@
+/~*
+LL Oft Scyld Scefing HL $scea+tena +treatum, LL monegum m+ag+tum, HL
+meodosetla ofteah, LL
+(cobeowul,3.4.7)
+*~/
+
+(0  (1 IP-MAT (2 CODING m:vf:/:/:5f1:/:/:/:/:/:/:/:/:/:/)
+	      (4 BREAK LL)
+	      (6 ADVP-TMP (7 ADV^T Oft))
+	      (9 NP-NOM (10 NR^N Scyld) (12 NR^N Scefing))
+	      (14 BREAK HL)
+	      (16 NP-DAT (17 NP-GEN (18 N^G $scea+tena))
+			 (20 N^D +treatum)
+			 (22 , ,)
+			 (24 BREAK LL)
+			 (26 NP-DAT-PRN (27 Q^D monegum) (29 N^D m+ag+tum)))
+	      (31 , ,)
+	      (33 BREAK HL)
+	      (35 NP-GEN (36 N^G meodosetla))
+	      (38 RP+VBDI ofteah)
+	      (40 . ,)
+	      (42 BREAK LL))
+    (44 ID cobeowul,3.4.7))
+/~*
+HL $+t+at w+as geocor si+d LL +t+at se hearmsca+ta HL to Heorute ateah LL. LL
+(cobeowul,25.765.657)
+*~/
+
+(0  (1 IP-SUB (2 CODING s:vf:/:/:/:/:/:/:/:10c:11c1:12c:13c1:f3:15c1)
+	      (4 ADVP-TMP *T*-1)
+	      (6 NP-NOM (7 D^N se) (9 N^N hearmsca+ta))
+	      (11 BREAK HL)
+	      (13 PP (14 P to)
+		     (16 NP-DAT (17 NR^D Heorute)))
+	      (19 VBDI ateah)
+	      (21 BREAK LL))
+    (23 ID cobeowul,25.765.657))

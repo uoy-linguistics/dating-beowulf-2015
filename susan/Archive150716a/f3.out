@@ -1,0 +1,71 @@
+/*
+PREFACE:  
+CorpusSearch copyright Beth Randall 2005.
+Date:  Thu Jul 16 12:38:08 BST 2015
+
+command file:     f3.q
+preference file:  /Users/susanpintzuk/GitHub/fulk-festschrift/susan/susan.prf
+input file:       test-f3.out
+output file:      f3.out
+
+remark:  
+definition file:  susan.def
+node:   IP*
+query:  (CODING col  1  s) 
+  AND  (CODING col  2  vf) 
+  AND  (IP* idoms 
+   NP-NOM|NP-NOM-#|NP-NOM-RSP|NP-ACC|NP-ACC-#|NP-ACC-RSP|NP-ACC-RFL|NP-DAT|NP-DAT-#|NP-DAT-RSP|NP-GEN-RFL|NP-GEN|NP-GEN-#|NP-GEN-RSP|NP-GEN-RFL|NP|NP-#|NP-RSP|NP-RFL) 
+  AND  (IP* idoms  PP*) 
+  AND  (IP* idoms  *) 
+  AND  (IP* idoms 
+   *VBI|*VBP*|*VBD*|*BEI|*BEP*|*BED*|*HVI|*HVP*|*HVD*|*MDI|*MDP*|*MDD*|*AXI|*AXP*|*AXD*|UTP) 
+  AND 
+   (NP-NOM|NP-NOM-#|NP-NOM-RSP|NP-ACC|NP-ACC-#|NP-ACC-RSP|NP-ACC-RFL|NP-DAT|NP-DAT-#|NP-DAT-RSP|NP-GEN-RFL|NP-GEN|NP-GEN-#|NP-GEN-RSP|NP-GEN-RFL|NP|NP-#|NP-RSP|NP-RFL precedes 
+   *VBI|*VBP*|*VBD*|*BEI|*BEP*|*BED*|*HVI|*HVP*|*HVD*|*MDI|*MDP*|*MDD*|*AXI|*AXP*|*AXD*|UTP) 
+  AND  (PP* precedes 
+   *VBI|*VBP*|*VBD*|*BEI|*BEP*|*BED*|*HVI|*HVP*|*HVD*|*MDI|*MDP*|*MDD*|*AXI|*AXP*|*AXD*|UTP) 
+  AND  (* precedes 
+   *VBI|*VBP*|*VBD*|*BEI|*BEP*|*BED*|*HVI|*HVP*|*HVD*|*MDI|*MDP*|*MDD*|*AXI|*AXP*|*AXD*|UTP)  
+*/
+/*
+HEADER:
+source file:  test-f3.out
+*/
+/*
+HEADER:
+source file:  cobeowul
+*/
+/~*
+HL $+t+at w+as geocor si+d LL +t+at se hearmsca+ta HL to Heorute ateah LL. LL
+(cobeowul,25.765.657)
+*~/
+/*
+1 IP-SUB:  2 CODING, 3 s:vf:/:/:/:/:/:/:/:10c:11c1:12c:13c1:f3:15c1, 1 IP-SUB
+, 6 NP-NOM, 13 PP, 19 VBDI
+1 IP-SUB:  2 CODING, 3 s:vf:/:/:/:/:/:/:/:10c:11c1:12c:13c1:f3:15c1, 1 IP-SUB
+, 6 NP-NOM, 13 PP, 19 VBDI
+1 IP-SUB:  2 CODING, 3 s:vf:/:/:/:/:/:/:/:10c:11c1:12c:13c1:f3:15c1, 1 IP-SUB
+, 6 NP-NOM, 13 PP, 19 VBDI
+*/
+( (1 IP-SUB (2 CODING s:vf:/:/:/:/:/:/:/:10c:11c1:12c:13c1:f3:15c1)
+	    (4 ADVP-TMP *T*-1)
+	    (6 NP-NOM (7 D^N se) (9 N^N hearmsca+ta))
+	    (11 BREAK HL)
+	    (13 PP (14 P to)
+		   (16 NP-DAT (17 NR^D Heorute)))
+	    (19 VBDI ateah)
+	    (21 BREAK LL))
+  (23 ID cobeowul,25.765.657)) 
+
+/*
+FOOTER
+  source file, hits/tokens/total
+  cobeowul		1/1/2
+*/
+/*
+SUMMARY:  
+source files, hits/tokens/total
+  cobeowul		1/1/2
+whole search, hits/tokens/total
+			1/1/2
+*/
