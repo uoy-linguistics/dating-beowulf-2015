@@ -25,10 +25,32 @@ coding-vp.cod: coding-ip.cod
 coding-sb.cod: coding-vp.cod
 	$(CS) ../../queries/coding-sb.c  coding-vp.cod -out coding-sb.cod
 
-final.cod: coding-sb.cod
+coding-sbj.cod: coding-sb.cod
 	$(CS) ../../queries/coding-sbj.c coding-sb.cod -out coding-sbj.cod
-	mv coding-sbj.cod $@
+
+final.cod: coding-sbj.cod
+	$(CS) ../../queries/coding-vtoc.c $< -out $@
 
 final.cod.ooo: final.cod
+	$(NEW_CS) ../../queries/only-coding.q $<
+	../../scripts/fix-ids.py $@
+
+coding-gen.out: first-cut1.cmp
+	$(CS) ../../queries/coding-gen.q $< -out $@
+
+coding-gen.cod: coding-gen.out
+	$(CS) ../../queries/coding-gen.c $< -out $@
+
+coding-gen.cod.ooo: coding-gen.cod
+	$(NEW_CS) ../../queries/only-coding.q $<
+	../../scripts/fix-ids.py $@
+
+coding-cprel.out: first-cut1.cmp
+	$(CS) ../../queries/coding-cprel.q $< -out $@
+
+coding-cprel.cod: coding-cprel.out
+	$(CS) ../../queries/coding-cprel.c $< -out $@
+
+coding-cprel.cod.ooo: coding-cprel.cod
 	$(NEW_CS) ../../queries/only-coding.q $<
 	../../scripts/fix-ids.py $@
