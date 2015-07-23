@@ -1,0 +1,66 @@
+non-pronominal: D*|ADJ*|N*|*Q*|NUM*|FP|FW|*CP*|PTP*|V*|RP+V*|H*|PRO$*|XP*
+NP-nocase: NP-ADT*|NP-DIR*|NP-EXT*|NP-LFD*|NP-LOC*|NP-PRD*|NP-PRN*|NP-RFL*|NP-RSP*|NP-SBJ*|NP-TMP*|NP-VOC*
+
+obl-arg-unmoved: NP-ACC|NP-ACC-RSP|NP-ACC-RFL|NP-DAT|NP-DAT-RSP|NP-DAT-RFL|NP-GEN|NP-GEN-RSP|NP-GEN-RFL|NP|NP-RSP|NP-RFL
+obl-arg-moved: NP-ACC-#|NP-ACC-RSP-#|NP-ACC-RFL-#|NP-DAT-#|NP-DAT-RSP-#|NP-DAT-RFL-#|NP-GEN-#|NP-GEN-RSP-#|NP-GEN-RFL-#|NP-#|NP-RSP-#|NP-RFL-#
+
+# omit moved NP-GEN-#
+obl-arg-usable: NP-ACC|NP-ACC-RSP|NP-ACC-RFL|NP-DAT|NP-DAT-RSP|NP-DAT-RFL|NP-GEN|NP-GEN-RSP|NP-GEN-RFL|NP|NP-RSP|NP-RFL|NP-ACC-#|NP-ACC-RSP-#|NP-ACC-RFL-#|NP-DAT-#|NP-DAT-RSP-#|NP-DAT-RFL-#|NP-GEN-RSP-#|NP-GEN-RFL-#|NP-#|NP-RSP-#|NP-RFL-#
+
+nom-arg-unmoved: NP-NOM|NP-NOM-RSP*|NP-NOM-x*
+nom-arg-moved: NP-NOM-#
+nom-arg-usable: $nom-arg-unmoved|$nom-arg-moved
+
+non-arg-nodes: NP-ADT*|NP-DIR*|NP-EXT*|NP-LOC*|NP-PRD*|NP-SBJ*|NP-TMP*|WNP*|WPP*|ADJP*|WADJP*|ADVP*|WADVP*|IP*|CP*|PTP*|QTP*|RRC*|NUMP*|QP*|WQP*
+
+be-f: BEI|RP+BEI|NEG+BEI|BEP*|RP+BEP*|NEG+BEP*|BED*|RP+BED*|NEG+BED*
+be-inf: BE|BE^D|RP+BE|RP+BE^D|NEG+BE|NEG+BE^D
+be-pres-part: BAG*|RP+BAG*|NEG+BAG*
+be-past-part: BEN*|RP+BEN*|NEG+BEN*
+be-nf: $be-inf|$be-pres-part|$be-past-part
+have-f: HVI|HVP*|HVD*|RP+HVI|RP+HVP*|RP+HVD*|NEG+HVI|NEG+HVP*|NEG+HVD*
+have-inf: HV|HV^D|RP+HV|RP+HV^D|NEG+HV|NEG+HV^D
+have-pres-part: HAG*|RP+HAG*|NEG+HAG*
+have-past-part: HVN*|RP+HVN*|NEG+HVN*
+have-nf: $have-inf|$have-pres-part|$have-past-part
+modal-f: MDI|MDP*|MDD*|RP+MDI|RP+MDP*|RP+MDD*|NEG+MDI|NEG+MDP*|NEG+MDD*
+modal-inf: MD|MD^D|RP+MD|RP+MD^D|NEG+MD|NEG+MD^D
+modal-nf: $modal-inf
+auxiliary-f: AXI|AXP*|AXD*|RP+AXI|RP+AXP*|RP+AXD*|NEG+AXI|NEG+AXP*|NEG+AXD*
+auxiliary-inf: AX|AX^D|RP+AX|RP+AX^D|NEG+AX|NEG+AX^D
+auxiliary-pres-part: AXG*|RP+AXG*|NEG+AXG*
+auxiliary-past-part: AXN*|RP+AXN*|NEG+AXN*
+auxiliary-nf: $auxiliary-inf|$auxiliary-pres-part|$auxiliary-past-part
+verb-inf: VB|VB^D|RP+VB|RP+VB^D|NEG+VB|NEG+VB^D
+verb-pres-part: VAG*|RP+VAG*|NEG+VAG*
+verb-past-part: VBN*|RP+VBN*|NEG+VBN*
+uton-f: UTP
+aux-f: $be-f|$have-f|$modal-f|$auxiliary-f|$uton-f
+aux-nf-all: $be-nf|$have-nf|$modal-nf|$auxiliary-nf
+
+verb-f: VBI|VBP*|VBD*|RP+VBI|RP+VBP*|RP+VBD*|NEG+VBI|NEG+VBP*|NEG+VBD*
+verb-f-all: $verb-f|$be-f|$have-f|$modal-f|$auxiliary-f|$uton-f
+verb-nf: $verb-inf|$verb-pres-part|$verb-past-part
+verb-nf-all: $be-nf|$have-nf|$modal-nf|$auxiliary-nf|$verb-nf
+
+# particle = standard set of particles
+# particle1 = additional particles that are separable in beowulf
+particle: adun*|+after*|aweg*|in*|$in*|ni+ter*|nio+dor*|ongean*|up*|ut*
+particle1: for+d|for+t|For+d|$for+d|forht|fore|to
+
+# negative adverbs plus +afre
+NA: n+a|na|$na|Na|NA|ne|$ne|no|$no|No
+NAWA: nawa
+NAHW+AR: nawar|nawer|naworn|nahw+ar|nahwar|nahwer|nohw+ar|nower
+N+AFRE: n+abre|n+affre|n+afr+a|n+afre|$n+afre|N+afre|nefr+a|nefre
+AEFRE: +affre|+afra|+afre|efre
+N+AS: n+as|N+as|nas|nes
+NA+TYL+AS: na+tel+as
+NAHU: nahu|$nahu
+NAHW+A+TER: nahw+a+der|nahwider|nahwyder|nohw+a+der|nohw+a+tre|nohwider
+NAHWONAN: nahwonan
+NEALLES: nal+as|Nal+as|nalas|Nalas|nales|Nales|$nales|nall+as|nallas|$nallas|Nallas|nalles|Nalles|nals|Nals
+NATESHWON: nateshwon|note+t+ashwon
+NO_+TY_+AR: no_+ty_+ar|No_+ty_+ar|no_+dy_+ar|No_+dy_+ar
+NO_+TY_LENG: no_+ty_leng|no_+ton_lange
+NAHT: nowiht
