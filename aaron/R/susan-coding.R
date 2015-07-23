@@ -16,10 +16,17 @@ read.susan.coding <- function (path) {
                       "col9",
                       "sbj",
                       "col11",
+                      "col12",
+                      "col13",
+                      "col14",
+                      "col15",
+                      "col16",
+                      "col17",
                       "ID")
-    df$IP1.pro <- memisc::recode(df$ip1,
-                             c("3f1","3f2","3f3","3f4","3f5") -> "old",
-                             c("3i1","3i2","3i3","3i4","3i5") -> "new")
+    df$IP1.pro <- memisc::recode(str_sub(df$ip1, 1, 2),
+                             "3f" -> "old",
+                             "3i" -> "new")
+    ## TODO: not robust to changes in levels
     df$IP1 <- memisc::recode(df$ip1,
                              c("3f1","3f2","3f3","3f4") -> "old",
                              c("3i1","3i2","3i3","3i4") -> "new")
@@ -27,39 +34,42 @@ read.susan.coding <- function (path) {
     df$IP1[df$clausetype != "m"] <- NA
     df$IP2[df$clausetype != "s"] <- NA
 
-    df$IP3 <- memisc::recode(df$ip3, "4f" -> "old", "4i" -> "new")
-    df$IP4 <- memisc::recode(df$ip4,
-                             c("5f1","5f2","5f3a","5f3b","5f4") -> "old",
-                             c("5i1","5i2","5i3a","5i3b","5i4") -> "new")
+    df$IP3 <- memisc::recode(str_sub(df$ip3, 1, 2),
+                             "4f" -> "old",
+                             "4i" -> "new")
+    df$IP4 <- memisc::recode(str_sub(df$ip4, 1, 2),
+                             "5f" -> "old",
+                             "5i" -> "new")
 
-    df$VP1 <- memisc::recode(df$vp1,
-                             c("6f1","6f2","6f3","6f4","6f5") -> "old",
-                             c("6i1","6i2","6i3","6i4","6i5") -> "new")
+    df$VP1 <- memisc::recode(str_sub(df$vp1, 1, 2),
+                             "6f" -> "old",
+                             "6i" -> "new")
 
-    df$VP2 <- memisc::recode(df$pos2wd,
+    df$VP2 <- memisc::recode(str_sub(df$pos2wd, 1, 2),
                              "7f" -> "old",
                              "7i" -> "new")
 
-    df$SB1 <- memisc::recode(df$sb1,
-                             c("8s1","8s2","8s3","8s4","8s5") -> "old",
+    df$SB1 <- memisc::recode(str_sub(df$sb1, 1, 2),
+                             "8s" -> "old",
                              "8n" -> "new")
     df$SB2 <- df$SB1
     df$SB1[df$clausetype != "m"] <- NA
     df$SB2[df$clausetype != "s"] <- NA
 
-    df$SB3 <- memisc::recode(df$col9,
+
+    df$SB3 <- memisc::recode(str_sub(df$col9, 1, 2),
                              "9s" -> "old",
                              "9n" -> "new")
     df$SB4 <- df$SB3
     df$SB3[df$clausetype != "m"] <- NA
     df$SB4[df$clausetype != "s"] <- NA
 
-    df$sub.fin <- memisc::recode(df$sbj,
+    df$sub.fin <- memisc::recode(str_sub(df$sbj, 1, 2),
                                  "10c" -> "canonical",
                                  "10n" -> "noncanonical")
 
-    df$sub2.fin <- memisc::recode(df$col11,
-                                  c("11c1","11c2","11c3","11c4") -> "canonical",
+    df$sub2.fin <- memisc::recode(str_sub(df$col11, 1, 2),
+                                  "11c" -> "canonical",
                                   "11n" -> "noncanonical")
 
     df$text <- str_split_fixed(df$ID, ",", 2)[,1]
