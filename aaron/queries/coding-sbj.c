@@ -1,4 +1,4 @@
-begin_remark: coding RZ canonical subject criteria. 16/07/15: add cols 12-13 for nominal subjects only. 21/07/15: clean up nom-args.
+begin_remark: coding RZ canonical subject criteria. 21/07/15: clean up nom-args. 27/07/15: clean up additional cols 12-17.
 end_remark
 node: IP*
 remove_nodes: t

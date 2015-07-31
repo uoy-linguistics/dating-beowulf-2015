@@ -1,4 +1,4 @@
-begin_remark: coding RZ SB criteria. Changes: 1) used new definitions of nominative and oblique arguments. 2) separation from subject by another pronoun is equivalent to adjacency to subject. 3) separation from verb by another object is equivalent to adjacency to verb. 21/07/15: clean up nom-args.
+begin_remark: coding RZ SB criteria. Changes: 1) used new definitions of nominative and oblique arguments. 2) separation from subject by another pronoun is equivalent to adjacency to subject. 3) separation from verb by another object is equivalent to adjacency to verb. 21/07/15: clean up nom-args. 30/07/15: cosmetic changes and documentation
 end_remark
 node: IP*
 remove_nodes: t
@@ -10,7 +10,38 @@ define: susan.def
 coding_query:
 
 // SB1|2 - scrambling of pronominal objects
-// 's' indicates scrambled, 'n' non-scrambled
+// 's' indicates scrambled, 'n' non-scrambled, 'x' ambiguous (adjacent to both subject and main verb)
+// finite main verb:
+// scrambled:
+// 8s1: pro (...) sbj ...
+// 8s2: (...) sbj pro (...) xp (...) vf
+// 8s4: (...) sbj (...) xp (...) pro (...) yp (...) vf
+// ambiguous (adjacent to both subject and verb)
+// 8x1: (...) sbj pro obj|prd vf
+// 8x2: (...) sbj pro1 pro2 obj|prd vf (with pro2 the target object)
+// 8x5: (...) sbj pro vf
+// not scrambled:
+// 8n2: (...) sbj (...) xp (...) pro vf
+// 8n4: (...) sbj (...) xp (...) pro obj|prd vf
+
+// 8x: not specified (probably error)
+
+// non-finite main verb:
+// scrambled:
+// 8s6: (...) sbj pro xp (...) vnf vf (8s6 doesn't check the position of the finite verb)
+// 8s6: (...) sbj pro xp (...) vf vnf
+// 8s7: (...) sbj xp pro yp vnf vf (8s7 doesn't check the position of the finite verb)
+// 8s7: (...) sbj xp pro yp vf vnf
+// ambiguous (adjacent to both subject and verb)
+// 8x3: (...) sbj pro obj|prd vnf vf
+// 8x4: (...) sbj pro1 pro2 obj|prd vnf vf (with pro2 the target object)
+// 8x6: (...) sbj pro vnf vf
+// not scrambled:
+// 8n1: (...) sbj (...) vf (...) pro (...) vnf (...)
+// 8n5: (...) sbj (...) xp pro obj|prd vnf vf
+
+// 8x: not specified (probably error)
+
 8: {
 // finite main verb, pronoun before subject
    8s1: (CODING col 2 vf)
@@ -75,13 +106,23 @@ coding_query:
       AND (IP* idoms nom-arg-usable)
       AND (IP* idoms verb-f-all)
       AND (IP* idoms obl-arg-usable)
-      AND (obl-arg-usable idomsonly [1]PRO|PRO^*)
+      AND (obl-arg-usable idomsonly PRO|PRO^*)
       AND (nom-arg-usable iprecedes obl-arg-usable)
       AND (obl-arg-usable iprecedes verb-f-all)
+// non-finite main verb, pronoun after aux
+   8n1: (CODING col 2 auxv)
+      AND (IP* idoms nom-arg-usable)
+      AND (IP* idoms verb-f-all)
+      AND (IP* idoms verb-nf-all)
+      AND (nom-arg-usable precedes verb-f-all)
+      AND (IP* idoms obl-arg-usable)
+      AND (obl-arg-usable idomsonly PRO|PRO^*)
+      AND (verb-f-all precedes obl-arg-usable)
 // non-finite main verb, pronoun before subject
    8s5: (CODING col 2 auxv|vaux)
       AND (IP* idoms nom-arg-usable)
       AND (IP* idoms verb-f-all)
+      AND (IP* idoms verb-nf-all)
       AND (nom-arg-usable precedes verb-f-all)
       AND (IP* idoms obl-arg-usable)
       AND (obl-arg-usable idomsonly PRO|PRO^*)
@@ -135,7 +176,7 @@ coding_query:
       AND (IP* idoms verb-nf-all)
       AND (nom-arg-usable precedes verb-f-all)
       AND (IP* idoms obl-arg-usable)
-      AND (obl-arg-usable idomsonly [1]PRO|PRO^*)
+      AND (obl-arg-usable idomsonly PRO|PRO^*)
       AND (IP* idoms [3]*)
       AND (nom-arg-usable iprecedes [3]*)
       AND ([3]* iprecedes obl-arg-usable)
@@ -148,7 +189,7 @@ coding_query:
       AND (IP* idoms verb-f-all)
       AND (IP* idoms verb-nf-all)
       AND (IP* idoms obl-arg-usable)
-      AND (obl-arg-usable idomsonly [1]PRO|PRO^*)
+      AND (obl-arg-usable idomsonly PRO|PRO^*)
       AND (nom-arg-usable iprecedes obl-arg-usable)
       AND (obl-arg-usable iprecedes verb-nf-all)
 // pronoun after non-finite verb. Note: none in Beowulf.
@@ -278,6 +319,7 @@ coding_query:
       AND (* idoms !CP*|IP*)
       AND (verb-nf-all precedes *)
       AND (verb-nf-all precedes obl-arg-usable)
+// we shouldn't see any tokens coded 9x1/2; this is a check only
     9x1: (CODING col 2 vf)
       AND (IP* idoms nom-arg-usable)
       AND (IP* idoms verb-f-all)
