@@ -13,42 +13,42 @@ nom-arg-usable: $nom-arg-unmoved|$nom-arg-moved
 
 non-arg-nodes: NP-ADT*|NP-DIR*|NP-EXT*|NP-LOC*|NP-PRD*|NP-SBJ*|NP-TMP*|WNP*|WPP*|ADJP*|WADJP*|ADVP*|WADVP*|IP*|CP*|PTP*|QTP*|RRC*|NUMP*|QP*|WQP*
 
-be-f: BEI|RP+BEI|NEG+BEI|BEP*|RP+BEP*|NEG+BEP*|BED*|RP+BED*|NEG+BED*
-be-inf: BE|BE^D|RP+BE|RP+BE^D|NEG+BE|NEG+BE^D
-be-pres-part: BAG*|RP+BAG*|NEG+BAG*
-be-past-part: BEN*|RP+BEN*|NEG+BEN*
+be-f: BEI|BEP*|BED*|NEG+BEI|NEG+BEP*|NEG+BED*|RP+BEI|RP+BEP*|RP+BED*
+be-inf: BE|BE^D|NEG+BE|NEG+BE^D|RP+BE|RP+BE^D
+be-pres-part: BAG*|NEG+BAG*|RP+BAG*
+be-past-part: BEN*|NEG+BEN*|RP+BEN*
 be-nf: $be-inf|$be-pres-part|$be-past-part
-have-f: HVI|HVP*|HVD*|RP+HVI|RP+HVP*|RP+HVD*|NEG+HVI|NEG+HVP*|NEG+HVD*
-have-inf: HV|HV^D|RP+HV|RP+HV^D|NEG+HV|NEG+HV^D
-have-pres-part: HAG*|RP+HAG*|NEG+HAG*
-have-past-part: HVN*|RP+HVN*|NEG+HVN*
+have-f: HVI|HVP*|HVD*|NEG+HVI|NEG+HVP*|NEG+HVD*|RP+HVI|RP+HVP*|RP+HVD*
+have-inf: HV|HV^D|NEG+HV|NEG+HV^D|RP+HV|RP+HV^D
+have-pres-part: HAG*|NEG+HAG*|RP+HAG*
+have-past-part: HVN*|NEG+HVN*|RP+HVN*
 have-nf: $have-inf|$have-pres-part|$have-past-part
-modal-f: MDI|MDP*|MDD*|RP+MDI|RP+MDP*|RP+MDD*|NEG+MDI|NEG+MDP*|NEG+MDD*
-modal-inf: MD|MD^D|RP+MD|RP+MD^D|NEG+MD|NEG+MD^D
+modal-f: MDI|MDP*|MDD*|NEG+MDI|NEG+MDP*|NEG+MDD*|RP+MDI|RP+MDP*|RP+MDD*
+modal-inf: MD|MD^D|NEG+MD|NEG+MD^D|RP+MD|RP+MD^D
 modal-nf: $modal-inf
-auxiliary-f: AXI|AXP*|AXD*|RP+AXI|RP+AXP*|RP+AXD*|NEG+AXI|NEG+AXP*|NEG+AXD*
-auxiliary-inf: AX|AX^D|RP+AX|RP+AX^D|NEG+AX|NEG+AX^D
-auxiliary-pres-part: AXG*|RP+AXG*|NEG+AXG*
-auxiliary-past-part: AXN*|RP+AXN*|NEG+AXN*
+auxiliary-f: AXI|AXP*|AXD*|NEG+AXI|NEG+AXP*|NEG+AXD*|RP+AXI|RP+AXP*|RP+AXD*
+auxiliary-inf: AX|AX^D|NEG+AX|NEG+AX^D|RP+AX|RP+AX^D
+auxiliary-pres-part: AXG*|NEG+AXG*|RP+AXG*
+auxiliary-past-part: AXN*|NEG+AXN*|RP+AXN*
 auxiliary-nf: $auxiliary-inf|$auxiliary-pres-part|$auxiliary-past-part
-verb-inf: VB|VB^D|RP+VB|RP+VB^D|NEG+VB|NEG+VB^D
-verb-pres-part: VAG*|RP+VAG*|NEG+VAG*
-verb-past-part: VBN*|RP+VBN*|NEG+VBN*
+verb-inf: VB|VB^D|NEG+VB|NEG+VB^D|RP+VB|RP+VB^D
+verb-pres-part: VAG*|NEG+VAG*|RP+VAG*
+verb-past-part: VBN*|NEG+VBN*|RP+VBN*
 uton-f: UTP
 aux-f: $be-f|$have-f|$modal-f|$auxiliary-f|$uton-f
 aux-nf-all: $be-nf|$have-nf|$modal-nf|$auxiliary-nf
 
-verb-f: VBI|VBP*|VBD*|RP+VBI|RP+VBP*|RP+VBD*|NEG+VBI|NEG+VBP*|NEG+VBD*
+verb-f: VBI|VBP*|VBD*|NEG+VBI|NEG+VBP*|NEG+VBD*|RP+VBI|RP+VBP*|RP+VBD*
 verb-f-all: $verb-f|$be-f|$have-f|$modal-f|$auxiliary-f|$uton-f
 verb-nf: $verb-inf|$verb-pres-part|$verb-past-part
 verb-nf-all: $be-nf|$have-nf|$modal-nf|$auxiliary-nf|$verb-nf
 
 # particle = standard set of particles
-# particle1 = additional particles that are separable in beowulf
 particle: adun*|+after*|aweg*|in*|$in*|ni+ter*|nio+dor*|ongean*|up*|ut*
+# particle1 = additional particles that are separable in beowulf
 particle1: for+d|for+t|For+d|$for+d|forht|fore|to
 
-# negative adverbs plus +afre
+# negative adverbs plus +afre in beowulf
 NA: n+a|na|$na|Na|NA|ne|$ne|no|$no|No
 NAWA: nawa
 NAHW+AR: nawar|nawer|naworn|nahw+ar|nahwar|nahwer|nohw+ar|nower
