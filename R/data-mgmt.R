@@ -35,7 +35,6 @@ date.text <- function (text, ID) {
                        "codicts" -> 995,
                        "cotempo" -> 996,
                        c("copreflives","coaelive") -> 997,
-                       ## TODO: AelfLetters, OldTest
                        "coinspolX" -> 1008,
                        ## TODO: LeechLate
                        c("cocanedgX","cowulf") -> 1010,

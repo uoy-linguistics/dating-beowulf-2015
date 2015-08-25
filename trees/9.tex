@@ -1,0 +1,18 @@
+\documentclass{standalone}
+
+\usepackage{tikz-qtree}
+\usepackage{fontspec}
+
+\setmainfont{Times New Roman}
+
+\begin{document}
+\begin{tikzpicture}
+\Tree [.CP [.C þe ] [.TP [.DP$_i$ \edge[roof]; \node(modor){seo modor}; ] [.T$'$ [.T$_j$
+\node(ofsloh) {ofsloh}; ] [.VP [.DP \node(ti) {t$_i$}; ] [.V$'$ [.AdvP \edge[roof]; {ær} ] [.V$'$ [.V
+\node(tj) {t$_j$}; ] [.DP \edge[roof]; {þane fader} ] ] ] ] ] ] ]
+
+\draw [->] (ti) to[out=-135, in=-90] (modor);
+\draw [->] (tj) to[out=-135, in=-90] (ofsloh);
+\end{tikzpicture}
+
+\end{document}

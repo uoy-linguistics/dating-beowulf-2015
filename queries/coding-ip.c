@@ -103,6 +103,17 @@ coding_query:
       AND (IP* idoms verb-nf-all|IP-INF*)
       AND (nom-arg-usable precedes verb-f-all)
       AND (verb-f-all precedes verb-nf-all|IP-INF*)
+   // NB Susan: the two clauses I told you I added to this query are below. -AE
+   4f2: (IP* idoms nom-arg-usable)
+      AND (IP* idoms verb-f-all)
+      AND (IP* idoms verb-nf-all|IP-INF*)
+      AND (nom-arg-usable precedes verb-nf-all|IP-INF*)
+      AND (verb-nf-all|IP-INF* precedes verb-f-all)
+   4i2: (IP* idoms nom-arg-usable)
+      AND (IP* idoms verb-f-all)
+      AND (IP* idoms verb-nf-all|IP-INF*)
+      AND (nom-arg-usable precedes verb-f-all)
+      AND (verb-f-all precedes verb-nf-all|IP-INF*)
    /: ELSE
 }
 

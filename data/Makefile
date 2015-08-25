@@ -1,8 +1,8 @@
-CS = yes | java -classpath ../../../CS-2.002.21.jar csearch/CorpusSearch
-NEW_CS = yes | java -classpath /home/aecay/projects/corpora/CS_2.003.04.jar csearch/CorpusSearch
+CS = yes | java -classpath ../CS-2.002.21.jar csearch/CorpusSearch
+NEW_CS = yes | java -classpath ../CS_2.003.04.jar csearch/CorpusSearch
 
 input.out:
-	cat ~/Dropbox/HistCorp/YCOE3_SP/*.psd > $@
+	cat ../corpus/*.psd > $@
 	sed -i -e 's/(IP\(.*\)-PRN/(IP\1-PAREN/' $@
 
 first-cut.out: input.out
@@ -32,7 +32,7 @@ final.cod: coding-sbj.cod
 	$(CS) ../../queries/coding-vtoc.c $< -out $@
 
 final.cod.ooo: final.cod
-	$(NEW_CS) ../../queries/only-coding.q $<
+	$(NEW_CS) ../../queries/only-coding.q $< -out $@
 	../../scripts/fix-ids.py $@
 
 coding-gen.out: first-cut1.cmp

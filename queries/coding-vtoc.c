@@ -1,6 +1,6 @@
 begin_remark: code clauses as v1 or vx1 (not v1). 21/07/15: clean up nom-args. 22/07/15: general clean-up. 27/07/15: cols 18 does not require adjacency; col 19 requires adjacency; col 20 requires adjacency but scrambled pronouns are permitted.
 end_remark
-define: beo.def
+define: susan.def
 node: IP*
 remove_nodes: t
 nodes_only: t

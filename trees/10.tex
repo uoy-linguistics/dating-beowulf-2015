@@ -1,0 +1,20 @@
+\documentclass{standalone}
+
+\usepackage{tikz-qtree}
+\usepackage{fontspec}
+
+\setmainfont{Times New Roman}
+
+\begin{document}
+\begin{tikzpicture}
+    \Tree [.CP [.AdvP \edge[roof]; {Þa} ] [.C$'$ [.C$_j$ \node(eodon)
+    {eodon}; ] [.TP [.DP$_i$ \edge[roof]; \node(hi) {hi}; ] [.T$'$ [.T
+    \node(tj) {t$_j$}; ] [.VP [.DP \node(ti) {t$_i$}; ] [.V$'$ [.V
+    \node(tj2) {t$_j$}; ] [.PP \edge[roof]; {to healle} ] ] ] ] ] ] ]
+
+    \draw [->] (ti) to[out=-135, in=-90] (hi);
+    \draw [->] (tj2) to[out=-135, in=-90] (tj);
+    \draw [->] (tj) to[out=-135, in=-90] (eodon);
+\end{tikzpicture}
+
+\end{document}
