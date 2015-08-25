@@ -2,7 +2,7 @@
 
 This repository contains the technical materials underlying the paper
 “The Syntax of Old English Poetry and the Dating of *Beowulf*” by
-[Aaron Ecay](aaron) and [Susan Pintzuk](susan), which appears in the
+[Aaron Ecay][aaron] and [Susan Pintzuk][susan], which appears in the
 volume *Old English Philology: Studies in Honour of R.D. Fulk*.
 
 [aaron]: http://aaronecay.com/
@@ -15,8 +15,8 @@ our general strategy: code corpus, extract coding strings, analyze data etc.
 # Instructions
 
 In order to duplicate the analyses in the paper, you will need a copy of
-the [York Corpus of Old English (YCOE)](ycoe) and the
-[YCOE poetry](ycoep).  You should place the YCOE files in the `corpus`
+the [York Corpus of Old English (YCOE)][ycoe] and the
+[YCOE poetry][ycoep].  You should place the YCOE files in the `corpus`
 subdirectory of this repository, and the YCOEP files (where?)
 <!-- TODO -->
 
@@ -45,7 +45,7 @@ order to perform all the steps:
 
 `make` is available from Linux package managers, and is often installed
 by default.  On a Mac, it can be installed with the Xcode command line
-tools [following these steps](xcode-cli).  [R](r) and [python](python)
+tools [following these steps](xcode-cli).  [R][r] and [python][python]
 can be installed from their respective websites.
 
 [xcode-cli]: https://railsapps.github.io/xcode-command-line-tools.html
@@ -151,7 +151,7 @@ from the coding queries.
 The following files and directories are present in this repository:
 
 - `CS-2.002.21.jar` and `CS_2.003.04.jar`: two versions of the
-  [CorpusSearch](cs) program.  Both versions are needed for different
+  [CorpusSearch][cs] program.  Both versions are needed for different
   parts of the analysis.  2.002.21 is an older version, but its
   execution of the CorpusSearch query language is most closely adapted
   to the queries we have written.  2.003.04 is a newer version which has
