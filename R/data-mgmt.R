@@ -72,51 +72,132 @@ date.text <- function (text, ID) {
     return (year)
 }
 
-read.data <- function (filename) {
-    data <- read.csv(filename, header = FALSE, sep = ":")
-    colnames(data) <- c("unused.1",
-                        "unused.2",
-                        "clause.type",
-                        "v1",
-                        "verb.type",      ## 5
-                        "mood",
-                        "polarity",
-                        "conj",
-                        "unused.9",
-                        "n.gen.order",    ## 10
-                        "p.pro.order",
-                        "unused.12",
-                        "unused.13",
-                        "unused.14",
-                        "first.elt",      ## 15
-                        "infl.particle",
-                        "infl.stranded.p",
-                        "infl.neg.obj",
-                        "infl.pro.obj",
-                        "unused.20",
-                        "unused.21",
-                        "unused.22",
-                        "unused.23",
-                        "unused.24",
-                        "infl.part.big",
-                        "unused.26",
-                        "unused.27",
-                        "unused.28",
-                        "unused.29",
-                        "unused.30",
-                        "ID")
-    data <- within(data, rm(unused.1, unused.2, unused.9, unused.12, unused.13,
-                            unused.14, unused.20, unused.21, unused.22,
-                            unused.23, unused.24, unused.26,
-                            unused.27, unused.28, unused.29, unused.30))
-    data$text <- str_split_fixed(data$ID, ",", 2)[,1]
-    data$text <- factor(str_split_fixed(data$text, "-", 2)[,1])
+read.clausal <- function (path) {
+    df <- read.delim(path, sep =":", header = FALSE)
+    colnames(df) <- c("clausetype",
+                      "verbtype",
+                      "ip1",
+                      "ip3",
+                      "ip4",
+                      "vp1",
+                      "pos2wd",
+                      "sb1",
+                      "col9",
+                      "sbj",
+                      "col11",
+                      "col12",
+                      "col13",
+                      "col14",
+                      "col15",
+                      "col16",
+                      "col17",
+                      "vtoc",
+                      "col19",
+                      "col20",
+                      "ID")
+    df$IP1.pro <- memisc::recode(str_sub(df$ip1, 1, 2),
+                             "3f" -> "old",
+                             "3i" -> "new")
+    ## TODO: not robust to changes in levels
+    df$IP1 <- memisc::recode(df$ip1,
+                             c("3f1","3f2") -> "old",
+                             c("3i1","3i2") -> "new")
+    df$IP2 <- df$IP1
+    df$IP1.main <- df$IP1
+    df$IP1[! df$clausetype %in% c("m", "c")] <- NA
+    df$IP1.main[! df$clausetype %in% c("m")] <- NA
+    df$IP2[df$clausetype != "s"] <- NA
 
-    data$year <- date.text(df$text, data$ID)
+    df$IP3 <- memisc::recode(str_sub(df$ip3, 1, 2),
+                             "4f" -> "old",
+                             "4i" -> "new")
+    df$IP3[df$clausetype != "s"] <- NA
 
-    ## ## We should exclude the Laws of Ine and Elucidarium: they are an outlier
-    ## ## in terms of their date (if indeed they are dated correctly)
-    data <- subset(data, ! (text %in% c("colawine", "coeluc1", "coeluc2")))
+    df$IP3.old <- memisc::recode(df$ip3,
+                                 "4f" -> "old",
+                                 "4i" -> "new")
+    df$IP3.old[df$clausetype != "s"] <- NA
 
-    return (data)
+    df$IP4 <- memisc::recode(str_sub(df$ip4, 1, 2),
+                             "5f" -> "old",
+                             "5i" -> "new")
+    df$IP4[df$clausetype != "s"] <- NA
+
+    df$VP1 <- memisc::recode(str_sub(df$vp1, 1, 2),
+                             "6f" -> "old",
+                             "6i" -> "new")
+
+    df$VP2 <- memisc::recode(str_sub(df$pos2wd, 1, 2),
+                             "7f" -> "old",
+                             "7i" -> "new")
+
+    df$SB1 <- memisc::recode(str_sub(df$sb1, 1, 2),
+                             "8s" -> "old",
+                             "8n" -> "new")
+    df$SB2 <- df$SB1
+    df$SB1.main <- df$SB1
+    df$SB1[! df$clausetype %in% c("m", "c")] <- NA
+    df$SB1.main[! df$clausetype %in% c("m")] <- NA
+    df$SB2[df$clausetype != "s"] <- NA
+
+
+    df$SB3 <- memisc::recode(str_sub(df$col9, 1, 2),
+                             "9s" -> "old",
+                             "9n" -> "new")
+    df$SB4 <- df$SB3
+    df$SB3.main <- df$SB3
+    df$SB3[! df$clausetype %in% c("m", "c")] <- NA
+    df$SB3.main[! df$clausetype %in% c("m")] <- NA
+    df$SB4[df$clausetype != "s"] <- NA
+
+    df$SUB <- memisc::recode(str_sub(df$col17, 1, 3),
+                             "17c" -> "canonical",
+                             "17n" -> "noncanonical")
+
+    df$V.C <- memisc::recode(df$vtoc,
+                             "18v1" -> "old",
+                             c("18vx1") -> "new")
+
+    df$V.C2 <- memisc::recode(df$col20,
+                             "20v1" -> "old",
+                             c("20vx1a","20vx1b","20vx1c") -> "new")
+
+    ## df$V.C <- memisc::recode(df$col20,
+    ##                          "20v1" -> "old",
+    ##                          c("20vx1a","20vx1b","20vx1c") -> "new")
+
+
+    df$text <- str_split_fixed(df$ID, ",", 2)[,1]
+    df$text <- factor(str_split_fixed(df$text, "-", 2)[,1])
+    df$year <- date.text(df$text, df$ID)
+
+    df <- subset(df, ! (text %in% c("colawine", "coeluc1", "coeluc2")))
+}
+
+read.gen <- function (path) {
+    df <- read.delim(path, sep =":", header = FALSE)
+    colnames(df) <- c("gen","ID")
+    df$text <- str_split_fixed(df$ID, ",", 2)[,1]
+    df$text <- factor(str_split_fixed(df$text, "-", 2)[,1])
+    df$year <- date.text(df$text, df$ID)
+
+    df <- subset(df, ! (text %in% c("colawine", "coeluc1", "coeluc2")))
+
+    return (df)
+}
+
+read.cprel <- function (path) {
+    df <- read.delim(path, sep =":", header = FALSE)
+    colnames(df) <- c("cprel","ID")
+    df$text <- str_split_fixed(df$ID, ",", 2)[,1]
+    df$text <- factor(str_split_fixed(df$text, "-", 2)[,1])
+    df$year <- date.text(df$text, df$ID)
+
+    df$cprel <- memisc::recode(df$cprel,
+                               c("se","se-the") -> "old",
+                               "the" -> "new")
+
+    df <- subset(df, ! (text %in% c("colawine", "coeluc1", "coeluc2")))
+
+    return (df)
 }
