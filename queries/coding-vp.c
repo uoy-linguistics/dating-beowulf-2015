@@ -11,6 +11,8 @@ coding_query:
 
 // VP1 - position of diagnostics in clauses with aux and main verb
 6: {
+   -: NOT (CODING col 2 auxv)
+
 // particles
    6f1: (CODING col 2 auxv)
       AND (IP* idoms nom-arg-usable)
@@ -112,6 +114,9 @@ coding_query:
 7: {
 // positive two-word objects
 // object can be separated from the verb only by another object
+
+   -: NOT (CODING col 2 auxv)
+
    7f1: (CODING col 2 auxv)
       AND (IP* idoms nom-arg-usable)
       AND (IP* idoms verb-f-all)

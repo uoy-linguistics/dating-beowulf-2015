@@ -271,6 +271,9 @@ coding_query:
 }
 
 9: {
+
+   -: NOT (CODING col 2 auxv|vf)
+
 // clauses with finite main verb and one-word post-verbal constituent, pre-verbal (scrambled)
 // or post-verbal (not scrambled) pronoun
    9s1: (CODING col 2 vf)

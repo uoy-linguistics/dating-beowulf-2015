@@ -11,6 +11,8 @@ coding_query:
 
 // IP1, IP2 - position of diagnostics in clauses with finite main verbs
 3: {
+   -: NOT (CODING col 2 vf)
+
 // particles
    3f1: (CODING col 2 vf)
       AND (IP* idoms nom-arg-usable)
@@ -119,6 +121,9 @@ coding_query:
 
 //IP4 - position of heavy argument in clauses with finite main verbs
 5: {
+
+   -: NOT (CODING col 2 vf)
+
 // DP argument; note that DPs with indices are included
    5f: (CODING col 2 vf)
       AND (IP* idoms nom-arg-usable)

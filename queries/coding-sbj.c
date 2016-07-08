@@ -16,6 +16,9 @@ coding_query:
 // '10c' indicates canonical (immediately after the complementizer), '10n' non-canonical
 // position (anywhere else)
 10: {
+
+  -: NOT (CODING col 1 s)
+
    10c: (CODING col 1 s)
       AND (CODING col 2 vf|auxv|vaux)
       AND (IP* idoms verb-f-all)
@@ -32,6 +35,9 @@ coding_query:
 // 1-3 scrambled pronouns, '11n' indicates non-canonical
 // 11c3-4 not found in Beowulf
 11: {
+
+  -: NOT (CODING col 1 s)
+
    11c1: (CODING col 1 s)
       AND (CODING col 2 vf|auxv|vaux)
       AND (IP* idoms verb-f-all)
@@ -81,6 +87,9 @@ coding_query:
 // '12c' indicates canonical (immediately after the complementizer), '12n' non-canonical
 // position (anywhere else)
 12: {
+
+  -: NOT (CODING col 1 s)
+
    12c: (CODING col 1 s)
       AND (CODING col 2 vf|auxv|vaux)
       AND (IP* idoms verb-f-all)
@@ -99,6 +108,9 @@ coding_query:
 // 1-3 scrambled pronouns, '13n' indicates non-canonical
 // Note: 13c3-4 not found in Beowulf
 13: {
+
+  -: NOT (CODING col 1 s)
+
    13c1: (CODING col 1 s)
       AND (CODING col 2 vf|auxv|vaux)
       AND (IP* idoms verb-f-all)
@@ -154,6 +166,9 @@ coding_query:
 // '14c' indicates canonical (immediately after the complementizer), '14n' non-canonical
 // position (anywhere else)
 14: {
+
+  -: NOT (CODING col 1 s)
+
    14c1: (CODING col 1 s)
       AND (CODING col 2 vf)
       AND (IP* idoms verb-f-all)
@@ -194,6 +209,9 @@ coding_query:
 // '15c2|3|4' indicates canonical except for 1-3 scrambled pronouns,
 // '15n' indicates non-canonical
 15: {
+
+  -: NOT (CODING col 1 s)
+
    15c1a: (CODING col 1 s)
       AND (CODING col 2 vf)
       AND (IP* idoms verb-f-all)
@@ -323,6 +341,9 @@ coding_query:
 // '16c' indicates canonical (immediately after the complementizer), '16n' non-canonical
 // position (anywhere else)
 16: {
+
+  -: NOT (CODING col 1 s)
+
    16c1: (CODING col 1 s)
       AND (CODING col 2 vf)
       AND (IP* idoms verb-f-all)
@@ -366,6 +387,9 @@ coding_query:
 // '17c2|3|4' indicates canonical except for 1-3 scrambled pronouns,
 // '17n' indicates non-canonical
 17: {
+
+  -: NOT (CODING col 1 s)
+
    17c1a: (CODING col 1 s)
       AND (CODING col 2 vf)
       AND (IP* idoms verb-f-all)

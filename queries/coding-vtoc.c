@@ -13,6 +13,9 @@ coding_query:
 
 // adjacency not required
 18: {
+
+  -: NOT (CODING col 1 m)
+
    18v1: (CODING col 1 m)
        AND (IP-MAT* idoms nom-arg-usable)
        AND (nom-arg-usable idomsonly PRO^N)
@@ -28,6 +31,9 @@ coding_query:
 
 // adjacency required
 19: {
+
+    -: NOT (CODING col 1 m)
+
    19v1: (CODING col 1 m)
        AND (IP-MAT* idoms nom-arg-usable)
        AND (nom-arg-usable idomsonly PRO^N)
@@ -43,6 +49,9 @@ coding_query:
 
 // adjacency required but scrambled pronouns can intervene
 20: {
+
+    -: NOT (CODING col 1 m)
+
    20v1: (CODING col 1 m)
        AND (IP-MAT* idoms nom-arg-usable)
        AND (nom-arg-usable idomsonly PRO^N)
