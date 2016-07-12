@@ -1,6 +1,8 @@
 CS = yes | java -classpath ../CS-2.002.21.jar csearch/CorpusSearch
 NEW_CS = yes | java -classpath ../CS_2.003.04.jar csearch/CorpusSearch
 
+.PHONY: all
+
 input.out:
 	cat ../corpus/*.psd > $@
 	sed -i -e 's/(IP\(.*\)-PRN/(IP\1-PAREN/' $@
@@ -27,44 +29,46 @@ first-cut1.cmp: ../queries/first-cut1.q first-cut.out
 	rm ../queries/first-cut1.out
 	mv ../queries/first-cut1.cmp .
 
-coding.cod: first-cut1.cmp
-	$(CS) ../queries/coding.c     $<            -out coding.cod
+coding.cod: ../queries/coding.c first-cut1.cmp
+	$(CS) $^ -out $@
 
-coding-ip.cod: coding.cod
-	$(CS) ../queries/coding-ip.c  coding.cod    -out coding-ip.cod
+coding-ip.cod: ../queries/coding-ip.c coding.cod
+	$(CS) $^ -out $@
 
-coding-vp.cod: coding-ip.cod
-	$(CS) ../queries/coding-vp.c  coding-ip.cod -out coding-vp.cod
+coding-vp.cod: ../queries/coding-vp.c coding-ip.cod
+	$(CS) $^ -out $@
 
-coding-sb.cod: coding-vp.cod
-	$(CS) ../queries/coding-sb.c  coding-vp.cod -out coding-sb.cod
+coding-sb.cod: ../queries/coding-sb.c coding-vp.cod
+	$(CS) $^ -out $@
 
-coding-sbj.cod: coding-sb.cod
-	$(CS) ../queries/coding-sbj.c coding-sb.cod -out coding-sbj.cod
+coding-sbj.cod: ../queries/coding-sbj.c coding-sb.cod
+	$(CS) $^ -out $@
 
-final.cod: coding-sbj.cod
-	$(CS) ../queries/coding-vtoc.c $< -out $@
+final.cod: ../queries/coding-vtoc.c coding-sbj.cod
+	$(CS) $^ -out $@
 
 final.cod.ooo: final.cod
 	$(NEW_CS) ../queries/only-coding.q $< -out $@
 	../scripts/fix-ids.py $@
 
-coding-gen.out: first-cut1.cmp
-	$(CS) ../queries/coding-gen.q $< -out $@
+coding-gen.out: ../queries/coding-gen.q first-cut1.cmp
+	$(CS) $^ -out $@
 
-coding-gen.cod: coding-gen.out
-	$(CS) ../queries/coding-gen.c $< -out $@
+coding-gen.cod: ../queries/coding-gen.c coding-gen.out
+	$(CS) $^ -out $@
 
 coding-gen.cod.ooo: coding-gen.cod
 	$(NEW_CS) ../queries/only-coding.q $<
 	../scripts/fix-ids.py $@
 
-coding-cprel.out: first-cut1.cmp
-	$(CS) ../queries/coding-cprel.q $< -out $@
+coding-cprel.out: ../queries/coding-cprel.q first-cut1.cmp
+	$(CS) $^ -out $@
 
-coding-cprel.cod: coding-cprel.out
-	$(CS) ../queries/coding-cprel.c $< -out $@
+coding-cprel.cod: ../queries/coding-cprel.c coding-cprel.out
+	$(CS) $^ -out $@
 
 coding-cprel.cod.ooo: coding-cprel.cod
 	$(NEW_CS) ../queries/only-coding.q $<
 	../scripts/fix-ids.py $@
+
+all: final.cod.ooo coding-cprel.cod.ooo coding-gen.cod.ooo
