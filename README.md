@@ -34,7 +34,8 @@ enhancements.
 ## Prerequisites
 
 This analysis requires a Unix-like command-line environment in order to
-be run (such as that present on Mac OS X and Linux).  In addition to
+be run (such as that present on Mac OS X and Linux).  It will be very
+difficult to perform the analysis on a Windows computer.  In addition to
 standard shell tools, you will need the following tools installed in
 order to perform all the steps:
 
@@ -43,10 +44,11 @@ order to perform all the steps:
 - the statistical computing language `R`
 - the `python` programming language
 
-`make` is available from Linux package managers, and is often installed
-by default.  On a Mac, it can be installed with the Xcode command line
-tools [following these steps](xcode-cli).  [R][r] and [python][python]
-can be installed from their respective websites.
+`sed` is installed by default on Mac and Linux.  `make` is available
+from Linux package managers, and is often installed by default.  On a
+Mac, it can be installed with the Xcode command line tools
+[following these steps](xcode-cli).  [R][r] and [python][python] can be
+installed from their respective websites.
 
 [xcode-cli]: https://railsapps.github.io/xcode-command-line-tools.html
 [r]: https://www.r-project.org/
@@ -60,9 +62,25 @@ following command at an R command line:
 
 ## Assembling the corpus
 
-The first step is to assemble the corpus that will be used for the
-analysis, which is handled by the first several rules in
-`data/Makefile`.  The following steps are undertaken:
+### A note on using make
+
+The `make` tool automates the sequencing of several shell commands to
+produce a desired result, automatically moving through prerequisite
+steps as needed.  In order to generate the files for the quantitative
+analysis, you should run the following shell commands in the `data/`
+subdirectory of this repository:
+
+    make final.cod.ooo
+    make coding-gen.cod.ooo
+    make coding-cprel.cod.ooo
+
+The following sections explain the steps that these commands will
+initiate.
+
+### Preliminary steps
+
+In order to assemble the corpus that will be used for the
+analysis, the following steps are undertaken first:
 
 1. Parenthetical IPs have their tags changed from `IP-PRN` to
    `IP-PAREN`.  This is because we want to treat parenthetical IPs
@@ -72,13 +90,13 @@ analysis, which is handled by the first several rules in
 2. We restrict our searches to clauses which contain both a verb and a
    subject via `first-cut.q`.
 3. We remove clauses with an empty (elided) verb, or those with two
-   non-finite verbs directly dominated by the root of the clause.
+   non-finite verbs immediately dominated by the root of the clause.
    `first-cut1.q` accomplishes this.  We use CorpusSearch’s complement
    feature to write a query which matches undesirable clause types, and
    then continue the analysis with all the tokens which do not match
    this query.
 
-## Coding queries
+### Coding queries
 
 The next portion of the analysis uses CorpusSearch coding queries to
 analyze the data in the corpus.  A coding query is an ordered list of
@@ -94,12 +112,16 @@ type (main, conjoined main, or subordinate) and the presence and
 position of auxiliary verbs respectively.
 
 `coding-ip.c`: encodes 3 columns relating to diagnostics of IP head
-directionality
+directionality.  The first of these columns is split into IP1-main,
+-conj, and -sub by the R code.  The second two form IP2 and IP3
+respectively.
 
 `coding-vp.c`: encodes 2 columns relating to diagnostics of VP
-head-directionality
+head-directionality.  These form VP1 and 2 respectively, split into
+three clause types (main, conj, and sub) by the R code.
 
-`coding-sb.c`: encodes 2 columns related to pronominal scrambling
+`coding-sb.c`: encodes 2 columns related to pronominal scrambling.
+These are Pro1 and 2 respectively, subdivided by clause type in R.
 
 `coding-sbj.cod`: encodes 7 columns related to the position of
 subjects.  Many of these are variations on a theme of determining
@@ -109,7 +131,7 @@ exceptional configurations in- or excluded from the count.
 
 `coding-vtoc.c`: encodes three columns relating to movement of the
 tensed verb to the complementizer position (before pronominal subjects)
-in matrix declarative clauses
+in matrix declarative clauses.
 
 The above coding queries are all accumulated into the `final.cod` file
 (and the extraction of just the coding strings into `final.cod.ooo`).
@@ -124,25 +146,16 @@ pre-selects noun phrase tokens.
 the complementizer/relative pronoun before.  As before, a query file
 pre-selects the relative clauses.
 
-### A note on using make
-
-The `make` tool automates the sequencing of several shell commands to
-produce a desired result, automatically moving through prerequisite
-steps as needed.  In order to generate the files for the quantitative
-analysis, you should run the following shell commands in the `data/`
-subdirectory of this repository:
-
-    make final.cod.ooo
-    make coding-gen.cod.ooo
-    make coding-cprel.cod.ooo
-
 ## Quantitative analysis
 
 The next step in the analysis is to analyze the data that was generated
 from the coding queries.
 
+TODO
+
 ## External data
 
+TODO
 
 # File layout
 
