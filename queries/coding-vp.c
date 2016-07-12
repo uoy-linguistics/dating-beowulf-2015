@@ -108,6 +108,67 @@ coding_query:
       AND (nom-arg-usable precedes verb-f-all)
       AND (verb-f-all precedes verb-nf-all)
       AND (verb-nf-all precedes obl-arg-usable)
+
+// self
+
+// We need two cases per condition (Infl-medial/-final) here.  The first
+// is where the IP is the direct mother of the ADJP.  The second is
+// where the IP dominates an NP, which contains the ADJP.  In the latter
+// case, rarely, the NP can contain additional material (e.g. an appositive).
+// We should not treat such cases as diagnostics, so we restrict to
+// maximally 2-word NPs -- the self and possibly a pronoun (though we don't
+// force the second word to necessarily be a pronoun, both because I couldn't
+// see how to write such a query without making three cases, which would be a
+// bit much; and because such cases don't seem to actually happen.)
+
+   6f6: (CODING col 2 auxv)
+      AND (IP* idoms nom-arg-usable)
+      AND (IP* idoms verb-f-all)
+      AND (IP* idoms verb-nf-all)
+      AND (IP* idomsmod ADJP*)
+      AND (ADJP* idomsonly ADJ*)
+      AND (ADJ* idomsonly SELF)
+      AND (nom-arg-usable precedes verb-f-all)
+      AND (verb-f-all precedes ADJP*)
+      AND (ADJP* precedes verb-nf-all)
+
+   6f6: (CODING col 2 auxv)
+      AND (IP* idoms nom-arg-usable)
+      AND (IP* idoms verb-f-all)
+      AND (IP* idoms verb-nf-all)
+      AND (IP* idoms obl-arg-usable)
+      AND (obl-arg-usable idoms ADJP*)
+      AND (obl-arg-usable idomswords< 3)
+      AND (ADJP* idomsonly ADJ*)
+      AND (ADJ* idomsonly SELF)
+      AND (nom-arg-usable precedes verb-f-all)
+      AND (verb-f-all precedes ADJP*)
+      AND (ADJP* precedes verb-nf-all)
+
+   6i6: (CODING col 2 auxv)
+      AND (IP* idoms nom-arg-usable)
+      AND (IP* idoms verb-f-all)
+      AND (IP* idoms verb-nf-all)
+      AND (IP* idoms ADJP*)
+      AND (ADJP* idomsonly ADJ*)
+      AND (ADJ* idomsonly SELF)
+      AND (nom-arg-usable precedes verb-f-all)
+      AND (verb-f-all precedes verb-nf-all)
+      AND (verb-nf-all precedes ADJP*)
+
+   6i6: (CODING col 2 auxv)
+      AND (IP* idoms nom-arg-usable)
+      AND (IP* idoms verb-f-all)
+      AND (IP* idoms verb-nf-all)
+      AND (IP* idoms obl-arg-usable)
+      AND (obl-arg-usable idoms ADJP*)
+      AND (obl-arg-usable idomswords< 3)
+      AND (ADJP* idomsonly ADJ*)
+      AND (ADJ* idomsonly SELF)
+      AND (nom-arg-usable precedes verb-f-all)
+      AND (verb-f-all precedes verb-nf-all)
+      AND (verb-nf-all precedes ADJP*)
+
    /: ELSE
 }
 

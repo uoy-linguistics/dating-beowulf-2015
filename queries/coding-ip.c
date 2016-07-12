@@ -88,6 +88,51 @@ coding_query:
       AND (obl-arg-usable idomsonly PRO|PRO^*)
       AND (nom-arg-usable precedes verb-f-all)
       AND (verb-f-all precedes obl-arg-usable)
+
+// self
+
+// See the remarks in coding-vp.c as to why there are two cases per condition here
+
+   3f6: (CODING col 2 vf)
+      AND (IP* idoms nom-arg-usable)
+      AND (IP* idoms verb-f-all)
+      AND (IP* idoms ADJP*)
+      AND (ADJP* idomsonly ADJ*)
+      AND (ADJ* idomsonly SELF)
+      AND (nom-arg-usable precedes ADJP*)
+      AND (ADJP* precedes verb-f-all)
+
+   3f6: (CODING col 2 vf)
+      AND (IP* idoms nom-arg-usable)
+      AND (IP* idoms verb-f-all)
+      AND (IP* idoms obl-arg-usable)
+      AND (obl-arg-usable idoms ADJP*)
+      AND (obl-arg-usable idomswords< 3)
+      AND (ADJP* idomsonly ADJ*)
+      AND (ADJ* idomsonly SELF)
+      AND (nom-arg-usable precedes ADJP*)
+      AND (ADJP* precedes verb-f-all)
+
+   3i6: (CODING col 2 vf)
+      AND (IP* idoms nom-arg-usable)
+      AND (IP* idoms verb-f-all)
+      AND (IP* idoms ADJP*)
+      AND (ADJP* idomsonly ADJ*)
+      AND (ADJ* idomsonly SELF)
+      AND (nom-arg-usable precedes verb-f-all)
+      AND (verb-f-all precedes ADJP*)
+
+   3i6: (CODING col 2 vf)
+      AND (IP* idoms nom-arg-usable)
+      AND (IP* idoms verb-f-all)
+      AND (IP* idoms obl-arg-usable)
+      AND (obl-arg-usable idoms ADJP*)
+      AND (obl-arg-usable idomswords< 3)
+      AND (ADJP* idomsonly ADJ*)
+      AND (ADJ* idomsonly SELF)
+      AND (nom-arg-usable precedes verb-f-all)
+      AND (verb-f-all precedes ADJP*)
+
    /: ELSE
 }
 

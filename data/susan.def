@@ -48,6 +48,8 @@ particle: adun*|+after*|aweg*|in*|$in*|ni+ter*|nio+dor*|ongean*|up*|ut*
 # particle1 = additional particles that are separable in beowulf
 particle1: for+d|for+t|For+d|$for+d|forht|fore|to
 
+SELF: s+alf|self|$self|selfa|$Selfa|$selfa|selfan|selfe|$selfe|selfes|selfne|$selfne|selfra|selfre|selfum|$selfum|selfun|seolf|seolfa|seolfan|seolfe|seolfes|seolfne|seolfra|seolfre|seolfren|seolfum|$seolfum|silf|silfa|silfan|silfe|silfene|silfne|silfra|silfum|sylf|$sylf|Sylf|sylf+an|sylfa|sylfan|SYLFAN|$sylfan|sylfe|$sylfe|sylfen|sylfes|sylfne|$sylfne|sylfon|sylfra|sylfre|sylfren|sylfum|$sylfum|sylfun|sylfuum
+
 # negative adverbs plus +afre in beowulf
 NA: n+a|na|$na|Na|NA|ne|$ne|no|$no|No
 NAWA: nawa
