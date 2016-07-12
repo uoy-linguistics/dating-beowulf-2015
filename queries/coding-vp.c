@@ -125,7 +125,7 @@ coding_query:
       AND (IP* idoms nom-arg-usable)
       AND (IP* idoms verb-f-all)
       AND (IP* idoms verb-nf-all)
-      AND (IP* idomsmod ADJP*)
+      AND (IP* idoms ADJP*)
       AND (ADJP* idomsonly ADJ*)
       AND (ADJ* idomsonly SELF)
       AND (nom-arg-usable precedes verb-f-all)
