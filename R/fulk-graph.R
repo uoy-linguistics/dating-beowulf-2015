@@ -4,140 +4,7 @@ library(dplyr)
 library(ggplot2)
 library(reshape2)
 
-read.susan.coding <- function (path) {
-    df <- read.delim(path, sep =":", header = FALSE)
-    colnames(df) <- c("clausetype",
-                      "verbtype",
-                      "ip1",
-                      "ip3",
-                      "ip4",
-                      "vp1",
-                      "pos2wd",
-                      "sb1",
-                      "col9",
-                      "sbj",
-                      "col11",
-                      "col12",
-                      "col13",
-                      "col14",
-                      "col15",
-                      "col16",
-                      "col17",
-                      "vtoc",
-                      "col19",
-                      "col20",
-                      "ID")
-    df$IP1.pro <- memisc::recode(str_sub(df$ip1, 1, 2),
-                             "3f" -> "old",
-                             "3i" -> "new")
-    ## TODO: not robust to changes in levels
-    df$IP1 <- memisc::recode(df$ip1,
-                             c("3f1","3f2") -> "old",
-                             c("3i1","3i2") -> "new")
-    df$IP2 <- df$IP1
-    df$IP1.main <- df$IP1
-    df$IP1[! df$clausetype %in% c("m", "c")] <- NA
-    df$IP1.main[! df$clausetype %in% c("m")] <- NA
-    df$IP2[df$clausetype != "s"] <- NA
-
-    df$IP3 <- memisc::recode(str_sub(df$ip3, 1, 2),
-                             "4f" -> "old",
-                             "4i" -> "new")
-    df$IP3[df$clausetype != "s"] <- NA
-
-    df$IP3.old <- memisc::recode(df$ip3,
-                                 "4f" -> "old",
-                                 "4i" -> "new")
-    df$IP3.old[df$clausetype != "s"] <- NA
-
-    df$IP4 <- memisc::recode(str_sub(df$ip4, 1, 2),
-                             "5f" -> "old",
-                             "5i" -> "new")
-    df$IP4[df$clausetype != "s"] <- NA
-
-    df$VP1 <- memisc::recode(str_sub(df$vp1, 1, 2),
-                             "6f" -> "old",
-                             "6i" -> "new")
-
-    df$VP2 <- memisc::recode(str_sub(df$pos2wd, 1, 2),
-                             "7f" -> "old",
-                             "7i" -> "new")
-
-    df$SB1 <- memisc::recode(str_sub(df$sb1, 1, 2),
-                             "8s" -> "old",
-                             "8n" -> "new")
-    df$SB2 <- df$SB1
-    df$SB1.main <- df$SB1
-    df$SB1[! df$clausetype %in% c("m", "c")] <- NA
-    df$SB1.main[! df$clausetype %in% c("m")] <- NA
-    df$SB2[df$clausetype != "s"] <- NA
-
-
-    df$SB3 <- memisc::recode(str_sub(df$col9, 1, 2),
-                             "9s" -> "old",
-                             "9n" -> "new")
-    df$SB4 <- df$SB3
-    df$SB3.main <- df$SB3
-    df$SB3[! df$clausetype %in% c("m", "c")] <- NA
-    df$SB3.main[! df$clausetype %in% c("m")] <- NA
-    df$SB4[df$clausetype != "s"] <- NA
-
-    df$SUB <- memisc::recode(str_sub(df$col17, 1, 3),
-                             "17c" -> "canonical",
-                             "17n" -> "noncanonical")
-
-    df$V.C <- memisc::recode(df$vtoc,
-                             "18v1" -> "old",
-                             c("18vx1") -> "new")
-
-    df$V.C2 <- memisc::recode(df$col20,
-                             "20v1" -> "old",
-                             c("20vx1a","20vx1b","20vx1c") -> "new")
-
-    ## df$V.C <- memisc::recode(df$col20,
-    ##                          "20v1" -> "old",
-    ##                          c("20vx1a","20vx1b","20vx1c") -> "new")
-
-
-    df$text <- str_split_fixed(df$ID, ",", 2)[,1]
-    df$text <- factor(str_split_fixed(df$text, "-", 2)[,1])
-    df$year <- date.text(df$text, df$ID)
-
-    df <- subset(df, ! (text %in% c("colawine", "coeluc1", "coeluc2")))
-}
-
-read.susan.gen <- function (path) {
-    df <- read.delim(path, sep =":", header = FALSE)
-    colnames(df) <- c("gen","ID")
-    df$text <- str_split_fixed(df$ID, ",", 2)[,1]
-    df$text <- factor(str_split_fixed(df$text, "-", 2)[,1])
-    df$year <- date.text(df$text, df$ID)
-
-    df <- subset(df, ! (text %in% c("colawine", "coeluc1", "coeluc2")))
-
-    return (df)
-}
-
-read.susan.cprel <- function (path) {
-    df <- read.delim(path, sep =":", header = FALSE)
-    colnames(df) <- c("cprel","ID")
-    df$text <- str_split_fixed(df$ID, ",", 2)[,1]
-    df$text <- factor(str_split_fixed(df$text, "-", 2)[,1])
-    df$year <- date.text(df$text, df$ID)
-
-    df$cprel <- memisc::recode(df$cprel,
-                               c("se","se-the") -> "old",
-                               "the" -> "new")
-
-    df <- subset(df, ! (text %in% c("colawine", "coeluc1", "coeluc2")))
-
-    return (df)
-}
-
-
-beo <- read.csv("../data/beowulf.csv")
-
-compare.plot <- function(susan, zimm, gen, cprel, beo) {
+compare.plot <- function(clausal, zimm, gen, cprel, beo) {
     pm <- melt(zimm, id.vars = c("X", "Estimated_Year"))
     pm <- subset(pm, variable != "Period")
     colnames(pm)[1:2] <- c("text","year")
@@ -147,10 +14,10 @@ compare.plot <- function(susan, zimm, gen, cprel, beo) {
     for (i in c("IP1","IP2","IP3","IP4",
                 "SB1","SB2","SB3","SB4",
                 "V.C")) {
-        vals <- susan[,i] == "new"
+        vals <- clausal[,i] == "new"
         indiv.pts <- rbind(indiv.pts,
-                           data.frame(text = susan$text,
-                                      year = susan$year,
+                           data.frame(text = clausal$text,
+                                      year = clausal$year,
                                       variable = i,
                                       value = vals))
     }
@@ -171,7 +38,7 @@ compare.plot <- function(susan, zimm, gen, cprel, beo) {
 
     indiv.pts$type <- "SP&AE"
 
-    summ <- susan %>%
+    summ <- clausal %>%
     group_by(text, year) %>%
     dplyr::summarize(IP1.new = sum(IP1 == "new", na.rm = TRUE),
               IP1.n = sum(!is.na(IP1)),
@@ -319,5 +186,5 @@ compare.plot <- function(susan, zimm, gen, cprel, beo) {
 }
 
 png("Figure1.png", width = 6, height = 9, units = "in", res = 600, family = "Times New Roman")
-compare.plot(susan, zimm, gen, cprel, beo)
+compare.plot(clausal, zimm, gen, cprel, beo)
 dev.off()
