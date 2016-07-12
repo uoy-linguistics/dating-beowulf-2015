@@ -5,12 +5,26 @@ input.out:
 	cat ../corpus/*.psd > $@
 	sed -i -e 's/(IP\(.*\)-PRN/(IP\1-PAREN/' $@
 
-first-cut.out: input.out
-	$(CS) ../queries/first-cut.q $< -out $@
+root.out: ../queries/root.q input.out
+	$(CS) $^ -out $@
 
-first-cut1.cmp: first-cut.out
-	$(CS) ../queries/first-cut1.q $<
-	mv ../queries/first-cut1.out .
+sub.out: ../queries/sub.q input.out
+	$(CS) $^ -out $@
+
+sub-q.cmp: ../queries/sub-q.q sub.out
+	$(CS) $^
+	rm ../queries/sub-q.out
+	mv ../queries/sub-q.cmp .
+
+sub-ip.out: ../queries/sub-ip.q sub-q.cmp
+	$(CS) $^ -out $@
+
+first-cut.out: ../queries/first-cut.q root.out sub-ip.out
+	$(CS) $^ -out $@
+
+first-cut1.cmp: ../queries/first-cut1.q first-cut.out
+	$(CS) $^
+	rm ../queries/first-cut1.out
 	mv ../queries/first-cut1.cmp .
 
 coding.cod: first-cut1.cmp
