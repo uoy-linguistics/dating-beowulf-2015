@@ -1,3 +1,6 @@
 .Rhistory
 
-corpus/
+data-bak/
+scratch/
+packrat/lib*/
+packrat/init.R

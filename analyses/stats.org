@@ -1,0 +1,667 @@
+#+property: header-args:R :session *beo*
+
+* Preliminaries
+
+#+name: packrat
+#+begin_src R :eval no
+  setwd("..")
+  source("packrat/init.R")
+  setwd("analyses")
+#+end_src
+
+#+name: load-libraries
+#+begin_src R :results none
+  library(ggplot2)
+#+end_src
+
+#+RESULTS: load-libraries
+
+#+name: load-scripts
+#+begin_src R :results none
+  source("../R/data-mgmt.R")
+  source("../R/zimm.R")
+#+end_src
+
+#+RESULTS: load-scripts
+
+#+name: load-data
+#+begin_src R
+  clausal <- read.clausal("../data/final.cod.ooo")
+  gen <- read.gen("../data/coding-gen.cod.ooo")
+  rel <- read.cprel("../data/coding-cprel.cod.ooo")
+#+end_src
+
+#+RESULTS: load-data
+
+* Training/testing split
+
+We will use three different stages when fitting our models:
+1. An 80/20 training/testing split for evaluating and choosing between models
+2. Once we have decided on the form of the model(s) that we will use, we will use leave-one-out crossvalidation to estimate their accuracy on the texts within the dataset
+3. Finally, we will train a model on all the texts with known date in our sample, to produce our date estimates
+Because of the small and uneven nature of the dataset, we constructed the testing set manually in order to ensure it is as representative as possible of our problem domain.
+
+#+name: oe-texts
+| Text                                                           | Date |  Words | Testing? | Remark                         |
+|----------------------------------------------------------------+------+--------+----------+--------------------------------|
+| coalex                                                         |  870 |   7271 |          |                                |
+| comart1 (unk)                                                  |      |   1300 |          |                                |
+| comart2 (unk)                                                  |      |   4391 |          |                                |
+| comart3 (early)                                                |  875 |  25781 |          |                                |
+| cocura-mod                                                     |  891 | 68556? |          | Composed of cocura and cocuraC |
+| cobede                                                         |  895 |  80767 |          |                                |
+| coboeth                                                        |  897 |  48443 |          |                                |
+| coorosiu                                                       |  898 |  51020 | *        |                                |
+| cosolilo                                                       |  899 |  15856 |          |                                |
+|----------------------------------------------------------------+------+--------+----------+--------------------------------|
+| coblick                                                        |  950 |  42506 |          |                                |
+| coverhom                                                       |  955 |  45674 | *        | coverhomE,L excluded           |
+| cobenrul                                                       |  965 |  20104 |          |                                |
+| cochdrul                                                       |  985 |  18386 | *        |                                |
+| cowsgosp                                                       |  990 |  71104 |          |                                |
+| coaelhom                                                       |  991 |  62669 |          | combine with cathom1,2?        |
+| cocathom1                                                      |  991 | 106173 |          | combine?                       |
+| cocathom2                                                      |  994 |  98583 |          | combine?                       |
+| coprefcath1 + coprefcath2 + coprefgen + copreflives + coepigen |  995 |   3030 |          | 1035 + 223 + 1399 + 373 + 965  |
+| cotempo                                                        |  996 |   5495 |          |                                |
+| coaelive                                                       |  997 | 100193 |          |                                |
+|----------------------------------------------------------------+------+--------+----------+--------------------------------|
+| colsigef                                                       | 1000 |   1648 |          | combine?                       |
+| colsigewZ                                                      | 1000 |  10420 |          | combine?; cosigewB excluded    |
+| colwgeat                                                       | 1000 |   2460 |          | combine?                       |
+| colwsigeT                                                      | 1000 |    319 |          | combine?                       |
+| colwsigeXa                                                     | 1000 |   3336 |          | combine?                       |
+| colwstan1                                                      | 1000 |   4544 |          | combine?                       |
+| colwstan2                                                      | 1000 |   4036 |          | combine?                       |
+| cootest                                                        | 1005 |  59524 |          |                                |
+| coinspolX                                                      | 1008 |   4896 | *        | coinspolD excluded             |
+| cowulf                                                         | 1010 |  28768 |          |                                |
+| coprefcura + coprefsolilo                                      | 1010 |   1272 |          | 831 + 441                      |
+| cobyrhtf                                                       | 1011 |  10243 | *        |                                |
+| coapollo                                                       | 1025 |   6545 |          |                                |
+| coalcuin                                                       | 1070 |   5549 |          |                                |
+| coeluc1 + coeluc2                                              | 1108 |   1895 |          | 1512 + 583                     |
+|----------------------------------------------------------------+------+--------+----------+--------------------------------|
+| coadrian                                                       |      |   1092 |          |                                |
+| cocanedgX                                                      |      |   2118 |          | cocanedgD excluded             |
+| cochad                                                         |      |   2659 |          |                                |
+| cochristoph                                                    |      |   1426 |          |                                |
+| codicts                                                        |      |   2180 |          |                                |
+| cogenesiC                                                      |      |   5224 |          |                                |
+| coeuphr                                                        |      |   3658 |          |                                |
+| coeust                                                         |      |   5271 |          |                                |
+| coexodusP                                                      |      |   1096 |          |                                |
+| cogregdC                                                       |      |  91553 |          | cogregdH excluded              |
+| coherbar                                                       |      |  22213 |          |                                |
+| cojames                                                        |      |   1659 |          |                                |
+| colacnu                                                        |      |   7099 |          |                                |
+| colaece                                                        |      |  34727 |          |                                |
+| coleofri                                                       |      |   1017 |          |                                |
+| comargaC                                                       |      |   4196 |          | comargaT excluded              |
+| comarvel                                                       | ???? |   1891 |          |                                |
+| comary                                                         |      |   8181 |          |                                |
+| coneot                                                         |      |   2003 |          |                                |
+| conicodA                                                       |      |   8197 |          | conicodC,D,E excluded          |
+| coquadru                                                       |      |   4276 |          |                                |
+| corood                                                         |      |   6920 |          |                                |
+| cosevelsl                                                      |      |   9143 |          |                                |
+| cosolsat1                                                      |      |   2046 |          |                                |
+| cosolsat2                                                      |      |   1235 |          |                                |
+| covinceB                                                       |      |    728 |          |                                |
+| covinsal                                                       |      |   3655 |          |                                |
+
+codocu* - split
+colaw* - exclude
+combine letters?
+cochron - split
+
+was richard doing something special with verhom or cathom?
+
+#+begin_src R :var oe.texts=oe-texts :results none
+  test.texts <- oe.texts[oe.texts[,4] == "*",1]
+#+end_src
+
+* Which variables are usable for dating?
+
+Insert here stuff from the presentation/Fulk ms.
+
+* Model 1
+
+#+begin_src R
+  ta <- tabulate.all(clausal, gen, rel) %>%
+      dplyr::select(IP1.main, GEN, REL, text, year)
+
+  tan <- tabulate.all.n(clausal, gen, rel) %>%
+      dplyr::filter(variable %in% c("IP1.main", "GEN", "REL")) %>%
+      spread(variable, n, sep = "_") %>%
+      rename(n.IP1 = variable_IP1.main,
+             n.REL = variable_REL,
+             n.GEN = variable_GEN)
+
+  taa <- full_join(ta, tan)
+
+  taa$weight.IP1 <- sqrt(taa$n.IP1 * taa$IP1.main * (1 - taa$IP1.main))
+  taa$weight.GEN <- sqrt(taa$n.GEN * taa$GEN * (1 - taa$GEN))
+  taa$weight.REL <- sqrt(taa$n.REL * taa$REL * (1 - taa$REL))
+
+  m1.IP1 <- lm(year ~ IP1.main, data = taa, weights = taa$weight.IP1)
+  m1.GEN <- lm(year ~ GEN, data = taa, weights = taa$weight.GEN)
+  m1.REL <- lm(year ~ REL, data = taa, weights = taa$weight.REL)
+#+end_src
+
+#+begin_src R
+  fit.one.predictor <- function (texts, years, tokens, name) {
+      data <- data.frame(text = texts, year = years, value = (tokens == "new"))
+      data$predictor <- name
+      data <- filter(data, !is.na(value) & !is.na(year))
+      model <- glm(value ~ year, data = data, family = binomial())
+      predictions <- data.frame(year = 800:1100)
+      predictions$value <- predict(model, predictions, type = "response")
+      predictions$predictor <- name
+      return(list(data = data,
+                  model = model,
+                  predictions = predictions))
+  }
+#+end_src
+
+#+RESULTS:
+
+#+begin_src R :results none
+  testing.clausal <- subset(clausal, text %in% test.texts)
+  training.clausal <- subset(clausal, ! text %in% test.texts)
+  testing.rel <- subset(rel, text %in% test.texts)
+  training.rel <- subset(rel, ! text %in% test.texts)
+  testing.gen <- subset(gen, text %in% test.texts)
+  training.gen <- subset(gen, ! text %in% test.texts)
+
+  res.clausal <- with(training.clausal, fit.one.predictor(text, year, IP1.main, "IP1"))
+  res.gen     <- with(training.gen,     fit.one.predictor(text, year, ifelse(gen == "1b", "new", "old"), "GEN"))
+  res.rel     <- with(training.rel,     fit.one.predictor(text, year, cprel, "REL"))
+
+
+  plot.data <- rbind(res.clausal$data, res.gen$data, res.rel$data)
+  predictions <- rbind(res.clausal$predictions, res.gen$predictions, res.rel$predictions)
+#+end_src
+
+#+name: m1-graph
+#+header: :width 6 :height 4
+#+begin_src R :results value graphics :file-ext svg :exports results
+  plot.data %>%
+    group_by(text, year, predictor) %>%
+    summarize(s = sum(value, na.rm = TRUE), n = sum(!is.na(value))) %>%
+    mutate(p = s / n) %>%
+    ggplot(aes(x = year, y = p)) + geom_point(aes(size = n), alpha = 0.3) + facet_grid(~predictor) + scale_size_area() +
+    geom_line(aes(y = value), data = predictions)
+#+end_src
+
+#+name: fig:m1-graph
+#+results: m1-graph
+[[file:m1-graph.svg]]
+
+The first dating model we will fit is based on logistic regression models.
+For each of the usable dating criteria, we will fit a logistic model to the training set.
+The data and resulting model fit are shown in Figure [[fig:m1-graph]].
+For prediction, we will reverse the logistic model and calculate, for each criterion, an estimated date.
+We’ll take the average of these estimates as the estimate for the text.
+This average will be weighted by:
+- the number of tokens in the undated text and/or
+- the prediction confidence interval for the regression
+*************** TODO adjudicate between these two alternatives
+*************** END
+
+#+begin_src R
+  reverse.prediction <- function (texts, vals, models) {
+      res <- data.frame(text = texts$text, year = texts$year)
+      weights <- data.frame(text = texts$text)
+      for (i in names(models)) {
+          preds <- data.frame(year = 700:1200)
+          preds$value <- predict(models[[i]], preds, type = "response")
+          res[,i] <- NA
+          weights[,i] <- NA
+          for (t in res$text) {
+              p <- vals[[i]] %>% filter(text == t) %>% with(sum(value, na.rm = TRUE) / sum(!is.na(value)))
+              pred <- preds[which.min(abs(preds$value - p)), "year"]
+              res[res$text == t, i] <- pred
+              n <- vals[[i]] %>% filter(text == t) %>% with(sum(!is.na(value)))
+              weights[weights$text == t, i] <- sqrt(n * p * (1 - p))
+          }
+      }
+      res$estimate <- NA
+      for (t in res$text) {
+          res[res$text == t,"estimate"] <- weighted.mean(res[res$text == t, names(models)],
+                                                         weights[weights$text == t, names(models)])
+      }
+      return(res)
+  }
+#+end_src
+
+#+RESULTS:
+
+#+begin_src R :colnames yes
+  reverse.prediction(taa %>% filter(text %in% test.texts) %>% select(text, year),
+                     list(IP1 = clausal %>% filter(text %in% test.texts) %>% mutate(value = IP1.main == "new") %>% select(text, value),
+                          REL = rel %>% filter(text %in% test.texts) %>% mutate(value = cprel == "new") %>% select(text, value),
+                          GEN = gen %>% filter(text %in% test.texts) %>% mutate(value = gen == "1b") %>% select(text, value)),
+                     list(IP1 = res.clausal$model,
+                          REL = res.rel$model,
+                          GEN = res.gen$model))
+#+end_src
+
+#+RESULTS:
+| text      | year |  IP1 |  REL |  GEN |         estimate |
+|-----------+------+------+------+------+------------------|
+| cobyrhtf  | 1011 |  836 | 1005 |  991 |  977.31362322313 |
+| cochdrul  |  985 | 1171 | 1087 |  975 | 1031.60981388841 |
+| coinspolX | 1008 |  700 | 1200 | 1159 | 1182.97162138882 |
+| coorosiu  |  898 |  838 |  951 | 1033 | 971.724493135363 |
+| coverhom  |  995 |  833 |  952 |  964 | 942.668572055954 |
+
+* Elastic net model
+
+#+name: caret
+#+begin_src R
+  library(caret)
+
+  en.data <- tabulate.all(clausal, gen, rel)
+
+  en.data.n <- full_join(en.data, tabulate.all.n(clausal, gen, rel) %>% group_by(text) %>% summarize(n = sum(n))) %>% filter(!is.na(year))
+
+  en.data.train <- subset(en.data.n, ! text %in% test.texts)
+  en.data.test <-  subset(en.data.n,   text %in% test.texts)
+
+  en.model <- train(en.data.train %>% select(-text,-year,-period,-n),
+                    en.data.train$year,
+                    weights = en.data.train$n,
+                    method = "glmnet",
+                    preProcess = c("center", "scale", "knnImpute"),
+                    trControl = trainControl(method = "repeatedcv"),
+                    tuneGrid = expand.grid(alpha = seq(0, 1, 0.1),
+                                           lambda = seq(1, 20, 0.2)))
+#+end_src
+
+
+* model ideas
+
+- weighted average of texts within century, unweighted (linear, logistic) regression between centuries
+
+TODO:
+- variable selection/residual correlation code
+- port lasso model
+
+* STAN model
+
+*************** TODO covariance between slopes
+*************** END
+
+#+begin_src stan :tangle model.stan :comments no
+  data {
+      int<lower=1> n_texts;
+      int<lower=1> n_criteria;
+
+      // Total number of observations
+      int<lower=0> N;
+      // Segments, see STAN manual re: ragged data strucutres
+      int<lower=0> s[n_criteria];
+
+      // Observations
+      int y[N]; // binary indicators, i.e. lower=0 upper=1
+      // Predictors: intercept, year
+      matrix[N,2] X;
+
+      // The texts to which data points belong
+      int<lower=1, upper=n_texts> tt[N];
+
+      int<lower=1> n_unknown_texts;
+      int<lower=1> N_unknown;
+      int<lower=1,upper=N_unknown> s_unknown[n_criteria];
+
+      int y_unknown[N_unknown];
+      int<lower=1, upper=n_unknown_texts> tt_unknown[N_unknown];
+  }
+
+  parameters {
+      // Predictors: intercept, slope
+      vector[2] theta[n_criteria];
+
+      // Random effect variances
+      real<lower=0> sigma_text[n_criteria]; // TODO: prior
+      // Per-text random effects
+      vector[n_texts] mu[n_criteria];
+
+      vector[n_unknown_texts] unknown_years;
+      vector[n_unknown_texts] mu_unknown[n_criteria];
+  }
+
+  model {
+      int pos;
+      int pos_unknown;
+      matrix[N_unknown, 2] X_unknown;
+      pos = 1;
+      pos_unknown = 1;
+      X_unknown[,1] = rep_vector(1, N_unknown);
+      X_unknown[,2] = unknown_years[tt_unknown];
+
+      // unknown_years ~ normal(0,1);
+      for (k in 1:n_criteria) {
+          mu[k] ~ normal(0, sigma_text[k]);
+          segment(y, pos, s[k]) ~ bernoulli_logit(block(X, pos, 1, s[k], 2) * theta[k] +
+                                                  mu[k, segment(tt, pos, s[k])]);
+
+          // Unknown texts
+
+          mu_unknown[k] ~ normal(0, sigma_text[k]);
+          segment(y_unknown, pos_unknown, s_unknown[k]) ~ bernoulli_logit(block(X_unknown, pos_unknown, 1, s_unknown[k], 2) * theta[k] +
+                                                                  mu_unknown[k, segment(tt_unknown, pos_unknown, s_unknown[k])]);
+          pos = pos + s[k];
+          pos_unknown = pos_unknown + s_unknown[k];
+      }
+  }
+#+end_src
+
+
+The below model does away with random effects, since they prove hard to fit:
+
+#+begin_src stan :tangle model2.stan :comments no
+  data {
+      int<lower=1> n_texts;
+      int<lower=1> n_criteria;
+
+      // Total number of observations
+      int<lower=0> N;
+      // Segments, see STAN manual re: ragged data strucutres
+      int<lower=0> s[n_criteria];
+
+      // Observations
+      int y[N]; // binary indicators, i.e. lower=0 upper=1
+      // Predictors: intercept, year
+      matrix[N,2] X;
+
+      // The texts to which data points belong
+      int<lower=1, upper=n_texts> tt[N];
+
+      int<lower=1> n_unknown_texts;
+      int<lower=1> N_unknown;
+      int<lower=1,upper=N_unknown> s_unknown[n_criteria];
+
+      int y_unknown[N_unknown];
+      int<lower=1, upper=n_unknown_texts> tt_unknown[N_unknown];
+  }
+
+  parameters {
+      // Predictors: intercept, slope
+      vector[2] theta[n_criteria];
+
+      vector[n_unknown_texts] unknown_years;
+  }
+
+  model {
+      int pos;
+      int pos_unknown;
+      matrix[N_unknown, 2] X_unknown;
+      pos = 1;
+      pos_unknown = 1;
+      X_unknown[,1] = rep_vector(1, N_unknown);
+      X_unknown[,2] = unknown_years[tt_unknown];
+
+      for (k in 1:n_criteria) {
+          segment(y, pos, s[k]) ~ bernoulli_logit(block(X, pos, 1, s[k], 2) * theta[k]);
+
+          // Unknown texts
+          segment(y_unknown, pos_unknown, s_unknown[k]) ~ bernoulli_logit(block(X_unknown, pos_unknown, 1, s_unknown[k], 2) * theta[k]);
+          pos = pos + s[k];
+          pos_unknown = pos_unknown + s_unknown[k];
+      }
+  }
+#+end_src
+
+And here’s a model that does away with random intercepts for the unknown texts only:
+
+#+begin_src stan :tangle model3.stan :comments no
+  data {
+      int<lower=1> n_texts;
+      int<lower=1> n_criteria;
+
+      // Total number of observations
+      int<lower=0> N;
+      // Segments, see STAN manual re: ragged data strucutres
+      int<lower=0> s[n_criteria];
+
+      // Observations
+      int y[N]; // binary indicators, i.e. lower=0 upper=1
+      // Predictors: intercept, year
+      matrix[N,2] X;
+
+      // The texts to which data points belong
+      int<lower=1, upper=n_texts> tt[N];
+
+      int<lower=1> n_unknown_texts;
+      int<lower=1> N_unknown;
+      int<lower=1,upper=N_unknown> s_unknown[n_criteria];
+
+      int y_unknown[N_unknown];
+      int<lower=1, upper=n_unknown_texts> tt_unknown[N_unknown];
+  }
+
+  parameters {
+      // Predictors: intercept, slope
+      vector[2] theta[n_criteria];
+
+      // Random effect variances
+      real<lower=0> sigma_text[n_criteria]; // TODO: prior
+      // Per-text random effects
+      vector[n_texts] mu[n_criteria];
+
+      vector[n_unknown_texts] unknown_years;
+  }
+
+  model {
+      int pos;
+      int pos_unknown;
+      matrix[N_unknown, 2] X_unknown;
+      pos = 1;
+      pos_unknown = 1;
+      X_unknown[,1] = rep_vector(1, N_unknown);
+      X_unknown[,2] = unknown_years[tt_unknown];
+
+      // unknown_years ~ normal(0,1);
+      for (k in 1:n_criteria) {
+          mu[k] ~ normal(0, sigma_text[k]);
+          segment(y, pos, s[k]) ~ bernoulli_logit(block(X, pos, 1, s[k], 2) * theta[k] +
+                                                  mu[k, segment(tt, pos, s[k])]);
+
+          // Unknown texts
+          segment(y_unknown, pos_unknown, s_unknown[k]) ~ bernoulli_logit(block(X_unknown, pos_unknown, 1, s_unknown[k], 2) * theta[k]);
+          pos = pos + s[k];
+          pos_unknown = pos_unknown + s_unknown[k];
+      }
+  }
+#+end_src
+
+#+name: fit-stan-prep
+#+begin_src R
+  library(rstan)
+
+  assemble.model.data <- function (clausal, gen, rel) {
+      IP1.data <- clausal %>%
+          filter(!is.na(IP1.main) & !is.na(year)) %>%
+          transform(obs = as.integer(IP1.main == "new"), text = as.character(text)) %>%
+          select(text, year, obs)
+
+      gen.data <- gen %>%
+          filter(!is.na(gen) & !is.na(year)) %>%
+          transform(obs = as.integer(gen == "1b"), text = as.character(text)) %>%
+          select(text, year, obs)
+
+      rel.data <- rel %>%
+          filter(!is.na(cprel) & !is.na(year)) %>%
+          transform(obs = as.integer(cprel == "new"), text = as.character(text)) %>%
+          select(text, year, obs)
+
+      s <- c(nrow(IP1.data), nrow(gen.data), nrow(rel.data))
+
+      model.data.pre <- rbind(IP1.data, gen.data, rel.data)
+      mean <- mean(model.data.pre$year)
+      sd <- sd(model.data.pre$year)
+      model.texts <- levels(factor(model.data.pre$text))
+      model.data.pre$text <- as.integer(factor(model.data.pre$text))
+      model.data.pre$intercept <- 1
+      model.data.pre$year <- (model.data.pre$year - mean) / sd
+
+      model.criteria <- c("IP1", "GEN", "REL")
+
+      return (list(
+          n_texts = max(model.data.pre$text),
+          n_criteria = 3,
+          s = s,
+          N = nrow(model.data.pre),
+          y = model.data.pre$obs,
+          X = model.data.pre[,c("intercept", "year")],
+          tt = model.data.pre$text,
+          mean = mean,
+          sd = sd,
+          texts = model.texts
+      ))
+  }
+
+  model.known.data <- assemble.model.data(clausal %>% filter(! text %in% test.texts),
+                                          gen     %>% filter(! text %in% test.texts),
+                                          rel     %>% filter(! text %in% test.texts))
+
+  model.unknown.data <- assemble.model.data(clausal %>% filter(text %in% test.texts),
+                                            gen     %>% filter(text %in% test.texts),
+                                            rel     %>% filter(text %in% test.texts))
+
+  model.data <- list(
+      n_texts = model.known.data$n_texts,
+      n_criteria = 3,
+      s = model.known.data$s,
+      N = model.known.data$N,
+      y = model.known.data$y,
+      X = model.known.data$X,
+      tt = model.known.data$tt,
+      n_unknown_texts = model.unknown.data$n_texts,
+      N_unknown = model.unknown.data$N,
+      s_unknown = model.unknown.data$s,
+      y_unknown = model.unknown.data$y,
+      tt_unknown = model.unknown.data$tt
+  )
+#+end_src
+
+#+RESULTS: fit-stan-prep
+
+#+name: fit-stan
+#+begin_src R :eval no
+  fit <- stan(
+      "model3.stan",
+      data = model.data,
+      cores = 4,
+      refresh = 100
+  )
+#+end_src
+
+
+#+name: stan-plot
+#+header: :width 6 :height 4
+#+begin_src R :results value graphics :file-ext svg :exports results
+  s <- summary(fit)$summary
+  rn <- rownames(s)
+  mus <- NULL
+  for (i in 1:3) {
+      mus <- rbind(mus,
+                   data.frame(criterion = model.criteria[i],
+                              median = s[!is.na(str_match(rn, paste0("^mu\\[", as.character(i), ","))), "50%"],
+                              text = model.texts))
+  }
+
+  mus %>%
+  ggplot(aes(x = median)) + geom_histogram() + facet_wrap(~criterion)
+#+end_src
+
+#+name: fig:stan-plot
+#+results: stan-plot
+[[file:stan-plot.svg]]
+
+#+name: hglm-ip1
+#+begin_src R :colnames yes
+  IP1.data$year.std <- (IP1.data$year - mean(IP1.data$year)) / sd(IP1.data$year)
+  hglm.ip1 <- glmer(obs ~ year.std + (1|text), data = IP1.data, family = binomial)
+  mus.hglm.ip1 <- data.frame(hglm = ranef(hglm.ip1)$text[,1], text = rownames(ranef(hglm.ip1)$text))
+  full_join(mus.hglm.ip1, mus %>% filter(criterion == "IP1")) %>% select(text, hglm, median) %>% transform(diff = round(hglm - median, 2)) %>% filter(!is.na(hglm))
+#+end_src
+
+#+RESULTS: hglm-ip1
+| text         |                hglm |             median |  diff |
+|--------------+---------------------+--------------------+-------|
+| coaelhom     |   0.759380196510781 |  0.777002799362683 | -0.02 |
+| coaelive     |   0.586901595561381 |   0.59729629617807 | -0.01 |
+| coalcuin     |   -1.37386058974109 |  -1.46332520280234 |  0.09 |
+| coalex       |  -0.523799388687612 | -0.649354218431026 |  0.13 |
+| coapollo     |  -0.667812848234737 | -0.677785036357217 |  0.01 |
+| cobede       |  -0.282816706998945 | -0.332786171430922 |  0.05 |
+| cobenrul     |  0.0869022378686935 | 0.0891683621531844 |     0 |
+| coblick      |   -1.26962052714579 |  -1.31941671508421 |  0.05 |
+| coboeth      |   0.713258168720281 |  0.724391392422687 | -0.01 |
+| cocathom1    |   0.475935654028875 |  0.487508385274389 | -0.01 |
+| cocathom2    |   0.625624828136399 |    0.6362502497704 | -0.01 |
+| cochad       |  -0.364843247429886 | -0.474445167802346 |  0.11 |
+| cochristoph  |   0.269251187042349 |   0.21408085680583 |  0.06 |
+| cocura       |   0.785921654970589 |  0.802508475736965 | -0.02 |
+| codicts      |   0.598385459654631 |  0.653039756391638 | -0.05 |
+| coepigen     |   0.501508354228398 |  0.593608940273463 | -0.09 |
+| coeuphr      |   0.214794280021883 |  0.218383336239552 |     0 |
+| coeust       |   0.625333295196627 |  0.657343024331895 | -0.03 |
+| cogregdC     |   0.700219878990698 |   0.72785418517077 | -0.03 |
+| coherbar     |   -1.07709547742013 |  -1.12463068804453 |  0.05 |
+| cojames      |   0.309873629160038 |  0.324956675043717 | -0.02 |
+| colacnu      |   0.421070102881303 |   0.47471121879198 | -0.05 |
+| colaw1cn     |  -0.305660514241277 | -0.399639092674169 |  0.09 |
+| colaw2cn     |   0.446688038991958 |  0.532636231544684 | -0.09 |
+| colawafint   |  -0.192973024286029 | -0.278271457582164 |  0.09 |
+| colawwllad   |  -0.415366946345514 | -0.490993690479576 |  0.08 |
+| colsigef     |  -0.464196613934145 | -0.555096355580383 |  0.09 |
+| colsigewZ    |   0.593178335744063 |  0.612675665044644 | -0.02 |
+| colwgeat     |   0.401546182479945 |  0.438500198099764 | -0.04 |
+| colwsigeXa   |    1.13916441083089 |   1.24661238367785 | -0.11 |
+| colwstan1    |  0.0695092297949616 | 0.0640288223188651 |  0.01 |
+| colwstan2    |   0.358986771846498 |  0.385990558591997 | -0.03 |
+| comargaC     |   -1.94682404390751 |  -2.09253207153612 |  0.15 |
+| comarvel     | -0.0791805153343186 | -0.123558004914728 |  0.04 |
+| comary       |   -1.37232786972046 |  -1.47417632451854 |   0.1 |
+| coneot       |  -0.698742679071024 | -0.823820811786136 |  0.13 |
+| conicodA     |   0.225593958745989 |  0.237478380905256 | -0.01 |
+| coprefcath2  |  -0.255701421331076 | -0.341095638539419 |  0.09 |
+| coprefcura   |  -0.183733924308799 | -0.242623285809933 |  0.06 |
+| coprefgen    |   0.806922888699739 |  0.906629204404786 |  -0.1 |
+| coprefsolilo |   0.707056444591902 |   0.82237102261459 | -0.12 |
+| coquadru     |  -0.816383604751572 | -0.925600750142452 |  0.11 |
+| corood       |   0.107421123992662 |  0.107525881815872 |     0 |
+| cosevensl    |     1.1563864138832 |   1.20043044412209 | -0.04 |
+| cosolilo     |  -0.297108402982207 | -0.311818702044363 |  0.01 |
+| cosolsat1    |   -1.35005062804435 |  -1.52994448550807 |  0.18 |
+| cotempo      |    1.44816087477309 |   1.63437434861598 | -0.19 |
+| covinsal     |  0.0779386359390461 | 0.0535792245211785 |  0.02 |
+| cowsgosp     |   0.361020655857698 |  0.371311947057265 | -0.01 |
+| cowulf       |   -0.39837634870049 | -0.415600200814772 |  0.02 |
+
+* Stan model notes
+
+- rather than fit a separate vector of means per criterion, fit a correlation (covariance?) hyperparameter and allow the means to covary -> tells us which criteria are independent, in a similar way to the residuals test did?
+- standardize the year, it will fit better
+- for the unknown texts, can we fit a random intercept?  or is that highly correlated with the unknown year variable?
+- check the pairwise correlation  across criteria of the random intercepts for each text
+
+
+- should we include eME texts as well?  to establish a better diachrony...
+- naive bayes with beta dist – compare to classifiers
+  - weight features by sqrt(sum_{known texts}(ntokens))
+
+
+- combine DiagMC and DiagCC
+- Ngen combine for subj and obj
+- keep separate the topicalization features
+
+* testing set
+
+- bede, augustines soliloquies
+- blickling
+- aelf supplemental homilies, wulf inst, apollonius
