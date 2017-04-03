@@ -4,3 +4,5 @@ data-bak/
 scratch/
 packrat/lib*/
 packrat/init.R
+packrat/src/
+/m1-graph.svg

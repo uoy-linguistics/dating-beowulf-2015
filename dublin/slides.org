@@ -1,0 +1,278 @@
+#+property: header-args:R :session *beo* :output-dir (concat default-directory "")
+
+
+
+* Introduction
+
+** Introduction
+
+*** Introduction
+
+- The topic of this talk: using quantitative syntactic criteria to assign dates to texts
+
+*** Background: texts not manuscripts
+
+- Manuscripts (physical artifacts) are best dated using non-linguistic methods
+  - Explicit dates
+  - Biographical details of known authors/scribes
+  - References to historical events, etc.
+- Texts are abstract objects
+  - Assumed: composed by a single author at a specific time in a coherent style/dialect
+  - Passed down through one or more MS witnesses, not necessarily contemporaneous with the textʼs composition
+
+*** Background: Old English
+
+- Early 700s – 1100s
+- Surviving prose texts: sermons and religious writing, medical treatises, translations of Latin texts
+  - ca. 1M words
+- Beowulf: long poem (3000 l.)
+  - Single MS dated ca. 1000
+  - Meter, phonology, morphology, etc. suggest earlier date, perhaps 8th century
+  - Non-linguistic evidence tends to favor this conclusion as well, though some have argued that the text date + MS date
+
+*** Background: OE resources
+
+- York Corpus of Old English (YCOE)
+- Manual morphological analysis and syntactic parse for vast majority of extant OE prose, plus Beowulf (but not any other poems)
+- Choices made by the YCOE team
+  - Which MS/witness of a text to prefer
+  - What counts as a “text”
+
+* Syntactic dating I
+
+** Background
+
+*** Why syntactic dating
+
+- Linguistic evidence used for OE text dating has not been syntactic
+- Experience in OE and other domains indicates that parsed corpora can complement other types of historical linguistic inquiry
+  - Consistency
+  - Replicability
+  - Quickness
+
+*** Syntactic dating: the basic premises
+
+- Syntactic changes have been observed to follow an S-shaped logistic curve (Bailey 1973, Kroch 1989)
+- In an ideal world, we can use the shape of such a curve to identify when a text was composed
+
+#+name: s-curve-ex
+#+header: :width 4 :height 2
+#+begin_src R :results value graphics :file-ext svg :exports results
+  pd <- data.frame(x = 700:1100)
+  pd$y <- plogis((pd$x - 900) / 50)
+
+  ggplot(pd, aes(x = x, y = y)) + geom_line() +
+  annotate("segment", x = 925, xend = 925, y = 0, yend = plogis((925 - 900) / 50), color = "red") +
+  annotate("segment", x = 700, xend = 925, y = plogis((925 - 900) / 50), yend = plogis((925 - 900) / 50), color = "green") +
+  annotate("point", x = 925, y = plogis((925 - 900) / 50), size = 3, color = "blue") +
+  xlab("Year") + ylab("p")
+#+end_src
+
+#+name: fig:s-curve-ex
+#+results: s-curve-ex
+[[file:/home/aecay/projects/dating-beowulf/dublin/s-curve-ex.svg]]
+
+1. Establish black curve on the basis of known-date texts
+2. Measure unknown text, see green level of phenomenon of interest
+3. From blue point, follow red line to x-axis
+4. Date = 925
+
+*** Syntactic dating of OE: criteria
+
+- In order to carry out such an exercise, we need to identify syntactic changes that take place in OE
+  - IP: head-final \to head-initial
+  - VP: head-final \to head-initial
+  - V-to-C movement: lost in main clause declaratives
+  - Scrambling of pronoun objects: lost
+  - Relative clauses: move from demonstrative-headed to complementizer-headed
+  - Noun-Genitive order: becomes fixed
+  - Topicalization: lost
+  - Negative Concord: lost
+  - Expletive subjects: covert \to overt
+- Not necessary for criteria to go 0 \to 100 over the time period of interest
+  - IP headedness change: basically completed (>80%) by beginning of OE, except in subordinate clauses
+  - Negative concord: ongoing in ME, EME (and PDE...)
+
+** Syntactic dating of Beowulf
+*** Syntactic dating of Beowulf: introduction
+
+- We attempted to use this methodology to assign a date to Beowulf
+- We identified four conditions that our criteria must fulfill
+  1. The criterion must show a consistent trend over the OE period
+  2. There must be enough data in Beowulf to evaluate the criterion
+  3. The value in Beowulf must fall within a plausible interval, based on the prose texts
+  4. The criterion must not systematically differ between prose and poetic texts
+- On this basis, we were left with three usable criteria
+
+*** Syntactic dating of Beowulf: results
+
+[[file:../R/Comparison.png]]
+
+*** Syntactic dating of Beowulf: conclusions
+
+- Our results agree with the linguistic consensus, and the non-linguistic majority: Beowulf was composed early in the OE period, in the 8th or early 9th century
+
+#+beamer: \pause
+
+- But: this is based on only three (2?) sources of syntactic evidence
+- But: we have not used terribly sophisticated quantitative analysis to reach this conclusion
+- But: we have not quantified our uncertainty
+
+
+
+* Syntactic dating II: methods
+
+** Statistical considerations
+
+*** Background
+
+- We want to design a procedure for assigning dates to texts
+- For this purpose, texts of unknown date are the least interesting of all!
+  - Assigning these texts a date is the last thing weʼll do before turning out the lights on this project
+  - Because: it doesnʼt help our method get any better
+- Our goal: devise a method that is good at assigning dates to texts whose dates we already know
+  - We know itʼs a good method because we already know the answers
+
+*** Cross-validation
+
+- *Crossvalidation* is just the statisticianʼs name for doing exactly this
+- Take the set of texts whose dates we know and split them up into two groups
+  - Training set: data points we use to construct our dating models
+  - Testing set: data points we use to test the model
+  - We pretend we donʼt know the dates of the texts in the testing set
+- Because we are testing, developing, and comparing multiple models, we chose to use an 80/20 training/testing split, consistent across all the models we fit
+- We also hand selected the test set members to be a representative sample (because random sampling over the small population of OE texts might produce skewed results)
+
+** Model 1: variable selection
+
+*** Variable selection
+
+- In this kind of syntactic dating, we have N predictors, all of which are moving in the same direction
+- A bad situation for a statistical model to be in
+  - Which movements are relevant?  Which are redundant?
+  - Lots of degrees of freedom \to lots of opportunities to overfit
+- The solution to problems of this type is *variable selection*
+
+*** Variable selection: elastic net
+
+- Problem: “runaway” coefficients
+  - If other predictors adequately describe the data, the left-over predictors might assume very large values, values with the wrong sign, etc.
+  - Soultion: ridge regression
+    - “make regression coefficients small”
+- Problem: redundant information
+  - For example, multiple measures of the same phenomenon
+  - Solution: lasso regression
+    - “zero out some coefficients”
+- Elastic net regression: the best of both worlds
+  - \alpha ranges from 0 to 1
+  - \alpha = 0 is ridge regression, \alpha = 1 is lasso
+
+*** Elastic net: results
+
+#+name: en-best-fit
+#+begin_src R :colnames yes :exports results
+  en.model$bestTune
+#+end_src
+
+#+RESULTS: en-best-fit
+| alpha | lambda |
+|-------+--------|
+|   0.3 |   0.21 |
+
+
+#+name: en-coef
+#+begin_src R :rownames yes :exports results
+  round(as.matrix(coef(en.model$finalModel, s = en.model$finalModel$lambdaOpt)), 2)
+#+end_src
+
+#+latex: {\footnotesize
+
+#+RESULTS: en-coef
+| (Intercept) | 0.01 |
+| DiagMC      | 0.14 |
+| DiagCC      |    0 |
+| DiagSC      |    0 |
+| AuxVRoot    |    0 |
+| AuxVSC      |    0 |
+| DiagVP      |    0 |
+| VtoC        | 0.12 |
+| SCan        |    0 |
+| ScrSC       | 0.04 |
+| NGenSbj     | 0.04 |
+| NGenObj     | 0.32 |
+| Rel         |  0.2 |
+| TopPPSpro   | 0.09 |
+| TopObjSpro  |    0 |
+| TopPPSbj    |    0 |
+| TopObjSbj   |    0 |
+| NegCon      |    0 |
+| Expl        |    0 |
+
+#+latex: }
+
+*** Elastic net: results
+
+#+name: en-preds
+#+begin_src R :colnames yes :exports results
+  res <- data.frame(text = test.texts,
+             predicted = round(predict(en.model, data.test %>% select_("DiagMC", "DiagCC", "DiagSC",
+                                                                 "AuxVRoot", "AuxVSC", "DiagVP",
+                                                                 "VtoC", "SCan", "ScrSC", "NGenSbj",
+                                                                 "NGenObj", "Rel", "TopPPSpro",
+                                                                 "TopObjSpro", "TopPPSbj", "TopObjSbj",
+                                                                 "NegCon", "Expl")) * sd(data.train$EstYear) +
+                               mean(data.train$EstYear), 0),
+             actual = data[data$Text %in% test.texts,"EstYear"])
+  res$error <- res$actual - res$predicted
+  res
+#+end_src
+
+#+RESULTS: en-preds
+| text                               | predicted | actual | error |
+|------------------------------------+-----------+--------+-------|
+| 1.07 Orosius                       |       937 |    899 |   -38 |
+| 1.06 Augustine Soliloquy           |       957 |    898 |   -59 |
+| 2.01 Benedictine Rule              |       957 |    965 |     8 |
+| 3.04 Aelfric Supplemental Homilies |       995 |   1000 |     5 |
+| 3.09 Wulfstan Institutes of Polity |      1010 |   1008 |    -2 |
+| 3.15 Alcuin                        |       951 |   1070 |   119 |
+
+** Model 2: quantification of uncertainty
+
+*** Quantification of uncertainty
+
+- None of the models weʼve used so far give us a quantification of uncertainty
+- How sure are we that our estimate is correct?
+  - (Before we peek at the true answer)
+- Bayesian estimation provides a framework for quantification of uncertainty
+  - “Everything is a probability distribution”
+
+*** examples of bayesian modeling
+
+- Ordinary regression
+  - $y = \beta x + \epsilon$
+  - $\epsilon \sim N(0,1)$
+  - $\beta \sim \ldots$
+- “Multilevel” modeling
+  - $y = \beta x + \beta_{text} i_{text} + \epsilon$
+  - $\beta_{text} \sim N(0,1)$
+- Our model
+  - Ordinary regression plus...
+  - $y_{unknown} = \beta x_{unknown} + \epsilon$
+  - Jointly estimate \beta and x_{unknown}
+  - \beta is a distribution (we donʼt care much)...but so is x_{unknown}!
+
+*** techniques for bayesian modeling
+
+- stan etc
+
+*** Results
+
+*** Discussion
+
+- estimates are over-precise: because we havenʼt modeled the individual text variation
+
+
+* Conclusion
+
+...what to say?

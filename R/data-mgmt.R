@@ -207,10 +207,10 @@ read.clausal2 <- function (path) {
                                   "Vspro" -> "old",
                                   "sproV" -> "new")
 
-    df$period <- memisc::recode(df$period,
-                                "P1" -> 1,
-                                "P2" -> 2,
-                                "P3" -> 3)
+    ## df$period <- memisc::recode(df$period,
+    ##                             "P1" -> 1,
+    ##                             "P2" -> 2,
+    ##                             "P3" -> 3)
 
     return (df)
 }

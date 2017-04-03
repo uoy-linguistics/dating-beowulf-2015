@@ -1,0 +1,345 @@
+#+property: header-args:R :session *beo*
+
+These analyses are based on the data in =FeatureSummary.csv= from Richard.
+
+* Preliminaries
+
+#+name: packrat
+#+begin_src R :eval no
+  setwd("..")
+  source("packrat/init.R")
+  setwd("analyses")
+#+end_src
+
+#+RESULTS: packrat
+: /home/aecay/projects/dating-beowulf
+
+#+name: load-libraries
+#+begin_src R :results none
+  library(ggplot2)
+#+end_src
+
+#+RESULTS: load-libraries
+
+#+begin_src R
+  data <- read.csv("../data/FeatureSummary.csv", sep = ";", header = TRUE)
+
+  data$DiagMC <- data$Initial / (data$Initial + data$Final)
+  data$DiagMC.n <- data$Initial + data$Final
+  data$DiagMC.s <- data$Initial
+
+  data$DiagCC <- data$Initial.1 / (data$Initial.1 + data$Final.1)
+  data$DiagCC.n <- data$Initial.1 + data$Final.1
+  data$DiagCC.s <- data$Initial.1
+
+  data$DiagSC <- data$Initial.2 / (data$Initial.2 + data$Final.2)
+  data$DiagSC.n <- data$Initial.2 + data$Final.2
+  data$DiagSC.s <- data$Initial.2
+
+  data$AuxVRoot <- data$Aux.V / (data$Aux.V + data$V.Aux)
+  data$AuxVRoot.n <- data$Aux.V + data$V.Aux
+  data$AuxVRoot.s <- data$Aux.V
+
+  data$AuxVSC <- data$Aux.V.1 / (data$Aux.V.1 + data$V.Aux.1)
+  data$AuxVSC.n <- data$Aux.V.1 + data$V.Aux.1
+  data$AuxVSC.s <- data$Aux.V.1
+
+  data$DiagVP <- data$Initial.3 / (data$Initial.3 + data$Final.3)
+  data$DiagVP.n <- data$Initial.3 + data$Final.3
+  data$DiagVP.s <- data$Initial.3
+
+  data$VtoC <- data$spro.V / (data$spro.V + data$V.spro)
+  data$VtoC.n <- (data$spro.V + data$V.spro)
+  data$VtoC.s <- data$spro.V
+
+  data$SCan <- data$Can / (data$Can + data$NonCan)
+  data$SCan.n <- (data$Can + data$NonCan)
+  data$SCan.s <- data$Can
+
+  data$ScrSC <- data$NoScr / (data$NoScr + data$Scr)
+  data$ScrSC.n <- data$NoScr + data$Scr
+  data$ScrSC.s <- data$NoScr
+
+  data$NGenSbj <- data$GenN / (data$GenN + data$Ngen)
+  data$NGenSbj.n <- data$GenN + data$Ngen
+  data$NGenSbj.s <- data$GenN
+
+  data$NGenObj <- data$GenN.1 / (data$GenN.1 + data$Ngen.1)
+  data$NGenObj.n <- data$GenN.1 + data$Ngen.1
+  data$NGenObj.s <- data$GenN.1
+
+  data$Rel <- data$X.te / (data$X.te + data$se)
+  data$Rel.n <- data$X.te + data$se
+  data$Rel.s <- data$X.te
+
+  data$TopPPSpro <- data$No.Top / (data$No.Top + data$Top)
+  data$TopPPSpro.n <- data$No.Top + data$Top
+  data$TopPPSpro.s <- data$No.Top
+
+  data$TopObjSpro <- data$No.Top.1 / (data$No.Top.1 + data$Top.1)
+  data$TopObjSpro.n <- data$No.Top.1 + data$Top.1
+  data$TopObjSpro.s <- data$No.Top.1
+
+  data$TopPPSbj <- data$No.Top.2 / (data$No.Top.2 + data$Top.2)
+  data$TopPPSbj.n <- data$No.Top.2 + data$Top.2
+  data$TopPPSbj.s <- data$No.Top.2
+
+  data$TopObjSbj <- data$No.Top.3 / (data$No.Top.3 + data$Top.3)
+  data$TopObjSbj.n <- data$No.Top.3 + data$Top.3
+  data$TopObjSbj.s <- data$No.Top.3
+
+  data$NegCon <- data$No.NC / (data$No.NC + data$NC)
+  data$NegCon.n <- data$No.NC + data$NC
+  data$NegCon.s <- data$No.NC
+
+  data$Expl <- data$overt / (data$null + data$overt)
+  data$Expl.n <- data$null + data$overt
+  data$Expl.s <- data$overt
+
+  data$EstYear <- as.integer(as.character(data$EstYear))
+
+  data.meas <- melt(data, id.vars = c("Text", "EstYear", "Tokens"),
+                    measure.vars = c("DiagMC", "DiagCC", "DiagSC",
+                                     "AuxVRoot", "AuxVSC", "DiagVP",
+                                     "VtoC", "SCan", "ScrSC", "NGenSbj",
+                                     "NGenObj", "Rel", "TopPPSpro",
+                                     "TopObjSpro", "TopPPSbj", "TopObjSbj",
+                                     "NegCon", "Expl"),
+                    value.name = "P")
+
+  data.n <- melt(data, id.vars = c("Text", "EstYear", "Tokens"),
+                    measure.vars = c("DiagMC.n", "DiagCC.n", "DiagSC.n",
+                                     "AuxVRoot.n", "AuxVSC.n", "DiagVP.n",
+                                     "VtoC.n", "SCan.n", "ScrSC.n", "NGenSbj.n",
+                                     "NGenObj.n", "Rel.n", "TopPPSpro.n",
+                                     "TopObjSpro.n", "TopPPSbj.n", "TopObjSbj.n",
+                                     "NegCon.n", "Expl.n"),
+                 value.name = "N")
+
+  data.n$variable <- str_sub(data.n$variable, 1,-3)
+
+  data.merged <- full_join(data.meas, data.n)
+#+end_src
+
+#+RESULTS:
+
+#+begin_src R :results none
+  criteria <- c("DiagMC", "DiagCC", "DiagSC",
+                "AuxVRoot", "AuxVSC", "DiagVP",
+                "VtoC", "SCan", "ScrSC", "NGenSbj",
+                "NGenObj", "Rel", "TopPPSpro",
+                "TopObjSpro", "TopPPSbj", "TopObjSbj",
+                "NegCon", "Expl")
+#+end_src
+
+* Plots
+
+#+name: var-plots
+#+header: :width 8 :height 8
+#+begin_src R :results value graphics :file-ext svg :exports results
+  data.merged %>% # filter(EstYear < 1025) %>%
+  ggplot(aes(x = EstYear, y = P)) +
+  geom_point(aes(size = N)) +
+  geom_smooth(aes(weight = N), se = FALSE) +
+  scale_size_area() +
+  facet_wrap(~variable)
+#+end_src
+
+#+name: fig:var-plots
+#+results: var-plots
+[[file:var-plots.svg]]
+
+
+* Training/testing split
+
+#+begin_src R :results none
+  test.texts <- c("1.07 Orosius",
+                  "1.06 Augustine Soliloquy",
+                  "2.01 Benedictine Rule",
+                  "3.04 Aelfric Supplemental Homilies",
+                  "3.09 Wulfstan Institutes of Polity",
+                  "3.15 Alcuin")
+
+  train.texts <- c("1.01 Letter of Alexander",
+                   "1.02 Marvels of the East",
+                   "1.03 Bede",
+                   "1.04 Cura Pastoralis",
+                   "1.05 Boethius",
+                   ## "1.06 Augustine Soliloquy",
+                   ## "1.07 Orosius",
+                   "1.08 Martyrology",
+                   "1.09 Charters1",
+                   ## "2.01 Benedictine Rule",
+                   "2.02 Blickling Homilies",
+                   "2.03 Vercelli Homilies",
+                   "2.04 West-Saxon Gospels",
+                   "2.05 Chrodegang",
+                   "2.06 Charters2",
+                   "3.01 Aelfric Catholic Homilies I",
+                   "3.02 Aelfric Catholic Homilies II",
+                   "3.03 Aelfric Lives of Saints",
+                   ## "3.04 Aelfric Supplemental Homilies",
+                   "3.05 Aelfric Old Testament",
+                   "3.06 Aelfric Letters",
+                   "3.07 Aelfric Temporibus Anni",
+                   "3.08 Wulfstan Homilies",
+                   ## "3.09 Wulfstan Institutes of Polity",
+                   ## Too small "3.10 Wulfstan Canons Edgar",
+                   ## Too small "3.11 Wulfstan Laws of Aethelred",
+                   "3.12 Wulfstan Laws of Canute",
+                   "3.13 Byrhtferth Manual",
+                   "3.14 Apollonius",
+                   ## "3.15 Alcuin",
+                   "3.16 Leofric",
+                   "3.17 Charters3"
+                   )
+#+end_src
+
+
+* Elastic net
+
+#+begin_src R
+  library(caret)
+
+  data.train <- subset(data, ! (Text %in% test.texts) & !is.na(EstYear))
+
+  data.test  <- subset(data,   (Text %in% test.texts) & !is.na(EstYear))
+
+  en.model <- train(data.train %>% select_("DiagMC", "DiagCC", "DiagSC",
+                                           "AuxVRoot", "AuxVSC", "DiagVP",
+                                           "VtoC", "SCan", "ScrSC", "NGenSbj",
+                                           "NGenObj", "Rel", "TopPPSpro",
+                                           "TopObjSpro", "TopPPSbj", "TopObjSbj",
+                                           "NegCon", "Expl"),
+                    (data.train$EstYear  - mean(data.train$EstYear)) / sd(data.train$EstYear),
+                    weights = data.train$Tokens,
+                    method = "glmnet",
+                    preProcess = c("center", "scale", "knnImpute"),
+                    trControl = trainControl(method = "repeatedcv"),
+                    tuneGrid = expand.grid(alpha = seq(0, 1, 0.1),
+                                           lambda = seq(0, 1, 0.01)))
+
+  round(as.matrix(coef(en.model$finalModel, s = en.model$finalModel$lambdaOpt)), 2)
+
+  predict(en.model, data.test %>% select_("DiagMC", "DiagCC", "DiagSC",
+                                          "AuxVRoot", "AuxVSC", "DiagVP",
+                                          "VtoC", "SCan", "ScrSC", "NGenSbj",
+                                          "NGenObj", "Rel", "TopPPSpro",
+                                          "TopObjSpro", "TopPPSbj", "TopObjSbj",
+                                          "NegCon", "Expl"))
+#+end_src
+
+#+RESULTS:
+| -0.510804742532917 |
+| -0.163239799259166 |
+| -0.167135537138826 |
+|   0.49092824594997 |
+|  0.735469142618967 |
+| -0.272229231626856 |
+
+* Stan
+
+#+begin_src stan :tangle model2-new.stan :comments no
+  data {
+      int<lower=1> n_texts;
+      int<lower=1> n_criteria;
+
+      // Observations
+      int <lower=0>y[n_texts,n_criteria];
+      int <lower=0>N[n_texts,n_criteria];
+      // Predictors: intercept, year
+      vector [n_texts]years;
+
+      int<lower=1> n_unknown_texts;
+      int<lower=0>y_unknown[n_unknown_texts,n_criteria];
+      int<lower=0>N_unknown[n_unknown_texts,n_criteria];
+  }
+
+  transformed data {
+      matrix[n_texts, 2] X;
+      X[,1] = rep_vector(1, n_texts);
+      X[,2] = years;
+  }
+
+  parameters {
+      // Predictors: intercept, slope
+      matrix[2, n_criteria] theta;
+
+      vector[n_unknown_texts] unknown_years;
+  }
+
+  transformed parameters {
+      matrix[n_unknown_texts, 2] X_unknown;
+      X_unknown[,1] = rep_vector(1, n_unknown_texts);
+      X_unknown[,2] = unknown_years;
+  }
+
+  model {
+      for (k in 1:n_texts) {
+          y[k] ~ binomial_logit(N[k], X[k] * theta);
+      }
+      for (k in 1:n_unknown_texts) {
+          y_unknown[k] ~ binomial_logit(N_unknown[k], X_unknown[k] * theta);
+      }
+  }
+#+end_src
+
+
+#+begin_src R
+  library(rstan)
+
+  years.raw <- data[data$Text %in% train.texts, "EstYear"]
+  years <- (years - mean(years.raw)) / sd(years.raw)
+
+  model.data <- list(n_texts = length(train.texts),
+                     n_criteria = length(criteria),
+                     y = data[data$Text %in% train.texts, str_c(criteria, ".s")],
+                     N = data[data$Text %in% train.texts, str_c(criteria, ".n")],
+                     years = years,
+
+                     n_unknown_texts = length(test.texts),
+                     y_unknown = data[data$Text %in% test.texts, str_c(criteria, ".s")],
+                     N_unknown = data[data$Text %in% test.texts, str_c(criteria, ".n")])
+
+  fit <- stan(
+      "model2-new.stan",
+      data = model.data,
+      cores = 4,
+      refresh = 100,
+      iter = 5000
+  )
+#+end_src
+
+#+RESULTS:
+
+
+#+name: stan-plot
+#+header: :width 6 :height 4
+#+begin_src R :results value graphics :file-ext svg :exports results
+  s <- summary(fit)$summary
+  rn <- rownames(s)
+  mus <- NULL
+  for (i in 1:6) {
+      mus <- rbind(mus,
+                   data.frame(median = s[!is.na(str_match(rn, paste0("^unknown_years\\[", as.character(i), "\\]"))), "50%"],
+                              text = test.texts[i]))
+  }
+
+  mus %>%
+  ggplot(aes(x = median)) + geom_histogram() + facet_wrap(~text)
+#+end_src
+
+#+name: results
+#+begin_src R :colnames yes
+  summary(fit, pars = "unknown_years")$summary[,c("mean", "2.5%", "50%", "97.5%")] * sd(years.raw) + mean(years.raw)
+#+end_src
+
+#+RESULTS: results
+|             mean |             2.5% |              50% |            97.5% |
+|------------------+------------------+------------------+------------------|
+| 905.958817683418 |  894.68377352878 | 905.942757250518 | 917.468838488321 |
+| 914.022278969161 | 905.883512176806 | 914.035458013503 |  921.93314559578 |
+| 932.388641018438 | 921.720654674796 | 932.397239148049 | 943.029230484643 |
+| 1019.60153453561 | 1012.70210688374 | 1019.54308988111 | 1026.72991617701 |
+|  1047.0806360621 | 1017.44523115927 |  1046.8019936765 | 1077.05543778939 |
+| 934.619992647705 | 916.308438479508 | 934.649349542585 | 952.745873631661 |
