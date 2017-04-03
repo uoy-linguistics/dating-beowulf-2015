@@ -177,7 +177,7 @@
 #+RESULTS: en-best-fit
 | alpha | lambda |
 |-------+--------|
-|   0.3 |   0.21 |
+|   0.9 |   0.07 |
 
 
 #+name: en-coef
@@ -188,25 +188,25 @@
 #+latex: {\footnotesize
 
 #+RESULTS: en-coef
-| (Intercept) | 0.01 |
-| DiagMC      | 0.14 |
-| DiagCC      |    0 |
-| DiagSC      |    0 |
-| AuxVRoot    |    0 |
-| AuxVSC      |    0 |
-| DiagVP      |    0 |
-| VtoC        | 0.12 |
-| SCan        |    0 |
-| ScrSC       | 0.04 |
-| NGenSbj     | 0.04 |
-| NGenObj     | 0.32 |
-| Rel         |  0.2 |
-| TopPPSpro   | 0.09 |
-| TopObjSpro  |    0 |
-| TopPPSbj    |    0 |
-| TopObjSbj   |    0 |
-| NegCon      |    0 |
-| Expl        |    0 |
+| (Intercept) | -0.02 |
+| DiagMC      |  0.11 |
+| DiagCC      |     0 |
+| DiagSC      |     0 |
+| AuxVRoot    |     0 |
+| AuxVSC      |     0 |
+| DiagVP      |     0 |
+| VtoC        |  0.12 |
+| SCan        |     0 |
+| ScrSC       |     0 |
+| NGenSbj     |     0 |
+| NGenObj     |  0.41 |
+| Rel         |  0.16 |
+| TopPPSpro   |  0.09 |
+| TopObjSpro  |     0 |
+| TopPPSbj    |     0 |
+| TopObjSbj   |     0 |
+| NegCon      |     0 |
+| Expl        |     0 |
 
 #+latex: }
 
@@ -223,19 +223,28 @@
                                                                  "NegCon", "Expl")) * sd(data.train$EstYear) +
                                mean(data.train$EstYear), 0),
              actual = data[data$Text %in% test.texts,"EstYear"])
-  res$error <- res$actual - res$predicted
+  res$error <- res$predicted - res$actual
   res
 #+end_src
 
 #+RESULTS: en-preds
 | text                               | predicted | actual | error |
 |------------------------------------+-----------+--------+-------|
-| 1.07 Orosius                       |       937 |    899 |   -38 |
-| 1.06 Augustine Soliloquy           |       957 |    898 |   -59 |
-| 2.01 Benedictine Rule              |       957 |    965 |     8 |
-| 3.04 Aelfric Supplemental Homilies |       995 |   1000 |     5 |
-| 3.09 Wulfstan Institutes of Polity |      1010 |   1008 |    -2 |
-| 3.15 Alcuin                        |       951 |   1070 |   119 |
+| 1.07 Orosius                       |       939 |    899 |    40 |
+| 1.06 Augustine Soliloquy           |       961 |    898 |    63 |
+| 2.01 Benedictine Rule              |       956 |    965 |    -9 |
+| 3.04 Aelfric Supplemental Homilies |       994 |   1000 |    -6 |
+| 3.09 Wulfstan Institutes of Polity |      1016 |   1008 |     8 |
+| 3.13 Byrhtferth Manual             |       983 |   1011 |   -28 |
+
+#+name: en-rmse
+#+begin_src R
+  sqrt(mean(res$error^2))
+#+end_src
+
+#+RESULTS: en-rmse
+: 33
+
 
 ** Model 2: quantification of uncertainty
 
@@ -247,7 +256,7 @@
 - Bayesian estimation provides a framework for quantification of uncertainty
   - “Everything is a probability distribution”
 
-*** examples of bayesian modeling
+*** Examples of Bayesian modeling
 
 - Ordinary regression
   - $y = \beta x + \epsilon$
@@ -262,16 +271,52 @@
   - Jointly estimate \beta and x_{unknown}
   - \beta is a distribution (we donʼt care much)...but so is x_{unknown}!
 
-*** techniques for bayesian modeling
+*** Techniques for Bayesian modeling
 
-- stan etc
+- Bayesian modeling doesnʼt come with ready-made modeling packages
+  - You write your own model in a special programming language
+- Fitting a Bayesian model requires lots of computational power
+  - (As compared to traditional models; in absolute terms it may not amount to much with data of this size)
+- Iʼve used the STAN package, and these models are available online
+  - https://github.com/uoy-linguistics/dating-beowulf
+
+# TODO: get the precise link
 
 *** Results
 
+#+name: stan-preds
+#+begin_src R :colnames yes :exports results
+  res <- data.frame(text = test.texts,
+                    predicted = round(summary(fit, pars = "unknown_years")$summary[,"50%"] * sd(years.raw) + mean(years.raw), 0),
+                    ci = str_c(round(summary(fit, pars = "unknown_years")$summary[,"2.5%"] * sd(years.raw) + mean(years.raw), 0),
+                               "-",
+                               round(summary(fit, pars = "unknown_years")$summary[,"97.5%"] * sd(years.raw) + mean(years.raw), 0)),
+             actual = data[data$Text %in% test.texts,"EstYear"])
+  res$error <- res$predicted - res$actual
+  res
+#+end_src
+
+#+RESULTS: stan-preds
+| text                               | predicted |        ci | actual | error |
+|------------------------------------+-----------+-----------+--------+-------|
+| 1.07 Orosius                       |       906 |   894-918 |    899 |     7 |
+| 1.06 Augustine Soliloquy           |       914 |   906-922 |    898 |    16 |
+| 2.01 Benedictine Rule              |       932 |   922-943 |    965 |   -33 |
+| 3.04 Aelfric Supplemental Homilies |      1019 | 1012-1026 |   1000 |    19 |
+| 3.09 Wulfstan Institutes of Polity |      1046 | 1019-1075 |   1008 |    38 |
+| 3.13 Byrhtferth Manual             |       971 |   952-992 |   1011 |   -40 |
+
+- The results are good (ever so slightly better than the elastic net model)
+- But the uncertainty is not well-quantified
+  - Only 1/6 texts has the actual date within the 95% CI
+
 *** Discussion
 
-- estimates are over-precise: because we havenʼt modeled the individual text variation
-
+- In a sense we expect this: we havenʼt modeled the fact that individual texts are idiosyncratic
+  - The intuition behind “ordinary” hierarchical regression models
+  - My attempts to add this to the Bayesian model have so far been disappointing
+- This model doesnʼt do any variable selection – perhaps adding elastic net properties to it could improve it
+- The quantification of uncertainty element of the modeling picture isnʼt yet complete, but I regard it as the most promising area for development.
 
 * Conclusion
 

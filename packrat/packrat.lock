@@ -130,6 +130,11 @@ Hash: b4b1006c635b016d1e33a98789e228ba
 Requires: ModelMetrics, car, foreach, ggplot2, lattice, nlme, plyr,
     reshape2
 
+Package: cluster
+Source: CRAN
+Version: 2.0.6
+Hash: 8aa5c05d0394b5659e122d096aff8f63
+
 Package: codetools
 Source: CRAN
 Version: 0.2-15
@@ -336,6 +341,12 @@ Source: CRAN
 Version: 1.2.0
 Hash: 25a86d7f410513ebb7c0bc6a5e16bdc3
 Requires: magrittr, stringi
+
+Package: survival
+Source: CRAN
+Version: 2.41-2
+Hash: a33b3f214498ec75e5b9027ec93dbaa4
+Requires: Matrix
 
 Package: tibble
 Source: CRAN

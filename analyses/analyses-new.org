@@ -17,6 +17,10 @@ These analyses are based on the data in =FeatureSummary.csv= from Richard.
 #+name: load-libraries
 #+begin_src R :results none
   library(ggplot2)
+  library(dplyr)
+  library(rstan)
+  library(stringr)
+  library(reshape2)
 #+end_src
 
 #+RESULTS: load-libraries
@@ -158,7 +162,8 @@ These analyses are based on the data in =FeatureSummary.csv= from Richard.
                   "2.01 Benedictine Rule",
                   "3.04 Aelfric Supplemental Homilies",
                   "3.09 Wulfstan Institutes of Polity",
-                  "3.15 Alcuin")
+                  ## TODO bad text"3.15 Alcuin",
+                  "3.13 Byrhtferth Manual")
 
   train.texts <- c("1.01 Letter of Alexander",
                    "1.02 Marvels of the East",
@@ -187,7 +192,7 @@ These analyses are based on the data in =FeatureSummary.csv= from Richard.
                    ## Too small "3.10 Wulfstan Canons Edgar",
                    ## Too small "3.11 Wulfstan Laws of Aethelred",
                    "3.12 Wulfstan Laws of Canute",
-                   "3.13 Byrhtferth Manual",
+                   ## "3.13 Byrhtferth Manual",
                    "3.14 Apollonius",
                    ## "3.15 Alcuin",
                    "3.16 Leofric",
@@ -230,12 +235,12 @@ These analyses are based on the data in =FeatureSummary.csv= from Richard.
 #+end_src
 
 #+RESULTS:
-| -0.510804742532917 |
-| -0.163239799259166 |
-| -0.167135537138826 |
-|   0.49092824594997 |
-|  0.735469142618967 |
-| -0.272229231626856 |
+| -0.484802192915901 |
+| -0.135439412120596 |
+| -0.208945048569906 |
+|  0.411826163068691 |
+|  0.764713718119366 |
+|  0.225485987541785 |
 
 * Stan
 
@@ -289,17 +294,17 @@ These analyses are based on the data in =FeatureSummary.csv= from Richard.
   library(rstan)
 
   years.raw <- data[data$Text %in% train.texts, "EstYear"]
-  years <- (years - mean(years.raw)) / sd(years.raw)
+  years <- (years.raw - mean(years.raw)) / sd(years.raw)
 
   model.data <- list(n_texts = length(train.texts),
                      n_criteria = length(criteria),
-                     y = data[data$Text %in% train.texts, str_c(criteria, ".s")],
-                     N = data[data$Text %in% train.texts, str_c(criteria, ".n")],
+                     y = data.matrix(data[data$Text %in% train.texts, str_c(criteria, ".s")]),
+                     N = data.matrix(data[data$Text %in% train.texts, str_c(criteria, ".n")]),
                      years = years,
 
                      n_unknown_texts = length(test.texts),
-                     y_unknown = data[data$Text %in% test.texts, str_c(criteria, ".s")],
-                     N_unknown = data[data$Text %in% test.texts, str_c(criteria, ".n")])
+                     y_unknown = data.matrix(data[data$Text %in% test.texts, str_c(criteria, ".s")]),
+                     N_unknown = data.matrix(data[data$Text %in% test.texts, str_c(criteria, ".n")]))
 
   fit <- stan(
       "model2-new.stan",
@@ -343,3 +348,67 @@ These analyses are based on the data in =FeatureSummary.csv= from Richard.
 | 1019.60153453561 | 1012.70210688374 | 1019.54308988111 | 1026.72991617701 |
 |  1047.0806360621 | 1017.44523115927 |  1046.8019936765 | 1077.05543778939 |
 | 934.619992647705 | 916.308438479508 | 934.649349542585 | 952.745873631661 |
+
+
+#+begin_src stan :tangle model2-new2.stan :comments no
+  data {
+      int<lower=1> n_texts;
+      int<lower=1> n_criteria;
+
+      // Observations
+      int <lower=0>y[n_texts,n_criteria];
+      int <lower=0>N[n_texts,n_criteria];
+      // Predictors: intercept, year
+      vector [n_texts]years;
+
+      int<lower=1> n_unknown_texts;
+      int<lower=0>y_unknown[n_unknown_texts,n_criteria];
+      int<lower=0>N_unknown[n_unknown_texts,n_criteria];
+  }
+
+  transformed data {
+      matrix[n_texts, 2] X;
+      X[,1] = rep_vector(1, n_texts);
+      X[,2] = years;
+  }
+
+  parameters {
+      // Predictors: intercept, slope
+      matrix[2, n_criteria] theta;
+
+      vector[n_texts] random_intercepts;
+
+      real<lower=0> random_intercept_variance;
+
+      vector[n_unknown_texts] unknown_years;
+  }
+
+  transformed parameters {
+      matrix[n_unknown_texts, 2] X_unknown;
+      X_unknown[,1] = rep_vector(1, n_unknown_texts);
+      X_unknown[,2] = unknown_years;
+  }
+
+  model {
+      random_intercept_variance ~ cauchy(0, 25);
+      // random_intercept_variance ~ student_t(4,0,1);
+      random_intercepts ~ normal(0, random_intercept_variance);
+
+      for (k in 1:n_texts) {
+          y[k] ~ binomial_logit(N[k], X[k] * theta + random_intercepts[k]);
+      }
+      for (k in 1:n_unknown_texts) {
+          y_unknown[k] ~ binomial_logit(N_unknown[k], X_unknown[k] * theta);
+      }
+  }
+#+end_src
+
+#+begin_src R
+  fit2 <- stan(
+      "model2-new2.stan",
+      data = model.data,
+      cores = 4,
+      refresh = 100,
+      iter = 50000
+  )
+#+end_src
