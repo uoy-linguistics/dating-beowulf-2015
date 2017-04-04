@@ -2,6 +2,11 @@
 
 #+latex_class: awe-slides
 
+#+options: title:t
+
+#+title: Statistical dating of Old English texts
+#+author: Aaron Ecay (with contributions from Susan Pintzuk and Richard Zimmermann)
+
 * Introduction
 
 ** Introduction
@@ -33,7 +38,7 @@
 *** Background: OE resources
 
 - York Corpus of Old English (YCOE)
-- Manual morphological analysis and syntactic parse for vast majority of extant OE prose, plus Beowulf (but not any other poems)
+- Manual morphological analysis and syntactic parse for most extant OE prose, plus Beowulf (but not any other poems)
 - Choices made by the YCOE team
   - Which MS/witness of a text to prefer
   - What counts as a “text”
@@ -176,7 +181,7 @@
 
 - Problem: “runaway” coefficients
   - If other predictors adequately describe the data, the left-over predictors might assume very large values, values with the wrong sign, etc.
-  - Soultion: ridge regression
+  - Solution: ridge regression
     - “make regression coefficients small”
 - Problem: redundant information
   - For example, multiple measures of the same phenomenon
@@ -292,9 +297,7 @@
 - Fitting a Bayesian model requires lots of computational power
   - (As compared to traditional models; in absolute terms it may not amount to much with data of this size)
 - Iʼve used the STAN package, and these models are available online
-  - https://github.com/uoy-linguistics/dating-beowulf
-
-# TODO: get the precise link
+  - https://github.com/uoy-linguistics/dating-beowulf-2015/blob/97cdaec5e4f4c2afef5228477008710e8fc3e584/analyses/analyses-new.org#stan
 
 *** Results
 
@@ -352,4 +355,4 @@
 
 #+beamer: \pause
 
-- Thanks to: the YCOE team, my co-authors, the Universities of York, Leeds, and Geneva
+- Thanks to: workshop organizers, the YCOE team, my co-authors, the Universities of York, Leeds, and Geneva

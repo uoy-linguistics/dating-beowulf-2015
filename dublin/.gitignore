@@ -10,3 +10,4 @@
 *.snm
 *.toc
 slides.tex
+auto/
