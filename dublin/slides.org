@@ -1,6 +1,6 @@
-#+property: header-args:R :session *beo* :output-dir (concat default-directory "")
+#+property: header-args:R :session *beo* :output-dir (concat default-directory "") :eval never-export
 
-
+#+latex_class: awe-slides
 
 * Introduction
 
@@ -38,7 +38,7 @@
   - Which MS/witness of a text to prefer
   - What counts as a “text”
 
-* Syntactic dating I
+* Syntactic dating I: Beowulf
 
 ** Background
 
@@ -55,6 +55,8 @@
 - Syntactic changes have been observed to follow an S-shaped logistic curve (Bailey 1973, Kroch 1989)
 - In an ideal world, we can use the shape of such a curve to identify when a text was composed
 
+*** Syntactic dating: illustration
+
 #+name: s-curve-ex
 #+header: :width 4 :height 2
 #+begin_src R :results value graphics :file-ext svg :exports results
@@ -70,12 +72,11 @@
 
 #+name: fig:s-curve-ex
 #+results: s-curve-ex
-[[file:/home/aecay/projects/dating-beowulf/dublin/s-curve-ex.svg]]
+[[file:s-curve-ex.svg]]
 
 1. Establish black curve on the basis of known-date texts
 2. Measure unknown text, see green level of phenomenon of interest
-3. From blue point, follow red line to x-axis
-4. Date = 925
+3. From blue point, follow red line to x-axis; date = 925
 
 *** Syntactic dating of OE: criteria
 
@@ -93,6 +94,25 @@
   - IP headedness change: basically completed (>80%) by beginning of OE, except in subordinate clauses
   - Negative concord: ongoing in ME, EME (and PDE...)
 
+*** Syntactic dating of OE: criteria illustrated
+
+#+name: crit-plot
+#+header: :width 8 :height 6
+#+begin_src R :results value graphics :file-ext svg :exports results
+  data.merged %>% filter(Text != "3.15 Alcuin") %>%
+  ggplot(aes(x = EstYear, y = P)) +
+  geom_point(aes(size = N), alpha = 0.3) +
+  geom_smooth(aes(weight = N), se = FALSE) +
+  scale_size_area() +
+  facet_wrap(~variable) + scale_y_continuous(limits = c(0,1))
+#+end_src
+
+#+attr_latex: :width 4in
+#+name: fig:crit-plot
+#+results: crit-plot
+[[file:crit-plot.svg]]
+
+
 ** Syntactic dating of Beowulf
 *** Syntactic dating of Beowulf: introduction
 
@@ -105,7 +125,7 @@
 - On this basis, we were left with three usable criteria
 
 *** Syntactic dating of Beowulf: results
-
+#+attr_latex: :width 4in
 [[file:../R/Comparison.png]]
 
 *** Syntactic dating of Beowulf: conclusions
@@ -117,8 +137,6 @@
 - But: this is based on only three (2?) sources of syntactic evidence
 - But: we have not used terribly sophisticated quantitative analysis to reach this conclusion
 - But: we have not quantified our uncertainty
-
-
 
 * Syntactic dating II: methods
 
@@ -141,6 +159,7 @@
   - Testing set: data points we use to test the model
   - We pretend we donʼt know the dates of the texts in the testing set
 - Because we are testing, developing, and comparing multiple models, we chose to use an 80/20 training/testing split, consistent across all the models we fit
+  - 23 texts in training sample, 6 in testing
 - We also hand selected the test set members to be a representative sample (because random sampling over the small population of OE texts might produce skewed results)
 
 ** Model 1: variable selection
@@ -181,32 +200,27 @@
 
 
 #+name: en-coef
-#+begin_src R :rownames yes :exports results
-  round(as.matrix(coef(en.model$finalModel, s = en.model$finalModel$lambdaOpt)), 2)
+#+begin_src R :colnames yes :exports results
+  coefs <- round(as.matrix(coef(en.model$finalModel, s = en.model$finalModel$lambdaOpt)), 2)
+  coefs <- data.frame(name = rownames(coefs), value = coefs)
+  colnames(coefs) <- c("Name", "Value")
+  coefs <- coefs[2:nrow(coefs),]           # Remove intercept
+  coefs <- cbind(coefs[1:6,],coefs[7:12,],coefs[13:nrow(coefs),])
+
+  coefs
 #+end_src
 
-#+latex: {\footnotesize
+#+latex: {\small
 
 #+RESULTS: en-coef
-| (Intercept) | -0.02 |
-| DiagMC      |  0.11 |
-| DiagCC      |     0 |
-| DiagSC      |     0 |
-| AuxVRoot    |     0 |
-| AuxVSC      |     0 |
-| DiagVP      |     0 |
-| VtoC        |  0.12 |
-| SCan        |     0 |
-| ScrSC       |     0 |
-| NGenSbj     |     0 |
-| NGenObj     |  0.41 |
-| Rel         |  0.16 |
-| TopPPSpro   |  0.09 |
-| TopObjSpro  |     0 |
-| TopPPSbj    |     0 |
-| TopObjSbj   |     0 |
-| NegCon      |     0 |
-| Expl        |     0 |
+| Name     | Value | Name    | Value | Name       | Value |
+|----------+-------+---------+-------+------------+-------|
+| DiagMC   |  0.11 | VtoC    |  0.12 | TopPPSpro  |  0.09 |
+| DiagCC   |     0 | SCan    |     0 | TopObjSpro |     0 |
+| DiagSC   |     0 | ScrSC   |     0 | TopPPSbj   |     0 |
+| AuxVRoot |     0 | NGenSbj |     0 | TopObjSbj  |     0 |
+| AuxVSC   |     0 | NGenObj |  0.41 | NegCon     |     0 |
+| DiagVP   |     0 | Rel     |  0.16 | Expl       |     0 |
 
 #+latex: }
 
@@ -238,7 +252,7 @@
 | 3.13 Byrhtferth Manual             |       983 |   1011 |   -28 |
 
 #+name: en-rmse
-#+begin_src R
+#+begin_src R :exports none
   sqrt(mean(res$error^2))
 #+end_src
 
@@ -260,16 +274,16 @@
 
 - Ordinary regression
   - $y = \beta x + \epsilon$
-  - $\epsilon \sim N(0,1)$
-  - $\beta \sim \ldots$
+  - $\epsilon \sim N(0,\sigma^2)$
+  - $\beta \sim \ldots$ \rightarrow what we usually care about
 - “Multilevel” modeling
   - $y = \beta x + \beta_{text} i_{text} + \epsilon$
-  - $\beta_{text} \sim N(0,1)$
+  - $\beta_{text} \sim N(0,\sigma^2)$ \rightarrow often a nuisance variable
 - Our model
   - Ordinary regression plus...
   - $y_{unknown} = \beta x_{unknown} + \epsilon$
   - Jointly estimate \beta and x_{unknown}
-  - \beta is a distribution (we donʼt care much)...but so is x_{unknown}!
+  - Weʼre not particularly concerned with \beta, but we get x_{unknown} as a distribution
 
 *** Techniques for Bayesian modeling
 
@@ -286,25 +300,30 @@
 
 #+name: stan-preds
 #+begin_src R :colnames yes :exports results
-  res <- data.frame(text = test.texts,
-                    predicted = round(summary(fit, pars = "unknown_years")$summary[,"50%"] * sd(years.raw) + mean(years.raw), 0),
-                    ci = str_c(round(summary(fit, pars = "unknown_years")$summary[,"2.5%"] * sd(years.raw) + mean(years.raw), 0),
-                               "-",
+  res <- data.frame(Text = test.texts,
+                    Predicted = round(summary(fit, pars = "unknown_years")$summary[,"50%"] * sd(years.raw) + mean(years.raw), 0),
+                    CI = str_c(round(summary(fit, pars = "unknown_years")$summary[,"2.5%"] * sd(years.raw) + mean(years.raw), 0),
+                               "–",
                                round(summary(fit, pars = "unknown_years")$summary[,"97.5%"] * sd(years.raw) + mean(years.raw), 0)),
-             actual = data[data$Text %in% test.texts,"EstYear"])
-  res$error <- res$predicted - res$actual
+             Actual = data[data$Text %in% test.texts,"EstYear"])
+  res$Error <- res$Predicted - res$Actual
   res
 #+end_src
 
+#+latex: \par
+
+#+latex: {\small
 #+RESULTS: stan-preds
-| text                               | predicted |        ci | actual | error |
+| Text                               | Predicted | CI        | Actual | Error |
 |------------------------------------+-----------+-----------+--------+-------|
-| 1.07 Orosius                       |       906 |   894-918 |    899 |     7 |
-| 1.06 Augustine Soliloquy           |       914 |   906-922 |    898 |    16 |
-| 2.01 Benedictine Rule              |       932 |   922-943 |    965 |   -33 |
-| 3.04 Aelfric Supplemental Homilies |      1019 | 1012-1026 |   1000 |    19 |
-| 3.09 Wulfstan Institutes of Polity |      1046 | 1019-1075 |   1008 |    38 |
-| 3.13 Byrhtferth Manual             |       971 |   952-992 |   1011 |   -40 |
+| 1.07 Orosius                       |       906 | 894–918   |    899 |     7 |
+| 1.06 Augustine Soliloquy           |       914 | 906–922   |    898 |    16 |
+| 2.01 Benedictine Rule              |       932 | 922–943   |    965 |   -33 |
+| 3.04 Aelfric Supplemental Homilies |      1019 | 1012–1026 |   1000 |    19 |
+| 3.09 Wulfstan Institutes of Polity |      1046 | 1019–1075 |   1008 |    38 |
+| 3.13 Byrhtferth Manual             |       971 | 952–992   |   1011 |   -40 |
+
+#+latex: }
 
 - The results are good (ever so slightly better than the elastic net model)
 - But the uncertainty is not well-quantified
@@ -320,4 +339,17 @@
 
 * Conclusion
 
-...what to say?
+** Conclusion
+
+*** Conclusion
+
+- In our tests, syntactic dating gives reliable results, even on the basis of relatively few texts (2 dozen, in our case)
+- Syntactic dating relies on identifying syntactic changes which are candidates for dating criteria
+  - Parsed corpora make this much easier: my co-authors had the idea of exploring NC in OE, which was not previously well-studied but wound up being useful for us
+- Other criteria could be used instead of/in addition to syntactic ones
+  - e.g. phonological changes, though beware dialect variation
+- Thereʼs still room to improve the statistical underpinnings of these types of models, especially at the Bayesian end of the spectrum
+
+#+beamer: \pause
+
+- Thanks to: the YCOE team, my co-authors, the Universities of York, Leeds, and Geneva

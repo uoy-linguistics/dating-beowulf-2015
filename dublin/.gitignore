@@ -1,1 +1,12 @@
 *.svg
+*.pdf
+*.pdf_tex
+*.vrb
+*.aux
+*.log
+*.mw
+*.nav
+*.out
+*.snm
+*.toc
+slides.tex
