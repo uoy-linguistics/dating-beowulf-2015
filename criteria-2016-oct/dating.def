@@ -1,0 +1,70 @@
+
+MAIN_CLAUSE: IP-MAT|IP-MAT*-SPE|IP-MAT*-PRN|IP-MAT-#|IP-MAT*-SPE-#|IP-MAT*-PRN-#
+
+
+SUBJECT: NP-NOM|NP-NOM-RSP*|NP-NOM-x*|NP-NOM-#
+OBJECT: NP-ACC|NP|NP-DAT|NP-GEN|NP-ACC-RSP|NP-ACC-RFL|NP-ACC-#|NP-ACC-RSP-#|NP-ACC-RFL-#|NP-RSP|NP-RFL|NP-#|NP-RSP-#|NP-RFL-#|NP-DAT-RSP|NP-DAT-RFL|NP-DAT-#|NP-DAT-RSP-#|NP-DAT-RFL-#|NP-GEN-RSP|NP-GEN-RFL|NP-GEN-RSP-#|NP-GEN-RFL-#
+// object includes all non-subject NPs except moved NP-GEN-#, NP-ADT* and NP-*PRD*
+
+
+verb-f: VBI|VBP*|VBD*|NEG+VBI|NEG+VBP*|NEG+VBD*|RP+VBI|RP+VBP*|RP+VBD*
+be-f: BEI|BEP*|BED*|NEG+BEI|NEG+BEP*|NEG+BED*|RP+BEI|RP+BEP*|RP+BED*
+have-f: HVI|HVP*|HVD*|NEG+HVI|NEG+HVP*|NEG+HVD*|RP+HVI|RP+HVP*|RP+HVD*
+modal-f: MDI|MDP*|MDD*|NEG+MDI|NEG+MDP*|NEG+MDD*|RP+MDI|RP+MDP*|RP+MDD*
+auxiliary-f: AXI|AXP*|AXD*|NEG+AXI|NEG+AXP*|NEG+AXD*|RP+AXI|RP+AXP*|RP+AXD*
+uton-f: UTP
+FINITE_VERB: $verb-f|$be-f|$have-f|$modal-f|$auxiliary-f|$uton-f
+FINITE_VERB_NEG: NEG+BEI|NEG+BEPH|NEG+BEPI|NEG+BEPS|NEG+BEP|NEG+BEDI|NEG+BEDS|NEG+BED|NEG+HVI|NEG+HVPI|NEG+HVPS|NEG+HVP|NEG+HVDI|NEG+HVDS|NEG+HVD|NEG+AXI|NEG+AXPI|NEG+AXPS|NEG+AXP|NEG+AXDI|NEG+AXDS|NEG+AXD|NEG+MDI|NEG+MDPI|NEG+MDPS|NEG+MDP|NEG+MDDI|NEG+MDDS|NEG+MDD|NEG+VPI|NEG+VBPH|NEG+VBPI|NEG+VBPS|NEG+VBP|NEG+VBDI|NEG+VBDS|NEG+VBD
+
+
+be-inf: BE|BE^D|NEG+BE|NEG+BE^D|RP+BE|RP+BE^D
+be-pres-part: BAG*|NEG+BAG*|RP+BAG*
+be-past-part: BEN*|NEG+BEN*|RP+BEN*
+be-nf: $be-inf|$be-pres-part|$be-past-part
+have-inf: HV|HV^D|NEG+HV|NEG+HV^D|RP+HV|RP+HV^D
+have-pres-part: HAG*|NEG+HAG*|RP+HAG*
+have-past-part: HVN*|NEG+HVN*|RP+HVN*
+have-nf: $have-inf|$have-pres-part|$have-past-part
+modal-inf: MD|MD^D|NEG+MD|NEG+MD^D|RP+MD|RP+MD^D
+modal-nf: $modal-inf
+auxiliary-inf: AX|AX^D|NEG+AX|NEG+AX^D|RP+AX|RP+AX^D
+auxiliary-pres-part: AXG*|NEG+AXG*|RP+AXG*
+auxiliary-past-part: AXN*|NEG+AXN*|RP+AXN*
+auxiliary-nf: $auxiliary-inf|$auxiliary-pres-part|$auxiliary-past-part
+verb-inf: VB|VB^D|NEG+VB|NEG+VB^D|RP+VB|RP+VB^D
+verb-pres-part: VAG*|NEG+VAG*|RP+VAG*
+verb-past-part: VBN*|NEG+VBN*|RP+VBN*
+verb-nf: $verb-inf|$verb-pres-part|$verb-past-part
+NONFINITE_VERB: $be-nf|$have-nf|$modal-nf|$auxiliary-nf|$verb-nf
+
+
+INTERVENER: PP|ADVP*|NP*-TMP|NP*-ADT|QP*|PTP*|ADJP*|FP
+
+
+PARTICLE: RP|RPX
+
+
+tha: +ta|+Ta|+da|+Da|$+ta|$+Ta|$+da|$+Da|+To|+to|+Do|+do|$+To|$+to|$+Do|$+do|+te|+Te|+de|+De|$+Te|$+te|$+de|$+De|+too|+Too|+doo|+Doo|$+too|$+Too|$+doo|$+Doo|tho|Tho|$tho|$Tho
+thonne: +tonne|+Tonne|+donne|+Donne|$+tonne|$+Tonne|$+donne|$+Donne|+tanne|+Tanne|+danne|+Danne|$+tanne|$+Tanne|$+danne|$+Danne|+t+anne|+T+anne|+d+anne|+D+anne|$+t+anne|$+T+anne|$+d+anne|$+D+anne|+tenne|+Tenne|+denne|+Denne|$+tenne|$+Tenne|$+denne|$+Denne|+tone|+Tone|+done|+Done|$+tone|$+Tone|$+done|$+Done|+tane|+Tane|+dane|+Dane|$+tane|$+Tane|$+dane|$+Dane|+tene|+Tene|+dene|+Dene|$+tene|$+Tene|$+dene|$+Dene|+t+ane|+T+ane|+d+ane|+D+ane|$+t+ane|$+T+ane|$+d+ane|$+D+ane|+tan|+Tan|+dan|+Dan|$+tan|$+Tan|$+dan|$+Dan|+ton|+Ton|+don|+Don|$+ton|$+Ton|$+don|$+Don|+ten|+Ten|+den|+Den|$+ten|$+Ten|$+den|$+Den|+teonen|+Teonen|+deonen|+Deonen|$+teonen|$+Teonen|$+deonen|$+Deonen|then|Then|$then|$Then|thenn|Thenn|$thenn|$Thenn|thenne|Thenne|$thenne|$Thenne|thanne|Thanne|$thanne|$Thanne|than|Than|$than|$Than|thann|Thann|$thann|$Thann|then~e|Then~e|$then~e|$Then~e
+THEN: $tha|$thonne
+
+
+EVER: e*re|+a*re|$e*re|$+a*re|E*re|+A*re|$E*re|$+A*re
+// all NEG+ADV^T are instances of 'never'
+
+ONE: an*|An*|AN*|$an*|$AN*|$AN*
+NONE: n+ane|n+anes|n+anne|$n+anne|n+anum|nan|$nan|Nan|NAN|nana|nanan|nane|NANE|nanen|nanes|$nanes|nann+a|nanne|$nanne|nanno|nanon|nanra|nanre|$nanre|nanum|$nanum|nene|nenne|non|nonne
+
+ANY: +agne|+agnig|+anegu|+anegum|+ange|+anges|+angum|+ani|+anies|+anig|$+anig|+aniga|+anigan|+anige|+anigean|+anigen|+aniges|+anigne|$+anigne|+anignum|+anigon|+anigra|+anigre|$+anigre|+anigu|+anigum|$+anigum|+anine|+aninne|+anire|+anium|+anygum|aenig|$agnum|anegre|anegum|anig|aniges|egniges|engu|enig|enige|eniges|enigne|enugum|enyg
+NANY: n+agnigne|n+ange|N+ange|n+anges|n+angum|n+anig|$N+anig|N+anig|n+anig+tinga|n+anige|n+aniges|n+anigne|$n+anigne|n+anigo|n+anigra|n+anigre|n+anigu|n+anigum|n+anygum|nanegum|naniges|nenegum|nenge|nenig|neniggra|nenigne|n+anine
+
+AUGHT: aht|ahte|ahtes|auht|$auht|awiht|awuht|awyht|oht|ohte|ohtes|owiht|owihte|wiht|wuht 
+NAUGHT: naht|Naht|nanuht|nahte|nahtes|nanwiht|$nanwiht|nanwit|nanwith|nanwuht|$nanwuht|nanwyht|nanwyht|nates|nauht|Nauht|$nauht|nauhtas|nauhte|nauhtes|nawht|$nawht|nawiht|nawit|nawt|nawuht|nawuhtes|nawuihte|nawyht|nawyt|noht|nohte|nohtes|nowiht|nowuht|nowyht
+
+ORLEX: +ag+der|+Ag+der|$+ag+der|+ag+t+ar|+Ag+t+ar|+ag+ter|$+ag+ter|+aghe+ter|+aghw+a+der|+aghw+a+ter|+aghwe+der|+aghwe+ter|+agwe+der|+aig+der|+aig+ter|a+der|a+dor|a+ter|a+tor|au+der|au+ter|aw+der|+de|eg+der|ge|Ge|$ge|gea|gehueder|gehw+a+der|gehwe+ter|hw+a+der|hw+a+ter|hwe+der|hwe+ter|$o+d|o+d+d|o+d+da|$o+d+de|o+d+de|O+d+de|o+d+der|o+d+do|o+d+don|O+d+don|o+d+ta|o+d+te|$o+d+te|O+d+te|o+d+to|O+d+to|o+d+ton|$o+der|o+der|o+t+de|o+t+don|o+t+te|$O+t+te|O+t+te|$o+t+te|o+t+ton|o+ter|+te
+NORLEX: na|Na|na+der|na+dor|$na+dor|na+t+ar|na+ter|na+tor|nahw+a+der|nau+der|nau+ter|naw+der|Naw+der|naw+ter|nawa+der|ne|Ne|$ne|NE|no+der|nohu+a+der|nohw+a+der|nou+der|now+der|now+ter
+
+
+
+
+
