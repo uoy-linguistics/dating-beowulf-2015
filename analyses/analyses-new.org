@@ -412,3 +412,40 @@ These analyses are based on the data in =FeatureSummary.csv= from Richard.
       iter = 50000
   )
 #+end_src
+
+#+begin_src R
+  beo.criteria <- c("DiagMC", "DiagCC", "DiagSC",
+                "AuxVRoot", "AuxVSC", "DiagVP",
+                "SCan", "ScrSC", "NGenSbj",
+                "NGenObj", "Rel",
+                "NegCon", "Expl")
+
+  data.in <- subset(data, !is.na(EstYear))
+
+  years.raw <- data.in$EstYear
+  years <- (years.raw - mean(years.raw)) / sd(years.raw)
+
+  beo$n <- beo$new + beo$old
+
+  model.data <- list(n_texts = nrow(data.in),
+                     n_criteria = length(beo.criteria),
+                     y = data.matrix(data.in[, str_c(beo.criteria, ".s")]),
+                     N = data.matrix(data.in[, str_c(beo.criteria, ".n")]),
+                     years = years,
+
+                     n_unknown_texts = 1,
+                     y_unknown = matrix(left_join(data.frame(criterion = beo.criteria), beo)$new, nrow = 1),
+                     N_unknown = matrix(left_join(data.frame(criterion = beo.criteria), beo)$n, nrow = 1))
+
+  beo.fit <- stan(
+      "model2-new.stan",
+      data = model.data,
+      cores = 4,
+      refresh = 100,
+      iter = 5000
+  )
+#+end_src
+
+#+begin_src R
+
+#+end_src
