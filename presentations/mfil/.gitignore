@@ -1,0 +1,14 @@
+auto/
+
+*.pdf_tex
+*.aux
+*.log
+*.mw
+*.nav
+*.out
+*.snm
+*.tex
+*.toc
+
+crit-plot*
+s-curve*

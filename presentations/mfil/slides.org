@@ -1,0 +1,473 @@
+#+property: header-args:R :session *beo* :output-dir (concat default-directory "") :eval never-export
+
+#+latex_class: awe-slides
+
+#+options: title:t
+
+#+title: Statistical dating of Old English texts
+#+author: Aaron Ecay (joint work with Susan Pintzuk and Richard Zimmermann)
+#+date: Apr 29, 2017
+
+* Introduction
+
+** Introduction
+
+*** Introduction
+
+- The topic of this talk: using quantitative syntactic criteria to assign dates to texts
+
+*** Background: texts not manuscripts
+
+- Manuscripts (physical artifacts) are best dated using non-linguistic methods
+  - Explicit dates
+  - Biographical details of known authors/scribes
+  - References to historical events, etc.
+- Texts are abstract objects
+  - Assumed: composed by a single author at a specific time in a coherent style/dialect
+  - Passed down through one or more MS witnesses, not necessarily contemporaneous with the textʼs composition
+
+*** Background: Old English and Beowulf
+
+- Early 700s – 1100s
+- Surviving prose texts: sermons and religious writing, medical treatises, translations of Latin texts
+  - ca. 1M words
+- Beowulf: long poem (3000 l.)
+  - Single MS dated ca. 1000
+  - Meter, phonology, morphology, etc. suggest earlier date, perhaps 8th century
+  - Non-linguistic evidence tends to favor this conclusion as well, though some have argued that the text date = MS date
+    - (Drout et al. 2014 Give the People What They Want: Historiography and Rhetorical History of the Dating of Beowulf Controversy)
+
+*** Background: OE resources
+
+- York Corpus of Old English (YCOE)
+- Manual morphological analysis and syntactic parse for most extant OE prose, plus Beowulf (but not many other poems)
+- Choices made by the YCOE team
+  - Which MS/witness of a text to prefer
+  - What counts as a “text”
+
+* Syntactic dating I: Beowulf
+
+** Background
+
+*** Why syntactic dating
+
+- Linguistic evidence used for OE text dating has not been syntactic
+- Experience in OE and other domains indicates that parsed corpora can complement other types of historical linguistic inquiry
+  - Consistency
+  - Replicability
+  - Quickness
+
+*** Syntactic dating: the basic premises
+
+- Syntactic changes have been observed to follow an S-shaped logistic curve (Bailey 1973, Kroch 1989)
+- In an ideal world, we can use the shape of such a curve to identify when a text was composed
+
+*** Syntactic dating: illustration
+
+#+name: s-curve-ex
+#+header: :width 4 :height 2
+#+begin_src R :results value graphics :file-ext svg :exports results
+  pd <- data.frame(x = 700:1100)
+  pd$y <- plogis((pd$x - 900) / 50)
+
+  ggplot(pd, aes(x = x, y = y)) + geom_line() +
+  annotate("segment", x = 925, xend = 925, y = 0, yend = plogis((925 - 900) / 50), color = "red") +
+  annotate("segment", x = 700, xend = 925, y = plogis((925 - 900) / 50), yend = plogis((925 - 900) / 50), color = "green") +
+  annotate("point", x = 925, y = plogis((925 - 900) / 50), size = 3, color = "blue") +
+  xlab("Year") + ylab("p")
+#+end_src
+
+#+name: fig:s-curve-ex
+#+results: s-curve-ex
+[[file:s-curve-ex.svg]]
+
+1. Establish black curve on the basis of known-date texts
+2. Measure unknown text, see green level of phenomenon of interest
+3. From blue point, follow red line to x-axis; date = 925
+
+*** Syntactic dating of OE: criteria
+
+- In order to carry out such an exercise, we need to identify syntactic changes that take place in OE
+  - IP: head-final \to head-initial
+  - VP: head-final \to head-initial
+  - V-to-C movement: lost in main clause declaratives
+  - Scrambling of pronoun objects: lost
+  - Relative clauses: move from demonstrative-headed to complementizer-headed
+  - Noun-Genitive order: becomes fixed
+  - Topicalization: lost
+  - Negative Concord: lost
+  - Expletive subjects: covert \to overt
+- Not necessary for criteria to go 0 \to 100 over the time period of interest
+  - IP headedness change: basically completed (>80%) by beginning of OE, except in subordinate clauses
+  - Negative concord: ongoing in ME, EME (and PDE...)
+
+*** IP headedness
+
+#+name: ex:ip1
+#+header: :gloss yes
+#+header: :trans his house, from which he went out
+#+header: :cite (coaelhom,+AHom\under{}4:235.647)
+| his | huse  | of   | þam   | þe | he | ut  | ferde |
+| his | house | from | which | C  | he | out | went  |
+
+#+name: ex:ip2
+#+header: :gloss yes
+#+header: :trans until the horse carried him forth
+#+header: :cite (coaelive,+ALS[Ash\under{}Wed]:50.2731)
+| oþþæt | ... | þæt | hors  | hine | bær  | forð  |
+| until | ... | the | horse | him  | bore | forth |
+
+*** VP headedness
+
+#+name: ex:vp1
+#+header: :gloss yes
+#+header: :trans Neither do I wish to go into Godʼs house
+#+header: :cite (coaelhom,+AHom\under{}27:111.3992)
+| ne  | ic | nelle    | inn | gan   | into | Godes | huse  |
+| nor | I  | NEG+will | in  | to.go | into | God’s | house |
+
+#+name: ex:vp2
+#+header: :gloss yes
+#+header: :trans They began to draw the monks out
+#+header: :cite (cogregdC,GD\under{}1\under{}[C]:4.42.25.469)
+| hi   | ongunnon | teon    | ut  | þa  | munecas |
+| they | began    | to.draw | out | the | monks   |
+
+*** V-to-C movement
+
+#+name: ex:v2c1
+#+header: :gloss yes
+#+header: :trans I wonʼt say anything against you now
+#+header: :cite (cowsgosp,Jn\under{}[WSCp]:14.30.7011)
+| Ne  | sprece | ic | nu  | na  | fela | wið     | eow |
+| NEG | speak  | I  | now | NEG | much | against | you |
+
+#+name: ex:v2c2
+#+header: :gloss yes
+#+header: :trans I never speak to those people
+#+header: :cite (coboeth,Bo:38.121.23.2421)
+| ic | ne  | sprece | næfre | to | ðæm   |
+| I  | NEG | speak  | never | to | those |
+
+*** Noun-genitive order
+
+#+name: ex:ngen1
+#+header: :gloss yes
+#+header: :trans The fatherʼs wisdom
+#+header: :cite (coaelive,+ALS\under{}[Christmas]:35.26)
+| þæs     | fæder      | wisdom |
+| the.GEN | father.GEN | wisdom |
+
+#+name: ex:ngen2
+#+header: :gloss yes
+#+header: :trans the head of the Lenten fast
+#+header: :cite (coaelive,+ALS[Ash\under{}Wed]:1.2708)
+| heafod | lenctenes  | fæstenes |
+| head   | Lenten.GEN | fast.GEN |
+
+*** Negative concord
+
+#+name: ex:nc1
+#+header: :gloss yes
+#+header: :trans That he was never born
+#+header: :cite (cowulf,WHom\under{}3:69.91)
+| þæt  | he | man | nære    | æfre | geworden |
+| that | he | man | NEG.was | ever | become   |
+
+#+name: ex:nc2
+#+header: :gloss yes
+#+header: :trans Though they were never students
+#+header: :cite (cocura,CP:0.25.7.83)
+| ðeah   | ðe | hi   | næfre | leorningcnihtas | næren    |
+| though | C  | they | never | students        | NEG.were |
+
+*** Syntactic dating of OE: criteria illustrated
+
+#+name: load-beo
+#+begin_src R :results none :exports none
+  beo <- read.csv("../criteria-2016-oct/beowulf-criteria.csv")
+  beo$P <- beo$new / (beo$new + beo$old)
+  beo$variable <- beo$criterion
+#+end_src
+
+
+#+name: crit-plot
+#+header: :width 8 :height 6
+#+begin_src R :results value graphics :file-ext svg :exports results
+  data.merged %>% filter(Text != "3.15 Alcuin") %>%
+  ggplot(aes(x = EstYear, y = P)) +
+  geom_point(aes(size = N), alpha = 0.3) +
+  geom_smooth(aes(weight = N), se = FALSE, method = "lm") +
+  scale_size_area() +
+  # geom_hline(aes(yintercept = P), data = beo, linetype="dashed") +
+  facet_wrap(~variable) + scale_y_continuous(limits = c(0,1))
+#+end_src
+
+#+attr_latex: :width 4in
+#+name: fig:crit-plot
+#+results: crit-plot
+[[file:crit-plot.svg]]
+
+
+** Syntactic dating of Beowulf
+*** Syntactic dating of Beowulf: introduction
+
+- We attempted to use this methodology to assign a date to Beowulf
+- We identified four conditions that our criteria must fulfill
+  1. The criterion must show a consistent trend over the OE period
+  2. There must be enough data in Beowulf to evaluate the criterion
+  3. The value in Beowulf must fall within a plausible interval, based on the prose texts
+  4. The criterion must not systematically differ between prose and poetic texts
+
+*** Syntactic dating of Beowulf: results
+#+name: crit-plot2
+#+header: :width 8 :height 6
+#+begin_src R :results value graphics :file-ext svg :exports results
+  data.merged %>% filter(Text != "3.15 Alcuin") %>%
+  ggplot(aes(x = EstYear, y = P)) +
+  geom_point(aes(size = N), alpha = 0.3) +
+  geom_smooth(aes(weight = N), se = FALSE, method = "lm") +
+  scale_size_area() +
+  geom_hline(aes(yintercept = P), data = beo, linetype="dashed") +
+  facet_wrap(~variable) + scale_y_continuous(limits = c(0,1))
+#+end_src
+
+#+attr_latex: :width 4in
+#+RESULTS: crit-plot2
+[[file:crit-plot2.svg]]
+
+*** Syntactic dating of Beowulf: conclusions
+
+- Our results agree with the linguistic consensus, and the non-linguistic majority: Beowulf was composed early in the OE period, in the 8th or early 9th century
+
+#+beamer: \pause
+
+- But: we have not used terribly sophisticated quantitative analysis to reach this conclusion
+- But: we have not quantified our uncertainty
+
+* Syntactic dating II: methods
+
+** Statistical considerations
+
+*** Background
+
+- We want to design a procedure for assigning dates to texts
+- For this purpose, texts of unknown date are the least interesting of all!
+  - Assigning these texts a date is the last thing weʼll do before turning out the lights on this project
+  - Because: it doesnʼt help our method get any better
+- Our goal: devise a method that is good at assigning dates to texts whose dates we already know
+  - We know itʼs a good method because we already know the answers
+
+*** Cross-validation
+
+- *Crossvalidation* is just the statisticianʼs name for doing exactly this
+- Take the set of texts whose dates we know and split them up into two groups
+  - Training set: data points we use to construct our dating models
+  - Testing set: data points we use to test the model
+  - We pretend we donʼt know the dates of the texts in the testing set
+- Because we are testing, developing, and comparing multiple models, we chose to use an 80/20 training/testing split, consistent across all the models we fit
+  - 23 texts in training sample, 6 in testing
+- We also hand selected the test set members to be a representative sample (because random sampling over the small population of OE texts might produce skewed results)
+
+** Model 1: variable selection
+
+*** Variable selection
+
+- In this kind of syntactic dating, we have N predictors, all of which are moving in the same direction
+- A bad situation for a statistical model to be in
+  - Which movements are relevant?  Which are redundant?
+  - Lots of degrees of freedom \to lots of opportunities to overfit
+- The solution to problems of this type is *variable selection*
+
+*** Variable selection: elastic net
+
+- Problem: “runaway” coefficients
+  - If other predictors adequately describe the data, the left-over predictors might assume very large values, values with the wrong sign, etc.
+  - Solution: ridge regression
+    - “make regression coefficients small”
+- Problem: redundant information
+  - For example, multiple measures of the same phenomenon
+  - Solution: lasso regression
+    - “zero out some coefficients”
+- Elastic net regression: the best of both worlds
+  - \alpha ranges from 0 to 1
+  - \alpha = 0 is ridge regression, \alpha = 1 is lasso
+
+*** Elastic net: results
+
+#+name: en-best-fit
+#+begin_src R :colnames yes :exports results
+  en.model$bestTune
+#+end_src
+
+#+RESULTS: en-best-fit
+| alpha | lambda |
+|-------+--------|
+|   0.9 |   0.07 |
+
+
+#+name: en-coef
+#+begin_src R :colnames yes :exports results
+  coefs <- round(as.matrix(coef(en.model$finalModel, s = en.model$finalModel$lambdaOpt)), 2)
+  coefs <- data.frame(name = rownames(coefs), value = coefs)
+  colnames(coefs) <- c("Name", "Value")
+  coefs <- coefs[2:nrow(coefs),]           # Remove intercept
+  coefs <- cbind(coefs[1:6,],coefs[7:12,],coefs[13:nrow(coefs),])
+
+  coefs
+#+end_src
+
+#+latex: {\small
+
+#+RESULTS: en-coef
+| Name     | Value | Name    | Value | Name       | Value |
+|----------+-------+---------+-------+------------+-------|
+| DiagMC   |  0.11 | VtoC    |  0.12 | TopPPSpro  |  0.09 |
+| DiagCC   |     0 | SCan    |     0 | TopObjSpro |     0 |
+| DiagSC   |     0 | ScrSC   |     0 | TopPPSbj   |     0 |
+| AuxVRoot |     0 | NGenSbj |     0 | TopObjSbj  |     0 |
+| AuxVSC   |     0 | NGenObj |  0.41 | NegCon     |     0 |
+| DiagVP   |     0 | Rel     |  0.16 | Expl       |     0 |
+
+#+latex: }
+
+*** Elastic net: results
+
+#+name: en-preds
+#+begin_src R :colnames yes :exports results
+  res <- data.frame(text = test.texts,
+             predicted = round(predict(en.model, data.test %>% select_("DiagMC", "DiagCC", "DiagSC",
+                                                                 "AuxVRoot", "AuxVSC", "DiagVP",
+                                                                 "VtoC", "SCan", "ScrSC", "NGenSbj",
+                                                                 "NGenObj", "Rel", "TopPPSpro",
+                                                                 "TopObjSpro", "TopPPSbj", "TopObjSbj",
+                                                                 "NegCon", "Expl")) * sd(data.train$EstYear) +
+                               mean(data.train$EstYear), 0),
+             actual = data[data$Text %in% test.texts,"EstYear"])
+  res$error <- res$predicted - res$actual
+  res
+#+end_src
+
+#+RESULTS: en-preds
+| text                               | predicted | actual | error |
+|------------------------------------+-----------+--------+-------|
+| 1.07 Orosius                       |       939 |    899 |    40 |
+| 1.06 Augustine Soliloquy           |       961 |    898 |    63 |
+| 2.01 Benedictine Rule              |       956 |    965 |    -9 |
+| 3.04 Aelfric Supplemental Homilies |       994 |   1000 |    -6 |
+| 3.09 Wulfstan Institutes of Polity |      1016 |   1008 |     8 |
+| 3.13 Byrhtferth Manual             |       983 |   1011 |   -28 |
+
+#+name: en-rmse
+#+begin_src R :exports none
+  sqrt(mean(res$error^2))
+#+end_src
+
+#+RESULTS: en-rmse
+: 33
+
+
+** Model 2: quantification of uncertainty
+
+*** Quantification of uncertainty
+
+- None of the models weʼve used so far give us a quantification of uncertainty
+- How sure are we that our estimate is correct?
+  - (Before we peek at the true answer)
+- Bayesian estimation provides a framework for quantification of uncertainty
+  - “Everything is a probability distribution”
+
+*** Examples of Bayesian modeling
+
+- Ordinary regression
+  - $y = \beta x + \epsilon$
+  - $\epsilon \sim N(0,\sigma^2)$
+  - $\beta \sim \ldots$ \rightarrow what we usually care about
+- “Multilevel” modeling
+  - $y = \beta x + \beta_{text} i_{text} + \epsilon$
+  - $\beta_{text} \sim N(0,\sigma^2)$ \rightarrow often a nuisance variable
+- Our model
+  - Ordinary regression plus...
+  - $y_{unknown} = \beta x_{unknown} + \epsilon$
+  - Jointly estimate \beta and x_{unknown}
+  - Weʼre not particularly concerned with \beta, but we get x_{unknown} as a distribution
+
+*** Techniques for Bayesian modeling
+
+- Bayesian modeling doesnʼt come with ready-made modeling packages
+  - You write your own model in a special programming language
+- Fitting a Bayesian model requires lots of computational power
+  - (As compared to traditional models; in absolute terms it may not amount to much with data of this size)
+- Iʼve used the STAN package, and these models are available online
+  - https://github.com/uoy-linguistics/dating-beowulf-2015/blob/97cdaec5e4f4c2afef5228477008710e8fc3e584/analyses/analyses-new.org#stan
+
+*** Results
+
+#+name: stan-preds
+#+begin_src R :colnames yes :exports results
+  res <- data.frame(Text = test.texts,
+                    Predicted = round(summary(fit, pars = "unknown_years")$summary[,"50%"] * sd(years.raw) + mean(years.raw), 0),
+                    CI = str_c(round(summary(fit, pars = "unknown_years")$summary[,"2.5%"] * sd(years.raw) + mean(years.raw), 0),
+                               "–",
+                               round(summary(fit, pars = "unknown_years")$summary[,"97.5%"] * sd(years.raw) + mean(years.raw), 0)),
+             Actual = data[data$Text %in% test.texts,"EstYear"])
+  res$Error <- res$Predicted - res$Actual
+  res
+#+end_src
+
+#+latex: \par
+
+#+latex: {\small
+#+RESULTS: stan-preds
+| Text                               | Predicted | CI        | Actual | Error |
+|------------------------------------+-----------+-----------+--------+-------|
+| 1.07 Orosius                       |       906 | 894–918   |    899 |     7 |
+| 1.06 Augustine Soliloquy           |       914 | 906–922   |    898 |    16 |
+| 2.01 Benedictine Rule              |       932 | 922–943   |    965 |   -33 |
+| 3.04 Aelfric Supplemental Homilies |      1019 | 1012–1026 |   1000 |    19 |
+| 3.09 Wulfstan Institutes of Polity |      1046 | 1019–1075 |   1008 |    38 |
+| 3.13 Byrhtferth Manual             |       971 | 952–992   |   1011 |   -40 |
+
+#+latex: }
+
+- The results are good (ever so slightly better than the elastic net model)
+- But the uncertainty is not well-quantified
+  - Only 1/6 texts has the actual date within the 95% CI
+
+*** Discussion
+
+- In a sense we expect this: we havenʼt modeled the fact that individual texts are idiosyncratic
+  - The intuition behind “ordinary” hierarchical regression models
+  - My attempts to add this to the Bayesian model have so far not worked
+- This model doesnʼt do any variable selection – perhaps adding elastic net properties to it could improve it
+- The quantification of uncertainty element of the modeling picture isnʼt yet complete, but I regard it as the most promising area for development
+
+*** Just for fun
+
+- What happens if we apply the Bayesian model to Beowulf?
+
+| Model             | Predicted | CI      |
+|-------------------+-----------+---------|
+| All criteria      |       903 | 889–916 |
+| Remove IS-related |       862 | 847–877 |
+
+- Information structure-related criteria = Topicalization \times 4, V-to-C
+- Earliest text in the training sample is 859
+  - The date is not as early as we might otherwise believe, but we have pushed it back as far as our data goes
+
+* Conclusion
+
+** Conclusion
+
+*** Conclusion
+
+- In our tests, syntactic dating gives reliable results, even on the basis of relatively few texts (2 dozen)
+- Syntactic dating relies on identifying syntactic changes which are candidates for dating criteria
+  - Parsed corpora make this much easier: my co-authors had the idea of exploring NC in OE, which was not previously well-studied but wound up being useful for us
+- Other criteria could be used instead of/in addition to syntactic ones
+  - e.g. phonological changes, though beware dialect variation
+- Thereʼs still room to improve the statistical underpinnings of these types of models, especially at the Bayesian end of the spectrum
+
+#+beamer: \pause
+
+- Thanks to: mFiL organizers, the YCOE team, my co-authors, the Universities of York, Leeds, and Geneva
